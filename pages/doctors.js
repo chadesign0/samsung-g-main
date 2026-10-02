@@ -1,0 +1,33 @@
+const menuButton = document.querySelector('.menu-toggle');
+const menuLinks = document.querySelectorAll('.main-nav a');
+
+function closeMenu() {
+  document.body.classList.remove('menu-open');
+  menuButton?.setAttribute('aria-expanded', 'false');
+  menuButton?.setAttribute('aria-label', '메뉴 열기');
+}
+
+menuButton?.addEventListener('click', () => {
+  const isOpen = document.body.classList.toggle('menu-open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+  menuButton.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+});
+
+menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealItems = document.querySelectorAll('.reveal');
+
+if (reduceMotion || !('IntersectionObserver' in window)) {
+  revealItems.forEach((item) => item.classList.add('visible'));
+} else {
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      currentObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.15 });
+
+  revealItems.forEach((item) => observer.observe(item));
+}
