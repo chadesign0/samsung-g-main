@@ -35,8 +35,8 @@ button { cursor: pointer; font: inherit; }
 .main-nav a::after { content: ""; position: absolute; left: 50%; right: 50%; bottom: -13px; height: 2px; background: var(--brand); transition: .25s ease; }
 .main-nav a:hover::after, .main-nav a:focus-visible::after { left: 0; right: 0; }
 
-.doctor-hero { position: relative; min-height: 970px; display: flex; align-items: center; color: #fff; background: url("../assets/consultation.jpg") center 45% / cover no-repeat; }
-.doctor-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(25,24,22,.54), rgba(25,24,22,.34) 58%, rgba(25,24,22,.48)); }
+.doctor-hero { position: relative; min-height: 970px; display: flex; align-items: center; color: #fff; background: url("../assets/subpages/doctors/doctor-hero.png") center / cover no-repeat; }
+.doctor-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(25,24,22,.05), transparent 58%, rgba(25,24,22,.04)); }
 .doctor-hero-inner { position: relative; z-index: 1; width: min(calc(100% - 80px), 1240px); margin: 60px auto 0; text-shadow: 0 2px 15px rgba(0,0,0,.23); }
 .breadcrumb { margin: 0 0 26px; font-size: 15px; }
 .breadcrumb span { margin: 0 4px; }
@@ -46,34 +46,34 @@ button { cursor: pointer; font: inherit; }
 
 .doctor-profile { min-height: 1110px; padding: 142px 0 138px; background: #fff; }
 .doctor-profile-grid { display: grid; grid-template-columns: 555px minmax(0, 1fr); align-items: center; gap: 100px; }
-.doctor-portrait { margin: 0; align-self: center; box-shadow: 0 4px 9px rgba(0,0,0,.18); }
+.doctor-portrait { margin: 0; align-self: center; box-shadow: 0 2px 6px rgba(0,0,0,.14); }
 .doctor-profile-copy { position: relative; min-height: 760px; padding: 18px 0 0; }
-.profile-watermark { position: absolute; z-index: 0; top: -135px; right: -70px; width: 620px; height: 620px; background: url("../assets/logo-symbol-outline.svg") center / contain no-repeat; opacity: .055; }
+.profile-watermark { position: absolute; z-index: 0; top: -135px; right: -70px; width: 620px; height: 620px; background: url("../assets/logo-symbol-outline.svg") center / contain no-repeat; opacity: .1; }
 .doctor-profile-copy > *:not(.profile-watermark) { position: relative; z-index: 1; }
 .doctor-specialty { margin: 0 0 8px; color: var(--brand); font-size: 18px; font-weight: 700; }
 .doctor-name-row { display: flex; align-items: baseline; gap: 20px; }
-.doctor-name-row h2 { margin: 0; font-size: 43px; font-weight: 700; letter-spacing: -.04em; }
-.doctor-name-row span { color: var(--brand); font-size: 17px; font-weight: 700; }
+.doctor-name-row h2 { margin: 0; font-family: "Noto Serif KR", Georgia, serif; font-size: 30px; font-weight: 600; letter-spacing: -.04em; }
+.doctor-name-row span { color: var(--brand); font-size: 18px; font-weight: 700; }
 blockquote { margin: 70px 0 74px; }
 .quote-mark { display: block; height: 44px; font-family: Georgia, serif; font-size: 74px; font-weight: 700; line-height: 1; }
 blockquote p { margin: 8px 0 0; font-size: 18px; line-height: 1.55; }
 .career-block h3, .experience-part h3 { margin: 0; padding-bottom: 17px; border-bottom: 1px solid #3766b3; font-size: 28px; font-weight: 700; }
-.career-block ul { margin: 22px 0 0; padding: 0; list-style: none; font-size: 17px; line-height: 1.7; }
+.career-block ul { margin: 22px 0 0; padding: 0; list-style: none; font-size: 18px; line-height: 1.7; }
 .career-block li::before { content: "▷"; margin-right: 8px; color: #111; }
 
 .doctor-experience { min-height: 1190px; padding: 150px 0; background: #f4f4f4; }
 .experience-grid { display: grid; grid-template-columns: minmax(0, 1fr) 555px; align-items: center; gap: 110px; }
 .experience-copy h2 { margin: 0 0 70px; font-size: 43px; line-height: 1.25; letter-spacing: -.04em; }
 .experience-part h3 { font-size: 27px; }
-.experience-part > p { margin: 27px 0; font-size: 17px; line-height: 1.75; }
-.experience-part ol { margin: 0; padding: 0; list-style: none; counter-reset: experience; font-size: 17px; line-height: 1.75; }
+.experience-part > p { margin: 27px 0; font-size: 18px; line-height: 1.75; }
+.experience-part ol { margin: 0; padding: 0; list-style: none; counter-reset: experience; font-size: 18px; line-height: 1.75; }
 .experience-part ol li { counter-increment: experience; }
 .experience-part ol li::before { content: "(" counter(experience) ") "; }
 .system-copy { margin-top: 74px; }
 .system-copy p + p { margin-top: 24px; }
 .surgery-photo { margin: 0; }
 
-.contact-us { position: relative; min-height: 535px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("../assets/interior-detail.webp") center / cover no-repeat; }
+.contact-us { position: relative; min-height: 535px; display: grid; place-items: center; overflow: hidden; color: #fff; background-image: url("../assets/interior-detail.jpg"); background-position: 8% 39%; background-size: 500% auto; background-repeat: no-repeat; }
 .contact-us-shade { position: absolute; inset: 0; background: rgba(23,22,21,.7); }
 .contact-us-inner { position: relative; z-index: 1; text-align: center; }
 .eyebrow { margin: 0 0 18px; font-size: 20px; font-weight: 500; }
@@ -141,8 +141,8 @@ blockquote p { margin: 8px 0 0; font-size: 18px; line-height: 1.55; }
   .doctor-profile-grid, .experience-grid { grid-template-columns: 1fr; gap: 55px; }
   .doctor-portrait { width: min(100%, 520px); margin-inline: auto; }
   .doctor-profile-copy { min-height: 0; }
-  .profile-watermark { top: -50px; right: -150px; width: 450px; height: 450px; }
-  .doctor-name-row h2 { font-size: 36px; }
+  .profile-watermark { top: -35px; right: 0; width: 330px; height: 330px; }
+  .doctor-name-row h2 { font-size: 30px; }
   blockquote { margin: 52px 0; }
   .experience-copy h2 { margin-bottom: 50px; font-size: 35px; }
   .surgery-photo { width: min(100%, 520px); margin-inline: auto; }
