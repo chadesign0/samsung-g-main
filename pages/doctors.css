@@ -48,7 +48,7 @@ button { cursor: pointer; font: inherit; }
 .doctor-profile-grid { display: grid; grid-template-columns: 555px minmax(0, 1fr); align-items: center; gap: 100px; }
 .doctor-portrait { margin: 0; align-self: center; box-shadow: 0 2px 6px rgba(0,0,0,.14); }
 .doctor-profile-copy { position: relative; min-height: 760px; padding: 18px 0 0; }
-.profile-watermark { position: absolute; z-index: 0; top: -135px; right: -70px; width: 620px; height: 620px; background: url("../assets/logo-symbol-outline.svg") center / contain no-repeat; opacity: .1; }
+.profile-watermark { position: absolute; z-index: 0; top: -135px; right: -70px; width: 620px; height: 620px; background: url("../assets/logo-symbol-outline.svg") center / contain no-repeat; opacity: .2; }
 .doctor-profile-copy > *:not(.profile-watermark) { position: relative; z-index: 1; }
 .doctor-specialty { margin: 0 0 8px; color: var(--brand); font-size: 18px; font-weight: 700; }
 .doctor-name-row { display: flex; align-items: baseline; gap: 20px; }
