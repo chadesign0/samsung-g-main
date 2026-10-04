@@ -83,7 +83,7 @@ button { cursor: pointer; font: inherit; }
 .symptoms-copy > p { margin: clamp(30px, 2.35vw, 45px) 0 0; font-size: clamp(14px, 1.1vw, 21px); line-height: 1.6; letter-spacing: -.035em; }
 .symptoms-copy > p + p { margin-top: clamp(16px, 1vw, 20px); }
 .symptom-checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(22px, 2.5vw, 48px) clamp(38px, 6vw, 116px); margin: var(--symptom-block-space) 0 0; padding: 0; list-style: none; }
-.symptom-checklist li { min-height: clamp(64px, 5.2vw, 100px); display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.1vw, 21px); padding: 12px clamp(18px, 1.4vw, 27px); background: rgba(207,207,216,.34); border: 1px solid rgba(255,255,255,.46); border-radius: 8px; font-size: clamp(15px, 1.05vw, 20px); font-weight: 600; line-height: 1.35; backdrop-filter: blur(3px); }
+.symptom-checklist li { min-height: clamp(64px, 5.2vw, 100px); display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.1vw, 21px); padding: 12px clamp(18px, 1.4vw, 27px); background: rgba(207,207,216,.34); border: 1px solid rgba(255,255,255,.46); border-radius: 8px; font-size: clamp(16px, 1.25vw, 24px); font-weight: 600; line-height: 1.35; backdrop-filter: blur(3px); }
 .symptoms-copy.reveal .symptom-checklist li { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
 .symptoms-copy.reveal.visible .symptom-checklist li { opacity: 1; transform: none; }
 .symptoms-copy.reveal.visible .symptom-checklist li:nth-child(1) { transition-delay: .28s; }
