@@ -30,10 +30,14 @@ button { cursor: pointer; font: inherit; }
 .language-chevron { color: #777; }
 .menu-toggle { width: 42px; height: 42px; padding: 9px 6px; background: transparent; border: 0; }
 .menu-toggle span { display: block; height: 1px; margin: 6px 0; background: #777; transition: .25s ease; }
-.main-nav { height: 90px; display: flex; align-items: center; justify-content: center; gap: clamp(70px, 8vw, 170px); padding: 0 30px; font-size: 21px; font-weight: 700; }
+.main-nav { height: 90px; display: flex; align-items: center; justify-content: center; gap: clamp(70px, 8vw, 170px); padding: 0 30px; overflow: hidden; font-size: 21px; font-weight: 700; transition: height .28s cubic-bezier(.22,.78,.28,1), opacity .18s ease; }
 .main-nav a { position: relative; }
 .main-nav a::after { content: ""; position: absolute; left: 50%; right: 50%; bottom: -13px; height: 2px; background: var(--brand); transition: .25s ease; }
 .main-nav a:hover::after, .main-nav a:focus-visible::after, .main-nav a[aria-current="page"]::after { left: 0; right: 0; }
+
+@media (min-width: 801px) {
+  .site-header.is-nav-collapsed:not(:hover):not(:focus-within) .main-nav { height: 0; opacity: 0; pointer-events: none; }
+}
 
 .disease-hero { position: relative; min-height: 963px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("../assets/subpages/knee-osteoarthritis/hero-knee.png") center / cover no-repeat; }
 .disease-hero-shade { position: absolute; inset: 0; background: rgba(18, 7, 0, .26); }
@@ -253,6 +257,7 @@ button { cursor: pointer; font: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .main-nav { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .symptom-item.reveal > span, .symptom-item.reveal > h3, .symptom-item.reveal > p { opacity: 1; transition: none; }
   .symptom-item::after { opacity: .9; clip-path: none; transition: none; }

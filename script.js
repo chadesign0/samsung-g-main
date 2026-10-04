@@ -1,5 +1,23 @@
 const menuButton = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
+const siteHeader = document.querySelector('.site-header');
+const desktopHeader = window.matchMedia('(min-width: 801px)');
+let headerAnimationFrame = 0;
+
+function updateHeaderNavigation() {
+  headerAnimationFrame = 0;
+  const shouldCollapse = desktopHeader.matches && window.scrollY > 80;
+  siteHeader?.classList.toggle('is-nav-collapsed', shouldCollapse);
+}
+
+function requestHeaderNavigationUpdate() {
+  if (headerAnimationFrame) return;
+  headerAnimationFrame = window.requestAnimationFrame(updateHeaderNavigation);
+}
+
+window.addEventListener('scroll', requestHeaderNavigationUpdate, { passive: true });
+window.addEventListener('resize', requestHeaderNavigationUpdate);
+updateHeaderNavigation();
 
 menuButton.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') !== 'true';
