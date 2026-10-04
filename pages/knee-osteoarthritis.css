@@ -78,20 +78,15 @@ button { cursor: pointer; font: inherit; }
 .symptom-item > span { width: 36px; height: 36px; display: grid; place-items: center; margin: 0 auto 32px; border: 2px solid #fff; border-radius: 50%; font-size: 20px; font-weight: 600; }
 .symptom-item h3 { margin: 0 0 28px; font-size: 30px; line-height: 1.2; letter-spacing: -.05em; }
 .symptom-item p { margin: 0; font-size: 18px; line-height: 1.5; }
-.symptom-item::after { content: ""; position: absolute; width: 195px; height: 1px; background: #fff; opacity: .9; transform-origin: center; }
-.symptom-item::before { content: ""; position: absolute; z-index: 2; width: 9px; height: 9px; border-top: 2px solid #fff; border-right: 2px solid #fff; opacity: .9; }
+.symptom-item::after { content: ""; position: absolute; width: 202px; height: 170px; background: url("../assets/subpages/knee-osteoarthritis/symptom-arrow.png") center / contain no-repeat; opacity: .9; }
 .symptom-pain { left: 36px; top: 465px; }
-.symptom-pain::after { left: 186px; top: 79px; transform: rotate(40deg); }
-.symptom-pain::before { left: 362px; top: 138px; transform: rotate(85deg); }
+.symptom-pain::after { left: 160px; top: -32px; transform: scaleY(-1); }
 .symptom-stiffness { right: 28px; top: 480px; }
-.symptom-stiffness::after { right: 188px; top: 76px; transform: rotate(-40deg); }
-.symptom-stiffness::before { right: 362px; top: 136px; transform: rotate(-175deg); }
+.symptom-stiffness::after { right: 160px; top: -34px; transform: rotate(180deg); }
 .symptom-swelling { left: 40px; bottom: 145px; }
-.symptom-swelling::after { left: 187px; top: 40px; transform: rotate(-40deg); }
-.symptom-swelling::before { left: 363px; top: -22px; transform: rotate(0deg); }
+.symptom-swelling::after { left: 161px; top: -22px; }
 .symptom-sound { right: 28px; bottom: 140px; }
-.symptom-sound::after { right: 188px; top: 42px; transform: rotate(40deg); }
-.symptom-sound::before { right: 363px; top: -20px; transform: rotate(90deg); }
+.symptom-sound::after { right: 161px; top: -20px; transform: scaleX(-1); }
 
 .treatments { padding: 134px 0 140px; background: #f2f2f2; }
 .treatments .section-heading > p { margin-top: 56px; }
@@ -158,7 +153,7 @@ button { cursor: pointer; font: inherit; }
   .disease-tabs { width: calc(100% - 60px); font-size: 16px; }
   .cause-grid { gap: 18px; }
   .cause-card-description { font-size: 15px; }
-  .symptom-item::before, .symptom-item::after { display: none; }
+  .symptom-item::after { display: none; }
   .symptom-pain { left: 10px; }
   .symptom-stiffness { right: 10px; }
   .symptom-swelling { left: 10px; }
