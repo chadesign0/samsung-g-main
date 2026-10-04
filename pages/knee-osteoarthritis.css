@@ -76,7 +76,7 @@ button { cursor: pointer; font: inherit; }
 .symptom-stage { position: absolute; inset: 0; }
 .symptom-item { position: absolute; width: 230px; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,.3); }
 .symptom-item > span { width: 36px; height: 36px; display: grid; place-items: center; margin: 0 auto 32px; border: 2px solid #fff; border-radius: 50%; font-size: 20px; font-weight: 600; }
-.symptom-pain > span, .symptom-stiffness > span { transform: translateY(-10px); }
+.symptom-pain > span, .symptom-stiffness > span { transform: translateY(-30px); }
 .symptom-item h3 { margin: 0 0 28px; font-size: 30px; line-height: 1.2; letter-spacing: -.05em; }
 .symptom-item p { margin: 0; font-size: 18px; line-height: 1.5; }
 .symptom-item::after { content: ""; position: absolute; width: 202px; height: 170px; background: url("../assets/subpages/knee-osteoarthritis/symptom-arrow.png") center / contain no-repeat; opacity: .9; }
