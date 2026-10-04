@@ -15,6 +15,41 @@ menuButton?.addEventListener('click', () => {
 
 menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
+const causeCards = document.querySelectorAll('.cause-card');
+
+function setCauseCardExpanded(card, expanded) {
+  card.classList.toggle('is-expanded', expanded);
+  card.setAttribute('aria-expanded', String(expanded));
+}
+
+function closeOtherCauseCards(activeCard) {
+  causeCards.forEach((card) => {
+    if (card !== activeCard) setCauseCardExpanded(card, false);
+  });
+}
+
+causeCards.forEach((card) => {
+  const toggleCard = () => {
+    const shouldExpand = !card.classList.contains('is-expanded');
+    closeOtherCauseCards(card);
+    setCauseCardExpanded(card, shouldExpand);
+  };
+
+  card.addEventListener('click', toggleCard);
+
+  card.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleCard();
+    }
+
+    if (event.key === 'Escape') {
+      setCauseCardExpanded(card, false);
+      card.blur();
+    }
+  });
+});
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealItems = document.querySelectorAll('.reveal');
 
