@@ -71,14 +71,14 @@ button { cursor: pointer; font: inherit; }
 .cause-card:hover .cause-card-description, .cause-card:focus-visible .cause-card-description, .cause-card.is-expanded .cause-card-description { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: .08s, .08s, 0s; }
 .plus-mark { position: absolute; left: 50%; bottom: 17px; width: 40px; height: 40px; display: grid; place-items: center; transform: translateX(-50%); color: #1a1a1a; background: #fff; border-radius: 50%; font-family: Arial, sans-serif; font-size: 34px; font-weight: 300; line-height: 1; }
 
-.symptoms { position: relative; min-height: clamp(620px, 49.2vw, 966px); overflow: hidden; color: #fff; background: #061630 url("../assets/subpages/frozen-shoulder/symptom-shoulder-bg.png") center / cover no-repeat; }
+.symptoms { --symptom-block-space: clamp(37px, 2.9vw, 56px); position: relative; min-height: clamp(620px, 49.2vw, 966px); overflow: hidden; color: #fff; background: #061630 url("../assets/subpages/frozen-shoulder/symptom-shoulder-bg.png") center / cover no-repeat; }
 .symptoms-shade { position: absolute; inset: 0; background: rgba(2,16,38,.04); }
-.symptoms-inner { position: relative; z-index: 1; width: 100%; max-width: none; min-height: clamp(620px, 49.2vw, 966px); margin: 0; padding: clamp(108px, 9.3vw, 180px) 0 20px clamp(40px, 16vw, 310px); display: flex; align-items: flex-start; }
+.symptoms-inner { position: relative; z-index: 1; width: 100%; max-width: none; min-height: clamp(620px, 49.2vw, 966px); margin: 0; padding: clamp(108px, 9.3vw, 180px) 0 var(--symptom-block-space) clamp(40px, 16vw, 310px); display: flex; align-items: flex-start; }
 .symptoms-copy { width: clamp(320px, 30vw, 590px); text-shadow: 0 2px 12px rgba(0,0,0,.24); }
 .symptoms-copy h2 { margin: 0; font-size: clamp(30px, 2.35vw, 46px); line-height: 1.25; letter-spacing: -.05em; }
 .symptoms-copy > p { margin: clamp(30px, 2.35vw, 45px) 0 0; font-size: clamp(14px, 1.1vw, 21px); line-height: 1.6; letter-spacing: -.035em; }
 .symptoms-copy > p + p { margin-top: clamp(16px, 1vw, 20px); }
-.symptom-checklist { display: grid; gap: clamp(13px, 1vw, 20px); margin: clamp(37px, 2.9vw, 56px) 0 0; padding: 0; list-style: none; }
+.symptom-checklist { display: grid; gap: clamp(13px, 1vw, 20px); margin: var(--symptom-block-space) 0 0; padding: 0; list-style: none; }
 .symptom-checklist li { min-height: clamp(50px, 3.9vw, 75px); display: flex; align-items: center; gap: clamp(14px, 1.1vw, 21px); padding: 8px clamp(18px, 1.4vw, 27px); background: rgba(207,207,216,.34); border: 1px solid rgba(255,255,255,.46); border-radius: 4px; font-size: clamp(16px, 1.25vw, 24px); font-weight: 600; line-height: 1.35; backdrop-filter: blur(2px); }
 .symptom-checklist span { width: clamp(17px, 1.25vw, 24px); height: clamp(17px, 1.25vw, 24px); flex: 0 0 clamp(17px, 1.25vw, 24px); display: grid; place-items: center; border: 2px solid rgba(255,255,255,.92); font-size: clamp(10px, .78vw, 15px); line-height: 1; }
 
@@ -180,7 +180,7 @@ button { cursor: pointer; font: inherit; }
   .cause-card:hover h3, .cause-card:focus-visible h3, .cause-card.is-expanded h3 { top: 27%; }
   .plus-mark { bottom: 12px; width: 31px; height: 31px; font-size: 26px; }
 
-  .symptoms { min-height: auto; padding: 350px 0 72px; background-position: 68% top; background-size: auto 520px; background-repeat: no-repeat; background-color: #061630; }
+  .symptoms { --symptom-block-space: 42px; min-height: auto; padding: 350px 0 var(--symptom-block-space); background-position: 68% top; background-size: auto 520px; background-repeat: no-repeat; background-color: #061630; }
   .symptoms-shade { background: linear-gradient(180deg, rgba(2,16,38,.04) 0%, rgba(2,16,38,.24) 27%, rgba(2,16,38,.92) 52%, #061630 72%); }
   .symptoms-inner { width: min(calc(100% - 40px), var(--max)); min-height: auto; margin: 0 auto; padding: 0; display: block; }
   .symptoms-copy { width: 100%; text-align: left; }
@@ -188,7 +188,7 @@ button { cursor: pointer; font: inherit; }
   .symptoms-copy > p { margin-top: 30px; font-size: 15px; }
   .symptoms-copy > p + p { margin-top: 14px; }
   .symptoms-copy br { display: none; }
-  .symptom-checklist { gap: 12px; margin-top: 42px; }
+  .symptom-checklist { gap: 12px; margin-top: var(--symptom-block-space); }
   .symptom-checklist li { min-height: 54px; padding: 12px 16px; font-size: 15px; }
 
   .treatment-list { margin-top: 55px; }
