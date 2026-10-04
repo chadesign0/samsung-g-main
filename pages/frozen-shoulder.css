@@ -80,6 +80,12 @@ button { cursor: pointer; font: inherit; }
 .symptoms-copy > p + p { margin-top: clamp(16px, 1vw, 20px); }
 .symptom-checklist { display: grid; gap: clamp(13px, 1vw, 20px); margin: var(--symptom-block-space) 0 0; padding: 0; list-style: none; }
 .symptom-checklist li { min-height: clamp(50px, 3.9vw, 75px); display: flex; align-items: center; gap: clamp(14px, 1.1vw, 21px); padding: 8px clamp(18px, 1.4vw, 27px); background: rgba(207,207,216,.34); border: 1px solid rgba(255,255,255,.46); border-radius: 4px; font-size: clamp(16px, 1.25vw, 24px); font-weight: 600; line-height: 1.35; backdrop-filter: blur(2px); }
+.symptoms-copy.reveal .symptom-checklist li { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+.symptoms-copy.reveal.visible .symptom-checklist li { opacity: 1; transform: none; }
+.symptoms-copy.reveal.visible .symptom-checklist li:nth-child(1) { transition-delay: .28s; }
+.symptoms-copy.reveal.visible .symptom-checklist li:nth-child(2) { transition-delay: .44s; }
+.symptoms-copy.reveal.visible .symptom-checklist li:nth-child(3) { transition-delay: .60s; }
+.symptoms-copy.reveal.visible .symptom-checklist li:nth-child(4) { transition-delay: .76s; }
 .symptom-checklist span { width: clamp(17px, 1.25vw, 24px); height: clamp(17px, 1.25vw, 24px); flex: 0 0 clamp(17px, 1.25vw, 24px); display: grid; place-items: center; border: 2px solid rgba(255,255,255,.92); font-size: clamp(10px, .78vw, 15px); line-height: 1; }
 
 .treatments { padding: 134px 0 140px; background: #f2f2f2; }
@@ -227,5 +233,6 @@ button { cursor: pointer; font: inherit; }
   html { scroll-behavior: auto; }
   .main-nav { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .symptoms-copy.reveal .symptom-checklist li { opacity: 1; transform: none; transition: none; }
   .cause-card::after, .cause-card img, .cause-card h3, .cause-card-description { transition: none; }
 }
