@@ -76,7 +76,7 @@ button { cursor: pointer; font: inherit; }
 .plus-mark { position: absolute; left: 50%; bottom: 17px; width: 40px; height: 40px; display: grid; place-items: center; transform: translateX(-50%); color: #1a1a1a; background: #fff; border-radius: 50%; font-family: Arial, sans-serif; font-size: 34px; font-weight: 300; line-height: 1; }
 
 .symptoms { --symptom-block-space: clamp(37px, 2.9vw, 56px); position: relative; min-height: clamp(680px, 57vw, 1095px); overflow: hidden; color: #fff; background: #061630 url("../assets/subpages/lumbar-disc/symptom-lumbar-bg.png") center / cover no-repeat; }
-.symptoms-shade { position: absolute; inset: 0; background: rgba(2,16,38,.18); }
+.symptoms-shade { position: absolute; inset: 0; background: rgba(2,16,38,.02); }
 .symptoms-inner { position: relative; z-index: 1; width: min(calc(100% - 80px), var(--max)); min-height: clamp(680px, 57vw, 1095px); margin: 0 auto; padding: clamp(78px, 6vw, 116px) 0 var(--symptom-block-space); display: block; }
 .symptoms-copy { position: relative; z-index: 2; width: 100%; text-align: center; text-shadow: 0 2px 12px rgba(0,0,0,.24); }
 .symptoms-copy h2 { margin: 0; font-size: clamp(30px, 2.35vw, 46px); line-height: 1.25; letter-spacing: -.05em; }
@@ -91,7 +91,6 @@ button { cursor: pointer; font: inherit; }
 .symptoms-copy.reveal.visible .symptom-checklist li:nth-child(3) { transition-delay: .60s; }
 .symptoms-copy.reveal.visible .symptom-checklist li:nth-child(4) { transition-delay: .76s; }
 .symptom-checklist span { width: clamp(17px, 1.25vw, 24px); height: clamp(17px, 1.25vw, 24px); flex: 0 0 clamp(17px, 1.25vw, 24px); display: grid; place-items: center; border: 2px solid rgba(255,255,255,.92); font-size: clamp(10px, .78vw, 15px); line-height: 1; }
-.disc-focus { position: absolute; z-index: 1; left: 50%; bottom: clamp(42px, 4.3vw, 84px); width: clamp(220px, 19vw, 365px); aspect-ratio: 1; transform: translateX(-50%); border: 1px solid rgba(255,255,255,.72); border-radius: 50%; background: url("../assets/subpages/lumbar-disc/symptom-lumbar-bg.png") 49% 51% / 245% auto no-repeat; box-shadow: 0 0 48px rgba(255,74,41,.18); }
 
 .treatments { padding: 134px 0 140px; background: #f2f2f2; }
 .treatments .section-heading > p { margin-top: 56px; }
@@ -192,14 +191,13 @@ button { cursor: pointer; font: inherit; }
   .plus-mark { bottom: 12px; width: 31px; height: 31px; font-size: 26px; }
 
   .symptoms { --symptom-block-space: 42px; min-height: 940px; padding: 0; background-position: center; background-size: cover; background-color: #061630; }
-  .symptoms-shade { background: rgba(2,16,38,.35); }
+  .symptoms-shade { background: rgba(2,16,38,.1); }
   .symptoms-inner { width: min(calc(100% - 40px), var(--max)); min-height: 940px; margin: 0 auto; padding: 70px 0 280px; display: block; }
   .symptoms-copy { width: 100%; text-align: center; }
   .symptoms-copy h2 { font-size: 32px; }
   .symptoms-copy br { display: none; }
   .symptom-checklist { grid-template-columns: 1fr; gap: 12px; margin-top: var(--symptom-block-space); }
   .symptom-checklist li { min-height: 62px; justify-content: flex-start; padding: 12px 16px; text-align: left; font-size: 15px; }
-  .disc-focus { bottom: 40px; width: 220px; background-size: 260% auto; }
 
   .treatment-list { margin-top: 55px; }
   .treatment-row { grid-template-columns: 1fr; }
@@ -229,7 +227,6 @@ button { cursor: pointer; font: inherit; }
   .symptoms-inner { min-height: 880px; padding-top: 56px; padding-bottom: 240px; }
   .symptoms-copy h2 { font-size: 28px; }
   .symptom-checklist li { font-size: 14px; }
-  .disc-focus { bottom: 34px; width: 185px; }
   .contact-us-links { display: grid; width: min(100%, 290px); margin-inline: auto; margin-top: 40px; }
   .contact-us-links a { width: 100%; }
   .footer-meta nav { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
