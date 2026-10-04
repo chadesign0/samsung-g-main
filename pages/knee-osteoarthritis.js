@@ -2,12 +2,25 @@ const menuButton = document.querySelector('.menu-toggle');
 const menuLinks = document.querySelectorAll('.main-nav a');
 const siteHeader = document.querySelector('.site-header');
 const desktopHeader = window.matchMedia('(min-width: 801px)');
+const headerCollapseAt = 80;
+const headerExpandAt = 8;
 let headerAnimationFrame = 0;
 
 function updateHeaderNavigation() {
   headerAnimationFrame = 0;
-  const shouldCollapse = desktopHeader.matches && window.scrollY > 80;
-  siteHeader?.classList.toggle('is-nav-collapsed', shouldCollapse);
+  if (!siteHeader) return;
+
+  if (!desktopHeader.matches) {
+    siteHeader.classList.remove('is-nav-collapsed');
+    return;
+  }
+
+  const isCollapsed = siteHeader.classList.contains('is-nav-collapsed');
+  if (!isCollapsed && window.scrollY > headerCollapseAt) {
+    siteHeader.classList.add('is-nav-collapsed');
+  } else if (isCollapsed && window.scrollY <= headerExpandAt) {
+    siteHeader.classList.remove('is-nav-collapsed');
+  }
 }
 
 function requestHeaderNavigationUpdate() {

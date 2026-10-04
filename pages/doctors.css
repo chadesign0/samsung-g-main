@@ -30,10 +30,14 @@ button { cursor: pointer; font: inherit; }
 .language-chevron { color: #777; }
 .menu-toggle { width: 42px; height: 42px; padding: 9px 6px; background: transparent; border: 0; }
 .menu-toggle span { display: block; height: 1px; margin: 6px 0; background: #777; transition: .25s ease; }
-.main-nav { height: 90px; display: flex; align-items: center; justify-content: center; gap: clamp(70px, 8vw, 170px); padding: 0 30px; font-size: 21px; font-weight: 700; }
+.main-nav { height: 90px; display: flex; align-items: center; justify-content: center; gap: clamp(70px, 8vw, 170px); padding: 0 30px; overflow: hidden; font-size: 21px; font-weight: 700; transition: height .28s cubic-bezier(.22,.78,.28,1), opacity .18s ease; }
 .main-nav a { position: relative; }
 .main-nav a::after { content: ""; position: absolute; left: 50%; right: 50%; bottom: -13px; height: 2px; background: var(--brand); transition: .25s ease; }
 .main-nav a:hover::after, .main-nav a:focus-visible::after { left: 0; right: 0; }
+
+@media (min-width: 801px) {
+  .site-header.is-nav-collapsed:not(:hover):not(:focus-within) .main-nav { height: 0; opacity: 0; pointer-events: none; }
+}
 
 .doctor-hero { position: relative; min-height: 970px; display: flex; align-items: center; color: #fff; background: url("../assets/subpages/doctors/doctor-hero.png") center / cover no-repeat; }
 .doctor-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(25,24,22,.05), transparent 58%, rgba(25,24,22,.04)); }
