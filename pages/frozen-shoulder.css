@@ -6,7 +6,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-anchor: none; }
 body { margin: 0; overflow-x: hidden; color: var(--ink); background: #fff; font-family: Pretendard, "Noto Sans KR", "Malgun Gothic", sans-serif; line-height: 1.6; word-break: keep-all; }
 body.menu-open { overflow: hidden; }
 img { display: block; width: 100%; }
@@ -51,6 +51,9 @@ button { cursor: pointer; font: inherit; }
 .disease-hero-inner > p + p { margin-top: 24px; }
 .disease-tabs { position: absolute; z-index: 2; left: 50%; bottom: 138px; width: min(calc(100% - 80px), 1132px); height: 96px; display: grid; grid-template-columns: 1.15fr 1.1fr .9fr 1fr 1.05fr; align-items: center; transform: translateX(-50%); overflow: hidden; color: #e3e3e3; background: rgba(255,255,255,.28); border: 1px solid rgba(255,255,255,.88); border-radius: 17px; backdrop-filter: blur(6px); font-size: 20px; font-weight: 600; }
 .disease-tabs > * { position: relative; display: grid; place-items: center; height: 100%; padding: 0 14px; text-align: center; }
+.disease-tabs a { transition: color .2s ease, background-color .2s ease; }
+.disease-tabs a:hover, .disease-tabs a:focus-visible { color: #fff; background: rgba(255,255,255,.1); }
+.disease-tabs a:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
 .disease-tabs a[aria-current="page"] { color: #fff; }
 .disease-tabs a[aria-current="page"]::after { content: ""; position: absolute; left: 16%; right: 16%; bottom: 17px; height: 4px; background: #fff; border-radius: 10px; }
 
@@ -73,7 +76,7 @@ button { cursor: pointer; font: inherit; }
 
 .symptoms { --symptom-block-space: clamp(37px, 2.9vw, 56px); position: relative; min-height: clamp(620px, 49.2vw, 966px); overflow: hidden; color: #fff; background: #061630 url("../assets/subpages/frozen-shoulder/symptom-shoulder-bg.png") center / cover no-repeat; }
 .symptoms-shade { position: absolute; inset: 0; background: rgba(2,16,38,.04); }
-.symptoms-inner { position: relative; z-index: 1; width: 100%; max-width: none; min-height: clamp(620px, 49.2vw, 966px); margin: 0; padding: clamp(108px, 9.3vw, 180px) 0 var(--symptom-block-space) clamp(40px, 16vw, 310px); display: flex; align-items: flex-start; }
+.symptoms-inner { position: relative; z-index: 1; width: 100%; max-width: none; min-height: clamp(620px, 49.2vw, 966px); margin: 0; padding: var(--symptom-block-space) 0 var(--symptom-block-space) clamp(40px, 16vw, 310px); display: flex; align-items: center; }
 .symptoms-copy { width: clamp(320px, 30vw, 590px); text-shadow: 0 2px 12px rgba(0,0,0,.24); }
 .symptoms-copy h2 { margin: 0; font-size: clamp(30px, 2.35vw, 46px); line-height: 1.25; letter-spacing: -.05em; }
 .symptoms-copy > p { margin: clamp(30px, 2.35vw, 45px) 0 0; font-size: clamp(14px, 1.1vw, 21px); line-height: 1.6; letter-spacing: -.035em; }
@@ -128,6 +131,11 @@ button { cursor: pointer; font: inherit; }
 .footer-policy { display: flex; gap: 34px; margin-top: 56px; font-size: 16px; font-weight: 700; }
 .footer-contact p { margin: 0 0 7px; font-size: 14px; line-height: 1.45; }
 .footer-logo { justify-self: end; width: 320px; }
+
+.condition-placeholder { display: grid; min-height: 540px; place-items: center; padding: 110px 0; background: #fff; text-align: center; }
+.condition-placeholder .eyebrow { margin: 0 0 18px; color: var(--brand); font-size: 18px; font-weight: 700; letter-spacing: .04em; }
+.condition-placeholder h2 { margin: 0; color: var(--blue); font-size: clamp(30px, 3vw, 42px); line-height: 1.35; }
+.condition-placeholder p:last-child { margin: 24px 0 0; color: #687386; font-size: 18px; }
 
 @media (max-width: 1500px) {
   .utility-bar { height: 76px; padding-inline: 40px; }
@@ -207,6 +215,8 @@ button { cursor: pointer; font: inherit; }
   .treatment-copy p { font-size: 16px; }
 
   .contact-us { min-height: 480px; padding: 70px 0; }
+  .condition-placeholder { min-height: 420px; padding: 80px 0; }
+  .condition-placeholder p:last-child { font-size: 15px; }
   .contact-us-links { flex-wrap: wrap; margin-top: 42px; }
   .footer-info { grid-template-columns: 1fr; gap: 34px; }
   .footer-policy { margin-top: 30px; }

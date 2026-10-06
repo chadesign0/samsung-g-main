@@ -1,0 +1,83 @@
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+.main-nav a[aria-current="page"]::after { left: 0; right: 0; }
+
+.notice-hero { position: relative; min-height: 970px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("../assets/subpages/notice/notice-hero.jpg") center 22% / cover no-repeat; }
+.notice-hero-shade { position: absolute; inset: 0; background: rgba(55, 51, 48, .48); }
+.notice-hero-inner { position: relative; z-index: 1; width: min(calc(100% - 80px), 1240px); margin-top: -30px; text-align: center; text-shadow: 0 2px 14px rgba(0, 0, 0, .25); }
+.notice-hero .breadcrumb { margin: 0 0 88px; font-size: 15px; }
+.notice-hero h1 { margin: 0; font-family: "Noto Serif KR", Georgia, serif; font-size: clamp(54px, 4vw, 76px); font-weight: 400; line-height: 1.2; letter-spacing: -.04em; }
+.notice-hero-description { margin: 38px 0 0; font-size: 31px; font-weight: 600; letter-spacing: -.04em; }
+.customer-tabs { position: absolute; z-index: 2; left: 50%; bottom: 138px; width: min(calc(100% - 80px), 1200px); min-height: 98px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); align-items: stretch; transform: translateX(-50%); overflow: hidden; border: 1px solid rgba(255, 255, 255, .72); border-radius: 14px; background: rgba(255, 255, 255, .22); backdrop-filter: blur(8px); }
+.customer-tabs button { position: relative; padding: 18px 8px; border: 0; color: rgba(255, 255, 255, .75); background: transparent; font-size: 18px; font-weight: 600; white-space: nowrap; transition: color .2s ease, background .2s ease; }
+.customer-tabs button:hover, .customer-tabs button:focus-visible { color: #fff; background: rgba(255, 255, 255, .08); }
+.customer-tabs button::after { content: ""; position: absolute; right: 28%; bottom: 20px; left: 28%; height: 3px; background: #fff; transform: scaleX(0); transition: transform .2s ease; }
+.customer-tabs button.is-active { color: #fff; }
+.customer-tabs button.is-active::after { transform: scaleX(1); }
+
+.notice-board { min-height: 1450px; padding: 134px 0 155px; background: #fff; }
+.notice-board-inner { width: min(calc(100% - 80px), 1220px); margin: 0 auto; }
+.board-search { min-height: 70px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 24px; background: #f5f7fc; }
+.board-search select, .board-search input, .page-size-control select { height: 42px; border: 1px solid #cfd4df; background: #fff; color: #303541; font: inherit; }
+.board-search select { width: 112px; padding: 0 12px; }
+.board-search input { width: 285px; padding: 0 15px; }
+.board-search button, .page-size-control button { height: 42px; padding: 0 18px; border: 1px solid #20205e; font: inherit; font-weight: 600; }
+.search-button { color: #fff; background: #20205e; }
+.reset-button { color: #20205e; background: #fff; }
+.board-search button:hover, .board-search button:focus-visible, .page-size-control button:hover, .page-size-control button:focus-visible { filter: brightness(.94); }
+.board-meta { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.board-meta p { margin: 0; color: #616978; font-size: 14px; }
+.board-meta strong { color: #262d3b; }
+.page-size-control { display: flex; align-items: center; gap: 6px; }
+.page-size-control select { width: 82px; padding: 0 11px; }
+.page-size-control button { color: #fff; background: #34454b; border-color: #34454b; }
+.board-table-wrap { border-top: 2px solid #273241; }
+.board-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.board-table th { height: 58px; padding: 10px; border-bottom: 1px solid #aeb6c3; color: #3e4653; font-size: 14px; }
+.board-table th:nth-child(1) { width: 10%; }
+.board-table th:nth-child(2) { width: 41%; }
+.board-table th:nth-child(3) { width: 15%; }
+.board-table th:nth-child(4) { width: 10%; }
+.board-table th:nth-child(5) { width: 15%; }
+.board-table th:nth-child(6) { width: 9%; }
+.empty-state { min-height: 560px; display: grid; place-items: center; margin: 0; border-bottom: 1px solid #d7dce5; color: #8a919e; font-size: 17px; }
+.pagination { display: flex; justify-content: center; gap: 9px; margin-top: 56px; }
+.pagination button { width: 34px; height: 34px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; color: #54606b; background: transparent; font: inherit; }
+.pagination button.is-current { color: #fff; background: #1756ae; }
+.pagination button:disabled { opacity: .35; cursor: default; }
+
+@media (max-width: 1100px) {
+  .customer-tabs { width: calc(100% - 60px); }
+  .customer-tabs button { font-size: 15px; }
+  .notice-board { min-height: 1200px; }
+}
+
+@media (max-width: 800px) {
+  .notice-hero { min-height: 720px; background-position: 49% top; }
+  .notice-hero-inner { width: min(calc(100% - 40px), 1240px); margin-top: -55px; }
+  .notice-hero .breadcrumb { margin-bottom: 42px; font-size: 12px; }
+  .notice-hero h1 { font-size: 44px; }
+  .notice-hero-description { margin-top: 24px; font-size: 20px; }
+  .customer-tabs { right: 20px; bottom: 34px; left: 20px; width: auto; min-height: 76px; display: flex; justify-content: flex-start; transform: none; overflow-x: auto; border-radius: 12px; scrollbar-width: none; }
+  .customer-tabs::-webkit-scrollbar { display: none; }
+  .customer-tabs button { min-width: 128px; padding-inline: 14px; font-size: 14px; }
+  .customer-tabs button::after { bottom: 11px; }
+
+  .notice-board { min-height: 980px; padding: 74px 0 90px; }
+  .notice-board-inner { width: min(calc(100% - 40px), 1220px); }
+  .board-search { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px; padding: 14px; }
+  .board-search select, .board-search input { width: 100%; }
+  .board-search button { width: 100%; }
+  .board-meta { align-items: flex-start; padding-block: 18px; }
+  .page-size-control select { width: 68px; }
+  .page-size-control button { padding-inline: 12px; }
+  .board-table { min-width: 690px; }
+  .board-table-wrap { overflow-x: auto; }
+  .empty-state { min-width: 0; min-height: 430px; }
+}
+
+@media (max-width: 520px) {
+  .notice-hero-description { font-size: 17px; }
+  .board-meta { display: grid; }
+  .page-size-control { justify-self: end; }
+}
