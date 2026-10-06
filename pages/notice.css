@@ -15,7 +15,7 @@
 .customer-tabs button.is-active { color: #fff; }
 .customer-tabs button.is-active::after { transform: scaleX(1); }
 
-.notice-board { min-height: 1450px; padding: 134px 0 155px; background: #fff; }
+.notice-board { padding: 134px 0 100px; background: #fff; }
 .notice-board-inner { width: min(calc(100% - 80px), 1220px); margin: 0 auto; }
 .board-search { min-height: 70px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 24px; background: #f5f7fc; }
 .board-search select, .board-search input, .page-size-control select { height: 42px; border: 1px solid #cfd4df; background: #fff; color: #303541; font: inherit; }
@@ -49,7 +49,6 @@
 @media (max-width: 1100px) {
   .customer-tabs { width: calc(100% - 60px); }
   .customer-tabs button { font-size: 15px; }
-  .notice-board { min-height: 1200px; }
 }
 
 @media (max-width: 800px) {
@@ -63,7 +62,7 @@
   .customer-tabs button { min-width: 128px; padding-inline: 14px; font-size: 14px; }
   .customer-tabs button::after { bottom: 11px; }
 
-  .notice-board { min-height: 980px; padding: 74px 0 90px; }
+  .notice-board { padding: 74px 0 76px; }
   .notice-board-inner { width: min(calc(100% - 40px), 1220px); }
   .board-search { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px; padding: 14px; }
   .board-search select, .board-search input { width: 100%; }
