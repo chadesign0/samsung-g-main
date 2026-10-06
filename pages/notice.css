@@ -2,13 +2,13 @@
 
 .main-nav a[aria-current="page"]::after { left: 0; right: 0; }
 
-.notice-hero { position: relative; min-height: 970px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("../assets/subpages/notice/notice-hero.jpg") center 22% / cover no-repeat; }
+.notice-hero { position: relative; min-height: 870px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("../assets/subpages/notice/notice-hero.jpg") center 22% / cover no-repeat; }
 .notice-hero-shade { position: absolute; inset: 0; background: rgba(55, 51, 48, .48); }
 .notice-hero-inner { position: relative; z-index: 1; width: min(calc(100% - 80px), 1240px); margin-top: -30px; text-align: center; text-shadow: 0 2px 14px rgba(0, 0, 0, .25); }
 .notice-hero .breadcrumb { margin: 0 0 88px; font-size: 15px; }
 .notice-hero h1 { margin: 0; font-family: "Noto Serif KR", Georgia, serif; font-size: clamp(54px, 4vw, 76px); font-weight: 400; line-height: 1.2; letter-spacing: -.04em; }
 .notice-hero-description { margin: 38px 0 0; font-size: 31px; font-weight: 600; letter-spacing: -.04em; }
-.customer-tabs { position: absolute; z-index: 2; left: 50%; bottom: 138px; width: min(calc(100% - 80px), 1200px); min-height: 98px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); align-items: stretch; transform: translateX(-50%); overflow: hidden; border: 1px solid rgba(255, 255, 255, .72); border-radius: 14px; background: rgba(255, 255, 255, .22); backdrop-filter: blur(8px); }
+.customer-tabs { position: absolute; z-index: 2; left: 50%; bottom: 110px; width: min(calc(100% - 80px), 1200px); min-height: 98px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); align-items: stretch; transform: translateX(-50%); overflow: hidden; border: 1px solid rgba(255, 255, 255, .72); border-radius: 14px; background: rgba(255, 255, 255, .22); backdrop-filter: blur(8px); }
 .customer-tabs button { position: relative; padding: 18px 8px; border: 0; color: rgba(255, 255, 255, .75); background: transparent; font-size: 18px; font-weight: 600; white-space: nowrap; transition: color .2s ease, background .2s ease; }
 .customer-tabs button:hover, .customer-tabs button:focus-visible { color: #fff; background: rgba(255, 255, 255, .08); }
 .customer-tabs button::after { content: ""; position: absolute; right: 28%; bottom: 20px; left: 28%; height: 3px; background: #fff; transform: scaleX(0); transition: transform .2s ease; }

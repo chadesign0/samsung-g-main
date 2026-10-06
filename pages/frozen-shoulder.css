@@ -39,7 +39,7 @@ button { cursor: pointer; font: inherit; }
   .site-header.is-nav-collapsed:not(:hover):not(:focus-within) .main-nav { height: 0; opacity: 0; pointer-events: none; }
 }
 
-.disease-hero { position: relative; min-height: 963px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("../assets/subpages/frozen-shoulder/hero-shoulder.png") center / cover no-repeat; }
+.disease-hero { position: relative; min-height: 860px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("../assets/subpages/frozen-shoulder/hero-shoulder.png") center / cover no-repeat; }
 .disease-hero-shade { position: absolute; inset: 0; background: rgba(18, 7, 0, .26); }
 .disease-hero-inner { position: relative; z-index: 1; margin-top: -12px; text-align: center; text-shadow: 0 2px 14px rgba(0,0,0,.28); }
 .breadcrumb { margin: 0 0 24px; font-size: 15px; font-weight: 500; }
@@ -49,7 +49,7 @@ button { cursor: pointer; font: inherit; }
 .disease-hero h2 { margin: 0 0 30px; font-size: 40px; font-weight: 500; letter-spacing: -.05em; }
 .disease-hero-inner > p:not(.breadcrumb) { margin: 0; font-size: 22px; line-height: 1.5; letter-spacing: -.04em; }
 .disease-hero-inner > p + p { margin-top: 24px; }
-.disease-tabs { position: absolute; z-index: 2; left: 50%; bottom: 138px; width: min(calc(100% - 80px), 1132px); height: 96px; display: grid; grid-template-columns: 1.15fr 1.1fr .9fr 1fr 1.05fr; align-items: center; transform: translateX(-50%); overflow: hidden; color: #e3e3e3; background: rgba(255,255,255,.28); border: 1px solid rgba(255,255,255,.88); border-radius: 17px; backdrop-filter: blur(6px); font-size: 20px; font-weight: 600; }
+.disease-tabs { position: absolute; z-index: 2; left: 50%; bottom: 80px; width: min(calc(100% - 80px), 1132px); height: 96px; display: grid; grid-template-columns: 1.15fr 1.1fr .9fr 1fr 1.05fr; align-items: center; transform: translateX(-50%); overflow: hidden; color: #e3e3e3; background: rgba(255,255,255,.28); border: 1px solid rgba(255,255,255,.88); border-radius: 17px; backdrop-filter: blur(6px); font-size: 20px; font-weight: 600; }
 .disease-tabs > * { position: relative; display: grid; place-items: center; height: 100%; padding: 0 14px; text-align: center; }
 .disease-tabs a { transition: color .2s ease, background-color .2s ease; }
 .disease-tabs a:hover, .disease-tabs a:focus-visible { color: #fff; background: rgba(255,255,255,.1); }
@@ -74,9 +74,9 @@ button { cursor: pointer; font: inherit; }
 .cause-card:hover .cause-card-description, .cause-card:focus-visible .cause-card-description, .cause-card.is-expanded .cause-card-description { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: .08s, .08s, 0s; }
 .plus-mark { position: absolute; left: 50%; bottom: 17px; width: 40px; height: 40px; display: grid; place-items: center; transform: translateX(-50%); color: #1a1a1a; background: #fff; border-radius: 50%; font-family: Arial, sans-serif; font-size: 34px; font-weight: 300; line-height: 1; }
 
-.symptoms { --symptom-block-space: clamp(37px, 2.9vw, 56px); position: relative; min-height: clamp(620px, 49.2vw, 966px); overflow: hidden; color: #fff; background: #061630 url("../assets/subpages/frozen-shoulder/symptom-shoulder-bg.png") center / cover no-repeat; }
+.symptoms { --symptom-block-space: clamp(30px, 2.2vw, 42px); position: relative; min-height: clamp(560px, 42vw, 820px); overflow: hidden; color: #fff; background: #061630 url("../assets/subpages/frozen-shoulder/symptom-shoulder-bg.png") center / cover no-repeat; }
 .symptoms-shade { position: absolute; inset: 0; background: rgba(2,16,38,.04); }
-.symptoms-inner { position: relative; z-index: 1; width: 100%; max-width: none; min-height: clamp(620px, 49.2vw, 966px); margin: 0; padding: var(--symptom-block-space) 0 var(--symptom-block-space) clamp(40px, 16vw, 310px); display: flex; align-items: center; }
+.symptoms-inner { position: relative; z-index: 1; width: 100%; max-width: none; min-height: clamp(560px, 42vw, 820px); margin: 0; padding: var(--symptom-block-space) 0 var(--symptom-block-space) clamp(40px, 16vw, 310px); display: flex; align-items: center; }
 .symptoms-copy { width: clamp(320px, 30vw, 590px); text-shadow: 0 2px 12px rgba(0,0,0,.24); }
 .symptoms-copy h2 { margin: 0; font-size: clamp(30px, 2.35vw, 46px); line-height: 1.25; letter-spacing: -.05em; }
 .symptoms-copy > p { margin: clamp(30px, 2.35vw, 45px) 0 0; font-size: clamp(14px, 1.1vw, 21px); line-height: 1.6; letter-spacing: -.035em; }

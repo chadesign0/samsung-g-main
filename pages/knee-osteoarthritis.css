@@ -39,7 +39,7 @@ button { cursor: pointer; font: inherit; }
   .site-header.is-nav-collapsed:not(:hover):not(:focus-within) .main-nav { height: 0; opacity: 0; pointer-events: none; }
 }
 
-.disease-hero { position: relative; min-height: 963px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("../assets/subpages/knee-osteoarthritis/hero-knee.png") center / cover no-repeat; }
+.disease-hero { position: relative; min-height: 860px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("../assets/subpages/knee-osteoarthritis/hero-knee.png") center / cover no-repeat; }
 .disease-hero-shade { position: absolute; inset: 0; background: rgba(18, 7, 0, .26); }
 .disease-hero-inner { position: relative; z-index: 1; margin-top: -12px; text-align: center; text-shadow: 0 2px 14px rgba(0,0,0,.28); }
 .breadcrumb { margin: 0 0 24px; font-size: 15px; font-weight: 500; }
@@ -49,7 +49,7 @@ button { cursor: pointer; font: inherit; }
 .disease-hero h2 { margin: 0 0 30px; font-size: 40px; font-weight: 500; letter-spacing: -.05em; }
 .disease-hero-inner > p:not(.breadcrumb) { margin: 0; font-size: 22px; line-height: 1.5; letter-spacing: -.04em; }
 .disease-hero-inner > p + p { margin-top: 24px; }
-.disease-tabs { position: absolute; z-index: 2; left: 50%; bottom: 138px; width: min(calc(100% - 80px), 1132px); height: 96px; display: grid; grid-template-columns: 1.15fr 1.1fr .9fr 1fr 1.05fr; align-items: center; transform: translateX(-50%); overflow: hidden; color: #e3e3e3; background: rgba(255,255,255,.28); border: 1px solid rgba(255,255,255,.88); border-radius: 17px; backdrop-filter: blur(6px); font-size: 20px; font-weight: 600; }
+.disease-tabs { position: absolute; z-index: 2; left: 50%; bottom: 80px; width: min(calc(100% - 80px), 1132px); height: 96px; display: grid; grid-template-columns: 1.15fr 1.1fr .9fr 1fr 1.05fr; align-items: center; transform: translateX(-50%); overflow: hidden; color: #e3e3e3; background: rgba(255,255,255,.28); border: 1px solid rgba(255,255,255,.88); border-radius: 17px; backdrop-filter: blur(6px); font-size: 20px; font-weight: 600; }
 .disease-tabs > * { position: relative; display: grid; place-items: center; height: 100%; padding: 0 14px; text-align: center; }
 .disease-tabs a[aria-current="page"] { color: #fff; }
 .disease-tabs a[aria-current="page"]::after { content: ""; position: absolute; left: 16%; right: 16%; bottom: 17px; height: 4px; background: #fff; border-radius: 10px; }
@@ -71,16 +71,16 @@ button { cursor: pointer; font: inherit; }
 .cause-card:hover .cause-card-description, .cause-card:focus-visible .cause-card-description, .cause-card.is-expanded .cause-card-description { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: .08s, .08s, 0s; }
 .plus-mark { position: absolute; left: 50%; bottom: 17px; width: 40px; height: 40px; display: grid; place-items: center; transform: translateX(-50%); color: #1a1a1a; background: #fff; border-radius: 50%; font-family: Arial, sans-serif; font-size: 34px; font-weight: 300; line-height: 1; }
 
-.symptoms { position: relative; min-height: 966px; overflow: hidden; color: #fff; background-color: #061630; background-image: url("../assets/subpages/knee-osteoarthritis/symptom-knee.png"); background-position: calc(50% + 290px) calc(50% - 75px); background-size: auto 122%; background-repeat: no-repeat; }
+.symptoms { position: relative; min-height: clamp(640px, 42vw, 820px); overflow: hidden; color: #fff; background-color: #061630; background-image: url("../assets/subpages/knee-osteoarthritis/symptom-knee.png"); background-position: calc(50% + 290px) calc(50% - 75px); background-size: auto 122%; background-repeat: no-repeat; }
 .symptoms-shade { position: absolute; inset: 0; background: rgba(2,16,38,.05); }
-.symptoms-inner { position: relative; z-index: 1; min-height: 966px; }
-.symptoms-copy { width: 760px; padding-top: 90px; text-shadow: 0 2px 10px rgba(0,0,0,.25); }
+.symptoms-inner { position: relative; z-index: 1; min-height: clamp(640px, 42vw, 820px); }
+.symptoms-copy { width: 760px; padding-top: clamp(56px, 4vw, 76px); text-shadow: 0 2px 10px rgba(0,0,0,.25); }
 .symptoms-copy h2 { margin: 0; font-size: 40px; line-height: 1.25; letter-spacing: -.05em; }
-.symptoms-description { margin-top: 42px; }
+.symptoms-description { margin-top: 32px; }
 .symptoms-description p { margin: 0; font-size: 18px; line-height: 1.45; letter-spacing: -.03em; }
 .symptoms-description p + p { margin-top: 22px; }
-.symptom-checklist { width: 526px; display: grid; gap: 20px; margin: 72px 0 0; padding: 0; list-style: none; }
-.symptom-checklist li { min-height: 80px; display: flex; align-items: center; gap: 18px; padding: 16px 25px; background: rgba(205,214,228,.36); border-radius: 10px; font-size: 23px; font-weight: 700; line-height: 1.3; letter-spacing: -.04em; backdrop-filter: blur(5px); }
+.symptom-checklist { width: 526px; display: grid; gap: 14px; margin: 48px 0 0; padding: 0; list-style: none; }
+.symptom-checklist li { min-height: 70px; display: flex; align-items: center; gap: 18px; padding: 12px 25px; background: rgba(205,214,228,.36); border-radius: 10px; font-size: 23px; font-weight: 700; line-height: 1.3; letter-spacing: -.04em; backdrop-filter: blur(5px); }
 .symptom-check-icon { position: relative; flex: 0 0 auto; width: 28px; height: 28px; border: 3px solid #fff; border-radius: 3px; }
 .symptom-check-icon::after { content: ""; position: absolute; left: 6px; top: 2px; width: 8px; height: 14px; border-right: 3px solid #fff; border-bottom: 3px solid #fff; transform: rotate(45deg); }
 
@@ -135,7 +135,7 @@ button { cursor: pointer; font: inherit; }
   .disease-tabs { bottom: 80px; }
   .disease-hero h2 { font-size: 34px; }
   .disease-hero-inner > p:not(.breadcrumb) { font-size: 19px; }
-  .symptoms, .symptoms-inner { min-height: 760px; }
+  .symptoms, .symptoms-inner { min-height: 680px; }
   .symptoms { background-position: calc(50% + 225px) calc(50% - 55px); }
   .symptoms-copy { width: 600px; padding-top: 70px; }
   .symptoms-copy h2 { font-size: 34px; }
