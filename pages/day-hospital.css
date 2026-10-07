@@ -1,0 +1,324 @@
+:root {
+  --day-blue: #1757a3;
+  --day-navy: #153960;
+}
+
+.main-nav a[aria-current="page"]::after {
+  left: 0;
+  right: 0;
+}
+
+.day-inner {
+  width: min(calc(100% - 80px), 1200px);
+  margin: 0 auto;
+}
+
+.day-hero {
+  position: relative;
+  min-height: 780px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #fff;
+  background: url("../assets/subpages/day-hospital/day-hospital-hero.jpg") center / cover no-repeat;
+}
+
+.day-hero-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 27, 27, .42);
+}
+
+.day-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 80px), 1000px);
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .28);
+}
+
+.day-hero .breadcrumb {
+  margin-bottom: 22px;
+}
+
+.day-hero h1 {
+  margin: 0 0 10px;
+  font-family: "Noto Serif KR", Georgia, serif;
+  font-size: clamp(54px, 3.55vw, 68px);
+  font-weight: 400;
+  letter-spacing: -.05em;
+  line-height: 1.2;
+}
+
+.day-hero h2 {
+  margin: 0 0 28px;
+  font-size: clamp(27px, 1.75vw, 34px);
+  font-weight: 600;
+  letter-spacing: -.04em;
+}
+
+.day-hero-inner > p:last-child {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.day-candidates {
+  min-height: 930px;
+  display: grid;
+  align-items: center;
+  padding: 115px 0 130px;
+  background: #fff;
+}
+
+.day-candidates-heading {
+  margin-bottom: 75px;
+  text-align: center;
+}
+
+.day-candidates-heading h2,
+.day-benefits-inner h2 {
+  margin: 0;
+  font-size: clamp(32px, 2.1vw, 40px);
+  line-height: 1.3;
+  letter-spacing: -.045em;
+}
+
+.day-candidates-heading p {
+  margin: 34px 0 0;
+  color: #777;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.day-candidate-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 38px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.day-candidate {
+  position: relative;
+  border: 1px solid #2e5c8d;
+  background: #fff;
+  text-align: center;
+}
+
+.day-candidate:nth-child(1) { transition-delay: .08s; }
+.day-candidate:nth-child(2) { transition-delay: .2s; }
+.day-candidate:nth-child(3) { transition-delay: .32s; }
+.day-candidate:nth-child(4) { transition-delay: .44s; }
+
+.day-candidate figure {
+  height: 285px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.day-candidate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.day-candidate > span {
+  position: absolute;
+  top: 260px;
+  left: 50%;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #153e70;
+  font-size: 17px;
+  font-weight: 700;
+  transform: translateX(-50%);
+}
+
+.day-candidate p {
+  min-height: 115px;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 34px 18px 20px;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.day-benefits {
+  min-height: 780px;
+  display: grid;
+  align-items: center;
+  color: #fff;
+  background: url("../assets/subpages/day-hospital/day-hospital-benefits.png") center / cover no-repeat;
+}
+
+.day-benefits-inner {
+  width: min(calc(100% - 80px), 1200px);
+  margin: 0 auto;
+  padding-left: min(660px, 55vw);
+}
+
+.day-benefits-inner h2 {
+  font-size: clamp(34px, 2.2vw, 42px);
+}
+
+.day-benefits-inner > p {
+  margin: 38px 0 50px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.day-benefits ul {
+  display: grid;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.day-benefits li {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 28px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .42);
+  font-size: 19px;
+  font-weight: 700;
+  backdrop-filter: blur(3px);
+}
+
+.day-benefits li span {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.day-message {
+  min-height: 720px;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  padding: 0 24px 110px;
+  overflow: hidden;
+  background-color: #fff;
+  background-image: url("../assets/subpages/one-stop-care/logo-symbol-soft.svg");
+  background-repeat: no-repeat;
+  background-position: 70% -40px;
+  background-size: clamp(429px, 35.1vw, 676px) auto;
+  text-align: center;
+}
+
+.day-message-line {
+  position: relative;
+  width: 1px;
+  height: 145px;
+  margin-bottom: 48px;
+  background: #d6d6d6;
+}
+
+.day-message-line span {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1756ae;
+  transform: translateX(-50%);
+}
+
+.day-message-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.day-message-quote {
+  margin: 0 0 45px;
+  color: #777;
+  font-size: 17px;
+}
+
+.day-message h2 {
+  margin: 0 0 65px;
+  font-family: "Noto Serif KR", Georgia, serif;
+  font-size: clamp(38px, 2.45vw, 48px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -.045em;
+}
+
+.day-message-copy > p:last-child {
+  margin: 0;
+  color: #777;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+@media (max-width: 1500px) {
+  .day-hero { min-height: 620px; }
+  .day-candidates { min-height: 760px; padding: 100px 0; }
+  .day-candidate figure { height: 230px; }
+  .day-candidate > span { top: 206px; }
+  .day-benefits { min-height: 650px; }
+  .day-message { min-height: 650px; }
+}
+
+@media (max-width: 1000px) {
+  .day-candidate-list { grid-template-columns: repeat(2, 1fr); }
+  .day-candidate figure { height: 270px; }
+  .day-candidate > span { top: 246px; }
+  .day-benefits-inner { padding-left: min(430px, 43vw); }
+}
+
+@media (max-width: 800px) {
+  .day-inner { width: min(calc(100% - 40px), 1200px); }
+  .day-hero { min-height: 500px; background-position: 44% center; }
+  .day-hero-inner { width: calc(100% - 40px); }
+  .day-hero h1 { font-size: 42px; }
+  .day-hero h2 { font-size: 23px; }
+  .day-hero-inner > p:last-child { font-size: 15px; }
+  .day-hero-inner > p:last-child br { display: none; }
+  .day-candidates { min-height: 0; padding: 82px 0 92px; }
+  .day-candidates-heading { margin-bottom: 60px; }
+  .day-candidate-list { gap: 34px 20px; }
+  .day-candidate figure { height: 210px; }
+  .day-candidate > span { top: 187px; width: 44px; height: 44px; }
+  .day-benefits { min-height: 680px; background-position: 55% center; }
+  .day-benefits-inner { width: calc(100% - 40px); padding-left: 30%; }
+  .day-benefits-inner > p br { display: none; }
+  .day-benefits li { font-size: 16px; }
+  .day-message { min-height: 650px; padding: 0 24px 95px; background-position: 74% -18px; background-size: 403px auto; }
+  .day-message-line { height: 110px; margin-bottom: 45px; }
+}
+
+@media (max-width: 560px) {
+  .day-hero { min-height: 460px; }
+  .day-hero h1 { font-size: 37px; }
+  .day-hero h2 { font-size: 20px; }
+  .day-candidates-heading h2,
+  .day-benefits-inner h2 { font-size: 30px; }
+  .day-candidates-heading p { font-size: 15px; }
+  .day-candidate-list { grid-template-columns: 1fr; }
+  .day-candidate figure { height: 285px; }
+  .day-candidate > span { top: 263px; }
+  .day-benefits { min-height: 700px; background-position: 48% center; }
+  .day-benefits-inner { padding-left: 0; }
+  .day-benefits-inner > p { font-size: 15px; }
+  .day-message h2 { margin-bottom: 52px; font-size: 32px; }
+  .day-message-quote,
+  .day-message-copy > p:last-child { font-size: 15px; }
+}
