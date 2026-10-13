@@ -1,0 +1,119 @@
+@import url("shoulder-condition.css?v=20261013-5");
+
+.disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
+.disease-hero-shade { background: rgba(30,24,20,.34); }
+.disease-tabs { grid-template-columns: repeat(6,1fr); font-size: 16px; }
+
+.foot-intro { min-height: 570px; padding: 130px 0 120px; background: #fff; }
+.foot-intro-grid { display: grid; grid-template-columns: minmax(0,1fr) 510px; align-items: center; gap: 104px; }
+.foot-intro-copy h2 { margin: 0; font-size: 36px; line-height: 1.3; letter-spacing: -.055em; }
+.foot-intro-copy p { max-width: 680px; margin: 58px 0 0; color: #555; font-size: 17px; line-height: 1.62; letter-spacing: -.035em; }
+.foot-intro-image { width: 100%; height: 300px; object-fit: cover; object-position: center 47%; }
+
+.foot-causes { min-height: 870px; padding: 126px 0 116px; background: #f2f2f2; }
+.foot-causes-grid { display: grid; grid-template-columns: minmax(0,1fr) 600px; align-items: start; gap: 120px; }
+.foot-causes-copy { padding-top: 24px; }
+.foot-causes-copy h2 { margin: 0; font-size: 36px; line-height: 1.3; letter-spacing: -.055em; }
+.foot-causes-copy p { max-width: 580px; margin: 62px 0 0; color: #555; font-size: 17px; line-height: 1.62; letter-spacing: -.035em; }
+.foot-cause-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid #8d8d8d; }
+.foot-cause-list li { min-height: 150px; display: grid; grid-template-columns: 94px 1fr; align-items: center; border-bottom: 1px solid #a5a5a5; }
+.foot-cause-number { font-size: 55px; font-weight: 650; line-height: 1; letter-spacing: -.04em; }
+.foot-cause-list h3 { margin: 0 0 12px; font-size: 24px; line-height: 1.3; letter-spacing: -.045em; }
+.foot-cause-list p { margin: 0; color: #666; font-size: 15px; line-height: 1.5; letter-spacing: -.03em; }
+
+.foot-symptoms { --foot-symptom-height: clamp(790px,50.3vw,966px); position: relative; min-height: var(--foot-symptom-height); overflow: hidden; color: #fff; background: #07172f url("../assets/subpages/foot/symptom-foot.png") center/cover no-repeat; }
+.foot-symptoms-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(3,18,43,.08),rgba(3,18,43,.02)); }
+.foot-symptoms-inner { position: relative; z-index: 1; min-height: var(--foot-symptom-height); display: flex; align-items: center; padding: 72px 0; }
+.foot-symptoms-copy { width: 100%; text-shadow: 0 2px 12px rgba(0,0,0,.28); }
+.foot-symptoms-copy h2, .foot-symptoms-copy > p { width: 720px; margin-left: auto; margin-right: auto; text-align: center; }
+.foot-symptoms-copy h2 { margin-top: 0; margin-bottom: 0; font-size: clamp(32px,2.05vw,40px); line-height: 1.32; letter-spacing: -.05em; }
+.foot-symptoms-copy > p { margin-top: 46px; margin-bottom: 0; font-size: 16px; line-height: 1.62; letter-spacing: -.035em; }
+.foot-symptoms .symptom-checklist { width: min(100%,1200px); margin: 70px auto 0; }
+.foot-symptoms-copy.reveal .symptom-checklist li { opacity: 0; transition: opacity .5s ease; }
+.foot-symptoms-copy.reveal.visible .symptom-checklist li { opacity: 1; }
+.foot-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(1) { transition-delay: .2s; }
+.foot-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(2) { transition-delay: .34s; }
+.foot-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(3) { transition-delay: .48s; }
+.foot-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(4) { transition-delay: .62s; }
+
+.foot-treatments { min-height: 1040px; padding: 136px 0 116px; background: #f2f2f2; overflow: hidden; }
+.foot-treatments .section-heading > p { margin-top: 42px; }
+.foot-treatment-flow { display: flex; justify-content: center; align-items: flex-start; margin-top: 70px; }
+.foot-treatment-step { position: relative; width: 390px; text-align: center; }
+.foot-treatment-step + .foot-treatment-step { margin-left: -28px; }
+.foot-treatment-step img { display: block; width: 410px; height: 410px; max-width: none; margin-left: -10px; object-fit: cover; border-radius: 50%; }
+.foot-treatment-step h3 { margin: 62px 0 22px; font-size: 29px; line-height: 1.25; letter-spacing: -.05em; }
+.foot-treatment-step p { width: min(100%,320px); margin: 0 auto; font-size: 15px; line-height: 1.55; letter-spacing: -.035em; }
+
+@media (max-width:1500px) {
+  .disease-tabs { font-size: 13px; }
+  .foot-intro { min-height: 500px; padding: 104px 0 96px; }
+  .foot-intro-grid { grid-template-columns: minmax(0,1fr) 430px; gap: 72px; }
+  .foot-intro-image { height: 250px; }
+  .foot-intro-copy h2, .foot-causes-copy h2 { font-size: 30px; }
+  .foot-intro-copy p, .foot-causes-copy p { margin-top: 42px; font-size: 14px; }
+  .foot-causes { min-height: 740px; padding: 100px 0 94px; }
+  .foot-causes-grid { grid-template-columns: minmax(0,1fr) 500px; gap: 84px; }
+  .foot-cause-list li { min-height: 130px; grid-template-columns: 78px 1fr; }
+  .foot-cause-number { font-size: 46px; }
+  .foot-cause-list h3 { font-size: 20px; }
+  .foot-cause-list p { font-size: 14px; }
+  .foot-treatments { min-height: 880px; padding: 108px 0 102px; }
+  .foot-treatment-step { width: 330px; }
+  .foot-treatment-step + .foot-treatment-step { margin-left: -24px; }
+  .foot-treatment-step img { width: 348px; height: 348px; margin-left: -9px; }
+  .foot-treatment-step h3 { margin-top: 48px; font-size: 25px; }
+  .foot-treatment-step p { font-size: 14px; }
+}
+
+@media (max-width:1000px) {
+  .disease-tabs { display: flex; }
+  .disease-tabs > a { min-width: 165px; }
+  .foot-intro-grid { grid-template-columns: minmax(0,1fr) 360px; gap: 38px; }
+  .foot-causes-grid { grid-template-columns: minmax(0,1fr) 430px; gap: 48px; }
+  .foot-treatment-step { width: 290px; }
+  .foot-treatment-step + .foot-treatment-step { margin-left: -18px; }
+  .foot-treatment-step img { width: 306px; height: 306px; margin-left: -8px; }
+}
+
+@media (max-width:800px) {
+  .disease-hero-inner { position: absolute; top: 70px; right: 20px; bottom: 150px; left: 20px; width: auto; min-width: 0; max-width: none; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0; }
+  .disease-hero h1, .disease-hero h2, .disease-hero-inner > p { width: 100%; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+  .breadcrumb { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .foot-intro { min-height: 0; padding: 78px 0; }
+  .foot-intro-grid { grid-template-columns: 1fr; gap: 40px; }
+  .foot-intro-copy h2 { font-size: 28px; }
+  .foot-intro-copy p { margin-top: 28px; font-size: 14px; }
+  .foot-intro-image { grid-row: 1; height: auto; aspect-ratio: 1.8; }
+  .foot-causes { min-height: 0; padding: 78px 0; }
+  .foot-causes-grid { grid-template-columns: 1fr; gap: 58px; }
+  .foot-causes-copy { padding-top: 0; }
+  .foot-causes-copy h2 { font-size: 28px; }
+  .foot-causes-copy p { margin-top: 28px; }
+  .foot-cause-list li { min-height: 112px; grid-template-columns: 66px 1fr; }
+  .foot-cause-number { font-size: 38px; }
+  .foot-cause-list h3 { font-size: 18px; }
+  .foot-cause-list p { font-size: 13px; }
+  .foot-symptoms { --foot-symptom-height: 720px; background-position: 58% center; }
+  .foot-symptoms-shade { background: rgba(3,18,43,.32); }
+  .foot-symptoms-inner { padding: 58px 0; }
+  .foot-symptoms-copy h2, .foot-symptoms-copy > p { width: 100%; }
+  .foot-symptoms-copy h2 { font-size: 29px; }
+  .foot-symptoms-copy > p { margin-top: 30px; font-size: 14px; }
+  .foot-symptoms .symptom-checklist { margin-top: 48px; }
+  .foot-treatments { min-height: 0; padding: 82px 0; }
+  .foot-treatment-flow { display: grid; grid-template-columns: 1fr; gap: 58px; margin-top: 58px; }
+  .foot-treatment-step, .foot-treatment-step + .foot-treatment-step { width: 100%; margin-left: 0; }
+  .foot-treatment-step img { width: 240px; height: 240px; margin: 0 auto; }
+  .foot-treatment-step h3 { margin-top: 28px; }
+}
+
+@media (max-width:520px) {
+  .disease-hero h1 { font-size: 29px; }
+  .disease-hero h2 { font-size: 19px; line-height: 1.45; }
+  .foot-intro-copy h2, .foot-causes-copy h2, .foot-symptoms-copy h2 { font-size: 26px; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .foot-symptoms-copy.reveal .symptom-checklist li { opacity: 1; transition: none; }
+}

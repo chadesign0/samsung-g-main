@@ -1,0 +1,111 @@
+@import url("shoulder-condition.css?v=20261013-5");
+
+.disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
+.disease-hero-shade { background: rgba(30,24,20,.34); }
+.disease-tabs { grid-template-columns: repeat(4,1fr); }
+
+.hip-intro { min-height: 570px; padding: 130px 0 120px; background: #fff; }
+.hip-intro-grid { display: grid; grid-template-columns: minmax(0,1fr) 520px; align-items: center; gap: 98px; }
+.hip-intro-copy h2 { margin: 0; font-size: 36px; line-height: 1.3; letter-spacing: -.055em; }
+.hip-intro-copy p { max-width: 660px; margin: 58px 0 0; color: #555; font-size: 17px; line-height: 1.62; letter-spacing: -.035em; }
+.hip-intro-image { width: 100%; height: 306px; object-fit: cover; object-position: center 48%; }
+
+.hip-causes { min-height: 730px; padding: 116px 0 128px; background: #f2f2f2; }
+.hip-causes h2 { margin: 0; text-align: center; font-size: 36px; line-height: 1.3; letter-spacing: -.055em; }
+.hip-cause-list { width: min(100%,1204px); display: flex; flex-wrap: wrap; justify-content: center; gap: 38px 86px; margin: 84px auto 0; padding: 0; list-style: none; }
+.hip-cause-list li { width: 344px; min-height: 150px; display: grid; place-items: center; padding: 24px 28px; text-align: center; background: #fff; border-radius: 17px; box-shadow: 0 5px 16px rgba(16,35,63,.025); }
+.hip-cause-list strong { position: relative; padding-top: 28px; font-size: 24px; line-height: 1.3; letter-spacing: -.05em; }
+.hip-cause-list strong::before { content: "✓"; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); color: #ff3023; font-family: Arial,sans-serif; font-size: 31px; font-weight: 800; }
+
+.hip-symptoms { --hip-symptom-height: clamp(790px,50.3vw,966px); position: relative; min-height: var(--hip-symptom-height); overflow: hidden; color: #fff; background: #07172f url("../assets/subpages/hip/symptom-hip.png") center/cover no-repeat; }
+.hip-symptoms-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(3,18,43,.1),rgba(3,18,43,.02)); }
+.hip-symptoms-inner { position: relative; z-index: 1; min-height: var(--hip-symptom-height); display: grid; grid-template-columns: minmax(0,620px) 536px; justify-content: space-between; align-items: center; gap: 72px; padding: 76px 0; }
+.hip-symptoms-copy { width: 100%; text-shadow: 0 2px 12px rgba(0,0,0,.28); }
+.hip-symptoms-copy h2 { margin: 0; font-size: clamp(32px,2.05vw,40px); line-height: 1.32; letter-spacing: -.05em; }
+.hip-symptoms-copy > p { margin: 46px 0 0; font-size: 16px; line-height: 1.62; letter-spacing: -.035em; }
+.hip-symptoms .symptom-checklist { margin-top: 70px; }
+.hip-symptom-focus { width: 536px; height: 626px; object-fit: cover; border-radius: 18px; box-shadow: 0 18px 42px rgba(0,0,0,.18); }
+.hip-symptoms-copy.reveal .symptom-checklist li { opacity: 0; transform: translateY(14px); transition: opacity .5s ease,transform .5s ease; }
+.hip-symptoms-copy.reveal.visible .symptom-checklist li { opacity: 1; transform: none; }
+.hip-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(1) { transition-delay: .2s; }
+.hip-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(2) { transition-delay: .34s; }
+.hip-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(3) { transition-delay: .48s; }
+.hip-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(4) { transition-delay: .62s; }
+
+.hip-treatments { min-height: 1040px; padding: 136px 0 116px; background: #f2f2f2; overflow: hidden; }
+.hip-treatments .section-heading > p { margin-top: 42px; }
+.hip-treatment-flow { display: flex; justify-content: center; align-items: flex-start; margin-top: 70px; }
+.hip-treatment-step { position: relative; width: 390px; text-align: center; }
+.hip-treatment-step + .hip-treatment-step { margin-left: -28px; }
+.hip-treatment-step img { display: block; width: 410px; height: 410px; max-width: none; margin-left: -10px; object-fit: cover; border-radius: 50%; }
+.hip-treatment-step h3 { margin: 62px 0 22px; font-size: 29px; line-height: 1.25; letter-spacing: -.05em; }
+.hip-treatment-step p { width: min(100%,320px); margin: 0 auto; font-size: 15px; line-height: 1.55; letter-spacing: -.035em; }
+
+@media (max-width:1500px) {
+  .hip-intro { min-height: 500px; padding: 104px 0 96px; }
+  .hip-intro-grid { grid-template-columns: minmax(0,1fr) 430px; gap: 72px; }
+  .hip-intro-image { height: 250px; }
+  .hip-intro-copy h2, .hip-causes h2 { font-size: 30px; }
+  .hip-intro-copy p { margin-top: 42px; font-size: 14px; }
+  .hip-causes { min-height: 620px; padding: 94px 0 104px; }
+  .hip-cause-list { gap: 30px 64px; margin-top: 66px; }
+  .hip-cause-list li { width: 296px; min-height: 126px; }
+  .hip-cause-list strong { font-size: 20px; }
+  .hip-symptoms-inner { grid-template-columns: minmax(0,560px) 430px; gap: 54px; }
+  .hip-symptom-focus { width: 430px; height: 502px; }
+  .hip-treatments { min-height: 880px; padding: 108px 0 102px; }
+  .hip-treatment-step { width: 330px; }
+  .hip-treatment-step + .hip-treatment-step { margin-left: -24px; }
+  .hip-treatment-step img { width: 348px; height: 348px; margin-left: -9px; }
+  .hip-treatment-step h3 { margin-top: 48px; font-size: 25px; }
+  .hip-treatment-step p { font-size: 14px; }
+}
+
+@media (max-width:1000px) {
+  .disease-tabs { display: flex; }
+  .disease-tabs > a { min-width: 190px; }
+  .hip-intro-grid { grid-template-columns: minmax(0,1fr) 360px; gap: 38px; }
+  .hip-symptoms-inner { grid-template-columns: minmax(0,1fr) 330px; gap: 28px; }
+  .hip-symptom-focus { width: 330px; height: 386px; }
+  .hip-treatment-step { width: 290px; }
+  .hip-treatment-step + .hip-treatment-step { margin-left: -18px; }
+  .hip-treatment-step img { width: 306px; height: 306px; margin-left: -8px; }
+}
+
+@media (max-width:800px) {
+  .disease-hero-inner { position: absolute; top: 70px; right: 20px; bottom: 150px; left: 20px; width: auto; min-width: 0; max-width: none; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0; }
+  .disease-hero h1, .disease-hero h2, .disease-hero-inner > p { width: 100%; max-width: 100%; white-space: normal; word-break: normal; overflow-wrap: anywhere; }
+  .breadcrumb { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .hip-intro { min-height: 0; padding: 78px 0; }
+  .hip-intro-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hip-intro-copy h2 { font-size: 28px; }
+  .hip-intro-copy p { margin-top: 28px; font-size: 14px; }
+  .hip-intro-image { grid-row: 1; height: auto; aspect-ratio: 1.8; }
+  .hip-causes { min-height: 0; padding: 78px 0; }
+  .hip-causes h2 { font-size: 28px; }
+  .hip-cause-list { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 48px; }
+  .hip-cause-list li { width: 100%; min-height: 100px; }
+  .hip-cause-list strong { font-size: 18px; }
+  .hip-symptoms { --hip-symptom-height: auto; min-height: 0; background-position: 58% center; }
+  .hip-symptoms-shade { background: rgba(3,18,43,.36); }
+  .hip-symptoms-inner { min-height: 0; grid-template-columns: 1fr; gap: 50px; padding: 78px 0; }
+  .hip-symptoms-copy h2 { font-size: 29px; }
+  .hip-symptoms-copy > p { margin-top: 30px; font-size: 14px; }
+  .hip-symptoms .symptom-checklist { margin-top: 48px; }
+  .hip-symptom-focus { width: min(100%,360px); height: auto; justify-self: center; }
+  .hip-treatments { min-height: 0; padding: 82px 0; }
+  .hip-treatment-flow { display: grid; grid-template-columns: 1fr; gap: 58px; margin-top: 58px; }
+  .hip-treatment-step, .hip-treatment-step + .hip-treatment-step { width: 100%; margin-left: 0; }
+  .hip-treatment-step img { width: 240px; height: 240px; margin: 0 auto; }
+  .hip-treatment-step h3 { margin-top: 28px; }
+}
+
+@media (max-width:520px) {
+  .disease-hero h1 { font-size: 29px; }
+  .disease-hero h2 { font-size: 19px; line-height: 1.45; }
+  .hip-intro-copy h2, .hip-causes h2, .hip-symptoms-copy h2 { font-size: 26px; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .hip-symptoms-copy.reveal .symptom-checklist li { opacity: 1; transform: none; transition: none; }
+}

@@ -1,0 +1,111 @@
+@import url("shoulder-condition.css?v=20261013-5");
+
+.disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
+.disease-hero-shade { background: rgba(30,24,20,.34); }
+.disease-tabs { grid-template-columns: repeat(7,1fr); font-size: 16px; }
+.disease-tabs > a { padding-inline: 8px; }
+
+.knee-intro { min-height: 710px; padding: 132px 0 112px; background: #fff; }
+.knee-intro-image { width: 100%; height: 306px; object-fit: cover; object-position: center 48%; }
+.knee-intro-copy { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 94px; margin-top: 58px; }
+.knee-intro-copy h2 { margin: 0; font-size: 36px; line-height: 1.3; letter-spacing: -.055em; }
+.knee-intro-copy p { margin: 2px 0 0; color: #555; font-size: 17px; line-height: 1.58; letter-spacing: -.035em; }
+
+.knee-causes { min-height: 730px; padding: 116px 0 128px; background: #f2f2f2; }
+.knee-causes h2 { margin: 0; text-align: center; font-size: 36px; line-height: 1.3; letter-spacing: -.055em; }
+.knee-cause-list { width: min(100%,1204px); display: flex; flex-wrap: wrap; justify-content: center; gap: 38px 86px; margin: 84px auto 0; padding: 0; list-style: none; }
+.knee-cause-list li { width: 344px; min-height: 150px; display: grid; place-items: center; padding: 24px 28px; text-align: center; background: #fff; border-radius: 17px; box-shadow: 0 5px 16px rgba(16,35,63,.025); }
+.knee-cause-list strong { position: relative; padding-top: 28px; font-size: 24px; line-height: 1.3; letter-spacing: -.05em; }
+.knee-cause-list strong::before { content: "✓"; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); color: #ff3023; font-family: Arial,sans-serif; font-size: 31px; font-weight: 800; }
+
+.knee-symptoms { --knee-symptom-height: clamp(760px,49.3vw,947px); position: relative; min-height: var(--knee-symptom-height); overflow: hidden; color: #fff; background: #07172f url("../assets/subpages/knee/symptom-knee.png") center/cover no-repeat; }
+.knee-symptoms-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(3,18,43,.18),rgba(3,18,43,.02)); }
+.knee-symptoms-inner { position: relative; z-index: 1; min-height: var(--knee-symptom-height); display: flex; align-items: center; padding: 70px 0; }
+.knee-symptoms-copy { width: min(100%,620px); text-shadow: 0 2px 12px rgba(0,0,0,.28); }
+.knee-symptoms-copy h2 { margin: 0; font-size: clamp(32px,2.05vw,40px); line-height: 1.32; letter-spacing: -.05em; }
+.knee-symptoms-copy > p { margin: 46px 0 0; font-size: 16px; line-height: 1.62; letter-spacing: -.035em; }
+.knee-symptoms .symptom-checklist { margin-top: 70px; }
+.knee-symptoms-copy.reveal .symptom-checklist li { opacity: 0; transform: translateY(14px); transition: opacity .5s ease,transform .5s ease; }
+.knee-symptoms-copy.reveal.visible .symptom-checklist li { opacity: 1; transform: none; }
+.knee-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(1) { transition-delay: .2s; }
+.knee-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(2) { transition-delay: .34s; }
+.knee-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(3) { transition-delay: .48s; }
+.knee-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(4) { transition-delay: .62s; }
+
+.knee-treatments { min-height: 920px; padding: 136px 0 122px; background: #f2f2f2; }
+.knee-treatments .section-heading > p { margin-top: 42px; }
+.knee-treatment-flow { --treatment-image-size: 250px; --treatment-line-offset: 16px; position: relative; display: grid; grid-template-columns: repeat(3,1fr); gap: 58px; margin-top: 86px; }
+.knee-treatment-flow::before { content: ""; position: absolute; z-index: 0; top: calc(var(--treatment-image-size) + var(--treatment-line-offset)); left: calc((100vw - 100%)/-2); right: calc((100vw - 100%)/-2); height: 2px; background: #1a58b0; }
+.knee-treatment-step { position: relative; z-index: 1; text-align: center; }
+.knee-treatment-step img { display: block; width: var(--treatment-image-size); height: var(--treatment-image-size); margin: 0 auto; object-fit: cover; border-radius: 50%; transform: translateY(-28px); }
+.knee-step-check { width: 30px; height: 30px; display: grid; place-items: center; margin: 1px auto 0; color: #222; background: #f2f2f2; border: 2px solid #222; border-radius: 50%; font-size: 15px; font-weight: 800; line-height: 1; }
+.knee-treatment-step h3 { margin: 25px 0 20px; font-size: 29px; line-height: 1.25; letter-spacing: -.05em; }
+.knee-treatment-step p { width: min(100%,320px); margin: 0 auto; font-size: 15px; line-height: 1.55; letter-spacing: -.035em; }
+
+@media (max-width:1500px) {
+  .disease-tabs { font-size: 13px; }
+  .knee-intro { min-height: 600px; padding: 104px 0 92px; }
+  .knee-intro-image { height: 244px; }
+  .knee-intro-copy { gap: 70px; margin-top: 46px; }
+  .knee-intro-copy h2, .knee-causes h2 { font-size: 30px; }
+  .knee-intro-copy p { font-size: 14px; }
+  .knee-causes { min-height: 620px; padding: 94px 0 104px; }
+  .knee-cause-list { gap: 30px 64px; margin-top: 66px; }
+  .knee-cause-list li { width: 296px; min-height: 126px; }
+  .knee-cause-list strong { font-size: 20px; }
+  .knee-treatments { min-height: 790px; padding: 106px 0 104px; }
+  .knee-treatment-flow { --treatment-image-size: 210px; margin-top: 72px; }
+  .knee-treatment-step img { transform: translateY(-24px); }
+  .knee-treatment-step h3 { font-size: 25px; }
+  .knee-treatment-step p { font-size: 14px; }
+}
+
+@media (max-width:1000px) {
+  .disease-tabs { display: flex; }
+  .disease-tabs > a { min-width: 155px; }
+  .knee-intro-copy { gap: 36px; }
+  .knee-cause-list { gap: 22px; }
+  .knee-cause-list li { width: calc(50% - 11px); }
+  .knee-treatment-flow { gap: 28px; }
+}
+
+@media (max-width:800px) {
+  .disease-hero-inner { position: absolute; top: 70px; right: 20px; bottom: 150px; left: 20px; width: auto; min-width: 0; max-width: none; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0; }
+  .disease-hero h1, .disease-hero h2, .disease-hero-inner > p { width: 100%; max-width: 100%; white-space: normal; word-break: normal; overflow-wrap: anywhere; }
+  .breadcrumb { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .knee-intro { min-height: 0; padding: 78px 0; }
+  .knee-intro-image { height: auto; aspect-ratio: 1.8; }
+  .knee-intro-copy { grid-template-columns: 1fr; gap: 28px; margin-top: 38px; }
+  .knee-intro-copy h2 { font-size: 28px; }
+  .knee-intro-copy p { font-size: 14px; }
+  .knee-causes { min-height: 0; padding: 78px 0; }
+  .knee-causes h2 { font-size: 28px; }
+  .knee-cause-list { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 48px; }
+  .knee-cause-list li { width: 100%; min-height: 100px; }
+  .knee-cause-list strong { font-size: 18px; }
+  .knee-symptoms { --knee-symptom-height: 700px; background-position: 58% center; }
+  .knee-symptoms-shade { background: rgba(3,18,43,.35); }
+  .knee-symptoms-inner { padding: 54px 0; }
+  .knee-symptoms-copy { width: 100%; }
+  .knee-symptoms-copy h2 { font-size: 29px; }
+  .knee-symptoms-copy > p { margin-top: 30px; font-size: 14px; }
+  .knee-symptoms .symptom-checklist { margin-top: 48px; }
+  .knee-treatments { min-height: 0; padding: 82px 0; }
+  .knee-treatment-flow { --treatment-image-size: 190px; grid-template-columns: 1fr; gap: 54px; margin-top: 58px; }
+  .knee-treatment-flow::before { display: none; }
+  .knee-treatment-step img { transform: none; }
+  .knee-step-check { margin-top: 4px; }
+  .knee-treatment-step h3 { font-size: 25px; }
+}
+
+@media (max-width:520px) {
+  .disease-hero h1 { font-size: 29px; }
+  .disease-hero h2 { font-size: 19px; line-height: 1.45; }
+  .knee-intro-copy h2, .knee-causes h2, .knee-symptoms-copy h2 { font-size: 26px; }
+  .knee-causes h2 { overflow-wrap: anywhere; }
+  .knee-symptoms { --knee-symptom-height: 660px; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .knee-symptoms-copy.reveal .symptom-checklist li { opacity: 1; transform: none; transition: none; }
+}

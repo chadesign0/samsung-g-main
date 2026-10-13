@@ -62,50 +62,6 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-const focusTransition = document.querySelector('.focus-transition');
-const focusStage = document.querySelector('.focus-stage');
-let focusAnimationFrame = 0;
-
-const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
-
-const updateFocusTransition = () => {
-  focusAnimationFrame = 0;
-  const bounds = focusTransition.getBoundingClientRect();
-  const scrollRange = Math.max(bounds.height - window.innerHeight, 1);
-  const progress = clamp(-bounds.top / scrollRange);
-  const expansion = clamp(progress / 0.62);
-  const easedExpansion = 1 - (1 - expansion) ** 3;
-  const viewportWidth = document.documentElement.clientWidth;
-  const compact = window.innerWidth <= 900;
-  const narrow = window.innerWidth <= 560;
-  const startWidth = compact
-    ? Math.min(viewportWidth * (narrow ? 0.82 : 0.78), 390)
-    : Math.min(500, viewportWidth * 0.78);
-  const startHeight = startWidth * (669 / 500);
-  const cardWidth = startWidth + (viewportWidth - startWidth) * easedExpansion;
-  const cardHeight = startHeight + (window.innerHeight - startHeight) * easedExpansion;
-  const focusFade = clamp((progress - 0.04) / 0.34);
-  const captionFade = clamp(progress / 0.18);
-  const shadeOpacity = clamp((progress - 0.62) / 0.2);
-  const copyOpacity = clamp((progress - 0.82) / 0.16);
-
-  focusStage.style.setProperty('--card-width', `${cardWidth.toFixed(2)}px`);
-  focusStage.style.setProperty('--card-height', `${cardHeight.toFixed(2)}px`);
-  focusStage.style.setProperty('--focus-fade', focusFade.toFixed(3));
-  focusStage.style.setProperty('--caption-fade', captionFade.toFixed(3));
-  focusStage.style.setProperty('--shade-opacity', shadeOpacity.toFixed(3));
-  focusStage.style.setProperty('--copy-opacity', copyOpacity.toFixed(3));
-};
-
-const requestFocusTransitionUpdate = () => {
-  if (focusAnimationFrame) return;
-  focusAnimationFrame = window.requestAnimationFrame(updateFocusTransition);
-};
-
-window.addEventListener('scroll', requestFocusTransitionUpdate, { passive: true });
-window.addEventListener('resize', requestFocusTransitionUpdate);
-updateFocusTransition();
-
 const hero = document.querySelector('.hero');
 const heroInitialMessage = hero.querySelector('.hero-swap-initial');
 const heroScrolledMessage = hero.querySelector('.hero-swap-scrolled');
@@ -157,65 +113,113 @@ window.addEventListener('scroll', () => {
 
 setHeroMessage(window.scrollY > hero.offsetTop + 4);
 
-const placePhotos = document.querySelectorAll('.space-photo');
-const placeSection = document.querySelector('.space');
-const placeMainPhoto = placeSection.querySelector('.space-main');
-const placeBurstPhotos = placeSection.querySelectorAll('.space-photo:not(.space-main)');
+const careContent = {
+  'one-stop': {
+    title: '원스톱 진료',
+    description: '삼성G정형외과는 찾아오시는 모든 분들이 편안한 일상으로 돌아갈 수 있도록<br />한 분 한 분의 이야기에 귀 기울이며 충분한 시간을 할애하고,<br />꼼꼼한 진단과 개인별 상태에 맞는 치료를 제공합니다.',
+    href: 'pages/one-stop-care.html',
+    images: ['assets/subpages/one-stop-care/procedure-room.png', 'assets/subpages/one-stop-care/doctor-procedure.png'],
+    alts: ['원스톱 진료실', '의료진의 시술 모습'],
+  },
+  day: {
+    title: '낮병동 운영',
+    description: '입원 부담은 줄이고 치료와 회복 관리는 더욱 세심하게 이어갑니다.<br />시술 이후 안정과 집중적인 재활이 필요한 분을 위해<br />낮 시간 동안 편안한 회복 공간을 제공합니다.',
+    href: 'pages/day-hospital.html',
+    images: ['assets/subpages/day-hospital/day-hospital-benefits.png', 'assets/subpages/day-hospital/rehab-02.png'],
+    alts: ['낮병동 회복 공간', '집중 재활 치료'],
+  },
+  knee: {
+    title: '특화치료',
+    description: '환자의 증상과 생활 패턴을 세심하게 살핀 뒤<br />주사·재활·비수술 치료를 단계적으로 연결해<br />일상 복귀에 필요한 치료 계획을 제안합니다.',
+    href: 'pages/knee-osteoarthritis.html',
+    images: ['assets/clinic-room.webp', 'assets/subpages/doctors/doctor-procedure.png'],
+    alts: ['정밀 진단실', '특화 시술 모습'],
+  },
+  spine: {
+    title: '척추센터',
+    description: '허리 통증과 다리 저림의 원인을 정밀하게 확인하고<br />증상과 진행 단계에 맞춘 비수술 중심의 치료로<br />편안한 움직임을 회복하도록 돕습니다.',
+    href: 'pages/lumbar-disc.html',
+    images: ['assets/subpages/lumbar-disc/cause-posture.jpg', 'assets/subpages/lumbar-disc/treatment-physical-lumbar.png'],
+    alts: ['허리 통증 진단', '허리 재활 치료'],
+  },
+  joint: {
+    title: '관절센터',
+    description: '무릎과 어깨 관절의 통증 원인을 정확히 구분하고<br />관절을 보존하는 치료부터 재활까지 환자별 상태에 맞춰<br />회복 과정을 함께 설계합니다.',
+    href: 'pages/knee-osteoarthritis.html',
+    images: ['assets/subpages/knee-osteoarthritis/treatment-injection.png', 'assets/subpages/frozen-shoulder/treatment-physical.jpg'],
+    alts: ['무릎 관절 치료', '어깨 관절 재활'],
+  },
+  surgery: {
+    title: '수액치료',
+    description: '환자의 컨디션과 회복 단계에 맞춰 필요한 영양과 수분을 보충하고<br />진료 과정과 연계한 체계적인 관리로<br />빠른 일상 복귀를 지원합니다.',
+    href: 'pages/one-stop-care.html',
+    images: ['assets/subpages/one-stop-care/procedure-room.png', 'assets/clinic-room.webp'],
+    alts: ['수액 치료 공간', '회복 관리 진료실'],
+  },
+};
+
+const careTabs = document.querySelectorAll('.care-tab');
+const carePanelTitle = document.querySelector('.care-panel-copy h3');
+const carePanelDescription = document.querySelector('.care-panel-copy p');
+const carePanelLink = document.querySelector('.care-panel-copy a');
+const carePanelImages = document.querySelectorAll('.care-panel-images img');
+
+careTabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const content = careContent[tab.dataset.care];
+    if (!content) return;
+
+    careTabs.forEach((item) => {
+      const selected = item === tab;
+      item.classList.toggle('active', selected);
+      item.setAttribute('aria-selected', String(selected));
+    });
+
+    carePanelTitle.textContent = content.title;
+    carePanelDescription.innerHTML = content.description;
+    carePanelLink.href = content.href;
+    carePanelImages.forEach((image, index) => {
+      image.src = content.images[index];
+      image.alt = content.alts[index];
+    });
+  });
+});
+
+const spaceFeature = document.querySelector('.space-feature');
+const spaceFeatureImage = spaceFeature.querySelector('img');
+const spaceFeatureTitle = spaceFeature.querySelector('figcaption strong');
+const spaceFeatureDescription = spaceFeature.querySelector('figcaption span');
+const spaceThumbnails = document.querySelectorAll('.space-thumb');
 const placeLightbox = document.querySelector('.place-lightbox');
 const placeLightboxImage = placeLightbox.querySelector('.place-lightbox-image');
 const placeLightboxClose = placeLightbox.querySelector('.place-lightbox-close');
-let lastPlacePhoto = null;
 
-placeSection.classList.add('burst-ready');
-
-const placeBurstObserver = new IntersectionObserver(
-  ([entry], observer) => {
-    if (!entry.isIntersecting) return;
-
-    const mainRect = placeMainPhoto.getBoundingClientRect();
-    const originX = mainRect.left + mainRect.width / 2;
-    const originY = mainRect.top + mainRect.height / 2;
-
-    placeBurstPhotos.forEach((photo, index) => {
-      const photoRect = photo.getBoundingClientRect();
-      const photoX = photoRect.left + photoRect.width / 2;
-      const photoY = photoRect.top + photoRect.height / 2;
-      photo.style.setProperty('--burst-x', `${originX - photoX}px`);
-      photo.style.setProperty('--burst-y', `${originY - photoY}px`);
-      photo.style.setProperty('--burst-delay', `${index * 70}ms`);
-    });
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => placeSection.classList.add('burst-visible'));
-    });
-    observer.unobserve(placeSection);
-  },
-  { threshold: 0.12 },
-);
-
-placeBurstObserver.observe(placeSection);
-
-const openPlaceLightbox = (photo) => {
-  const image = photo.querySelector('img');
-  lastPlacePhoto = photo;
-  placeLightboxImage.src = photo.dataset.full || image.currentSrc || image.src;
-  placeLightboxImage.alt = image.alt;
+const openPlaceLightbox = () => {
+  placeLightboxImage.src = spaceFeature.dataset.full || spaceFeatureImage.currentSrc || spaceFeatureImage.src;
+  placeLightboxImage.alt = spaceFeatureImage.alt;
   placeLightbox.showModal();
   document.body.classList.add('lightbox-open');
 };
 
-placePhotos.forEach((photo) => {
-  const image = photo.querySelector('img');
-  photo.tabIndex = 0;
-  photo.setAttribute('role', 'button');
-  photo.setAttribute('aria-label', `${image.alt} 크게 보기`);
-
-  photo.addEventListener('click', () => openPlaceLightbox(photo));
-  photo.addEventListener('keydown', (event) => {
-    if (event.key !== 'Enter' && event.key !== ' ') return;
-    event.preventDefault();
-    openPlaceLightbox(photo);
+spaceThumbnails.forEach((thumbnail) => {
+  thumbnail.addEventListener('click', () => {
+    spaceThumbnails.forEach((item) => item.classList.toggle('active', item === thumbnail));
+    spaceFeatureImage.src = thumbnail.dataset.src;
+    spaceFeatureImage.alt = thumbnail.querySelector('img').alt;
+    spaceFeature.dataset.full = thumbnail.dataset.src;
+    spaceFeatureTitle.textContent = thumbnail.dataset.title;
+    spaceFeatureDescription.textContent = thumbnail.dataset.description;
   });
+});
+
+spaceFeature.tabIndex = 0;
+spaceFeature.setAttribute('role', 'button');
+spaceFeature.setAttribute('aria-label', '선택한 병원 시설 사진 크게 보기');
+spaceFeature.addEventListener('click', openPlaceLightbox);
+spaceFeature.addEventListener('keydown', (event) => {
+  if (event.key !== 'Enter' && event.key !== ' ') return;
+  event.preventDefault();
+  openPlaceLightbox();
 });
 
 placeLightboxClose.addEventListener('click', () => placeLightbox.close());
@@ -224,7 +228,7 @@ placeLightbox.addEventListener('click', (event) => {
 });
 placeLightbox.addEventListener('close', () => {
   document.body.classList.remove('lightbox-open');
-  lastPlacePhoto?.focus();
+  spaceFeature.focus();
 });
 
 const quickTop = document.querySelector('.quick-top');

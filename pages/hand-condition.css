@@ -1,0 +1,91 @@
+@import url("shoulder-condition.css?v=20261013-5");
+
+.disease-tabs { grid-template-columns: repeat(6,1fr); font-size: 17px; }
+.disease-tabs > a { padding-inline: 8px; }
+
+.hand-causes { min-height: 850px; padding: 110px 0 126px; background: #fff; }
+.section-heading-centered { text-align: center; }
+.section-heading-centered > p { margin-top: 54px; }
+.cause-list { width: min(100%,1204px); margin: 58px auto 0; padding: 0; border-top: 1px solid #b9b9b9; list-style: none; }
+.cause-list li { min-height: 90px; display: grid; grid-template-columns: 330px 1fr; align-items: center; gap: 38px; padding: 16px 74px 16px 86px; border-bottom: 1px solid #b9b9b9; }
+.cause-list strong { position: relative; font-size: 24px; letter-spacing: -.05em; }
+.cause-list strong span { position: absolute; left: -48px; top: 50%; transform: translateY(-50%); color: #f02319; font-family: Arial,sans-serif; font-size: 32px; font-weight: 900; }
+.cause-list p { margin: 0; color: #555; font-size: 16px; line-height: 1.55; letter-spacing: -.035em; }
+
+.hand-symptoms { --hand-symptom-height: clamp(700px,50vw,960px); position: relative; min-height: var(--hand-symptom-height); overflow: hidden; color: #fff; background: #07172f url("../assets/subpages/hand/symptom-arm.png") center/cover no-repeat; }
+.hand-symptoms .symptoms-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(3,18,43,.13),rgba(3,18,43,.02)); }
+.hand-symptoms-inner { position: relative; z-index: 1; min-height: var(--hand-symptom-height); display: flex; align-items: center; padding: 52px 0; }
+.hand-symptoms-copy { width: 100%; text-shadow: 0 2px 12px rgba(0,0,0,.28); }
+.hand-symptoms-copy h2 { max-width: 680px; margin: 0; font-size: clamp(32px,2.15vw,42px); line-height: 1.32; letter-spacing: -.05em; }
+.hand-symptoms-copy > p { max-width: 620px; margin: 46px 0 0; font-size: 17px; line-height: 1.6; letter-spacing: -.035em; }
+.hand-symptoms .symptom-checklist { margin-top: 72px; }
+.hand-symptoms-copy.reveal .symptom-checklist li { opacity: 0; transform: translateY(14px); transition: opacity .5s ease,transform .5s ease; }
+.hand-symptoms-copy.reveal.visible .symptom-checklist li { opacity: 1; transform: none; }
+.hand-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(1) { transition-delay: .2s; }
+.hand-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(2) { transition-delay: .34s; }
+.hand-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(3) { transition-delay: .48s; }
+.hand-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(4) { transition-delay: .62s; }
+
+.hand-treatments { min-height: 930px; padding: 138px 0 126px; background: #f2f2f2; }
+.hand-treatments .section-heading > p { margin-top: 42px; }
+.treatment-flow { --treatment-image-size: 250px; --treatment-line-offset: 16px; position: relative; display: grid; grid-template-columns: repeat(3,1fr); gap: 58px; margin-top: 62px; }
+.treatment-flow::before { content: ""; position: absolute; z-index: 0; top: calc(var(--treatment-image-size) + var(--treatment-line-offset)); left: calc((100vw - 100%)/-2); right: calc((100vw - 100%)/-2); height: 2px; background: #1a58b0; }
+.treatment-step { position: relative; z-index: 1; text-align: center; }
+.treatment-step img { display: block; width: var(--treatment-image-size); height: var(--treatment-image-size); margin: 0 auto; object-fit: cover; border-radius: 50%; transform: translateY(-28px); }
+.step-check { width: 30px; height: 30px; display: grid; place-items: center; margin: 1px auto 0; color: #222; background: #f2f2f2; border: 2px solid #222; border-radius: 50%; font-size: 15px; font-weight: 800; line-height: 1; }
+.treatment-step h3 { margin: 25px 0 20px; font-size: 31px; line-height: 1.25; letter-spacing: -.05em; }
+.treatment-step p { width: min(100%,310px); margin: 0 auto; font-size: 16px; line-height: 1.55; letter-spacing: -.035em; }
+
+@media (max-width: 1500px) {
+  .disease-tabs { font-size: 14px; }
+  .hand-causes { min-height: 720px; padding: 90px 0 104px; }
+  .cause-list { margin-top: 48px; }
+  .cause-list li { min-height: 72px; grid-template-columns: 255px 1fr; padding: 13px 48px 13px 62px; }
+  .cause-list strong { font-size: 19px; }
+  .cause-list strong span { left: -38px; font-size: 26px; }
+  .cause-list p { font-size: 13px; }
+  .hand-treatments { min-height: 790px; padding: 106px 0 104px; }
+  .treatment-flow { --treatment-image-size: 210px; }
+  .treatment-step img { transform: translateY(-24px); }
+  .treatment-step h3 { font-size: 25px; }
+  .treatment-step p { font-size: 14px; }
+}
+
+@media (max-width: 1000px) {
+  .disease-tabs { display: flex; }
+  .disease-tabs > a { min-width: 150px; }
+  .cause-list li { grid-template-columns: 220px 1fr; gap: 24px; padding-right: 20px; }
+  .treatment-flow { gap: 28px; }
+}
+
+@media (max-width: 800px) {
+  .hand-causes { min-height: 0; padding: 78px 0; }
+  .section-heading-centered { text-align: left; }
+  .cause-list { margin-top: 48px; }
+  .cause-list li { min-height: 0; grid-template-columns: 1fr; gap: 10px; padding: 20px 12px 20px 45px; }
+  .cause-list strong { font-size: 18px; }
+  .cause-list strong span { left: -32px; font-size: 23px; }
+  .cause-list p { font-size: 13px; }
+  .hand-symptoms { --hand-symptom-height: 660px; background-position: 52% center; }
+  .hand-symptoms-inner { padding: 44px 0; }
+  .hand-symptoms-copy h2 { font-size: 30px; }
+  .hand-symptoms-copy > p { margin-top: 30px; font-size: 15px; }
+  .hand-symptoms .symptom-checklist { margin-top: 48px; }
+  .hand-treatments { min-height: 0; padding: 82px 0; }
+  .treatment-flow { grid-template-columns: 1fr; gap: 54px; margin-top: 52px; }
+  .treatment-flow::before { display: none; }
+  .treatment-flow { --treatment-image-size: 190px; }
+  .treatment-step img { transform: none; }
+  .step-check { margin-top: 4px; }
+  .treatment-step h3 { font-size: 25px; }
+  .treatment-step p { font-size: 14px; }
+}
+
+@media (max-width: 520px) {
+  .hand-symptoms-copy h2 { font-size: 27px; }
+  .hand-symptoms { --hand-symptom-height: 640px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hand-symptoms-copy.reveal .symptom-checklist li { opacity: 1; transform: none; transition: none; }
+}
