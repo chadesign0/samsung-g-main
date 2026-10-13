@@ -21,14 +21,15 @@
 .foot-cause-list h3 { margin: 0 0 12px; font-size: 24px; line-height: 1.3; letter-spacing: -.045em; }
 .foot-cause-list p { margin: 0; color: #666; font-size: 15px; line-height: 1.5; letter-spacing: -.03em; }
 
-.foot-symptoms { --foot-symptom-height: clamp(790px,50.3vw,966px); position: relative; min-height: var(--foot-symptom-height); overflow: hidden; color: #fff; background: #07172f url("../assets/subpages/foot/symptom-foot.png") center/cover no-repeat; }
+.foot-symptoms { --foot-symptom-height: clamp(650px,42vw,810px); position: relative; min-height: var(--foot-symptom-height); overflow: hidden; color: #fff; background: #07172f url("../assets/subpages/foot/symptom-foot.png") center/cover no-repeat; }
 .foot-symptoms-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(3,18,43,.08),rgba(3,18,43,.02)); }
-.foot-symptoms-inner { position: relative; z-index: 1; min-height: var(--foot-symptom-height); display: flex; align-items: center; padding: 72px 0; }
+.foot-symptoms-inner { position: relative; z-index: 1; min-height: var(--foot-symptom-height); display: flex; align-items: center; padding: 48px 0; }
 .foot-symptoms-copy { width: 100%; text-shadow: 0 2px 12px rgba(0,0,0,.28); }
 .foot-symptoms-copy h2, .foot-symptoms-copy > p { width: 720px; margin-left: auto; margin-right: auto; text-align: center; }
 .foot-symptoms-copy h2 { margin-top: 0; margin-bottom: 0; font-size: clamp(32px,2.05vw,40px); line-height: 1.32; letter-spacing: -.05em; }
-.foot-symptoms-copy > p { margin-top: 46px; margin-bottom: 0; font-size: 16px; line-height: 1.62; letter-spacing: -.035em; }
-.foot-symptoms .symptom-checklist { width: min(100%,1200px); margin: 70px auto 0; }
+.foot-symptoms-copy > p { margin-top: 32px; margin-bottom: 0; font-size: 16px; line-height: 1.62; letter-spacing: -.035em; }
+.foot-symptoms .symptom-checklist { width: min(100%,880px); gap: 12px; margin: 44px auto 0; }
+.foot-symptoms .symptom-checklist li { min-height: 60px; justify-content: center; gap: 16px; padding: 8px 24px; text-align: center; font-size: 20px; }
 .foot-symptoms-copy.reveal .symptom-checklist li { opacity: 0; transition: opacity .5s ease; }
 .foot-symptoms-copy.reveal.visible .symptom-checklist li { opacity: 1; }
 .foot-symptoms-copy.reveal.visible .symptom-checklist li:nth-child(1) { transition-delay: .2s; }
@@ -94,13 +95,14 @@
   .foot-cause-number { font-size: 38px; }
   .foot-cause-list h3 { font-size: 18px; }
   .foot-cause-list p { font-size: 13px; }
-  .foot-symptoms { --foot-symptom-height: 720px; background-position: 58% center; }
+  .foot-symptoms { --foot-symptom-height: 640px; background-position: 58% center; }
   .foot-symptoms-shade { background: rgba(3,18,43,.32); }
-  .foot-symptoms-inner { padding: 58px 0; }
+  .foot-symptoms-inner { padding: 40px 0; }
   .foot-symptoms-copy h2, .foot-symptoms-copy > p { width: 100%; }
   .foot-symptoms-copy h2 { font-size: 29px; }
   .foot-symptoms-copy > p { margin-top: 30px; font-size: 14px; }
-  .foot-symptoms .symptom-checklist { margin-top: 48px; }
+  .foot-symptoms .symptom-checklist { width: 100%; gap: 10px; margin-top: 36px; }
+  .foot-symptoms .symptom-checklist li { min-height: 54px; gap: 12px; padding: 10px 16px; font-size: 15px; }
   .foot-treatments { min-height: 0; padding: 82px 0; }
   .foot-treatment-flow { display: grid; grid-template-columns: 1fr; gap: 58px; margin-top: 58px; }
   .foot-treatment-step, .foot-treatment-step + .foot-treatment-step { width: 100%; margin-left: 0; }
