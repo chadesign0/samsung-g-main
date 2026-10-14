@@ -47,10 +47,12 @@ menuButton?.addEventListener('click', () => {
 menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const revealItems = document.querySelectorAll('.reveal');
+const revealItems = document.querySelectorAll('.reveal:not(.reveal-sequence)');
+const sequentialRevealItems = Array.from(document.querySelectorAll('.reveal-sequence'));
 
 if (reduceMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => item.classList.add('visible'));
+  sequentialRevealItems.forEach((item) => item.classList.add('visible'));
 } else {
   const observer = new IntersectionObserver((entries, currentObserver) => {
     entries.forEach((entry) => {
@@ -61,4 +63,28 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
   }, { threshold: 0.15 });
 
   revealItems.forEach((item) => observer.observe(item));
+
+  let sequenceIndex = 0;
+  let sequenceLocked = false;
+
+  const revealNextSequenceItem = () => {
+    if (sequenceLocked || sequenceIndex >= sequentialRevealItems.length) return;
+
+    const nextItem = sequentialRevealItems[sequenceIndex];
+    const bounds = nextItem.getBoundingClientRect();
+    const triggerLine = window.innerHeight * 0.86;
+    if (bounds.top > triggerLine || bounds.bottom < 0) return;
+
+    nextItem.classList.add('visible');
+    sequenceIndex += 1;
+    sequenceLocked = true;
+    window.setTimeout(() => {
+      sequenceLocked = false;
+      revealNextSequenceItem();
+    }, 180);
+  };
+
+  window.addEventListener('scroll', revealNextSequenceItem, { passive: true });
+  window.addEventListener('resize', revealNextSequenceItem);
+  revealNextSequenceItem();
 }

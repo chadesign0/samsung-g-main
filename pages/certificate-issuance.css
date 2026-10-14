@@ -1,0 +1,43 @@
+.certificate-guide { padding: 130px 0 150px; background: #fff; }
+.certificate-guide .notice-intro { margin-bottom: 85px; }
+.certificate-process { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 36px 32px; border-radius: 22px; background: #f5f6f8; }
+.process-group { text-align: center; }
+.process-group + .process-group { border-left: 1px solid #e0e3e8; }
+.process-group h3 { display: inline-block; margin: 0 0 26px; padding: 4px 14px; border: 1px solid #1756ae; border-radius: 20px; color: #1756ae; font-size: 17px; font-weight: 700; line-height: 1.35; }
+.process-steps { display: flex; align-items: start; justify-content: center; gap: 26px; margin: 0; padding: 0; list-style: none; }
+.process-steps li { position: relative; min-width: 90px; font-size: 17px; font-weight: 600; }
+.process-steps li:not(:last-child)::after { content: '»'; position: absolute; top: 12px; right: -22px; color: #1756ae; font-size: 28px; }
+.process-icon { display: block; width: 90px; height: 62px; margin: 0 auto 6px; object-fit: contain; }
+.process-inpatient p { margin: 0; font-size: 17px; font-weight: 600; }
+.certificate-section { display: grid; grid-template-columns: 31% 1fr; gap: 44px; align-items: start; padding: 68px 42px; border-top: 1px solid #d9dde3; }
+.certificate-process + .certificate-section { margin-top: 50px; border-top: 2px solid #4b525d; }
+.certificate-section h3 { margin: 0; font-size: 24px; line-height: 1.4; letter-spacing: -.035em; }
+.certificate-table-wrap { overflow-x: auto; }
+.certificate-table { width: 100%; border: 1px solid #e0e3e8; border-collapse: separate; border-spacing: 0; border-radius: 13px; overflow: hidden; font-size: 16px; }
+.certificate-table th, .certificate-table td { padding: 16px 18px; border-bottom: 1px solid #e0e3e8; text-align: left; vertical-align: middle; }
+.certificate-table tr:last-child > * { border-bottom: 0; }
+.certificate-table thead th { background: #f8f9fa; font-weight: 700; }
+.certificate-table tbody th { width: 23%; font-weight: 700; }
+.certificate-table td:nth-child(2) { width: 47%; }
+.certificate-forms { padding-bottom: 0; }
+.form-links { display: flex; flex-wrap: wrap; gap: 14px; }
+.form-links a { min-height: 44px; display: inline-flex; align-items: center; gap: 12px; padding: 6px 22px; border: 2px solid #1756ae; border-radius: 24px; color: #1756ae; font-size: 16px; font-weight: 700; }
+.form-links a:hover, .form-links a:focus-visible { color: #fff; background: #1756ae; }
+.certificate-note { max-width: 700px; margin: 22px 0 0; color: #626b79; font-size: 15px; line-height: 1.65; }
+.certificate-note a { color: #1756ae; text-decoration: underline; }
+@media (max-width: 800px) {
+  .certificate-guide { padding: 74px 0 96px; }
+  .certificate-guide .notice-intro { margin-bottom: 50px; }
+  .certificate-process { grid-template-columns: 1fr; gap: 32px; padding: 28px 16px; }
+  .process-group + .process-group { padding-top: 28px; border-top: 1px solid #e0e3e8; border-left: 0; }
+  .certificate-section { grid-template-columns: 1fr; gap: 24px; padding: 44px 0; }
+  .certificate-section h3 { font-size: 22px; }
+  .certificate-table { min-width: 630px; }
+}
+@media (max-width: 520px) {
+  .process-steps { gap: 15px; }
+  .process-steps li { min-width: 0; flex: 1; font-size: 13px; }
+  .process-steps li:not(:last-child)::after { right: -14px; }
+  .process-icon { width: 70px; height: 54px; }
+  .form-links { align-items: flex-start; flex-direction: column; }
+}

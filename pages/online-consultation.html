@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="삼성G정형외과 전문의 상담" />
+    <title>전문의 상담 | 삼성G정형외과</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="doctors.css?v=20261014-1" />
+    <link rel="stylesheet" href="notice.css?v=20261014-3" />
+  </head>
+  <body data-board-category="전문의 상담">
+    <a class="skip-link" href="#main">본문 바로가기</a>
+
+    <header class="site-header" id="top">
+      <div class="utility-bar">
+        <span class="search-pill" aria-hidden="true"></span>
+        <a class="brand" href="../index.html" aria-label="삼성G정형외과 홈"><img src="../assets/logo-color.svg" alt="삼성G정형외과" /></a>
+        <div class="utility-actions">
+          <button class="language" type="button"><img class="language-flag" src="../assets/flag-kr.svg" alt="" aria-hidden="true" /><span>KOR</span><span class="language-chevron" aria-hidden="true">⌄</span></button>
+          <a href="#">로그인</a>
+          <a href="#">회원가입</a>
+          <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="주요 메뉴"></nav>
+    </header>
+
+    <main id="main">
+      <section class="doctor-hero notice-hero" aria-labelledby="consultation-title">
+        <div class="doctor-hero-shade"></div>
+        <div class="doctor-hero-inner reveal">
+          <p class="breadcrumb"><span aria-hidden="true">⌂</span> 삼성G정형외과 <span aria-hidden="true">›</span> 고객센터 <span aria-hidden="true">›</span> 전문의 상담</p>
+          <h1 id="consultation-title">전문의 상담</h1>
+          <h2>궁금한 증상과 진료에 대해 문의해 주세요</h2>
+          <p class="doctor-hero-description">남겨주신 내용을 확인한 후<br />삼성G정형외과에서 안내해 드립니다.</p>
+        </div>
+        <nav class="customer-tabs" aria-label="고객센터 메뉴">
+          <a href="notice.html">공지사항</a>
+          <a href="online-consultation.html" class="is-active" aria-current="page">전문의 상담</a>
+          <a href="treatment-reviews.html">치료후기</a>
+          <a href="press-releases.html">언론보도</a>
+          <a href="research-activities.html">연구/학회 활동</a>
+          <a href="certificate-issuance.html">증명서 발급</a>
+          <a href="unpaid-fees.html">비급여 안내</a>
+        </nav>
+      </section>
+
+      <section class="notice-board" aria-label="전문의 상담 목록">
+        <div class="notice-board-inner">
+          <h2 class="notice-intro">증상과 치료, 진료 이용에 관해 궁금한 내용을 남겨주시면<br />확인 후 답변해 드리겠습니다.</h2>
+          <form class="board-search" role="search">
+            <label class="sr-only" for="search-type">검색 범위</label>
+            <select id="search-type" name="type">
+              <option value="all">전체</option>
+              <option value="title">제목</option>
+              <option value="content">내용</option>
+            </select>
+            <label class="sr-only" for="search-keyword">검색어</label>
+            <input id="search-keyword" name="keyword" type="search" placeholder="검색어를 입력해 주세요" />
+            <button class="search-button" type="submit">검색 <span aria-hidden="true">⌕</span></button>
+            <button class="reset-button" type="reset">초기화 <span aria-hidden="true">↻</span></button>
+          </form>
+
+          <div class="board-meta">
+            <p>총 게시글 <strong id="post-count">0</strong> / Page <strong>1 / 1</strong></p>
+            <div class="page-size-control">
+              <label class="sr-only" for="page-size">페이지당 게시글 수</label>
+              <select id="page-size">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+              </select>
+              <button type="button" id="apply-page-size">적용 <span aria-hidden="true">✓</span></button>
+            </div>
+          </div>
+
+          <div class="board-table-wrap">
+            <table class="board-table">
+              <caption class="sr-only">전문의 상담 게시글 목록</caption>
+              <thead><tr><th scope="col">번호</th><th scope="col">제목</th><th scope="col">작성자</th><th scope="col">조회수</th><th scope="col">등록일</th><th scope="col">첨부파일</th></tr></thead>
+              <tbody><tr><td class="empty-state" colspan="6"><p id="empty-state" role="status">등록된 전문의 상담 게시글이 없습니다.</p></td></tr></tbody>
+            </table>
+          </div>
+
+          <nav class="pagination" aria-label="전문의 상담 페이지 이동">
+            <button type="button" aria-label="이전 페이지" disabled>‹</button>
+            <button type="button" class="is-current" aria-current="page">1</button>
+            <button type="button" aria-label="다음 페이지" disabled>›</button>
+          </nav>
+        </div>
+      </section>
+
+      <section class="contact-us" id="contact-us" aria-labelledby="contact-us-title">
+        <div class="contact-us-shade"></div>
+        <div class="section-inner contact-us-inner reveal">
+          <p class="eyebrow">Contact Us</p>
+          <h2 id="contact-us-title">상담문의</h2>
+          <p>진료와 치료에 대한 궁금증을 편하게 문의해 주세요.</p>
+          <div class="contact-us-links">
+            <a class="contact-kakao" href="https://pf.kakao.com" target="_blank" rel="noreferrer"><svg viewBox="0 0 44 34" aria-hidden="true"><path d="M22 2C10.95 2 2 8.72 2 17c0 5.27 3.62 9.91 9.1 12.58L9 34l7.1-2.82c1.87.53 3.85.82 5.9.82 11.05 0 20-6.72 20-15S33.05 2 22 2Z"/><text x="22" y="21">TALK</text></svg>카카오톡 채널</a>
+            <a class="contact-phone" href="tel:0507-1452-3000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 3.8c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>0507.1452.3000</a>
+            <a class="contact-naver" href="https://talk.naver.com" target="_blank" rel="noreferrer"><strong aria-hidden="true">N</strong>네이버 톡톡</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"></footer>
+    <script src="../mega-menu.js?v=20261014-7"></script>
+    <script src="notice.js?v=20261014-5"></script>
+  </body>
+</html>

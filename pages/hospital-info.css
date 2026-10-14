@@ -1,0 +1,123 @@
+@import url("doctors.css?v=20261014-1");
+
+.hospital-page-title { width: min(calc(100% - 80px), 1240px); margin: 0 auto; }
+
+.greeting-lead { min-height: 350px; display: flex; align-items: center; padding: 90px 0; background: #fff; }
+.greeting-lead h2 { margin: 0; font-size: 35px; line-height: 1.35; letter-spacing: -.045em; }
+.greeting-message { padding: 130px 0; background: #f4f4f4; }
+.greeting-message-grid { display: grid; grid-template-columns: 430px 1fr; align-items: stretch; gap: 105px; }
+.greeting-message figure { height: 100%; margin: 0; }
+.greeting-message figure img { height: 100%; border-radius: 22px; object-fit: cover; object-position: center top; }
+.greeting-message h2 { margin: 0 0 38px; font-size: 34px; line-height: 1.35; letter-spacing: -.04em; }
+.greeting-message p { margin: 0 0 24px; font-size: 18px; line-height: 1.75; }
+.vision-band { position: relative; min-height: 655px; overflow: visible; color: #fff; background: #123a72; }
+.vision-band::after { content: ""; position: absolute; top: 0; left: 50%; width: 510px; height: 510px; background: url("../assets/subpages/doctors/doctor-system-logo.png") center / contain no-repeat; opacity: .18; transform: translateX(-50%); }
+.vision-band-inner { position: relative; z-index: 1; min-height: 655px; padding-top: 142px; }
+.vision-band h2 { margin: 0 0 26px; font-size: 36px; line-height: 1.35; letter-spacing: -.04em; }
+.vision-band p { margin: 0; font-size: 18px; line-height: 1.75; }
+.vision-band figure { position: absolute; z-index: 2; right: 110px; bottom: -230px; width: 450px; margin: 0; }
+.vision-band figure img { border-radius: 20px; }
+.vision-points { padding: 255px 0 150px; overflow: hidden; background: linear-gradient(155deg,#fff 0 44%,#f8f8f8 44% 100%); }
+.vision-points-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 300px auto; gap: 80px 120px; }
+.vision-point { display: grid; gap: 30px; align-content: start; }
+.vision-band figure.reveal-sequence,
+.vision-point.reveal-sequence,
+.vision-point .reveal-sequence { transform: translateY(54px); transition-duration: .62s; transition-timing-function: cubic-bezier(.22,.72,.2,1); }
+.vision-band figure.reveal-sequence.visible,
+.vision-point.reveal-sequence.visible,
+.vision-point .reveal-sequence.visible { transform: translateY(0); }
+.vision-point:nth-child(1) { grid-area: 1 / 2; }
+.vision-point:nth-child(2) { grid-area: 1 / 1 / 3 / 2; }
+.vision-point:nth-child(3) { grid-area: 2 / 2; }
+.vision-point figure { margin: 0; }
+.vision-point figure img { border-radius: 18px; }
+.vision-point-copy { width: min(100%, 470px); }
+.vision-point small { color: #1756ae; font-size: 13px; font-weight: 800; }
+.vision-point h3 { margin: 14px 0 22px; padding-bottom: 20px; border-bottom: 2px solid #1756ae; font-size: 26px; letter-spacing: -.035em; }
+.vision-point p { margin: 0; color: #555; font-size: 17px; line-height: 1.75; }
+
+.tour-page { padding: 125px 0 150px; background: #fff; }
+.tour-page h2 { margin: 0 0 105px; font-size: 38px; line-height: 1.35; letter-spacing: -.045em; }
+.tour-stage { position: relative; margin: 0; overflow: hidden; background: #eee; }
+.tour-stage img { height: 650px; object-fit: cover; transition: opacity .25s ease; }
+.tour-stage::after { content: ""; position: absolute; inset: 48% 0 0; background: linear-gradient(transparent,rgba(0,0,0,.68)); pointer-events: none; }
+.tour-caption { position: absolute; z-index: 2; right: 45px; bottom: 40px; left: 45px; color: #fff; text-align: center; }
+.tour-caption strong { display: inline-flex; min-width: 88px; min-height: 45px; align-items: center; justify-content: center; padding: 0 15px; color: #111; background: #fff; border-radius: 0; font-size: 29px; line-height: 1; }
+.tour-caption p { margin: 24px 0 0; font-size: 19px; line-height: 1.55; }
+.tour-thumbnails { display: grid; grid-template-columns: repeat(4,1fr); gap: 28px; margin-top: 42px; }
+.tour-thumb { padding: 0; overflow: hidden; background: #eee; border: 3px solid transparent; }
+.tour-thumb[aria-current="true"] { border-color: #1756ae; }
+.tour-thumb img { height: 190px; object-fit: cover; }
+
+.directions-page { padding: 135px 0 160px; background: #fff; }
+.directions-heading { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; }
+.directions-eyebrow { margin: 0 0 20px; color: #123a72; font-size: 22px; font-weight: 700; }
+.directions-heading h2 { margin: 0 0 30px; color: #123a72; font-size: 32px; }
+.directions-address { margin: 0; font-size: 20px; font-weight: 700; }
+.directions-note { margin: 10px 0 0; color: #777; font-size: 17px; }
+.map-links { display: flex; gap: 14px; padding-bottom: 8px; }
+.map-links a { min-width: 175px; height: 48px; display: flex; align-items: center; justify-content: center; gap: 12px; border: 1px solid #ddd; font-size: 15px; }
+.map-links a:nth-child(1) { color: #fff; background: #2db43b; border-color: #2db43b; }
+.map-links a:nth-child(2) { color: #281f00; background: #ffe100; border-color: #ffe100; }
+.map-links strong { font-size: 23px; }
+.map-placeholder { height: 560px; display: grid; place-items: center; margin-top: 65px; color: #514545; background: #ddd; font-size: 26px; }
+.direction-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 95px; margin-top: 130px; }
+.direction-cards figure { position: relative; margin: 0; overflow: hidden; border-radius: 20px; }
+.direction-cards img { border-radius: 20px; }
+.direction-card figcaption { position: absolute; z-index: 1; }
+.direction-hours figcaption { top: 50%; right: 34px; left: 34px; color: #fff; text-align: center; transform: translateY(-43%); }
+.hours-row { display: flex; align-items: center; justify-content: center; gap: 23px; margin: 12px 0; font-size: clamp(19px,1.35vw,26px); font-weight: 700; line-height: 1.35; }
+.hours-row strong { min-width: 74px; text-align: justify; text-align-last: justify; }
+.direction-hours figcaption p { margin: 17px 0 0; font-size: clamp(15px,1vw,19px); font-weight: 700; }
+.direction-phone figcaption { top: 72px; left: 72px; color: #111; }
+.direction-phone figcaption > strong { display: block; font-size: clamp(25px,1.65vw,32px); }
+.direction-phone figcaption > a { display: block; margin-top: 4px; color: #1756ae; font-size: clamp(34px,2.35vw,45px); font-weight: 800; letter-spacing: -.025em; line-height: 1.25; }
+.direction-phone figcaption p { margin: 22px 0 0; font-size: clamp(16px,1.05vw,20px); font-weight: 600; line-height: 1.55; }
+
+.equipment-empty { min-height: 2100px; background: #fff; }
+
+@media (max-width: 1500px) {
+  .greeting-message-grid { grid-template-columns: 340px 1fr; gap: 70px; }
+  .vision-band figure { right: 70px; width: 370px; }
+  .tour-stage img { height: 520px; }
+  .tour-thumb img { height: 150px; }
+  .map-placeholder { height: 450px; }
+  .equipment-empty { min-height: 1650px; }
+}
+@media (max-width: 800px) {
+  .hospital-page-title { width: calc(100% - 40px); }
+  .greeting-lead { min-height: 250px; padding: 70px 0; }
+  .greeting-lead h2 { font-size: 28px; }
+  .greeting-message { padding: 80px 0; }
+  .greeting-message-grid { grid-template-columns: 1fr; gap: 45px; }
+  .greeting-message figure { width: min(100%,430px); margin-inline: auto; }
+  .greeting-message h2 { font-size: 28px; }
+  .greeting-message p { font-size: 16px; }
+  .vision-band,.vision-band-inner { min-height: 650px; }
+  .vision-band-inner { padding-top: 90px; }
+  .vision-band h2 { font-size: 29px; }
+  .vision-band p { font-size: 16px; }
+  .vision-band figure { right: 20px; bottom: -150px; width: min(calc(100% - 40px),380px); }
+  .vision-points { padding: 190px 0 90px; }
+  .vision-points-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 70px; }
+  .vision-point:nth-child(1),.vision-point:nth-child(2),.vision-point:nth-child(3) { grid-area: auto; }
+  .vision-point h3 { font-size: 23px; }
+  .vision-point p { font-size: 16px; }
+  .tour-page { padding: 80px 0 90px; }
+  .tour-page h2 { margin-bottom: 55px; font-size: 30px; }
+  .tour-stage img { height: 420px; }
+  .tour-caption { right: 20px; bottom: 24px; left: 20px; }
+  .tour-caption strong { font-size: 23px; }
+  .tour-caption p { font-size: 15px; }
+  .tour-thumbnails { grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  .tour-thumb img { height: 120px; }
+  .directions-page { padding: 80px 0 90px; }
+  .directions-heading { grid-template-columns: 1fr; }
+  .map-links { display: grid; grid-template-columns: 1fr; }
+  .map-links a { width: 100%; }
+  .map-placeholder { height: 350px; margin-top: 45px; }
+  .direction-cards { grid-template-columns: 1fr; gap: 30px; margin-top: 70px; }
+  .direction-phone figcaption { top: 12%; left: 10%; }
+  .hours-row { gap: 15px; }
+  .equipment-empty { min-height: 900px; }
+}

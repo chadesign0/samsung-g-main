@@ -1,0 +1,38 @@
+@import url("same-day-procedure.css?v=20261013-1");
+
+.regenerative-page .procedure-tabs { width: min(calc(100% - 80px), 1130px); grid-template-columns: repeat(3, 1fr); }
+.regenerative-page .procedure-hero-inner { width: min(calc(100% - 80px), 1120px); }
+.regenerative-page .procedure-overview { min-height: 0; padding-bottom: 112px; }
+.regenerative-page .procedure-intro img { border-radius: 22px; }
+.regenerative-page .procedure-clinic > img { height: 300px; object-position: center 44%; }
+.regenerative-page .procedure-points { grid-template-columns: 1fr; gap: 30px; margin-top: 68px; }
+.regenerative-page .procedure-points li { min-height: 96px; display: grid; grid-template-columns: 96px 270px minmax(0, 1fr); align-items: center; align-content: center; justify-items: start; gap: 20px; padding: 18px 34px; background: #f5f5f5; border: 0; border-radius: 10px; box-shadow: 5px 6px 0 rgba(0,0,0,.17); text-align: left; }
+.regenerative-page .procedure-points li::after,.regenerative-page .procedure-points li > span { display: none; }
+.regenerative-page .procedure-points small { color: #00a7ee; font-size: 16px; }
+.regenerative-page .procedure-points h3 { margin: 0; font-size: 25px; }
+.regenerative-page .procedure-points p { color: #555; font-size: 18px; line-height: 1.55; }
+.regenerative-page .procedure-aftercare p { font-size: 18px; }
+
+@media (max-width: 1500px) {
+  .regenerative-page .procedure-points { margin-top: 54px; }
+  .regenerative-page .procedure-points li { grid-template-columns: 82px 230px minmax(0,1fr); min-height: 84px; gap: 18px; padding: 16px 28px; }
+  .regenerative-page .procedure-points h3 { font-size: 21px; }
+  .regenerative-page .procedure-points p { font-size: 16px; }
+}
+
+@media (max-width: 900px) {
+  .regenerative-page .procedure-tabs { width: calc(100% - 40px); }
+  .regenerative-page .procedure-tabs a { min-width: 180px; }
+  .regenerative-page .procedure-overview { padding-bottom: 78px; }
+  .regenerative-page .procedure-points { gap: 20px; }
+  .regenerative-page .procedure-points li { grid-template-columns: 78px minmax(0,1fr); gap: 6px 16px; }
+  .regenerative-page .procedure-points p { grid-column: 2; }
+}
+
+@media (max-width: 520px) {
+  .regenerative-page .procedure-hero-inner { width: 100%; }
+  .regenerative-page .procedure-hero h1 { font-size: 30px; }
+  .regenerative-page .procedure-clinic > img { height: auto; aspect-ratio: 16/7; }
+  .regenerative-page .procedure-points li { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
+  .regenerative-page .procedure-points p { grid-column: 1; }
+}

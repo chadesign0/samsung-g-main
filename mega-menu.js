@@ -91,12 +91,12 @@
       columns: 3,
       groups: [
         { items: [
-          ['인사말 & 비전', '#'],
-          ['둘러보기', '#space'],
+          ['인사말 & 비전', 'pages/greeting-vision.html'],
+          ['둘러보기', 'pages/clinic-tour.html'],
         ] },
         { items: [
-          ['오시는길 & 진료안내', '#location'],
-          ['의료장비 안내', '#'],
+          ['오시는길 & 진료안내', 'pages/directions.html'],
+          ['의료장비 안내', 'pages/medical-equipment.html'],
         ] },
         { items: [
           ['의료진 & 치료사 안내', 'pages/doctors.html'],
@@ -140,7 +140,7 @@
           ['석회성 건염 석회 흡입술', 'pages/calcific-tendinitis-lavage.html'], ['오십견 수액 팽창술', 'pages/frozen-shoulder-hydrodilatation.html'], ['신경차단술', 'pages/nerve-block.html'],
         ] },
         { title: '첨단 재생치료', items: [
-          ['PRP', '#'], ['콜라겐 주사 치료', '#'], ['무릎 연골 자가골수세포 주입술', '#'],
+          ['PRP', 'pages/prp-treatment.html'], ['콜라겐 주사 치료', 'pages/collagen-injection.html'], ['무릎 연골 자가골수세포 주입술', 'pages/knee-bmac-injection.html'],
         ] },
       ],
     },
@@ -200,15 +200,19 @@
       href: 'pages/notice.html',
       columns: 3,
       groups: [
-        { items: [['공지사항', 'pages/notice.html'], ['전문의 상담', '#'], ['치료 후기', '#']] },
-        { items: [['언론보도', '#'], ['연구 / 학회 활동', '#']] },
-        { items: [['증명서 발급', '#'], ['비급여 안내', '#']] },
+        { items: [['공지사항', 'pages/notice.html'], ['전문의 상담', 'pages/online-consultation.html'], ['치료 후기', 'pages/treatment-reviews.html']] },
+        { items: [['언론보도', 'pages/press-releases.html'], ['연구 / 학회 활동', 'pages/research-activities.html']] },
+        { items: [['증명서 발급', 'pages/certificate-issuance.html'], ['비급여 안내', 'pages/unpaid-fees.html']] },
       ],
     },
   ];
 
   const activeByFile = {
     'doctors.html': 'hospital',
+    'greeting-vision.html': 'hospital',
+    'clinic-tour.html': 'hospital',
+    'directions.html': 'hospital',
+    'medical-equipment.html': 'hospital',
     'one-stop-care.html': 'one-stop',
     'day-hospital.html': 'day-hospital',
     'benign-mass-removal.html': 'special',
@@ -224,6 +228,9 @@
     'calcific-tendinitis-lavage.html': 'special',
     'frozen-shoulder-hydrodilatation.html': 'special',
     'nerve-block.html': 'special',
+    'prp-treatment.html': 'special',
+    'collagen-injection.html': 'special',
+    'knee-bmac-injection.html': 'special',
     'lumbar-disc.html': 'spine',
     'lumbar-spinal-stenosis.html': 'spine',
     'lumbar-spondylolisthesis.html': 'spine',
@@ -266,6 +273,12 @@
     'trigger-finger.html': 'joint',
     'hand-wrist-arthritis.html': 'joint',
     'notice.html': 'customer',
+    'online-consultation.html': 'customer',
+    'treatment-reviews.html': 'customer',
+    'press-releases.html': 'customer',
+    'research-activities.html': 'customer',
+    'certificate-issuance.html': 'customer',
+    'unpaid-fees.html': 'customer',
   };
   const pageActiveId = activeByFile[currentFile] || '';
 

@@ -60,15 +60,32 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('Intersec
 }
 
 const boardSearch = document.querySelector('.board-search');
+const searchType = document.querySelector('#search-type');
 const searchKeyword = document.querySelector('#search-keyword');
 const emptyState = document.querySelector('#empty-state');
+const pressCard = document.querySelector('.press-card');
+const postCount = document.querySelector('#post-count');
 const categoryButtons = document.querySelectorAll('.customer-tabs button');
+const categoryLinks = document.querySelectorAll('.customer-tabs a');
 const headerSearch = document.querySelector('.search-pill');
 const applyPageSize = document.querySelector('#apply-page-size');
-let activeCategory = '공지사항';
+let activeCategory = document.body.dataset.boardCategory || '공지사항';
 
 function updateEmptyState(isSearch = false) {
+  if (!searchKeyword || !emptyState) return;
   const keyword = searchKeyword.value.trim();
+  if (pressCard) {
+    const field = searchType.value;
+    const title = pressCard.dataset.title.toLowerCase();
+    const content = pressCard.dataset.content.toLowerCase();
+    const query = isSearch ? keyword.toLowerCase() : '';
+    const matches = activeCategory === '언론보도' && (!query || (field === 'title' ? title.includes(query) : field === 'content' ? content.includes(query) : title.includes(query) || content.includes(query)));
+    pressCard.hidden = !matches;
+    emptyState.hidden = matches;
+    postCount.textContent = matches ? '1' : '0';
+    if (!matches) emptyState.textContent = query ? `“${keyword}” 검색 결과가 없습니다.` : '등록된 게시글이 없습니다.';
+    return;
+  }
   emptyState.textContent = isSearch && keyword ? `“${keyword}” 검색 결과가 없습니다.` : `등록된 ${activeCategory} 게시글이 없습니다.`;
 }
 
@@ -80,24 +97,28 @@ categoryButtons.forEach((button) => {
       item.classList.toggle('is-active', isActive);
       item.setAttribute('aria-pressed', String(isActive));
     });
-    boardSearch.reset();
+    categoryLinks.forEach((link) => {
+      link.classList.remove('is-active');
+      link.removeAttribute('aria-current');
+    });
+    boardSearch?.reset();
     updateEmptyState();
-    document.querySelector('.notice-board').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelector('.notice-board')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
-boardSearch.addEventListener('submit', (event) => {
+boardSearch?.addEventListener('submit', (event) => {
   event.preventDefault();
   updateEmptyState(true);
 });
 
-boardSearch.addEventListener('reset', () => {
+boardSearch?.addEventListener('reset', () => {
   window.requestAnimationFrame(() => updateEmptyState());
 });
 
 headerSearch?.addEventListener('click', () => {
-  document.querySelector('.notice-board').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  window.setTimeout(() => searchKeyword.focus(), 450);
+  document.querySelector('.notice-board')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (searchKeyword) window.setTimeout(() => searchKeyword.focus(), 450);
 });
 
-applyPageSize?.addEventListener('click', () => updateEmptyState(Boolean(searchKeyword.value.trim())));
+applyPageSize?.addEventListener('click', () => updateEmptyState(Boolean(searchKeyword?.value.trim())));

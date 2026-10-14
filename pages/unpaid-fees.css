@@ -1,0 +1,52 @@
+.unpaid-section { padding: 130px 0 170px; background: #fff; }
+.unpaid-section .notice-board-inner { width: min(calc(100% - 80px), 1200px); }
+.unpaid-section .notice-intro { margin-bottom: 55px; }
+.unpaid-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-bottom: 2px solid #1756ae; }
+.unpaid-tabs button { min-height: 54px; padding: 8px; border: 1px solid transparent; border-bottom: 0; background: #fff; color: #666f7e; font-size: 17px; font-weight: 600; }
+.unpaid-tabs button.is-active { border-color: #1756ae; color: #1756ae; background: #fff; }
+.unpaid-tabs button:hover, .unpaid-tabs button:focus-visible { color: #1756ae; background: #f2f6fc; }
+.unpaid-toolbar { display: flex; justify-content: flex-end; align-items: center; min-height: 70px; }
+.unpaid-toolbar form { display: flex; align-items: center; }
+.unpaid-toolbar input { width: 260px; height: 38px; padding: 0 12px; border: 1px solid #cdd3dd; font: inherit; }
+.unpaid-toolbar button { width: 38px; height: 38px; border: 0; background: #263e72; color: #fff; font-size: 24px; line-height: 1; }
+.unpaid-table-wrap { border-top: 2px solid #adb6c5; }
+.unpaid-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 13px; }
+.unpaid-table .col-subcategory { width: 15%; }
+.unpaid-table .col-code { width: 7%; }
+.unpaid-table .col-name { width: 17%; }
+.unpaid-table .col-fee { width: 8%; }
+.unpaid-table .col-included { width: 6%; }
+.unpaid-table .col-note { width: 17%; }
+.unpaid-table .col-date { width: 8%; }
+.unpaid-table th, .unpaid-table td { padding: 10px 7px; border-bottom: 1px solid #e2e5e9; text-align: center; vertical-align: middle; overflow-wrap: anywhere; }
+.unpaid-table thead th { background: #e9edf1; color: #252f40; font-weight: 700; }
+.unpaid-table tbody tr:nth-child(even) { background: #fbfcfd; }
+.unpaid-table td:nth-child(3) { text-align: left; }
+.unpaid-table .unpaid-message { height: 260px; color: #7d8795; font-size: 17px; text-align: center; }
+.unpaid-pagination { margin-top: 34px; }
+.unpaid-pagination span { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: #1756ae; color: #fff; font-size: 14px; }
+@media (max-width: 1100px) {
+  .unpaid-section .notice-board-inner { width: min(calc(100% - 40px), 1200px); }
+  .unpaid-table { display: block; }
+  .unpaid-table colgroup, .unpaid-table thead { display: none; }
+  .unpaid-table tbody { display: grid; gap: 16px; }
+  .unpaid-table tbody tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid #d8dee6; border-radius: 10px; background: #fff; overflow: hidden; }
+  .unpaid-table tbody tr:nth-child(even) { background: #fff; }
+  .unpaid-table tbody td { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px; padding: 12px; text-align: left; }
+  .unpaid-table tbody td::before { content: attr(data-label); color: #52627a; font-weight: 700; }
+  .unpaid-table tbody td:nth-child(3), .unpaid-table tbody td:nth-child(9) { grid-column: 1 / -1; }
+  .unpaid-table tbody .unpaid-message { grid-column: 1 / -1; display: grid; place-items: center; min-height: 180px; height: auto; }
+  .unpaid-table tbody .unpaid-message::before { content: none; }
+}
+@media (max-width: 800px) {
+  .unpaid-section { padding: 74px 0 100px; }
+  .unpaid-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .unpaid-tabs button { font-size: 15px; }
+  .unpaid-toolbar { padding: 18px 0; }
+  .unpaid-toolbar form, .unpaid-toolbar input { width: 100%; }
+  .unpaid-toolbar button { flex: 0 0 38px; }
+}
+@media (max-width: 600px) {
+  .unpaid-table tbody tr { grid-template-columns: 1fr; }
+  .unpaid-table tbody td { grid-column: 1 / -1; }
+}
