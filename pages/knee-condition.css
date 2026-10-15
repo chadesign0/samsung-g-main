@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261015-9");
+@import url("shoulder-condition.css?v=20261015-10");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
 .disease-hero-shade { background: rgba(30,24,20,.34); }

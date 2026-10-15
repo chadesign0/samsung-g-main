@@ -1,4 +1,4 @@
-@import url("same-day-procedure.css?v=20261015-9");
+@import url("same-day-procedure.css?v=20261015-10");
 
 .regenerative-page .procedure-tabs { width: min(calc(100% - 80px), 1130px); grid-template-columns: repeat(3, 1fr); }
 .regenerative-page .procedure-hero-inner { width: min(calc(100% - 80px), 1120px); }

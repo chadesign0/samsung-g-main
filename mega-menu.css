@@ -229,6 +229,15 @@
 @media (min-width: 801px) {
   .site-header { isolation: isolate; }
 
+  .site-header .utility-bar { height: 90px; }
+  .site-header .brand img { width: 240px; height: 51px; }
+  .site-header .main-nav,
+  body .site-header.is-nav-collapsed:not(:hover):not(:focus-within) .main-nav {
+    height: 60px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .site-header .main-nav {
     gap: clamp(20px, 3vw, 58px);
     overflow: hidden;
@@ -361,6 +370,10 @@
   .mega-menu-schedule dt { font-weight: 800; }
   .mega-menu-schedule dd { margin: 0; }
   .mega-menu-hours small { display: block; margin-top: 13px; font-size: 14px; }
+}
+
+@media (min-width: 801px) and (max-width: 1500px) {
+  .site-header .brand img { width: 220px; height: 49px; }
 }
 
 @media (min-width: 801px) and (max-width: 1180px) {

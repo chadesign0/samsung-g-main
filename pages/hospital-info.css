@@ -1,4 +1,4 @@
-@import url("doctors.css?v=20261015-9");
+@import url("doctors.css?v=20261015-10");
 
 .hospital-page-title { width: min(calc(100% - 80px), 1240px); margin: 0 auto; }
 #clinic-location, #clinic-hours { scroll-margin-top: 80px; }
