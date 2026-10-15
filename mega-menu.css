@@ -78,8 +78,71 @@
 .quick-menu-fixed .quick-top svg { width: 59px; height: 59px; fill: none; stroke: #111; stroke-width: 2; stroke-linecap: square; stroke-linejoin: miter; }
 
 @media (max-width: 800px) {
-  .quick-menu.quick-menu-fixed { right: 6px; }
-  .quick-menu-fixed .quick-menu-scale { transform: scale(.62); }
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  .quick-menu.quick-menu-fixed { display: none; }
+  .mobile-quick-bar {
+    position: fixed;
+    z-index: 90;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: calc(76px + env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: end;
+    padding: 0 7px env(safe-area-inset-bottom);
+    color: #56708f;
+    background: #fff;
+    box-shadow: 0 -3px 14px rgba(25, 45, 75, .1);
+  }
+  .mobile-quick-bar a {
+    min-width: 0;
+    height: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3px;
+    padding-top: 7px;
+    font-size: 11px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .mobile-quick-bar svg {
+    width: 24px;
+    height: 24px;
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .mobile-quick-bar .mobile-quick-booking { position: relative; padding-top: 40px; color: #008bcc; font-weight: 700; }
+  .mobile-quick-booking-icon {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: #008bcc;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 9px rgba(0, 95, 150, .2);
+    transform: translateX(-50%);
+  }
+  .mobile-quick-booking-icon svg { width: 26px; height: 26px; stroke-width: 1.9; }
+}
+
+@media (max-width: 359px) {
+  .mobile-quick-bar a { font-size: 10px; }
+}
+
+@media (min-width: 801px) {
+  .mobile-quick-bar { display: none; }
 }
 
 /* Shared wide footer */
@@ -314,10 +377,149 @@
 }
 
 @media (max-width: 800px) {
-  .mega-menu { display: none; }
-  .main-nav .mega-nav-link { display: block; text-align: center; }
+  .mega-menu,
+  body .site-header .main-nav { display: none !important; }
+  body.menu-open .site-header { z-index: 102; }
+  body.menu-open .quick-menu { visibility: hidden; }
+
+  .mobile-menu-backdrop {
+    position: fixed;
+    z-index: 100;
+    inset: 64px 0 0;
+    background: rgba(0, 0, 0, .62);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+
+  .mobile-menu-drawer {
+    position: fixed;
+    z-index: 101;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    width: min(72vw, 320px);
+    min-width: 260px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    color: #142339;
+    background: #fff;
+    box-shadow: 4px 0 18px rgba(0, 0, 0, .12);
+    transform: translateX(-105%);
+    transition: transform .25s ease;
+  }
+
+  body.menu-open .mobile-menu-backdrop { opacity: 1; pointer-events: auto; }
+  body.menu-open .mobile-menu-drawer { transform: translateX(0); }
+
+  .mobile-menu-account {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 18px;
+    color: #29486c;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .mobile-menu-tools {
+    display: flex;
+    gap: 8px;
+    padding: 12px 18px;
+    background: #f7f9fc;
+    border-bottom: 1px solid #edf0f4;
+  }
+  .mobile-menu-search,
+  .mobile-menu-language {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 11px;
+    border: 1px solid #cedaeb;
+    border-radius: 8px;
+    color: #627d9f;
+    background: #fff;
+  }
+  .mobile-menu-search { flex: 1; min-width: 0; }
+  .mobile-menu-search svg,
+  .mobile-menu-language svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .mobile-menu-search input {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    color: #29486c;
+    background: transparent;
+    font-size: 13px;
+  }
+  .mobile-menu-search input::placeholder { color: #7089a9; }
+  .mobile-menu-search:focus-within { border-color: #008bcc; }
+  .mobile-menu-language { flex: none; gap: 5px; font-size: 12px; font-weight: 700; }
+  .mobile-menu-no-results { margin: 22px 18px; color: #627d9f; font-size: 13px; }
+  .mobile-menu-category[hidden],
+  .mobile-menu-submenu li[hidden],
+  .mobile-menu-group-title[hidden],
+  .mobile-menu-no-results[hidden] { display: none; }
+  .mobile-menu-category { border-bottom: 1px solid #edf0f4; }
+  .mobile-menu-heading {
+    width: 100%;
+    min-height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border: 0;
+    color: #10243c;
+    background: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+  }
+  .mobile-menu-chevron {
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    border-right: 2px solid #8ba3c0;
+    border-bottom: 2px solid #8ba3c0;
+    transform: rotate(45deg);
+    transition: transform .2s ease;
+  }
+  .mobile-menu-heading.is-expanded .mobile-menu-chevron { transform: rotate(225deg); }
+  .mobile-menu-submenu { padding: 8px 0 15px; background: #f7f9fb; }
+  .mobile-menu-submenu[hidden] { display: none; }
+  .mobile-menu-submenu ul { margin: 0; padding: 0; list-style: none; }
+  .mobile-menu-submenu a {
+    display: block;
+    padding: 8px 20px;
+    color: #264361;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.35;
+  }
+  .mobile-menu-submenu a:hover,
+  .mobile-menu-submenu a:focus-visible { color: #1756ae; background: #edf3fa; }
+  .mobile-menu-group-title { margin: 14px 20px 5px; color: #8493a6; font-size: 12px; font-weight: 700; }
+}
+
+@media (min-width: 801px) {
+  .mobile-menu-backdrop,
+  .mobile-menu-drawer { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .mega-menu { transition: none; }
+  .mobile-menu-backdrop,
+  .mobile-menu-drawer,
+  .mobile-menu-chevron { transition: none; }
 }

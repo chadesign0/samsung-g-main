@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261013-5");
+@import url("shoulder-condition.css?v=20261015-4");
 
 .surgery-hero { position: relative; min-height: 784px; display: grid; place-items: center; overflow: hidden; color: #fff; background: var(--hero-image) var(--hero-position,center)/cover no-repeat; }
 .surgery-hero::before { content: ""; position: absolute; inset: 0; background: rgba(35,29,25,.38); }

@@ -1,15 +1,20 @@
-@import url("doctors.css?v=20261014-1");
+@import url("doctors.css?v=20261015-8");
 
 .hospital-page-title { width: min(calc(100% - 80px), 1240px); margin: 0 auto; }
+#clinic-location, #clinic-hours { scroll-margin-top: 80px; }
 
 .greeting-lead { min-height: 350px; display: flex; align-items: center; padding: 90px 0; background: #fff; }
 .greeting-lead h2 { margin: 0; font-size: 35px; line-height: 1.35; letter-spacing: -.045em; }
 .greeting-message { padding: 130px 0; background: #f4f4f4; }
 .greeting-message-grid { display: grid; grid-template-columns: 430px 1fr; align-items: stretch; gap: 105px; }
 .greeting-message figure { height: 100%; margin: 0; }
+.greeting-message figure picture { display: block; height: 100%; }
 .greeting-message figure img { height: 100%; border-radius: 22px; object-fit: cover; object-position: center top; }
 .greeting-message h2 { margin: 0 0 38px; font-size: 34px; line-height: 1.35; letter-spacing: -.04em; }
 .greeting-message p { margin: 0 0 24px; font-size: 18px; line-height: 1.75; }
+@media (min-width: 801px) {
+  .greeting-message-grid > div { align-self: center; }
+}
 .vision-band { position: relative; min-height: 655px; overflow: visible; color: #fff; background: #123a72; }
 .vision-band::after { content: ""; position: absolute; top: 0; left: 50%; width: 510px; height: 510px; background: url("../assets/subpages/doctors/doctor-system-logo.png") center / contain no-repeat; opacity: .18; transform: translateX(-50%); }
 .vision-band-inner { position: relative; z-index: 1; min-height: 655px; padding-top: 142px; }

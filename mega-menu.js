@@ -50,6 +50,32 @@
     return isSubpage ? `../${target}` : target;
   };
 
+  const mobileQuickBar = document.createElement('nav');
+  mobileQuickBar.className = 'mobile-quick-bar';
+  mobileQuickBar.setAttribute('aria-label', '모바일 빠른 메뉴');
+  mobileQuickBar.innerHTML = `
+    <a href="${resolveHref('pages/doctors.html')}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M18 10a3 3 0 0 0-1-5.8M21 20v-2a6 6 0 0 0-4-5.7"/></svg>
+      <span>의료진소개</span>
+    </a>
+    <a href="${resolveHref('pages/directions.html')}#clinic-hours">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+      <span>진료시간</span>
+    </a>
+    <a class="mobile-quick-booking" href="tel:0507-1452-3000" aria-label="간편예약 전화 0507-1452-3000">
+      <span class="mobile-quick-booking-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16m-10 5 2 2 4-4"/></svg></span>
+      <span>간편예약</span>
+    </a>
+    <a href="${resolveHref('pages/directions.html')}#clinic-location">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span>오시는길</span>
+    </a>
+    <a href="${resolveHref('pages/online-consultation.html')}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-3.7-.8L4 20l.8-3.8a8.5 8.5 0 1 1 15.2-4.7Z"/></svg>
+      <span>전문의상담</span>
+    </a>`;
+  document.body.append(mobileQuickBar);
+
   const footer = document.querySelector('.site-footer');
   if (footer) {
     footer.id = 'footer';
@@ -317,6 +343,118 @@
     const unavailable = !target || target === '#';
     return `<li><a href="${resolveHref(target)}"${unavailable ? ' aria-disabled="true" data-placeholder="true"' : ''}>${label}</a></li>`;
   };
+
+  const mobileBackdrop = document.createElement('div');
+  mobileBackdrop.className = 'mobile-menu-backdrop';
+  mobileBackdrop.setAttribute('aria-hidden', 'true');
+
+  const mobileDrawer = document.createElement('nav');
+  mobileDrawer.className = 'mobile-menu-drawer';
+  mobileDrawer.setAttribute('aria-label', '모바일 전체 메뉴');
+  mobileDrawer.setAttribute('aria-hidden', 'true');
+  mobileDrawer.tabIndex = -1;
+  mobileDrawer.inert = true;
+  mobileDrawer.innerHTML = `
+    <div class="mobile-menu-utility">
+      <div class="mobile-menu-account" aria-label="계정 메뉴 준비 중">
+        <span title="계정 기능 준비 중">내 정보</span>
+        <span title="관리자 기능 준비 중">관리자</span>
+        <span title="계정 기능 준비 중">로그아웃</span>
+      </div>
+      <div class="mobile-menu-tools">
+        <label class="mobile-menu-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input type="search" placeholder="메뉴 검색..." aria-label="메뉴 검색" autocomplete="off" />
+        </label>
+        <span class="mobile-menu-language" title="영문 페이지 준비 중" aria-label="영문 페이지 준비 중">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg>
+          EN
+        </span>
+      </div>
+    </div>` + categories.map((category) => {
+    const expanded = category.id === (pageActiveId || 'hospital');
+    return `<section class="mobile-menu-category">
+      <button class="mobile-menu-heading${expanded ? ' is-expanded' : ''}" type="button" data-mobile-id="${category.id}" aria-expanded="${expanded}" aria-controls="mobile-menu-${category.id}">
+        <span>${category.label}</span><span class="mobile-menu-chevron" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-menu-submenu" id="mobile-menu-${category.id}"${expanded ? '' : ' hidden'}>
+        ${category.groups.map((group) => `
+          ${category.groups.length > 1 && group.title ? `<p class="mobile-menu-group-title">${group.title}</p>` : ''}
+          <ul>${group.items.map(itemMarkup).join('')}</ul>
+        `).join('')}
+      </div>
+    </section>`;
+  }).join('') + '<p class="mobile-menu-no-results" role="status" hidden>검색 결과가 없습니다.</p>';
+  document.body.append(mobileBackdrop, mobileDrawer);
+
+  const mobileHeadings = [...mobileDrawer.querySelectorAll('.mobile-menu-heading')];
+  mobileHeadings.forEach((button) => button.addEventListener('click', () => {
+    const shouldExpand = button.getAttribute('aria-expanded') !== 'true';
+    mobileHeadings.forEach((heading) => {
+      const expanded = heading === button && shouldExpand;
+      heading.classList.toggle('is-expanded', expanded);
+      heading.setAttribute('aria-expanded', String(expanded));
+      document.getElementById(heading.getAttribute('aria-controls')).hidden = !expanded;
+    });
+  }));
+
+  const mobileSearch = mobileDrawer.querySelector('.mobile-menu-search input');
+  const mobileNoResults = mobileDrawer.querySelector('.mobile-menu-no-results');
+  mobileSearch.addEventListener('input', () => {
+    const query = mobileSearch.value.trim().toLowerCase();
+    let visibleCategories = 0;
+    mobileHeadings.forEach((heading) => {
+      const category = heading.closest('.mobile-menu-category');
+      const titleMatches = heading.textContent.toLowerCase().includes(query);
+      let visibleItems = 0;
+      category.querySelectorAll('li').forEach((item) => {
+        item.hidden = Boolean(query) && !titleMatches && !item.textContent.toLowerCase().includes(query);
+        if (!item.hidden) visibleItems++;
+      });
+      category.hidden = Boolean(query) && !titleMatches && visibleItems === 0;
+      if (!category.hidden) visibleCategories++;
+      const expanded = query ? !category.hidden : heading.dataset.mobileId === (pageActiveId || 'hospital');
+      heading.classList.toggle('is-expanded', expanded);
+      heading.setAttribute('aria-expanded', String(expanded));
+      document.getElementById(heading.getAttribute('aria-controls')).hidden = !expanded;
+      category.querySelectorAll('.mobile-menu-group-title').forEach((title) => {
+        title.hidden = Boolean(query) && ![...title.nextElementSibling.children].some((item) => !item.hidden);
+      });
+    });
+    mobileNoResults.hidden = !query || visibleCategories > 0;
+  });
+
+  const menuToggle = header.querySelector('.menu-toggle');
+  const closeMobileMenu = () => {
+    document.body.classList.remove('menu-open');
+    nav.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    menuToggle?.setAttribute('aria-label', '메뉴 열기');
+    menuToggle?.focus();
+  };
+  let mobileWasOpen = false;
+  const syncMobileMenu = () => {
+    const open = !desktop.matches && document.body.classList.contains('menu-open');
+    mobileDrawer.setAttribute('aria-hidden', String(!open));
+    mobileDrawer.inert = !open;
+    if (open && !mobileWasOpen) {
+      mobileDrawer.scrollTop = 0;
+      mobileDrawer.focus({ preventScroll: true });
+    }
+    mobileWasOpen = open;
+  };
+  new MutationObserver(syncMobileMenu).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  mobileBackdrop.addEventListener('click', closeMobileMenu);
+  mobileDrawer.addEventListener('click', (event) => {
+    if (event.target.closest('[data-placeholder="true"]')) event.preventDefault();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && document.body.classList.contains('menu-open')) closeMobileMenu();
+  });
+  desktop.addEventListener('change', () => {
+    if (desktop.matches) closeMobileMenu();
+    syncMobileMenu();
+  });
 
   const renderCategory = (category) => {
     categoryTitle.textContent = category.label;

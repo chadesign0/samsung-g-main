@@ -11,7 +11,7 @@
       content: `
         <section class="greeting-lead"><div class="hospital-page-title reveal"><h2>편안한 움직임을 되찾는 과정,<br />삼성G정형외과가 함께합니다</h2></div></section>
         <section class="greeting-message"><div class="section-inner greeting-message-grid">
-          <figure class="reveal"><img src="../assets/subpages/hospital/greeting-director.png" alt="이상현 대표원장" /></figure>
+          <figure class="reveal"><picture><source media="(min-width: 801px)" srcset="../assets/subpages/hospital/doctor-lee-portrait-desktop.jpg" /><img src="../assets/subpages/hospital/greeting-director.png" alt="이상현 대표원장" /></picture></figure>
           <div class="reveal"><h2>안녕하세요.<br />삼성G정형외과를 찾아주셔서 감사합니다.</h2>
             <p>관절과 척추의 통증은 걷고, 앉고, 움직이는<br />평범한 일상에 크고 작은 불편함을 만들 수 있습니다.</p>
             <p>같은 부위에서 나타나는 증상도 원인과 진행 정도가 다르기 때문에<br />현재 상태를 정확하게 확인하고 필요한 치료를 하는 과정이 중요합니다.</p>
@@ -51,12 +51,12 @@
       subtitle: '오시는 길과 진료시간을 안내해 드립니다',
       description: '삼성G정형외과의 위치와 진료시간을 확인하시고<br />편안하게 방문해 주세요.',
       content: `
-        <section class="directions-page"><div class="section-inner">
+        <section class="directions-page" id="clinic-location"><div class="section-inner">
           <div class="directions-heading reveal"><div><p class="directions-eyebrow">( Location )</p><h2>삼성G정형외과 오시는 길</h2><p class="directions-address">경기 군포시 군포로 522 4층</p><p class="directions-note">군포새마을금고 건물 옆 넓은 주차타워에 편리하게 주차하실 수 있습니다.</p></div>
           <nav class="map-links" aria-label="지도 서비스"><a href="https://map.naver.com" target="_blank" rel="noreferrer"><strong>N</strong>네이버 지도</a><a href="https://map.kakao.com" target="_blank" rel="noreferrer">● 카카오 지도</a><a href="https://tmap.life" target="_blank" rel="noreferrer"><strong>T</strong>티맵 지도</a></nav></div>
           <div class="map-placeholder reveal" role="img" aria-label="네이버 지도 위치 영역">네이버 지도</div>
           <div class="direction-cards">
-            <figure class="direction-card direction-hours reveal"><img src="../assets/subpages/hospital/hours.png" alt="" /><figcaption><div class="hours-row"><strong>평&nbsp;&nbsp;일</strong><span>오전 08:30 - 오후 07:00</span></div><div class="hours-row"><strong>수요일</strong><span>오전 08:30 - 오후 01:00</span></div><div class="hours-row"><strong>토요일</strong><span>오전 08:30 - 오후 02:00</span></div><p>*평일 점심시간 오후 1시 - 2시</p></figcaption></figure>
+            <figure class="direction-card direction-hours reveal" id="clinic-hours"><img src="../assets/subpages/hospital/hours.png" alt="" /><figcaption><div class="hours-row"><strong>평&nbsp;&nbsp;일</strong><span>오전 08:30 - 오후 07:00</span></div><div class="hours-row"><strong>수요일</strong><span>오전 08:30 - 오후 01:00</span></div><div class="hours-row"><strong>토요일</strong><span>오전 08:30 - 오후 02:00</span></div><p>*평일 점심시간 오후 1시 - 2시</p></figcaption></figure>
             <figure class="direction-card direction-phone reveal"><img src="../assets/subpages/hospital/phone.png" alt="" /><figcaption><strong>대표전화</strong><a href="tel:0507-1452-3000">0507-1452-3000</a><p>진료 예약 및 상담이 필요하신 경우 전화주시면<br />자세한 상담과 예약을 도와드립니다.</p></figcaption></figure>
           </div>
         </div></section>`,
@@ -86,6 +86,10 @@
   main.innerHTML = `
     <section class="doctor-hero" aria-labelledby="hospital-hero-title"><div class="doctor-hero-shade"></div><div class="doctor-hero-inner reveal"><p class="breadcrumb"><span aria-hidden="true">⌂</span> 삼성G정형외과 <span aria-hidden="true">›</span> 병원소개 <span aria-hidden="true">›</span> ${config.title}</p><h1 id="hospital-hero-title">${config.title}</h1><h2>${config.subtitle}</h2><p class="doctor-hero-description">${config.description}</p></div><nav class="doctor-subnav" aria-label="병원소개 메뉴">${subnav.map(([label, href, id]) => `<a href="${href}"${id === page ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav></section>
     ${config.content}${contact}`;
+
+  if (page === 'directions' && location.hash) {
+    window.addEventListener('load', () => document.getElementById(location.hash.slice(1))?.scrollIntoView(), { once: true });
+  }
 
   if (page === 'tour') {
     const mainImage = document.querySelector('#tour-main-image');
