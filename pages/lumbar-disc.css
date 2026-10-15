@@ -1,4 +1,4 @@
-@import url("neck-condition.css?v=20261015-4");
+@import url("neck-condition.css?v=20261015-9");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: center; }
 .disease-hero-shade { background: rgba(20, 16, 14, .4); }

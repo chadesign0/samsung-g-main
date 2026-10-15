@@ -356,16 +356,10 @@
   mobileDrawer.inert = true;
   mobileDrawer.innerHTML = `
     <div class="mobile-menu-utility">
-      <div class="mobile-menu-account" aria-label="계정 메뉴 준비 중">
+      <div class="mobile-menu-account" aria-label="계정 및 언어 메뉴">
         <span title="계정 기능 준비 중">내 정보</span>
         <span title="관리자 기능 준비 중">관리자</span>
         <span title="계정 기능 준비 중">로그아웃</span>
-      </div>
-      <div class="mobile-menu-tools">
-        <label class="mobile-menu-search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-          <input type="search" placeholder="메뉴 검색..." aria-label="메뉴 검색" autocomplete="off" />
-        </label>
         <span class="mobile-menu-language" title="영문 페이지 준비 중" aria-label="영문 페이지 준비 중">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg>
           EN
@@ -384,7 +378,7 @@
         `).join('')}
       </div>
     </section>`;
-  }).join('') + '<p class="mobile-menu-no-results" role="status" hidden>검색 결과가 없습니다.</p>';
+  }).join('');
   document.body.append(mobileBackdrop, mobileDrawer);
 
   const mobileHeadings = [...mobileDrawer.querySelectorAll('.mobile-menu-heading')];
@@ -397,32 +391,6 @@
       document.getElementById(heading.getAttribute('aria-controls')).hidden = !expanded;
     });
   }));
-
-  const mobileSearch = mobileDrawer.querySelector('.mobile-menu-search input');
-  const mobileNoResults = mobileDrawer.querySelector('.mobile-menu-no-results');
-  mobileSearch.addEventListener('input', () => {
-    const query = mobileSearch.value.trim().toLowerCase();
-    let visibleCategories = 0;
-    mobileHeadings.forEach((heading) => {
-      const category = heading.closest('.mobile-menu-category');
-      const titleMatches = heading.textContent.toLowerCase().includes(query);
-      let visibleItems = 0;
-      category.querySelectorAll('li').forEach((item) => {
-        item.hidden = Boolean(query) && !titleMatches && !item.textContent.toLowerCase().includes(query);
-        if (!item.hidden) visibleItems++;
-      });
-      category.hidden = Boolean(query) && !titleMatches && visibleItems === 0;
-      if (!category.hidden) visibleCategories++;
-      const expanded = query ? !category.hidden : heading.dataset.mobileId === (pageActiveId || 'hospital');
-      heading.classList.toggle('is-expanded', expanded);
-      heading.setAttribute('aria-expanded', String(expanded));
-      document.getElementById(heading.getAttribute('aria-controls')).hidden = !expanded;
-      category.querySelectorAll('.mobile-menu-group-title').forEach((title) => {
-        title.hidden = Boolean(query) && ![...title.nextElementSibling.children].some((item) => !item.hidden);
-      });
-    });
-    mobileNoResults.hidden = !query || visibleCategories > 0;
-  });
 
   const menuToggle = header.querySelector('.menu-toggle');
   const closeMobileMenu = () => {
