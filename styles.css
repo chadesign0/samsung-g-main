@@ -212,7 +212,8 @@ body.lightbox-open { overflow: hidden; }
 .map-links .kakao svg circle { fill: #ffdb00; }
 .map-links .tmap { color: #222; background: #fff; }
 .map-links .tmap > span { background: linear-gradient(135deg, #ff2cb8 20%, #744cff 50%, #14c6da 75%); background-clip: text; color: transparent; }
-.map-placeholder { height: 556px; display: grid; place-items: center; margin-top: 62px; color: #472d2a; background: #d9d9d9; font-size: 26px; }
+.map-placeholder { height: 556px; margin-top: 62px; background: #d9d9d9; }
+.map-placeholder iframe { display: block; width: 100%; height: 100%; border: 0; }
 
 .site-footer { display: flex; align-items: center; padding: 32px 0; color: #fff; background: #123764; }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 742px) 360px; align-items: center; justify-content: space-between; gap: 100px; }
@@ -490,12 +491,13 @@ body.lightbox-open { overflow: hidden; }
   bottom: -2px;
   height: 4px;
   background: #21d6bd;
+  opacity: 0;
   transition: left .25s ease, right .25s ease;
 }
 .care-tab:hover,
 .care-tab:focus-visible,
 .care-tab.active { color: #24dfc4; }
-.care-tab.active::after { left: 8px; right: 8px; }
+.care-tab.active::after { left: 8px; right: 8px; opacity: 1; }
 .care-panel {
   display: grid;
   grid-template-columns: 1fr 470px;
@@ -587,7 +589,7 @@ body.lightbox-open { overflow: hidden; }
     gap: 20px;
     padding: 90px 0 110px;
   }
-  .doctor-visual { grid-row: auto; width: min(100%, 500px); }
+  .doctor-visual { position: static; top: auto; grid-row: auto; width: min(100%, 500px); }
   .doctor-profile { margin-top: 30px; }
   .doctor-profile blockquote { margin-top: 80px; }
   .career { grid-column: 1; margin-top: 55px; }

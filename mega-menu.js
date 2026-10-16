@@ -7,6 +7,13 @@
   const currentFile = window.location.pathname.split('/').pop() || 'index.html';
   const desktop = window.matchMedia('(min-width: 801px)');
 
+  const brand = header.querySelector('.utility-bar .brand');
+  if (isSubpage && brand) brand.href = '../index.html#';
+  brand?.insertAdjacentHTML('beforebegin', `
+    <a class="mobile-header-phone" href="tel:031-452-3000" aria-label="전화하기 031-452-3000">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 3.8c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>
+    </a>`);
+
   const quickMenuMarkup = `
     <div class="quick-menu-main">
       <a class="quick-menu-item" href="https://pf.kakao.com" target="_blank" rel="noreferrer">
@@ -22,9 +29,9 @@
         <span>블로그</span>
       </a>
     </div>
-    <a class="quick-phone" href="tel:0507-1452-3000" aria-label="전화 상담 0507-1452-3000">
+    <a class="quick-phone" href="tel:031-452-3000" aria-label="전화 상담 031-452-3000">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 3.8c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>
-      <span>0507<br />1452.3000</span>
+      <span>031-452<br />3000</span>
     </a>
     <a class="quick-top" href="#top" aria-label="맨 위로 이동"><svg viewBox="0 0 76 76" aria-hidden="true"><path d="M20 34 38 16l18 18M38 16v44"/></svg></a>`;
 
@@ -62,9 +69,9 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
       <span>진료시간</span>
     </a>
-    <a class="mobile-quick-booking" href="tel:0507-1452-3000" aria-label="간편예약 전화 0507-1452-3000">
-      <span class="mobile-quick-booking-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16m-10 5 2 2 4-4"/></svg></span>
-      <span>간편예약</span>
+    <a class="mobile-quick-call" href="tel:031-452-3000" aria-label="전화 031-452-3000">
+      <span class="mobile-quick-call-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 3.8c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg></span>
+      <span>전화</span>
     </a>
     <a href="${resolveHref('pages/directions.html')}#clinic-location">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -100,7 +107,7 @@
               <p>대표 : 이상현</p>
               <p>사업자등록번호 : 738-92-02239</p>
               <p>이메일 : samsungggos@naver.com</p>
-              <p>전화번호 : 031-452-3000</p>
+              <p>전화번호 : <a href="tel:031-452-3000">031-452-3000</a></p>
               <p>팩스 : 031-452-3002</p>
             </div>
           </div>
@@ -323,7 +330,7 @@
       <div class="mega-menu-content"></div>
       <aside class="mega-menu-hours" aria-label="대표번호와 진료시간">
         <h2>대표번호</h2>
-        <a class="mega-menu-phone" href="tel:0507-1452-3000">0507-1452-3000</a>
+        <a class="mega-menu-phone" href="tel:031-452-3000">031-452-3000</a>
         <dl class="mega-menu-schedule">
           <dt>평일</dt><dd>오전 08:30 - 오후 07:00</dd>
           <dt>수요일</dt><dd>오전 08:30 - 오후 01:00</dd>

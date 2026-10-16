@@ -76,10 +76,16 @@
 .quick-menu-fixed .quick-phone svg { width: 25px; height: 25px; fill: currentColor; }
 .quick-menu-fixed .quick-top { width: 59px; height: 59px; justify-self: center; background: #fff; }
 .quick-menu-fixed .quick-top svg { width: 59px; height: 59px; fill: none; stroke: #111; stroke-width: 2; stroke-linecap: square; stroke-linejoin: miter; }
+.mobile-header-phone { display: none; }
 
 @media (max-width: 800px) {
   body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
   .quick-menu.quick-menu-fixed { display: none; }
+  .site-header .utility-bar { position: relative; }
+  .site-header .brand { position: absolute; left: 50%; transform: translateX(-50%); }
+  .site-header .utility-actions { margin-left: auto; }
+  .site-header .mobile-header-phone { width: 44px; height: 44px; display: grid; flex: none; place-items: center; color: #1756ae; }
+  .site-header .mobile-header-phone svg { width: 24px; height: 24px; fill: currentColor; }
   .mobile-quick-bar {
     position: fixed;
     z-index: 90;
@@ -118,8 +124,8 @@
     stroke-linecap: round;
     stroke-linejoin: round;
   }
-  .mobile-quick-bar .mobile-quick-booking { position: relative; padding-top: 40px; color: #008bcc; font-weight: 700; }
-  .mobile-quick-booking-icon {
+  .mobile-quick-bar .mobile-quick-call { position: relative; padding-top: 40px; color: #008bcc; font-weight: 700; }
+  .mobile-quick-call-icon {
     position: absolute;
     top: -22px;
     left: 50%;
@@ -134,7 +140,7 @@
     box-shadow: 0 3px 9px rgba(0, 95, 150, .2);
     transform: translateX(-50%);
   }
-  .mobile-quick-booking-icon svg { width: 26px; height: 26px; stroke-width: 1.9; }
+  .mobile-quick-call-icon svg { width: 26px; height: 26px; fill: currentColor; stroke: none; }
 }
 
 @media (max-width: 359px) {
