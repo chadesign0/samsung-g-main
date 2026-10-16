@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261015-10");
+@import url("shoulder-condition.css?v=20261016-quick-top70");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
 .disease-hero-shade { background: rgba(30,24,20,.34); }
@@ -23,7 +23,7 @@
 .knee-symptoms-inner { position: relative; z-index: 1; min-height: var(--knee-symptom-height); display: flex; align-items: center; padding: 70px 0; }
 .knee-symptoms-copy { width: min(100%,620px); text-shadow: 0 2px 12px rgba(0,0,0,.28); }
 .knee-symptoms-copy h2 { margin: 0; font-size: clamp(32px,2.05vw,40px); line-height: 1.32; letter-spacing: -.05em; }
-.knee-symptoms-copy > p { margin: 46px 0 0; font-size: 16px; line-height: 1.62; letter-spacing: -.035em; }
+.knee-symptoms-copy > p { margin: 46px 0 0; font-size: 17px; line-height: 1.62; letter-spacing: -.035em; }
 .knee-symptoms .symptom-checklist { margin-top: 70px; }
 .knee-symptoms-copy.reveal .symptom-checklist li { opacity: 0; transform: translateY(14px); transition: opacity .5s ease,transform .5s ease; }
 .knee-symptoms-copy.reveal.visible .symptom-checklist li { opacity: 1; transform: none; }
@@ -88,7 +88,7 @@
   .knee-symptoms-inner { padding: 54px 0; }
   .knee-symptoms-copy { width: 100%; }
   .knee-symptoms-copy h2 { font-size: 29px; }
-  .knee-symptoms-copy > p { margin-top: 30px; font-size: 14px; }
+  .knee-symptoms-copy > p { margin-top: 30px; font-size: 17px; }
   .knee-symptoms .symptom-checklist { margin-top: 48px; }
   .knee-treatments { min-height: 0; padding: 82px 0; }
   .knee-treatment-flow { --treatment-image-size: 190px; grid-template-columns: 1fr; gap: 54px; margin-top: 58px; }

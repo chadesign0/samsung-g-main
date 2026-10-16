@@ -1,4 +1,4 @@
-@import url("neck-condition.css?v=20261015-10");
+@import url("neck-condition.css?v=20261016-quick-top70");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: center; }
 .disease-hero-shade { background: rgba(20, 16, 14, .4); }
@@ -10,8 +10,9 @@
 .cause-card {
   aspect-ratio: 284 / 350;
   display: grid;
+  grid-template-rows: minmax(0, 1fr) 3px minmax(0, 1fr);
   place-items: center;
-  align-content: center;
+  align-content: stretch;
   gap: 22px;
   padding: 36px 25px;
   color: #242424;
@@ -26,6 +27,7 @@
 .cause-card:hover h3,
 .cause-card:focus-visible h3 {
   position: static;
+  align-self: end;
   margin: 0;
   transform: none;
   font-size: clamp(23px, 1.55vw, 30px);
@@ -33,6 +35,7 @@
   letter-spacing: -.055em;
 }
 .cause-card p {
+  align-self: start;
   margin: 0;
   font-size: clamp(15px, .95vw, 18px);
   line-height: 1.48;

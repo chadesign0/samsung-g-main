@@ -1,4 +1,4 @@
-@import url("../mega-menu.css?v=20261015-10");
+@import url("../mega-menu.css?v=20261016-quick-top70");
 
 :root { --blue: #123a72; --brand: #1756ae; --ink: #242424; --max: 1204px; }
 * { box-sizing: border-box; }
@@ -88,7 +88,7 @@ button { cursor: pointer; font: inherit; }
 .treatment-card-copy { position: absolute; z-index: 1; right: 24px; bottom: 30px; left: 24px; }
 .round-check { width: 28px; height: 28px; display: grid; place-items: center; color: #144b86; border: 2px solid #144b86; border-radius: 50%; font-size: 15px; font-weight: 800; }
 .treatment-card h3 { margin: 18px 0 18px; font-size: 32px; line-height: 1.2; letter-spacing: -.05em; }
-.treatment-card p { margin: 0; font-size: 16px; line-height: 1.55; letter-spacing: -.035em; }
+.treatment-card p { margin: 0; font-size: 17px; line-height: 1.55; letter-spacing: -.035em; }
 
 .contact-us { position: relative; min-height: 500px; display: grid; place-items: center; overflow: hidden; color: #fff; background-image: url("../assets/interior-detail.jpg"); background-position: 8% 39%; background-size: 500% auto; background-repeat: no-repeat; }
 .contact-us-shade { position: absolute; inset: 0; background: rgba(23,22,21,.7); }
@@ -134,7 +134,7 @@ button { cursor: pointer; font: inherit; }
   .cause-point h3 { font-size: 21px; }
   .treatment-card { min-height: 590px; }
   .treatment-card h3 { font-size: 26px; }
-  .treatment-card p { font-size: 14px; }
+  .treatment-card p { font-size: 17px; }
 }
 
 @media (max-width: 800px) {
@@ -178,7 +178,7 @@ button { cursor: pointer; font: inherit; }
   .treatment-grid { grid-template-columns: 1fr; gap: 22px; margin-top: 50px; }
   .treatment-card { min-height: 570px; }
   .treatment-card h3 { font-size: 28px; }
-  .treatment-card p { font-size: 15px; }
+  .treatment-card p { font-size: 17px; }
   .contact-us { min-height: 480px; padding: 70px 0; }
   .contact-us-links { flex-wrap: wrap; margin-top: 42px; }
 }

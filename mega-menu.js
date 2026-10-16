@@ -15,6 +15,7 @@
     </a>`);
 
   const quickMenuMarkup = `
+    <div class="quick-menu-body">
     <div class="quick-menu-main">
       <a class="quick-menu-item" href="https://pf.kakao.com" target="_blank" rel="noreferrer">
         <svg class="quick-kakao" viewBox="0 0 44 34" aria-hidden="true"><path d="M22 2C10.95 2 2 8.72 2 17c0 5.27 3.62 9.91 9.1 12.58L9 34l7.1-2.82c1.87.53 3.85.82 5.9.82 11.05 0 20-6.72 20-15S33.05 2 22 2Z"/><text x="22" y="21">TALK</text></svg>
@@ -33,6 +34,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 3.8c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>
       <span>031-452<br />3000</span>
     </a>
+    </div>
     <a class="quick-top" href="#top" aria-label="맨 위로 이동"><svg viewBox="0 0 76 76" aria-hidden="true"><path d="M20 34 38 16l18 18M38 16v44"/></svg></a>`;
 
   let quickMenu = document.querySelector('.quick-menu');
@@ -40,15 +42,15 @@
     quickMenu = document.createElement('aside');
     quickMenu.className = 'quick-menu';
     quickMenu.setAttribute('aria-label', '빠른 메뉴');
-    quickMenu.innerHTML = `<div class="quick-menu-scale">${quickMenuMarkup}</div>`;
     document.body.append(quickMenu);
-  } else if (!quickMenu.querySelector('.quick-menu-scale')) {
-    const scale = document.createElement('div');
-    scale.className = 'quick-menu-scale';
-    while (quickMenu.firstChild) scale.append(quickMenu.firstChild);
-    quickMenu.append(scale);
   }
+  quickMenu.innerHTML = `<div class="quick-menu-scale">${quickMenuMarkup}</div>`;
   quickMenu.classList.add('quick-menu-fixed');
+  quickMenu.querySelector('.quick-top').addEventListener('click', (event) => {
+    event.preventDefault();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? 'instant' : 'smooth' });
+  });
 
   const resolveHref = (target) => {
     if (!target || target === '#') return '#';
@@ -94,7 +96,7 @@
             <a href="#footer">이용약관</a>
             <a href="#footer">개인정보처리방침</a>
             <a href="#footer">환자의 권리장전</a>
-            <a href="#footer">비급여진료비</a>
+            <a href="${resolveHref('pages/unpaid-fees.html')}">비급여진료비</a>
           </nav>
           <div class="footer-wide-details">
             <div class="footer-wide-address">

@@ -230,11 +230,3 @@ placeLightbox.addEventListener('close', () => {
   document.body.classList.remove('lightbox-open');
   spaceFeature.focus();
 });
-
-const quickTop = document.querySelector('.quick-top');
-
-quickTop.addEventListener('click', (event) => {
-  event.preventDefault();
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-});

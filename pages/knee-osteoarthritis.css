@@ -1,4 +1,4 @@
-@import url("../mega-menu.css?v=20261015-10");
+@import url("../mega-menu.css?v=20261016-quick-top70");
 
 :root {
   --blue: #123a72;
@@ -142,7 +142,7 @@ button { cursor: pointer; font: inherit; }
   .symptoms-copy { width: 600px; padding-top: 70px; }
   .symptoms-copy h2 { font-size: 34px; }
   .symptoms-description { margin-top: 34px; }
-  .symptoms-description p { font-size: 16px; }
+  .symptoms-description p { font-size: 17px; }
   .symptom-checklist { width: 470px; gap: 14px; margin-top: 44px; }
   .symptom-checklist li { min-height: 64px; font-size: 19px; }
 }
@@ -197,7 +197,7 @@ button { cursor: pointer; font: inherit; }
   .symptoms-copy { width: 100%; padding-top: 0; }
   .symptoms-copy h2 { font-size: 32px; }
   .symptoms-description { margin-top: 30px; }
-  .symptoms-description p { font-size: 15px; }
+  .symptoms-description p { font-size: 17px; }
   .symptoms-description p + p { margin-top: 16px; }
   .symptoms-description br { display: none; }
   .symptom-checklist { width: 100%; gap: 12px; margin-top: 42px; }
@@ -212,7 +212,7 @@ button { cursor: pointer; font: inherit; }
   .treatment-row-reverse .treatment-copy { order: 2; }
   .treatment-copy { min-height: 230px; padding: 35px 24px; }
   .treatment-copy h3 { margin: 18px 0 20px; font-size: 28px; }
-  .treatment-copy p { font-size: 16px; }
+  .treatment-copy p { font-size: 17px; }
 
   .contact-us { min-height: 480px; padding: 70px 0; }
   .contact-us-links { flex-wrap: wrap; margin-top: 42px; }

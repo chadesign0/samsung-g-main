@@ -1,4 +1,4 @@
-@import url("../mega-menu.css?v=20261015-10");
+@import url("../mega-menu.css?v=20261016-quick-top70");
 
 :root {
   --blue: #123a72;
@@ -68,7 +68,7 @@ button { cursor: pointer; font: inherit; }
 .cause-card:focus-visible { box-shadow: 0 0 0 4px rgba(23,86,174,.35); }
 .cause-card-copy { position: absolute; z-index: 1; inset: 0; padding: 28px 18px 17px; text-align: center; }
 .cause-card h3 { position: absolute; top: 64%; left: 18px; right: 18px; margin: 0; transform: translateY(-50%); font-size: clamp(22px, 1.45vw, 28px); line-height: 1.28; letter-spacing: -.05em; transition: top .38s ease; }
-.cause-card-description { position: absolute; top: 51%; left: 16px; right: 16px; margin: 0; opacity: 0; visibility: hidden; transform: translateY(20px); font-size: 16px; line-height: 1.48; transition: opacity .28s ease, transform .38s ease, visibility 0s linear .38s; }
+.cause-card-description { position: absolute; top: 51%; left: 16px; right: 16px; margin: 0; opacity: 0; visibility: hidden; transform: translateY(20px); font-size: 17px; line-height: 1.48; transition: opacity .28s ease, transform .38s ease, visibility 0s linear .38s; }
 .cause-card:hover h3, .cause-card:focus-visible h3, .cause-card.is-expanded h3 { top: 27%; }
 .cause-card:hover .cause-card-description, .cause-card:focus-visible .cause-card-description, .cause-card.is-expanded .cause-card-description { opacity: 1; visibility: visible; transform: none; transition-delay: .08s, .08s, 0s; }
 .plus-mark { position: absolute; left: 50%; bottom: 17px; width: 40px; height: 40px; display: grid; place-items: center; transform: translateX(-50%); color: #1a1a1a; background: #fff; border-radius: 50%; font-family: Arial, sans-serif; font-size: 34px; font-weight: 300; line-height: 1; }
@@ -192,7 +192,7 @@ button { cursor: pointer; font: inherit; }
   .treatment-row-reverse .treatment-copy { order: 2; }
   .treatment-copy { min-height: 230px; padding: 35px 24px; }
   .treatment-copy h3 { margin: 18px 0 20px; font-size: 28px; }
-  .treatment-copy p { font-size: 16px; }
+  .treatment-copy p { font-size: 17px; }
   .contact-us { min-height: 480px; padding: 70px 0; }
   .contact-us-links { flex-wrap: wrap; margin-top: 42px; }
 }

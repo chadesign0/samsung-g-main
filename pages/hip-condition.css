@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261015-10");
+@import url("shoulder-condition.css?v=20261016-quick-top70");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
 .disease-hero-shade { background: rgba(30,24,20,.34); }
@@ -22,7 +22,7 @@
 .hip-symptoms-inner { position: relative; z-index: 1; min-height: var(--hip-symptom-height); display: grid; grid-template-columns: minmax(0,620px) 536px; justify-content: space-between; align-items: center; gap: 72px; padding: 76px 0; }
 .hip-symptoms-copy { width: 100%; text-shadow: 0 2px 12px rgba(0,0,0,.28); }
 .hip-symptoms-copy h2 { margin: 0; font-size: clamp(32px,2.05vw,40px); line-height: 1.32; letter-spacing: -.05em; }
-.hip-symptoms-copy > p { margin: 46px 0 0; font-size: 16px; line-height: 1.62; letter-spacing: -.035em; }
+.hip-symptoms-copy > p { margin: 46px 0 0; font-size: 17px; line-height: 1.62; letter-spacing: -.035em; }
 .hip-symptoms .symptom-checklist { margin-top: 70px; }
 .hip-symptom-focus { width: 536px; height: 626px; object-fit: cover; border-radius: 18px; box-shadow: 0 18px 42px rgba(0,0,0,.18); }
 .hip-symptoms-copy.reveal .symptom-checklist li { opacity: 0; transform: translateY(14px); transition: opacity .5s ease,transform .5s ease; }
@@ -90,7 +90,7 @@
   .hip-symptoms-shade { background: rgba(3,18,43,.36); }
   .hip-symptoms-inner { min-height: 0; grid-template-columns: 1fr; gap: 50px; padding: 78px 0; }
   .hip-symptoms-copy h2 { font-size: 29px; }
-  .hip-symptoms-copy > p { margin-top: 30px; font-size: 14px; }
+  .hip-symptoms-copy > p { margin-top: 30px; font-size: 17px; }
   .hip-symptoms .symptom-checklist { margin-top: 48px; }
   .hip-symptom-focus { width: min(100%,360px); height: auto; justify-self: center; }
   .hip-treatments { min-height: 0; padding: 82px 0; }

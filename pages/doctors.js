@@ -73,7 +73,7 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
     const nextItem = sequentialRevealItems[sequenceIndex];
     const bounds = nextItem.getBoundingClientRect();
     const triggerLine = window.innerHeight * 0.86;
-    if (bounds.top > triggerLine || bounds.bottom < 0) return;
+    if (bounds.top > triggerLine) return;
 
     nextItem.classList.add('visible');
     sequenceIndex += 1;
@@ -81,7 +81,7 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
     window.setTimeout(() => {
       sequenceLocked = false;
       revealNextSequenceItem();
-    }, 180);
+    }, Number(nextItem.dataset.revealNextDelay) || 180);
   };
 
   window.addEventListener('scroll', revealNextSequenceItem, { passive: true });

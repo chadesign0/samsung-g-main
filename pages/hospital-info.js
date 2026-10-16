@@ -21,7 +21,7 @@
           </div>
         </div></section>
         <section class="vision-band"><div class="section-inner vision-band-inner">
-          <div class="reveal"><h2>정확한 진단과 필요한 치료로<br />건강한 움직임을 지켜드립니다.</h2><p>아픈 부위만 치료하는 데 그치지 않고<br />다시 편안한 일상으로 돌아가는 과정까지 함께하겠습니다.</p></div>
+          <div class="reveal reveal-sequence" data-reveal-next-delay="750"><h2>정확한 진단과 필요한 치료로<br />건강한 움직임을 지켜드립니다.</h2><p>아픈 부위만 치료하는 데 그치지 않고<br />다시 편안한 일상으로 돌아가는 과정까지 함께하겠습니다.</p></div>
           <figure class="reveal reveal-sequence"><img src="../assets/subpages/hospital/greeting-point-01.png" alt="환자의 움직임을 진찰하는 의료진" /></figure>
         </div></section>
         <section class="vision-points"><div class="section-inner vision-points-grid">
@@ -81,11 +81,15 @@
   ];
 
   const contact = `
-    <section class="contact-us" id="contact-us" aria-labelledby="contact-us-title"><div class="contact-us-shade"></div><div class="section-inner contact-us-inner reveal"><p class="eyebrow">Contact Us</p><h2 id="contact-us-title">상담문의</h2><p>진료와 치료에 대한 궁금증을 편하게 문의해 주세요.</p><div class="contact-us-links"><a class="contact-kakao" href="https://pf.kakao.com" target="_blank" rel="noreferrer"><svg viewBox="0 0 44 34" aria-hidden="true"><path d="M22 2C10.95 2 2 8.72 2 17c0 5.27 3.62 9.91 9.1 12.58L9 34l7.1-2.82c1.87.53 3.85.82 5.9.82 11.05 0 20-6.72 20-15S33.05 2 22 2Z"/><text x="22" y="21">TALK</text></svg>카카오톡 채널</a><a class="contact-phone" href="tel:031-452-3000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 3.8c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>031-452-3000</a><a class="contact-naver" href="https://talk.naver.com" target="_blank" rel="noreferrer"><strong aria-hidden="true">N</strong>네이버 톡톡</a></div></div></section>`;
+    <section class="contact-us" id="contact-us" aria-labelledby="contact-us-title"><div class="contact-us-shade"></div><div class="section-inner contact-us-inner reveal"><p class="eyebrow">Contact Us</p><h2 id="contact-us-title">상담문의</h2><p>진료와 치료에 대해 궁금한 점을 남겨 주세요.</p><div class="contact-us-links"><a class="contact-kakao" href="https://pf.kakao.com" target="_blank" rel="noreferrer"><svg viewBox="0 0 44 34" aria-hidden="true"><path d="M22 2C10.95 2 2 8.72 2 17c0 5.27 3.62 9.91 9.1 12.58L9 34l7.1-2.82c1.87.53 3.85.82 5.9.82 11.05 0 20-6.72 20-15S33.05 2 22 2Z"/><text x="22" y="21">TALK</text></svg>카카오톡 채널</a><a class="contact-phone" href="tel:031-452-3000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 3.8c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>031-452-3000</a><a class="contact-naver" href="https://talk.naver.com" target="_blank" rel="noreferrer"><strong aria-hidden="true">N</strong>네이버 톡톡</a></div></div></section>`;
 
   main.innerHTML = `
     <section class="doctor-hero" aria-labelledby="hospital-hero-title"><div class="doctor-hero-shade"></div><div class="doctor-hero-inner reveal"><p class="breadcrumb"><span aria-hidden="true">⌂</span> 삼성G정형외과 <span aria-hidden="true">›</span> 병원소개 <span aria-hidden="true">›</span> ${config.title}</p><h1 id="hospital-hero-title">${config.title}</h1><h2>${config.subtitle}</h2><p class="doctor-hero-description">${config.description}</p></div><nav class="doctor-subnav" aria-label="병원소개 메뉴">${subnav.map(([label, href, id]) => `<a href="${href}"${id === page ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav></section>
     ${config.content}${contact}`;
+
+  if (page === 'directions') {
+    main.querySelectorAll('.reveal').forEach((item) => item.classList.remove('reveal', 'reveal-sequence'));
+  }
 
   if (page === 'directions' && location.hash) {
     window.addEventListener('load', () => document.getElementById(location.hash.slice(1))?.scrollIntoView(), { once: true });
