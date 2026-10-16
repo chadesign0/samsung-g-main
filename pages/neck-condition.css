@@ -160,7 +160,7 @@ button { cursor: pointer; font: inherit; }
   .breadcrumb { font-size: 12px; }
   .disease-hero h1 { font-size: clamp(36px, 10vw, 50px); }
   .disease-hero h2 { font-size: 23px; }
-  .disease-hero-inner > p:not(.breadcrumb) { width: min(100%, 330px); margin-inline: auto; overflow-wrap: anywhere; font-size: 14px; line-height: 1.7; white-space: normal; word-break: break-all; }
+  .disease-hero-inner > p:not(.breadcrumb) { width: min(100%, 330px); margin-inline: auto; overflow-wrap: normal; font-size: 14px; line-height: 1.7; white-space: normal; word-break: keep-all; }
   .disease-hero-inner br { display: none; }
   .disease-tabs { right: 20px; bottom: 28px; left: 20px; width: auto; min-height: 78px; display: flex; justify-content: flex-start; transform: none; overflow-x: auto; border-radius: 12px; font-size: 14px; scrollbar-width: none; }
   .disease-tabs::-webkit-scrollbar { display: none; }

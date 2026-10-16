@@ -4,7 +4,7 @@ const conditions = {
   'cervical-disc': {
     title: '목디스크',
     subtitle: '편안한 일상을 위한 맞춤 목 진료',
-    description: '목디스크는 목뼈 사이의 디스크가 돌출되어 주변 신경을 압박하면서<br>목과 어깨 통증, 팔과 손의 저림을 유발하는 질환입니다.',
+    description: '목디스크는 목뼈 사이의 디스크가 돌출되어 주변 신경을 압박하면서<br> 목과 어깨 통증, 팔과 손의 저림을 유발하는 질환입니다.',
     hero: '../assets/subpages/neck/hero-cervical-disc-v2.png',
     heroPosition: 'center',
     causeTitle: '목디스크<br>작은 불편도 놓치지 마세요',
@@ -25,7 +25,7 @@ const conditions = {
   'forward-head-posture': {
     title: '거북목·일자목',
     subtitle: '익숙한 자세가 목의 균형을 무너뜨립니다',
-    description: '고개를 숙이거나 머리를 앞으로 내민 자세가 반복되면<br>목과 어깨 주변에 부담이 쌓일 수 있습니다.',
+    description: '고개를 숙이거나 머리를 앞으로 내민 자세가 반복되면<br> 목과 어깨 주변에 부담이 쌓일 수 있습니다.',
     hero: '../assets/subpages/neck/hero-forward-head-v2.png',
     heroPosition: 'center',
     causeTitle: '거북목 일자목<br>평소 자세에서 시작될 수 있습니다',
@@ -45,7 +45,7 @@ const conditions = {
   'cervical-spinal-stenosis': {
     title: '경추척추관협착증',
     subtitle: '손과 보행의 변화도 살펴야 합니다',
-    description: '목의 척추관이 좁아지면서 신경이나 척수가 압박되어<br>목 통증뿐 아니라 손의 감각과 움직임에도 영향을 줄 수 있습니다.',
+    description: '목의 척추관이 좁아지면서 신경이나 척수가 압박되어<br> 목 통증뿐 아니라 손의 감각과 움직임에도 영향을 줄 수 있습니다.',
     hero: '../assets/subpages/neck/hero-stenosis-v2.png',
     heroPosition: 'center',
     causeTitle: '경추 척추관협착증<br>퇴행성 변화에서 시작될 수 있습니다',
@@ -66,7 +66,7 @@ const conditions = {
   'cervicogenic-headache': {
     title: '경추성 두통',
     subtitle: '두통만 다스려서는 반복될 수 있습니다',
-    description: '목의 관절과 주변 근육에 생긴 문제가 머리까지 통증을 전달할 수 있습니다.<br>뒷목에서 시작된 통증이 한쪽 머리로 번지거나 자주 반복된다면 경추 상태를 함께 살펴보세요.',
+    description: '목의 관절과 주변 근육에 생긴 문제가 머리까지 통증을 전달할 수 있습니다.<br> 뒷목에서 시작된 통증이 한쪽 머리로 번지거나 자주 반복된다면 경추 상태를 함께 살펴보세요.',
     hero: '../assets/subpages/neck/hero-headache-v2.png',
     heroPosition: 'center',
     causeTitle: '경추성 두통,<br>목 주변의 문제에서 시작될 수 있습니다',
@@ -86,7 +86,7 @@ const conditions = {
   'neck-myofascial-pain': {
     title: '목·어깨 근막통증 증후군',
     subtitle: '단순한 근육통으로 넘기지 마세요',
-    description: '근육과 근막에 통증 유발점이 생기면 목과 어깨가 지속적으로 뻐근하고<br>머리나 팔처럼 떨어진 부위까지 통증이 번질 수 있습니다.',
+    description: '근육과 근막에 통증 유발점이 생기면 목과 어깨가 지속적으로 뻐근하고<br> 머리나 팔처럼 떨어진 부위까지 통증이 번질 수 있습니다.',
     hero: '../assets/subpages/neck/hero-myofascial-v2.png',
     heroPosition: 'center',
     causeTitle: '반복되는 목·어깨 통증,<br>일상 속 근육 부담에서 시작될 수 있습니다',
