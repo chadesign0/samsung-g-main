@@ -62,57 +62,6 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-const hero = document.querySelector('.hero');
-const heroInitialMessage = hero.querySelector('.hero-swap-initial');
-const heroScrolledMessage = hero.querySelector('.hero-swap-scrolled');
-let heroMessageSwapped = false;
-let heroTransitionLocked = false;
-
-const setHeroMessage = (swapped) => {
-  heroMessageSwapped = swapped;
-  hero.classList.toggle('is-scrolled', swapped);
-  heroInitialMessage.setAttribute('aria-hidden', String(swapped));
-  heroScrolledMessage.setAttribute('aria-hidden', String(!swapped));
-};
-
-const lockHeroTransition = () => {
-  heroTransitionLocked = true;
-  window.setTimeout(() => {
-    heroTransitionLocked = false;
-  }, 620);
-};
-
-window.addEventListener(
-  'wheel',
-  (event) => {
-    const atHeroEntry = window.scrollY <= hero.offsetTop + 4;
-
-    if (event.deltaY > 0 && atHeroEntry && (!heroMessageSwapped || heroTransitionLocked)) {
-      event.preventDefault();
-      if (!heroMessageSwapped) {
-        setHeroMessage(true);
-        lockHeroTransition();
-      }
-      return;
-    }
-
-    if (event.deltaY < 0 && window.scrollY <= 1 && heroMessageSwapped) {
-      event.preventDefault();
-      if (!heroTransitionLocked) {
-        setHeroMessage(false);
-        lockHeroTransition();
-      }
-    }
-  },
-  { passive: false },
-);
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY <= 1 && heroMessageSwapped && !heroTransitionLocked) setHeroMessage(false);
-}, { passive: true });
-
-setHeroMessage(window.scrollY > hero.offsetTop + 4);
-
 const careContent = {
   'one-stop': {
     title: '원스톱 진료',

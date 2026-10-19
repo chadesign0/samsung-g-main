@@ -7,6 +7,13 @@
   const currentFile = window.location.pathname.split('/').pop() || 'index.html';
   const desktop = window.matchMedia('(min-width: 801px)');
 
+  const resolveHref = (target) => {
+    if (!target || target === '#') return '#';
+    if (target.startsWith('#')) return isSubpage ? `../index.html${target}` : target;
+    if (target.startsWith('pages/')) return isSubpage ? target.slice(6) : target;
+    return isSubpage ? `../${target}` : target;
+  };
+
   const brand = header.querySelector('.utility-bar .brand');
   if (isSubpage && brand) brand.href = '../index.html#';
   brand?.insertAdjacentHTML('beforebegin', `
@@ -17,16 +24,20 @@
   const quickMenuMarkup = `
     <div class="quick-menu-body">
     <div class="quick-menu-main">
-      <a class="quick-menu-item" href="https://pf.kakao.com" target="_blank" rel="noreferrer">
-        <svg class="quick-kakao" viewBox="0 0 44 34" aria-hidden="true"><path d="M22 2C10.95 2 2 8.72 2 17c0 5.27 3.62 9.91 9.1 12.58L9 34l7.1-2.82c1.87.53 3.85.82 5.9.82 11.05 0 20-6.72 20-15S33.05 2 22 2Z"/><text x="22" y="21">TALK</text></svg>
-        <span>카톡 상담</span>
+      <a class="quick-menu-item" href="${resolveHref('pages/doctors.html')}">
+        <span class="quick-menu-icon quick-doctor" aria-hidden="true"></span>
+        <span>의료진 소개</span>
       </a>
-      <a class="quick-menu-item" href="https://booking.naver.com" target="_blank" rel="noreferrer">
-        <svg class="quick-naver" viewBox="0 0 42 45" aria-hidden="true"><path d="M7 0h3v8H7zm25 0h3v8h-3zM1 5h40v40H1z"/><path class="quick-naver-page" d="M6 14h30v26H6z"/><text x="21" y="35">N</text></svg>
-        <span>네이버 예약</span>
+      <a class="quick-menu-item" href="${resolveHref('pages/directions.html')}#clinic-hours">
+        <span class="quick-menu-icon quick-hours" aria-hidden="true"></span>
+        <span>진료시간</span>
+      </a>
+      <a class="quick-menu-item" href="${resolveHref('pages/directions.html')}#clinic-location">
+        <span class="quick-menu-icon quick-location" aria-hidden="true"></span>
+        <span>오시는길</span>
       </a>
       <a class="quick-menu-item" href="https://blog.naver.com" target="_blank" rel="noreferrer">
-        <svg class="quick-blog" viewBox="0 0 44 40" aria-hidden="true"><path d="M7 2h30a5 5 0 0 1 5 5v21a5 5 0 0 1-5 5H24l-8 6v-6H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"/><text x="22" y="22">blog</text></svg>
+        <span class="quick-menu-icon quick-blog" aria-hidden="true"></span>
         <span>블로그</span>
       </a>
     </div>
@@ -51,13 +62,6 @@
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? 'instant' : 'smooth' });
   });
-
-  const resolveHref = (target) => {
-    if (!target || target === '#') return '#';
-    if (target.startsWith('#')) return isSubpage ? `../index.html${target}` : target;
-    if (target.startsWith('pages/')) return isSubpage ? target.slice(6) : target;
-    return isSubpage ? `../${target}` : target;
-  };
 
   const mobileQuickBar = document.createElement('nav');
   mobileQuickBar.className = 'mobile-quick-bar';

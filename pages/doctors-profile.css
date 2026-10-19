@@ -1,0 +1,197 @@
+/* Medical team redesign. Loaded only by doctors.html; shared page styles stay intact. */
+.doctor-content-inner {
+  width: min(calc(100% - 80px), 1200px);
+  margin-inline: auto;
+}
+
+.doctor-introduction {
+  padding: 176px 0 133px;
+  color: #1f2937;
+  background: #fff;
+}
+
+.doctor-introduction-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 500px;
+  align-items: center;
+  gap: 120px;
+}
+
+.doctor-introduction-copy,
+.doctor-pillar-copy,
+.doctor-pillar-media { min-width: 0; }
+
+.doctor-pillar-eyebrow {
+  margin: 0 0 24px;
+  color: #1756ae;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.doctor-introduction-copy h2 {
+  margin: 0 0 28px;
+  color: #123a72;
+  font-family: "Noto Serif KR", Georgia, serif;
+  font-size: 44px;
+  font-weight: 400;
+  letter-spacing: -.04em;
+  line-height: 1.45;
+}
+
+.doctor-introduction-message {
+  margin: 0;
+  color: #697386;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.doctor-introduction-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+  margin-top: 28px;
+}
+
+.doctor-introduction-name h3 {
+  margin: 0;
+  color: #123a72;
+  font-size: 36px;
+  line-height: 1.4;
+}
+
+.doctor-introduction-name p { margin: 0; font-size: 17px; }
+.doctor-introduction-portrait { margin: 0; overflow: hidden; aspect-ratio: 25 / 29; border-radius: 16px; }
+.doctor-introduction-portrait img { height: 100%; object-fit: cover; object-position: center 42%; }
+
+.doctor-pillar {
+  padding: 100px 0 112px;
+  color: #1f2937;
+  background: #fff;
+  scroll-margin-top: 120px;
+}
+
+.doctor-pillar--research { min-height: 1093px; background: #f2f2f2; }
+.doctor-pillar--sports { min-height: 975px; color: #fff; background: #0e2c57; border-top: 9px solid #fff; }
+.doctor-pillar--sharing { min-height: 933px; }
+
+.doctor-pillar-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 550fr) minmax(0, 600fr);
+  align-items: center;
+  gap: 50px;
+}
+
+.doctor-pillar h2 {
+  margin: 0 0 24px;
+  color: #123a72;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -.04em;
+}
+
+.doctor-pillar-lead { margin: 0 0 24px; font-size: 22px; font-weight: 600; line-height: 1.55; }
+.doctor-pillar-description { margin: 0; color: #697386; font-size: 17px; line-height: 1.8; }
+.doctor-pillar-credentials { display: grid; gap: 24px; margin-top: 28px; padding-top: 24px; border-top: 1px solid #dfe3e8; }
+.doctor-pillar-credentials h3 { margin: 0 0 12px; font-size: 17px; font-weight: 600; line-height: 1.7; }
+.doctor-pillar-credentials p,
+.doctor-pillar-credentials ul { margin: 0; padding: 0; list-style: none; font-size: 17px; line-height: 1.8; }
+.doctor-pillar-media { margin: 0; }
+.doctor-pillar-media img { height: 100%; object-fit: cover; border-radius: 8px; }
+.doctor-research-photo { aspect-ratio: 3 / 2; }
+
+.doctor-photo-collage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.doctor-photo-collage figure { min-width: 0; margin: 0; overflow: hidden; aspect-ratio: 1.5; }
+.doctor-photo-collage .doctor-photo-main { grid-column: 1 / -1; aspect-ratio: 30 / 19; }
+.doctor-pillar--sharing .doctor-photo-main { aspect-ratio: 5 / 3; }
+.doctor-pillar--sports h2 { color: #fff; }
+.doctor-pillar--sports .doctor-pillar-eyebrow,
+.doctor-pillar--sports .doctor-pillar-description { color: #c1cde0; }
+.doctor-pillar--sports .doctor-pillar-credentials { border-color: rgba(255, 255, 255, .45); }
+
+.doctor-career-list { margin-top: 48px; color: #123a72; background: #fff; }
+.doctor-career-detail { border-bottom: 1px solid #dfe3e8; }
+.doctor-career-detail:last-child { border-bottom: 0; }
+.doctor-career-detail summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 76px;
+  padding: 20px 28px;
+  list-style: none;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.65;
+  cursor: pointer;
+}
+
+.doctor-career-detail summary::-webkit-details-marker { display: none; }
+.doctor-career-detail summary::after { content: "+"; flex: 0 0 24px; color: #1756ae; font-size: 27px; font-weight: 400; line-height: 1; text-align: center; }
+.doctor-career-detail[open] summary::after { content: "−"; }
+.doctor-career-detail summary:hover { background: #f5f8fc; }
+.doctor-career-detail summary:focus-visible { outline: 2px solid #1756ae; outline-offset: -4px; }
+.doctor-career-content { padding: 4px 28px 32px; color: #1f2937; font-size: 17px; line-height: 1.8; }
+.doctor-career-content h3 { margin: 28px 0 12px; color: #123a72; font-size: 19px; }
+.doctor-career-content h3:first-child { margin-top: 0; }
+.doctor-career-content ul,
+.doctor-career-content ol { margin: 0; padding-left: 1.3em; }
+.doctor-career-content li { margin-bottom: 8px; overflow-wrap: anywhere; }
+.doctor-career-content li:last-child { margin-bottom: 0; }
+.doctor-publications { word-break: normal; }
+.doctor-publications li { margin-bottom: 18px; }
+
+.doctor-volunteer-countries { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 44px; margin-top: 80px; padding-top: 44px; border-top: 1px solid #697386; }
+.doctor-volunteer-countries h3 { margin: 0; font-size: 17px; font-weight: 600; }
+.doctor-volunteer-countries p { margin: 0; color: #697386; font-size: 17px; line-height: 1.8; }
+
+@media (min-width: 801px) {
+  .doctor-pillar--research .doctor-pillar-grid { grid-template-columns: minmax(0, 600fr) minmax(0, 550fr); }
+  .doctor-pillar--research .doctor-pillar-copy { grid-column: 2; grid-row: 1; }
+  .doctor-pillar--research .doctor-pillar-media { grid-column: 1; grid-row: 1; }
+}
+
+@media (max-width: 1500px) {
+  .doctor-introduction { padding: 120px 0; }
+  .doctor-introduction-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 70px; }
+  .doctor-pillar { min-height: 0; padding-block: 88px; }
+  .doctor-pillar-grid { gap: 40px; }
+}
+
+@media (max-width: 1100px) {
+  .doctor-introduction-grid { grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: 44px; }
+  .doctor-introduction-copy h2 { font-size: 36px; }
+  .doctor-introduction-message br,
+  .doctor-pillar-description br { display: none; }
+  .doctor-pillar-grid { gap: 32px; }
+  .doctor-pillar h2 { font-size: 32px; }
+}
+
+@media (max-width: 800px) {
+  .doctor-content-inner { width: calc(100% - 48px); }
+  .doctor-introduction,
+  .doctor-pillar { padding-block: 64px; }
+  .doctor-introduction-grid,
+  .doctor-pillar-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .doctor-introduction-portrait { width: min(100%, 420px); margin-inline: auto; }
+  .doctor-introduction-copy h2 { font-size: 32px; }
+  .doctor-introduction-name { gap: 10px 20px; }
+  .doctor-introduction-name h3 { font-size: 30px; }
+  .doctor-pillar-eyebrow { margin-bottom: 18px; font-size: 13px; }
+  .doctor-pillar h2 { margin-bottom: 20px; font-size: 30px; }
+  .doctor-pillar-lead { font-size: 22px; }
+  .doctor-pillar-media { width: 100%; }
+  .doctor-photo-collage { gap: 12px; }
+  .doctor-career-list { margin-top: 32px; }
+  .doctor-career-detail summary { gap: 16px; padding: 20px 16px; }
+  .doctor-career-content { padding: 4px 20px 28px; }
+  .doctor-volunteer-countries { grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 40px; padding-top: 32px; }
+  .doctor-volunteer-countries br { display: none; }
+}

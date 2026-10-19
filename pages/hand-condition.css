@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261016-quick-top70");
+@import url("shoulder-condition.css?v=20261019-quickbar-inset");
 
 .disease-tabs { grid-template-columns: repeat(6,1fr); font-size: 17px; }
 .disease-tabs > a { padding-inline: 8px; }
