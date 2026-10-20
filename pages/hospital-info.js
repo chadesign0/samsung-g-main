@@ -11,7 +11,7 @@
       content: `
         <section class="greeting-lead"><div class="hospital-page-title reveal"><h2>편안한 움직임을 되찾는 과정,<br />삼성G정형외과가 함께합니다</h2></div></section>
         <section class="greeting-message"><div class="section-inner greeting-message-grid">
-          <figure class="reveal"><picture><source media="(min-width: 801px)" srcset="../assets/subpages/hospital/doctor-lee-portrait-desktop.jpg" /><img src="../assets/subpages/hospital/greeting-director.png" alt="이상현 대표원장" /></picture></figure>
+          <figure class="reveal"><picture><source media="(min-width: 801px)" srcset="../assets/subpages/hospital/greeting-director-20261020.jpg" /><img src="../assets/subpages/hospital/greeting-director-20261020.jpg" alt="이상현 대표원장" /></picture></figure>
           <div class="reveal"><h2>안녕하세요.<br />삼성G정형외과를 찾아주셔서 감사합니다.</h2>
             <p>관절과 척추의 통증은 걷고, 앉고, 움직이는<br />평범한 일상에 크고 작은 불편함을 만들 수 있습니다.</p>
             <p>같은 부위에서 나타나는 증상도 원인과 진행 정도가 다르기 때문에<br />현재 상태를 정확하게 확인하고 필요한 치료를 하는 과정이 중요합니다.</p>
@@ -73,7 +73,7 @@
   if (!config) return;
 
   const subnav = [
-    ['의료진 & 치료사 안내', 'doctors.html', 'doctors'],
+    ['의료진소개', 'doctors.html', 'doctors'],
     ['인사말 & 비전', 'greeting-vision.html', 'greeting'],
     ['오시는길 & 진료안내', 'directions.html', 'directions'],
     ['둘러보기', 'clinic-tour.html', 'tour'],
@@ -81,7 +81,7 @@
   ];
 
   const contact = `
-    <section class="contact-us" id="contact-us" aria-labelledby="contact-us-title"><div class="contact-us-shade"></div><div class="section-inner contact-us-inner reveal"><p class="eyebrow">Contact Us</p><h2 id="contact-us-title">상담문의</h2><p>진료와 치료에 대해 궁금한 점을 남겨 주세요.</p><div class="contact-us-links"><a class="contact-kakao" href="https://pf.kakao.com" target="_blank" rel="noreferrer"><svg viewBox="0 0 44 34" aria-hidden="true"><path d="M22 2C10.95 2 2 8.72 2 17c0 5.27 3.62 9.91 9.1 12.58L9 34l7.1-2.82c1.87.53 3.85.82 5.9.82 11.05 0 20-6.72 20-15S33.05 2 22 2Z"/><text x="22" y="21">TALK</text></svg>카카오톡 채널</a><a class="contact-phone" href="tel:031-452-3000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 3.8c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>031-452-3000</a><a class="contact-naver" href="https://talk.naver.com" target="_blank" rel="noreferrer"><strong aria-hidden="true">N</strong>네이버 톡톡</a></div></div></section>`;
+    <section class="contact-us" id="contact-us" aria-labelledby="contact-us-title"><div class="contact-us-shade"></div><div class="section-inner contact-us-inner"><p class="eyebrow">Contact Us</p><h2 id="contact-us-title">상담문의</h2><p>진료와 치료에 대해 궁금한 점을 남겨 주세요.</p><div class="contact-us-links"><a class="contact-kakao" href="https://pf.kakao.com" target="_blank" rel="noreferrer"><svg viewBox="0 0 44 34" aria-hidden="true"><path d="M22 2C10.95 2 2 8.72 2 17c0 5.27 3.62 9.91 9.1 12.58L9 34l7.1-2.82c1.87.53 3.85.82 5.9.82 11.05 0 20-6.72 20-15S33.05 2 22 2Z"/><text x="22" y="21">TALK</text></svg>카카오톡 채널</a><a class="contact-phone" href="tel:031-452-3000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 3.8c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>031-452-3000</a><a class="contact-naver" href="https://talk.naver.com" target="_blank" rel="noreferrer"><strong aria-hidden="true">N</strong>네이버 톡톡</a></div></div></section>`;
 
   main.innerHTML = `
     <section class="doctor-hero" aria-labelledby="hospital-hero-title"><div class="doctor-hero-shade"></div><div class="doctor-hero-inner reveal"><p class="breadcrumb"><span aria-hidden="true">⌂</span> 삼성G정형외과 <span aria-hidden="true">›</span> 병원소개 <span aria-hidden="true">›</span> ${config.title}</p><h1 id="hospital-hero-title">${config.title}</h1><h2>${config.subtitle}</h2><p class="doctor-hero-description">${config.description}</p></div><nav class="doctor-subnav" aria-label="병원소개 메뉴">${subnav.map(([label, href, id]) => `<a href="${href}"${id === page ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav></section>

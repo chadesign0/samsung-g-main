@@ -141,7 +141,7 @@ if (main) {
     <section class="disease-hero" aria-labelledby="disease-title" style="--hero-image:url('${condition.hero}');--hero-position:${condition.heroPosition}">
       <div class="disease-hero-shade"></div>
       <div class="disease-hero-inner reveal">
-        <p class="breadcrumb"><span class="home-mark" aria-hidden="true">⌂</span> 삼성G정형외과 <span aria-hidden="true">›</span> 척추센터 <span aria-hidden="true">›</span> 목 <span aria-hidden="true">›</span> ${condition.title}</p>
+        <p class="breadcrumb"><span class="home-mark" aria-hidden="true">⌂</span> 삼성G정형외과 <span aria-hidden="true">›</span> 척추 클리닉 <span aria-hidden="true">›</span> 목 <span aria-hidden="true">›</span> ${condition.title}</p>
         <h1 id="disease-title">${condition.title}</h1>
         <h2>${condition.subtitle}</h2>
         <p>${condition.description}</p>
@@ -195,7 +195,7 @@ if (main) {
 
     <section class="contact-us" id="contact-us" aria-labelledby="contact-us-title">
       <div class="contact-us-shade"></div>
-      <div class="section-inner contact-us-inner reveal">
+      <div class="section-inner contact-us-inner">
         <p class="eyebrow">Contact Us</p>
         <h2 id="contact-us-title">상담문의</h2>
         <p>진료와 치료에 대해 궁금한 점을 남겨 주세요.</p>

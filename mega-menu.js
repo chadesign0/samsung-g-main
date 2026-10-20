@@ -138,7 +138,7 @@
           ['의료장비 안내', 'pages/medical-equipment.html'],
         ] },
         { items: [
-          ['의료진 & 치료사 안내', 'pages/doctors.html'],
+          ['의료진소개', 'pages/doctors.html'],
         ] },
       ],
     },
@@ -185,7 +185,7 @@
     },
     {
       id: 'spine',
-      label: '척추센터',
+      label: '척추 클리닉',
       href: 'pages/lumbar-disc.html',
       columns: 2,
       groups: [
@@ -199,7 +199,7 @@
     },
     {
       id: 'joint',
-      label: '관절센터',
+      label: '관절 클리닉',
       href: 'pages/knee-osteoarthritis.html',
       columns: 5,
       groups: [
@@ -239,8 +239,8 @@
       href: 'pages/notice.html',
       columns: 3,
       groups: [
-        { items: [['공지사항', 'pages/notice.html'], ['전문의 상담', 'pages/online-consultation.html'], ['치료 후기', 'pages/treatment-reviews.html']] },
-        { items: [['언론보도', 'pages/press-releases.html'], ['연구 / 학회 활동', 'pages/research-activities.html']] },
+        { items: [['공지사항', 'pages/notice.html'], ['전문의 상담', 'pages/online-consultation.html']] },
+        { items: [['치료 후기', 'pages/treatment-reviews.html'], ['언론보도', 'pages/press-releases.html']] },
         { items: [['증명서 발급', 'pages/certificate-issuance.html'], ['비급여 안내', 'pages/unpaid-fees.html']] },
       ],
     },

@@ -252,7 +252,7 @@ document.querySelector('#main').innerHTML = `
 
   <section class="contact-us" id="contact-us" aria-labelledby="contact-us-title">
     <div class="contact-us-shade"></div>
-    <div class="section-inner contact-us-inner reveal">
+    <div class="section-inner contact-us-inner">
       <p class="eyebrow">Contact Us</p><h2 id="contact-us-title">상담문의</h2><p>진료와 치료에 대해 궁금한 점을 남겨 주세요.</p>
       <div class="contact-us-links">
         <a class="contact-kakao" href="https://pf.kakao.com" target="_blank" rel="noreferrer"><svg viewBox="0 0 44 34" aria-hidden="true"><path d="M22 2C10.95 2 2 8.72 2 17c0 5.27 3.62 9.91 9.1 12.58L9 34l7.1-2.82c1.87.53 3.85.82 5.9.82 11.05 0 20-6.72 20-15S33.05 2 22 2Z"/><text x="22" y="21">TALK</text></svg>카카오톡 채널</a>
