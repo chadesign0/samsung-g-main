@@ -3,6 +3,24 @@
   const page = document.body.dataset.hospitalPage;
   if (!main || !page) return;
 
+  const equipment = [
+    { image: 'xray', name: 'X-RAY', model: 'EXSYS DEXI', description: '골절 등 이상 상태 확인을 위한 디지털 X-ray 촬영 장비' },
+    { image: 'c-arm', name: 'C-arm', model: 'EXTRON3', description: '실시간 뼈·관절 영상 확인과 시술 위치 안내를 위한 영상 장비' },
+    { image: 'eswt', name: 'ESWT', model: 'ZEUS Wave', description: '근육·힘줄 등 근골격계 통증 완화를 돕는 체외충격파 치료기' },
+    { image: 'ict', name: 'ICT', model: 'D&B', description: '간섭파 자극으로 근육 이완과 통증 완화를 돕는 물리치료기' },
+    { image: 'laser', name: 'Laser', model: 'HLA-200', description: '레이저·적외선 에너지를 활용한 근육·관절 통증 관리 장비' },
+    { image: 'tesla', name: '자기장치료기', model: 'Tesla-3000', description: '치료 부위에 펄스 자기장을 적용하는 물리치료기' },
+    { image: 'neuro', name: '자기장치료기', model: 'Neuro-MSL', description: '신체의 필요한 부위에 펄스 자기장을 적용하는 비수술 치료기' },
+    { image: 'traction', name: '견인치료기', model: 'LC-100', description: '목·허리 견인으로 척추 주변의 부담을 줄이는 견인치료기' },
+    { image: 'cryo', name: '냉각치료기', model: 'CRYO-MASTER', description: '치료 부위에 냉각 자극을 적용하는 냉각치료기' },
+    { image: 'ioncool', name: '이온쿨러', model: 'Multi-Ioncool', description: '냉·온열, 초음파 및 약물 이온 전달을 활용하는 복합 치료기' },
+    { image: 'aqua', name: '수치료기', model: 'AQUA Line G4', description: '온열 수압 마사지로 근육 이완과 피로 관리를 돕는 건식 수치료기' },
+    { image: 'corelax', name: '척추심부근육이완기', model: 'CORELAX', description: '척추 주변 심부근육의 이완을 돕는 치료기' },
+    { image: 'ultrasound-v5', name: 'ULTRASOUND', model: 'SAMSUNG MEDISON V5', description: '초음파로 연부조직 상태를 확인하는 영상진단 장비' },
+    { image: 'ultrasound-v4', name: 'ULTRASOUND', model: 'SAMSUNG MEDISON V4', description: '근육·힘줄 등 연부조직의 실시간 확인을 위한 초음파 진단 장비' },
+    { image: 'bone-density', name: 'OsteoSys', model: 'DEXXUM T Quantum', description: '척추·대퇴골 등의 골밀도를 측정하는 X-ray 진단 장비' },
+  ];
+
   const pages = {
     greeting: {
       title: '인사말 & 비전',
@@ -63,9 +81,20 @@
     },
     equipment: {
       title: '의료장비안내',
-      subtitle: '정확한 진단과 치료를 위한 의료장비를 갖추고 있습니다',
-      description: '삼성G정형외과에서 진단과 치료에 활용하는<br />주요 의료장비를 소개합니다.',
-      content: '<section class="equipment-empty" aria-label="의료장비 안내 준비 영역"></section>',
+      subtitle: '정확한 진단과 치료를 위한 의료장비',
+      description: '삼성G정형외과의 검사와 치료에 활용하는<br />주요 의료장비 안내',
+      content: `
+        <section class="equipment-page" aria-labelledby="equipment-title"><div class="equipment-inner">
+          <h2 id="equipment-title">의료 장비 소개</h2>
+          <ol class="equipment-grid" role="list">${equipment.map((item, index) => `
+            <li class="equipment-card">
+              <span class="equipment-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+              <h3${item.image.startsWith('ultrasound-') ? ' class="equipment-ultrasound-title"' : ''}><span>${item.name}</span><span>${item.model}</span></h3>
+              <p class="equipment-description">${item.description}</p>
+              <figure class="equipment-card-media"><div class="equipment-cutout${['ict', 'aqua'].includes(item.image) ? ` equipment-cutout--${item.image}` : ''}"><img src="../assets/subpages/equipment/${item.image}.webp" alt="${item.name} ${item.model} 장비" loading="lazy" decoding="async" /></div></figure>
+            </li>`).join('')}
+          </ol>
+        </div></section>`,
     },
   };
 
