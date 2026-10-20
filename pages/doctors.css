@@ -102,24 +102,9 @@ blockquote p { margin: 8px 0 0; font-size: 18px; line-height: 1.55; }
 .doctor-system-fill { grid-area: 1 / 4 / 3 / 5; }
 .doctor-system-story, .doctor-system-photo-listening, .doctor-system-photo-procedure, .doctor-system-detail, .doctor-system-fill { border-left: 1px solid rgba(255,255,255,.55); }
 
-.contact-us { position: relative; min-height: 535px; display: grid; place-items: center; overflow: hidden; color: #fff; background-image: url("../assets/interior-detail.jpg"); background-position: 8% 39%; background-size: 500% auto; background-repeat: no-repeat; }
-.contact-us-shade { position: absolute; inset: 0; background: rgba(23,22,21,.7); }
-.contact-us-inner { position: relative; z-index: 1; text-align: center; }
 .eyebrow { margin: 0 0 18px; font-size: 20px; font-weight: 500; }
 .eyebrow::before { content: "("; margin-right: 8px; }
 .eyebrow::after { content: ")"; margin-left: 8px; }
-.contact-us h2 { margin: 0; font-size: 30px; }
-.contact-us-inner > p:not(.eyebrow) { margin: 22px 0 0; font-size: 20px; }
-.contact-us-links { display: flex; justify-content: center; gap: 14px; margin-top: 58px; }
-.contact-us-links a { width: 230px; height: 46px; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 24px; font-size: 14px; white-space: nowrap; }
-.contact-us-links svg { width: 22px; height: 22px; flex-shrink: 0; }
-.contact-kakao { color: #241d13; background: #ffe100; }
-.contact-kakao svg path { fill: #38211e; }
-.contact-kakao svg text { fill: #ffe100; font-family: Arial, sans-serif; font-size: 11px; font-weight: 900; text-anchor: middle; }
-.contact-phone { color: #241d21; background: #fff; }
-.contact-phone svg { fill: currentColor; }
-.contact-naver { color: #fff; background: #2db43b; }
-.contact-naver strong { font-family: Arial, sans-serif; font-size: 26px; line-height: 1; }
 
 .site-footer { display: flex; align-items: center; min-height: 410px; padding: 48px 0; color: #fff; background: #123764; }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 742px) 360px; align-items: center; justify-content: space-between; gap: 100px; }
@@ -200,8 +185,6 @@ blockquote p { margin: 8px 0 0; font-size: 18px; line-height: 1.55; }
   .doctor-system-detail p { font-size: clamp(11px, 3vw, 15px); line-height: 1.65; }
   .doctor-system-photo { aspect-ratio: auto; }
   .doctor-system-story, .doctor-system-photo-listening, .doctor-system-photo-procedure, .doctor-system-detail { border-left: 0; }
-  .contact-us { min-height: 480px; padding: 70px 0; }
-  .contact-us-links { flex-wrap: wrap; margin-top: 42px; }
   .footer-info { grid-template-columns: 1fr; gap: 34px; }
   .footer-policy { margin-top: 30px; }
 }
@@ -214,8 +197,6 @@ blockquote p { margin: 8px 0 0; font-size: 18px; line-height: 1.55; }
   .doctor-specialty { font-size: 19.5px; }
   blockquote p, .career-block ul, .experience-part > p, .experience-part ol { font-size: 15px; }
   .career-block h3, .experience-part h3 { font-size: 23px; }
-  .contact-us-links { display: grid; width: min(100%, 350px); margin-inline: auto; margin-top: 40px; }
-  .contact-us-links a { width: 100%; }
   .footer-meta nav { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 }
 

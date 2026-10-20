@@ -90,24 +90,9 @@ button { cursor: pointer; font: inherit; }
 .treatment-card h3 { margin: 18px 0 18px; font-size: 32px; line-height: 1.2; letter-spacing: -.05em; }
 .treatment-card p { margin: 0; font-size: 17px; line-height: 1.55; letter-spacing: -.035em; }
 
-.contact-us { position: relative; min-height: 500px; display: grid; place-items: center; overflow: hidden; color: #fff; background-image: url("../assets/interior-detail.jpg"); background-position: 8% 39%; background-size: 500% auto; background-repeat: no-repeat; }
-.contact-us-shade { position: absolute; inset: 0; background: rgba(23,22,21,.7); }
-.contact-us-inner { position: relative; z-index: 1; text-align: center; }
 .eyebrow { margin: 0 0 18px; font-size: 20px; font-weight: 500; }
 .eyebrow::before { content: "("; margin-right: 8px; }
 .eyebrow::after { content: ")"; margin-left: 8px; }
-.contact-us h2 { margin: 0; font-size: 30px; }
-.contact-us-inner > p:not(.eyebrow) { margin: 22px 0 0; font-size: 20px; }
-.contact-us-links { display: flex; justify-content: center; gap: 14px; margin-top: 58px; }
-.contact-us-links a { width: 230px; height: 46px; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 24px; font-size: 14px; white-space: nowrap; }
-.contact-us-links svg { width: 22px; height: 22px; flex-shrink: 0; }
-.contact-kakao { color: #241d13; background: #ffe100; }
-.contact-kakao svg path { fill: #38211e; }
-.contact-kakao svg text { fill: #ffe100; font-family: Arial,sans-serif; font-size: 11px; font-weight: 900; text-anchor: middle; }
-.contact-phone { color: #241d21; background: #fff; }
-.contact-phone svg { fill: currentColor; }
-.contact-naver { color: #fff; background: #2db43b; }
-.contact-naver strong { font-family: Arial,sans-serif; font-size: 26px; line-height: 1; }
 .site-footer { min-height: 296px; background: #123764; }
 
 @media (max-width: 1500px) {
@@ -179,8 +164,6 @@ button { cursor: pointer; font: inherit; }
   .treatment-card { min-height: 570px; }
   .treatment-card h3 { font-size: 28px; }
   .treatment-card p { font-size: 17px; }
-  .contact-us { min-height: 480px; padding: 70px 0; }
-  .contact-us-links { flex-wrap: wrap; margin-top: 42px; }
 }
 
 @media (max-width: 520px) {
@@ -191,8 +174,6 @@ button { cursor: pointer; font: inherit; }
   .cause-point h3 { min-height: 0; }
   .symptoms-copy h2 { font-size: 27px; }
   .treatment-card { min-height: 500px; }
-  .contact-us-links { display: grid; width: min(100%,350px); margin-inline: auto; margin-top: 40px; }
-  .contact-us-links a { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

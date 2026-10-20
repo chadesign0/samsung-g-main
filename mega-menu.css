@@ -251,9 +251,6 @@
   .site-footer--wide .footer-wide-policy { margin-top: 16px; }
   .site-footer--wide .footer-wide-logo { width: 180px; }
 
-  .contact-us .contact-us-inner { width: min(calc(100vw - 40px), 350px); }
-  .contact-us .contact-us-links { grid-template-columns: minmax(0, 1fr); width: min(100%, 260px); margin-inline: auto; }
-  .contact-us .contact-us-links a { width: 100%; padding-inline: 14px; }
 }
 
 @media (min-width: 801px) {

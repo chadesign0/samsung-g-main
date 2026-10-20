@@ -1,0 +1,44 @@
+.tmap-map-dialog {
+  box-sizing: border-box;
+  width: min(420px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 40px 24px 28px;
+  border: 0;
+  border-radius: 20px;
+  color: #172a43;
+  background: #fff;
+  text-align: center;
+  font-family: Arial, 'Malgun Gothic', sans-serif;
+  overflow-y: auto;
+}
+.tmap-map-dialog::backdrop { background: rgb(9 24 43 / 65%); }
+.tmap-dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #eef2f6;
+  font-size: 26px;
+  cursor: pointer;
+}
+.tmap-map-dialog h2, .tmap-guide h1 { margin: 0 0 16px; font-size: 24px; }
+.tmap-map-dialog p, .tmap-guide p { line-height: 1.7; }
+.tmap-qr { display: block; width: 240px; max-width: 100%; height: auto; margin: 20px auto; }
+.tmap-help { color: #5c6674; font-size: 13px; }
+body:has(.tmap-map-dialog[open]) { overflow: hidden; }
+.tmap-guide-body {
+  margin: 0;
+  padding: 32px 20px;
+  background: #f3f6fa;
+  color: #172a43;
+  font-family: Arial, 'Malgun Gothic', sans-serif;
+}
+.tmap-guide { box-sizing: border-box; max-width: 480px; margin: 0 auto; padding: 32px 24px; border-radius: 20px; background: #fff; text-align: center; }
+.tmap-guide-logo { display: block; width: 210px; max-width: 100%; margin: 0 auto 32px; }
+.tmap-open { display: block; margin: 24px 0 16px; padding: 16px; border-radius: 8px; background: #1452a2; color: #fff; font-weight: 700; text-decoration: none; }
+.tmap-guide-stores { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.tmap-guide-stores a, .tmap-guide-back { color: #1452a2; }
+.tmap-guide-back { display: inline-block; margin-top: 24px; font-size: 14px; }
