@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261019-quickbar-inset");
+@import url("shoulder-condition.css?v=20261021-shared-clinic-guide");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
 .disease-hero-shade { background: rgba(30,24,20,.34); }
@@ -88,7 +88,7 @@
   .hip-cause-list strong { font-size: 18px; }
   .hip-symptoms { --hip-symptom-height: auto; min-height: 0; background-position: 58% center; }
   .hip-symptoms-shade { background: rgba(3,18,43,.36); }
-  .hip-symptoms-inner { min-height: 0; grid-template-columns: 1fr; gap: 50px; padding: 78px 0; }
+  .hip-symptoms-inner { min-height: 0; grid-template-columns: 1fr; gap: 40px; padding: 48px 0; }
   .hip-symptoms-copy h2 { font-size: 29px; }
   .hip-symptoms-copy > p { margin-top: 30px; font-size: 17px; }
   .hip-symptoms .symptom-checklist { margin-top: 48px; }

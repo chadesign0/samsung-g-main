@@ -118,6 +118,7 @@
 
 .doctor-career-list { margin-top: 48px; color: #123a72; background: #fff; }
 .doctor-career-detail { border-bottom: 1px solid #dfe3e8; }
+.doctor-career-detail.is-animating { overflow: hidden; }
 .doctor-career-detail:last-child { border-bottom: 0; }
 .doctor-career-detail summary {
   display: flex;
@@ -145,6 +146,10 @@
 .doctor-career-content ol { margin: 0; padding-left: 1.3em; }
 .doctor-career-content li { margin-bottom: 8px; overflow-wrap: anywhere; }
 .doctor-career-content li:last-child { margin-bottom: 0; }
+.doctor-pillar-credentials ul,
+.doctor-career-content ul { padding-left: 1em; list-style-type: disc; }
+.doctor-pillar-credentials ul > li::marker,
+.doctor-career-content ul > li::marker { content: "·  "; }
 .doctor-publications { word-break: normal; }
 .doctor-publications li { margin-bottom: 18px; }
 

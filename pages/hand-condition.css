@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261019-quickbar-inset");
+@import url("shoulder-condition.css?v=20261021-shared-clinic-guide");
 
 .disease-tabs { grid-template-columns: repeat(6,1fr); font-size: 17px; }
 .disease-tabs > a { padding-inline: 8px; }
@@ -66,8 +66,8 @@
   .cause-list strong { font-size: 18px; }
   .cause-list strong span { left: -32px; font-size: 23px; }
   .cause-list p { font-size: 17px; }
-  .hand-symptoms { --hand-symptom-height: 660px; background-position: 52% center; }
-  .hand-symptoms-inner { padding: 44px 0; }
+  .hand-symptoms { --hand-symptom-height: 0px; background-position: 52% center; }
+  .hand-symptoms-inner { min-height: 0; align-items: flex-start; padding: 48px 0; }
   .hand-symptoms-copy h2 { font-size: 30px; }
   .hand-symptoms-copy > p { margin-top: 30px; font-size: 15px; }
   .hand-symptoms .symptom-checklist { margin-top: 48px; }
@@ -83,7 +83,6 @@
 
 @media (max-width: 520px) {
   .hand-symptoms-copy h2 { font-size: 27px; }
-  .hand-symptoms { --hand-symptom-height: 640px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

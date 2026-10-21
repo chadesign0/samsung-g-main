@@ -9,11 +9,12 @@ const conditions = {
     heroPosition: 'center',
     causeTitle: '목디스크<br>작은 불편도 놓치지 마세요',
     causeIntro: '목의 뻐근함이 잠시 나아져도 신경 자극이 이어지면 어깨와 팔까지 통증이 퍼질 수 있습니다.<br>고개를 돌리기 어렵거나 손끝 감각이 둔해지는 증상이 반복된다면 목 상태를 확인해 보는 것이 좋습니다.',
+    causeImages: ['cause-disc-aging.png', 'cause-disc-posture.png', 'cause-disc-strain.png', 'cause-disc-impact.png'],
     causes: [
-      ['자연스러운 노화', '디스크의 수분과 탄력이 감소해 신경이 자극받을 수 있습니다.'],
-      ['장시간 숙인 자세', '스마트폰과 모니터를 향해 고개를 숙이는 자세가 목에 부담을 줍니다.'],
-      ['누적되는 목의 부담', '오랜 시간 반복되는 부담이 목 주변 구조에 영향을 줄 수 있습니다.'],
-      ['갑작스러운 외부 자극', '외부 충격이나 무리한 움직임이 증상의 계기가 될 수 있습니다.'],
+      ['자연스러운 노화', '디스크의 수분과 탄력이 감소해 신경이 자극받을 수 있습니다.', '디스크 탄력 감소에 따른 신경 자극'],
+      ['장시간 숙인 자세', '스마트폰과 모니터를 향해 고개를 숙이는 자세가 목에 부담을 줍니다.', '숙인 자세로 쌓이는 목의 부담'],
+      ['누적되는 목의 부담', '오랜 시간 반복되는 부담이 목 주변 구조에 영향을 줄 수 있습니다.', '반복되는 부담에 따른 목의 변화'],
+      ['갑작스러운 외부 자극', '외부 충격이나 무리한 움직임이 증상의 계기가 될 수 있습니다.', '외부 충격·무리한 움직임의 영향'],
     ],
     symptomFlipped: true,
     symptomTitle: '목과 팔의 불편함,<br>가볍게 넘기지 마세요',
@@ -30,11 +31,12 @@ const conditions = {
     heroPosition: 'center',
     causeTitle: '거북목 일자목<br>평소 자세에서 시작될 수 있습니다',
     causeIntro: '스마트폰이나 모니터를 볼 때 머리가 앞으로 나온 자세가 반복되면 목의 자연스러운 곡선과 주변 근육의 균형이 흐트러질 수 있습니다.<br>목 뒤가 쉽게 피로하거나 어깨가 자주 뭉친다면 일상 속 자세부터 점검해 보세요.',
+    causeImages: ['cause-forward-screen.png', 'cause-forward-workspace.png', 'cause-forward-rounded-shoulders.png', 'cause-forward-inactivity.png'],
     causes: [
-      ['장시간 화면 사용', '오래 내려다보는 습관은 머리의 무게를 목과 어깨에 집중시킵니다.'],
-      ['맞지 않는 작업 환경', '높이가 맞지 않는 모니터와 의자가 목의 긴장을 높일 수 있습니다.'],
-      ['굽은 등과 말린 어깨', '등과 어깨의 정렬이 무너지면 고개가 앞으로 나오기 쉽습니다.'],
-      ['부족한 움직임과 근력', '활동량이 줄어들면 목과 어깨를 지지하는 힘이 약해질 수 있습니다.'],
+      ['장시간 화면 사용', '오래 내려다보는 습관은 머리의 무게를 목과 어깨에 집중시킵니다.', '화면을 내려다볼수록 커지는 목의 부담'],
+      ['맞지 않는 작업 환경', '높이가 맞지 않는 모니터와 의자가 목의 긴장을 높일 수 있습니다.', '맞지 않는 작업 높이로 인한 목의 긴장'],
+      ['굽은 등과 말린 어깨', '등과 어깨의 정렬이 무너지면 고개가 앞으로 나오기 쉽습니다.', '등·어깨 정렬 변화로 앞으로 나온 고개'],
+      ['부족한 움직임과 근력', '활동량이 줄어들면 목과 어깨를 지지하는 힘이 약해질 수 있습니다.', '활동 부족으로 약해지는 목·어깨 근력'],
     ],
     symptomTitle: '목과 어깨에 쌓이는 피로,<br>자세가 보내는 신호입니다',
     symptomIntro: '거북목·일자목은 목 주변의 긴장과 통증뿐 아니라 어깨와 등까지 불편함을 이어지게 할 수 있습니다.',
@@ -50,11 +52,12 @@ const conditions = {
     heroPosition: 'center',
     causeTitle: '경추 척추관협착증<br>퇴행성 변화에서 시작될 수 있습니다',
     causeIntro: '나이가 들면서 뼈와 디스크, 인대가 변형되면 척수가 지나가는 공간이 점차 좁아질 수 있습니다.<br>손 저림이나 움직임의 변화가 반복된다면 경추와 신경 상태를 확인해 보세요.',
+    causeImages: ['cause-stenosis-aging.png', 'cause-stenosis-disc.png', 'cause-stenosis-spurs.png', 'cause-stenosis-congenital.png'],
     causes: [
-      ['퇴행성 변화', '나이가 들면서 디스크와 관절이 변형되어 척추관이 좁아질 수 있습니다.'],
-      ['디스크의 돌출', '디스크가 밀려나오면서 신경이나 척수를 압박할 수 있습니다.'],
-      ['뼈돌기와 인대 비후', '척추 구조의 변화가 공간을 좁히고 압박을 만들 수 있습니다.'],
-      ['선천적으로 좁은 척추관', '태어날 때부터 좁은 경우에는 작은 변화에도 증상이 나타날 수 있습니다.'],
+      ['퇴행성 변화', '나이가 들면서 디스크와 관절이 변형되어 척추관이 좁아질 수 있습니다.', '디스크·관절 변화로 좁아지는 척추관'],
+      ['디스크의 돌출', '디스크가 밀려나오면서 신경이나 척수를 압박할 수 있습니다.', '돌출된 디스크에 의한 신경·척수 압박'],
+      ['뼈돌기와 인대 비후', '척추 구조의 변화가 공간을 좁히고 압박을 만들 수 있습니다.', '구조 변화에 따른 척추관 협소·압박'],
+      ['선천적으로 좁은 척추관', '태어날 때부터 좁은 경우에는 작은 변화에도 증상이 나타날 수 있습니다.', '좁은 척추관은 작은 변화에도 증상 가능'],
     ],
     symptomFlipped: true,
     symptomTitle: '손의 움직임과 걸음걸이 변화,<br>척수가 보내는 신호일 수 있습니다',
@@ -71,11 +74,12 @@ const conditions = {
     heroPosition: 'center',
     causeTitle: '경추성 두통,<br>목 주변의 문제에서 시작될 수 있습니다',
     causeIntro: '장시간 유지하는 자세와 경추 관절의 움직임 저하, 주변 근육의 긴장은 두통으로 이어질 수 있습니다.<br>머리가 아플 때 뒷목까지 뻐근하다면 통증의 원인을 함께 확인해 보세요.',
+    causeImages: ['cause-muscle-posture.png', 'cause-muscle-headache.png', 'cause-muscle-tension.png', 'cause-muscle-fatigue.png'],
     causes: [
-      ['잘못된 자세', '고개를 앞으로 내민 자세가 반복되면 목에 부담과 긴장이 쌓일 수 있습니다.'],
-      ['경추 관절의 기능 저하', '뒤통수와 머리 주변으로 통증이 이어질 수 있습니다.'],
-      ['목 주변 근육의 긴장', '근육이 과도하게 긴장하면 목에서 시작된 통증이 퍼질 수 있습니다.'],
-      ['외상 및 퇴행성 변화', '목의 구조 변화가 경추 관절과 근육을 자극할 수 있습니다.'],
+      ['잘못된 자세', '고개를 앞으로 내민 자세가 반복되면 목에 부담과 긴장이 쌓일 수 있습니다.', '앞으로 내민 고개로 쌓이는 목의 긴장'],
+      ['경추 관절의 기능 저하', '뒤통수와 머리 주변으로 통증이 이어질 수 있습니다.', '뒤통수·머리로 이어질 수 있는 통증'],
+      ['목 주변 근육의 긴장', '근육이 과도하게 긴장하면 목에서 시작된 통증이 퍼질 수 있습니다.', '근육 긴장으로 목에서 퍼지는 통증'],
+      ['외상 및 퇴행성 변화', '목의 구조 변화가 경추 관절과 근육을 자극할 수 있습니다.', '목의 구조 변화에 따른 관절·근육 자극'],
     ],
     symptomTitle: '목에서 시작되는 두통,<br>움직일 때 더욱 뚜렷해질 수 있습니다',
     symptomIntro: '경추성 두통은 단순히 머리만 아픈 것이 아니라 목의 움직임과 자세 변화에 따라 불편함이 함께 나타날 수 있습니다.',
@@ -91,11 +95,12 @@ const conditions = {
     heroPosition: 'center',
     causeTitle: '반복되는 목·어깨 통증,<br>일상 속 근육 부담에서 시작될 수 있습니다',
     causeIntro: '같은 자세를 오래 유지하거나 특정 근육을 반복적으로 사용하면 목과 어깨의 긴장이 풀리지 않고 통증 유발점으로 이어질 수 있습니다.',
+    causeImages: ['cause-muscle-posture.png', 'cause-muscle-headache.png', 'cause-muscle-tension.png', 'cause-muscle-fatigue.png'],
     causes: [
-      ['장시간 유지되는 자세', '스마트폰을 오래 사용하면 목과 어깨 근육의 부담이 커질 수 있습니다.'],
-      ['반복적인 근육 사용', '같은 동작을 반복하면 특정 근육에 과도한 긴장이 생길 수 있습니다.'],
-      ['근육의 손상', '무리한 운동이나 움직임이 근육 손상과 통증을 만들 수 있습니다.'],
-      ['스트레스와 피로', '긴장과 피로가 지속되면 통증이 회복되지 않고 반복될 수 있습니다.'],
+      ['장시간 유지되는 자세', '스마트폰을 오래 사용하면 목과 어깨 근육의 부담이 커질 수 있습니다.', '오랜 스마트폰 사용에 따른 근육 부담'],
+      ['반복적인 근육 사용', '같은 동작을 반복하면 특정 근육에 과도한 긴장이 생길 수 있습니다.', '반복 동작으로 쌓이는 근육 긴장'],
+      ['근육의 손상', '무리한 운동이나 움직임이 근육 손상과 통증을 만들 수 있습니다.', '무리한 운동·움직임에 따른 손상·통증'],
+      ['스트레스와 피로', '긴장과 피로가 지속되면 통증이 회복되지 않고 반복될 수 있습니다.', '긴장·피로가 이어지며 반복되는 통증'],
     ],
     symptomTitle: '누르면 다른 곳까지 퍼지는 통증,<br>근막통증증후군의 특징일 수 있습니다',
     symptomIntro: '목과 어깨 근육에 단단하게 뭉친 부위가 생기고 해당 부위를 누르면 주변이나 떨어진 곳까지 통증이 전달될 수 있습니다.',
@@ -113,22 +118,15 @@ const tabs = [
   ['neck-myofascial-pain', '목·어깨 근막통증증후군', 'neck-myofascial-pain.html'],
 ];
 
-const causeImages = [
-  '../assets/subpages/neck/cause-screen.jpg',
-  '../assets/subpages/neck/cause-aging.jpg',
-  '../assets/subpages/neck/cause-strain.jpg',
-  '../assets/subpages/neck/cause-fatigue.jpg',
-];
-
 const condition = conditions[conditionKey] || conditions['cervical-disc'];
 const main = document.querySelector('#main');
 
-const cardMarkup = condition.causes.map(([title, description], index) => `
+const cardMarkup = condition.causes.map(([title, description, mobileDescription], index) => `
   <article class="cause-card reveal" tabindex="0" role="button" aria-expanded="false">
-    <img src="${causeImages[index]}" alt="${title} 관련 목 건강 이미지">
+    <img src="../assets/subpages/neck/${condition.causeImages[index]}" alt="${title} 관련 목 건강 이미지">
     <div class="cause-card-copy">
       <h3>${title}</h3>
-      <p class="cause-card-description">${description}</p>
+      <p class="cause-card-description"><span class="cause-card-description-desktop">${description}</span><span class="cause-card-description-mobile">${mobileDescription}</span></p>
       <span class="plus-mark" aria-hidden="true">+</span>
     </div>
   </article>`).join('');

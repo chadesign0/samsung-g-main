@@ -297,12 +297,12 @@
   .day-candidate-list { gap: 34px 20px; }
   .day-candidate figure { height: 210px; }
   .day-candidate > span { top: 187px; width: 44px; height: 44px; }
-  .day-benefits { min-height: 680px; background-position: 55% center; }
+  .day-benefits { min-height: 0; align-items: start; padding: 48px 0; background-position: 55% center; }
   .day-benefits-inner { width: calc(100% - 40px); padding-left: 30%; }
   .day-benefits-inner > p br { display: none; }
   .day-benefits li { font-size: 16px; }
-  .day-message { min-height: 650px; padding: 0 24px 95px; background-position: 74% -18px; background-size: 403px auto; }
-  .day-message-line { height: 110px; margin-bottom: 45px; }
+  .day-message { min-height: 0; padding: 0 24px 64px; background-position: 74% -18px; background-size: 403px auto; }
+  .day-message-line { height: 56px; margin-bottom: 28px; }
 }
 
 @media (max-width: 560px) {
@@ -315,7 +315,7 @@
   .day-candidate-list { grid-template-columns: 1fr; }
   .day-candidate figure { height: 285px; }
   .day-candidate > span { top: 263px; }
-  .day-benefits { min-height: 700px; background-position: 48% center; }
+  .day-benefits { background-position: 48% center; }
   .day-benefits-inner { padding-left: 0; }
   .day-benefits-inner > p { font-size: 15px; }
   .day-message h2 { margin-bottom: 52px; font-size: 32px; }

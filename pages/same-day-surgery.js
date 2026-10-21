@@ -14,7 +14,7 @@ const surgeryPages = {
     criteria: ['종괴의 크기가 점차 커지는 경우','통증이나 압박감, 저림이 동반되는 경우','염증과 불편함이 반복해서 나타나는 경우','움직임을 방해하거나 지속적으로 마찰되는 경우'],
     processImage: 'process-benign.png', processTitle: '양성종괴 제거 과정',
     steps: ['진료 및 촉진','영상검사','치료 계획 수립','종괴 제거','경과 확인'],
-    careTitle: '제거 후 관리', careText: '상처가 회복되는 동안 수술 부위를 청결하게 유지하고 과도하게 당기거나 압박하는 동작은 피하는 것이 좋습니다.<br />붓기와 멍은 일시적으로 나타날 수 있으나 붉어짐, 열감, 분비물 또는 심해지는 통증이 있다면 즉시 상태를 확인해야 합니다.'
+    careTitle: '제거 후 관리', careText: '상처는 청결히 관리하고 당김·압박은 피하세요.<br />붉어짐·열감·분비물·통증 악화 시 즉시 진료받으세요.'
   },
   carpal: {
     title: '손목터널증후군 감압술', file: 'carpal-tunnel-release.html', hero: 'hero-carpal.jpg', heroPosition: 'center 40%',
@@ -29,7 +29,7 @@ const surgeryPages = {
     criteria: ['보존적 치료에도 저림이 지속되는 경우','야간 통증이 반복되어 잠을 방해하는 경우','감각 저하나 엄지 근력 약화가 있는 경우','검사에서 신경 기능 저하가 확인되는 경우'],
     processImage: 'process-carpal.png', processTitle: '손목터널증후군 감압술 과정',
     steps: ['진료·기능 평가','필요 검사','수술 계획','신경 감압','회복 확인'],
-    careTitle: '감압술 후 관리', careText: '상처의 드레싱은 의료진의 안내에 따라 관리하고, 강하게 꺾거나 손목에 무게를 싣는 동작은 조절합니다.<br />손가락 운동과 일상 복귀는 회복 상태에 맞춰 진행하며 감각 근력의 변화를 확인합니다.'
+    careTitle: '감압술 후 관리', careText: '상처는 안내에 따라 관리하고 손목 꺾기·하중은 조절하세요.<br />손가락 운동·일상 복귀는 회복에 맞추고 감각·근력 변화를 확인하세요.'
   },
   trigger: {
     title: '방아쇠수지 유리술', file: 'trigger-finger-release.html', hero: 'hero-trigger.jpg', heroPosition: 'center 48%',
@@ -44,7 +44,7 @@ const surgeryPages = {
     criteria: ['치료 후에도 손가락 걸림이 지속되는 경우','손가락이 굽힌 채 쉽게 펴기 어려운 경우','통증으로 쥐고 펴는 동작이 불편한 경우','뻣뻣함과 움직임 제한이 이어지는 경우'],
     processImage: 'process-trigger.jpg', processTitle: '방아쇠수지 유리술 과정',
     steps: ['진료·동작 확인','수술 적합성','마취 계획','활차 유리','경과 확인'],
-    careTitle: '유리술 후 관리', careText: '상처 관리 지침을 지키고, 의료진이 안내한 범위에서 손가락을 부드럽게 움직입니다.<br />강한 쥐기와 반복 작업은 회복 상태에 맞춰 조절하며 붓기·통증이 심해지면 진료를 받습니다.'
+    careTitle: '유리술 후 관리', careText: '상처 관리·손가락 운동은 의료진 안내에 따르세요.<br />강한 쥐기·반복 작업을 조절하고 붓기·통증 악화 시 진료받으세요.'
   },
   dequervain: {
     title: '드퀘르뱅병 유리술', file: 'de-quervain-release.html', hero: 'hero-dequervain.jpg', heroPosition: 'center 47%',
@@ -59,7 +59,7 @@ const surgeryPages = {
     criteria: ['보존적 치료 후에도 통증이 지속되는 경우','잡거나 드는 동작에 심한 통증이 있는 경우','붓기와 압통으로 손 사용이 불편한 경우','엄지·손목 움직임의 제한이 이어지는 경우'],
     processImage: 'process-dequervain.jpg', processTitle: '드퀘르뱅병 유리술 과정',
     steps: ['진료·상태 확인','필요 검사','수술 계획','건초 유리','회복 확인'],
-    careTitle: '유리술 후 관리', careText: '상처와 봉합된 관리는 의료진의 안내를 따르고, 엄지와 손목에 부담을 주는 반복 동작을 조절합니다.<br />통증과 힘의 회복 정도를 살피며 일상 복귀를 단계적으로 진행합니다.'
+    careTitle: '유리술 후 관리', careText: '상처·봉합 관리는 안내에 따르고 엄지·손목의 반복 사용은 줄이세요.<br />통증·힘의 회복에 맞춰 일상으로 복귀하세요.'
   },
   fracture: {
     title: '비절개 골절 수술', file: 'minimally-invasive-fracture-surgery.html', hero: 'hero-fracture.jpg', heroPosition: 'center 52%',
@@ -74,7 +74,7 @@ const surgeryPages = {
     criteria: ['골절 위치와 관절면 침범 여부','뼈의 각도·회전과 어긋난 정도','폐쇄정복 가능성과 고정 후 안정성','피부·신경·혈관의 동반 손상 여부'],
     processImage: 'process-fracture.png', processTitle: '비절개 골절 수술 과정',
     steps: ['진료·영상검사','수술 계획','마취·정복','필요 시 고정','유합 확인'],
-    careTitle: '골절 수술 후 관리', careText: '고정 부위와 핀 삽입 부위는 안내에 따라 관리하고, 체중 부하와 움직임은 의료진 지침을 따릅니다.<br />정기 검사로 뼈의 정렬과 유합을 확인하며 심해지는 통증·저림이나 순환의 색 변화는 바로 진료받습니다.'
+    careTitle: '골절 수술 후 관리', careText: '고정·핀 부위 관리와 체중 부하·움직임은 의료진 지침을 따르세요.<br />정기검사로 정렬·유합 확인, 통증 악화·저림·피부색 변화 시 즉시 진료.'
   },
   wart: {
     title: '티눈 및 사마귀 제거술', file: 'corn-wart-removal.html', hero: 'hero-wart.jpg', heroPosition: 'center 48%',
@@ -89,7 +89,7 @@ const surgeryPages = {
     criteria: ['티눈·사마귀의 구분과 병변의 깊이','보행이나 압박으로 생기는 통증','반복되는 마찰·압박과 병변의 재발','주변 감염과 상처 회복에 영향을 주는 요인'],
     processImage: 'process-wart.jpg', processTitle: '티눈 및 사마귀 제거술 과정',
     steps: ['진료·병변 감별','범위 확인','치료법 선택','선택적 제거','상처·재발 확인'],
-    careTitle: '제거 후 관리', careText: '치료 부위를 물에 오래 담그지 않고 상처 관리 방법은 받은 치료에 맞춰 안내받습니다.<br />티눈은 압박과 마찰을 줄이고, 사마귀는 병변을 만진 뒤 손을 씻으며 재발 여부를 확인합니다.'
+    careTitle: '제거 후 관리', careText: '치료 부위는 물에 오래 담그지 말고 안내에 따라 관리하세요.<br />티눈은 압박·마찰 주의, 사마귀는 접촉 후 손 씻기·재발 확인.'
   },
   ingrown: {
     title: '내성 발톱 교정술', file: 'ingrown-nail-correction.html', hero: 'hero-ingrown.jpg', heroPosition: 'center 48%',
@@ -104,7 +104,7 @@ const surgeryPages = {
     criteria: ['발톱 가장자리가 피부를 파고드는 경우','신발 착용이나 보행 시 통증이 있는 경우','붓기·발적·진물 등 염증이 동반되는 경우','치료 후에도 같은 부위에 증상이 반복되는 경우'],
     processImage: 'process-ingrown.png', processTitle: '내성 발톱 교정술 과정',
     steps: ['진료·상태 확인','교정 계획','필요 시 마취','교정·부분 제거','상처 확인'],
-    careTitle: '교정 후 관리', careText: '드레싱과 상처 관리는 안내받은 방법을 따르고, 발가락을 압박하는 신발과 자극을 피합니다.<br />회복 후 발톱은 너무 짧게 자르지 않으며 붉어짐·열감·분비물이나 심해지는 통증이 있으면 진료를 받습니다.'
+    careTitle: '교정 후 관리', careText: '드레싱은 안내에 따르고 발가락 압박·자극은 피하세요.<br />회복 후 발톱은 너무 짧게 자르지 말고 붉어짐·열감·분비물·통증 악화 시 진료받으세요.'
   }
 };
 

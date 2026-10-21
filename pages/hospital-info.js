@@ -4,21 +4,21 @@
   if (!main || !page) return;
 
   const equipment = [
-    { image: 'xray', name: 'X-RAY', model: 'EXSYS DEXI', description: '골절 등 이상 상태 확인을 위한 디지털 X-ray 촬영 장비' },
-    { image: 'c-arm', name: 'C-arm', model: 'EXTRON3', description: '실시간 뼈·관절 영상 확인과 시술 위치 안내를 위한 영상 장비' },
-    { image: 'eswt', name: 'ESWT', model: 'ZEUS Wave', description: '근육·힘줄 등 근골격계 통증 완화를 돕는 체외충격파 치료기' },
-    { image: 'ict', name: 'ICT', model: 'D&B', description: '간섭파 자극으로 근육 이완과 통증 완화를 돕는 물리치료기' },
-    { image: 'laser', name: 'Laser', model: 'HLA-200', description: '레이저·적외선 에너지를 활용한 근육·관절 통증 관리 장비' },
-    { image: 'tesla', name: '자기장치료기', model: 'Tesla-3000', description: '치료 부위에 펄스 자기장을 적용하는 물리치료기' },
-    { image: 'neuro', name: '자기장치료기', model: 'Neuro-MSL', description: '신체의 필요한 부위에 펄스 자기장을 적용하는 비수술 치료기' },
-    { image: 'traction', name: '견인치료기', model: 'LC-100', description: '목·허리 견인으로 척추 주변의 부담을 줄이는 견인치료기' },
-    { image: 'cryo', name: '냉각치료기', model: 'CRYO-MASTER', description: '치료 부위에 냉각 자극을 적용하는 냉각치료기' },
-    { image: 'ioncool', name: '이온쿨러', model: 'Multi-Ioncool', description: '냉·온열, 초음파 및 약물 이온 전달을 활용하는 복합 치료기' },
-    { image: 'aqua', name: '수치료기', model: 'AQUA Line G4', description: '온열 수압 마사지로 근육 이완과 피로 관리를 돕는 건식 수치료기' },
-    { image: 'corelax', name: '척추심부근육이완기', model: 'CORELAX', description: '척추 주변 심부근육의 이완을 돕는 치료기' },
-    { image: 'ultrasound-v5', name: 'ULTRASOUND', model: 'SAMSUNG MEDISON V5', description: '초음파로 연부조직 상태를 확인하는 영상진단 장비' },
-    { image: 'ultrasound-v4', name: 'ULTRASOUND', model: 'SAMSUNG MEDISON V4', description: '근육·힘줄 등 연부조직의 실시간 확인을 위한 초음파 진단 장비' },
-    { image: 'bone-density', name: 'OsteoSys', model: 'DEXXUM T Quantum', description: '척추·대퇴골 등의 골밀도를 측정하는 X-ray 진단 장비' },
+    { image: 'xray', name: 'X-RAY', model: 'EXSYS DEXI', description: '골절 등 이상 상태 확인을 위한 디지털 X-ray 촬영 장비', mobileDescription: '골절·뼈 상태 확인을 위한 디지털 X-ray 장비' },
+    { image: 'c-arm', name: 'C-arm', model: 'EXTRON3', description: '실시간 뼈·관절 영상 확인과 시술 위치 안내를 위한 영상 장비', mobileDescription: '실시간 영상으로 시술 위치를 안내하는 장비' },
+    { image: 'eswt', name: 'ESWT', model: 'ZEUS Wave', description: '근육·힘줄 등 근골격계 통증 완화를 돕는 체외충격파 치료기', mobileDescription: '근육·힘줄 통증 완화를 돕는 체외충격파 치료기' },
+    { image: 'ict', name: 'ICT', model: 'D&B', description: '간섭파 자극으로 근육 이완과 통증 완화를 돕는 물리치료기', mobileDescription: '근육 이완과 통증 완화를 돕는 간섭파 치료기' },
+    { image: 'laser', name: 'Laser', model: 'HLA-200', description: '레이저·적외선 에너지를 활용한 근육·관절 통증 관리 장비', mobileDescription: '레이저·적외선을 활용한 근육·관절 통증 관리' },
+    { image: 'tesla', name: '자기장치료기', model: 'Tesla-3000', description: '치료 부위에 펄스 자기장을 적용하는 물리치료기', mobileDescription: '치료 부위에 펄스 자기장을 적용하는 치료기' },
+    { image: 'neuro', name: '자기장치료기', model: 'Neuro-MSL', description: '신체의 필요한 부위에 펄스 자기장을 적용하는 비수술 치료기', mobileDescription: '필요한 부위에 펄스 자기장을 적용하는 치료기' },
+    { image: 'traction', name: '견인치료기', model: 'LC-100', description: '목·허리 견인으로 척추 주변의 부담을 줄이는 견인치료기', mobileDescription: '목·허리 견인으로 척추 부담을 줄이는 치료기' },
+    { image: 'cryo', name: '냉각치료기', model: 'CRYO-MASTER', description: '치료 부위에 냉각 자극을 적용하는 냉각치료기', mobileDescription: '치료 부위에 냉각 자극을 적용하는 치료기' },
+    { image: 'ioncool', name: '이온쿨러', model: 'Multi-Ioncool', description: '냉·온열, 초음파 및 약물 이온 전달을 활용하는 복합 치료기', mobileDescription: '냉·온열, 초음파·이온 전달을 활용한 복합 치료기' },
+    { image: 'aqua', name: '수치료기', model: 'AQUA Line G4', description: '온열 수압 마사지로 근육 이완과 피로 관리를 돕는 건식 수치료기', mobileDescription: '온열 수압 마사지로 근육 이완을 돕는 수치료기' },
+    { image: 'corelax', name: '척추심부근육이완기', model: 'CORELAX', description: '척추 주변 심부근육의 이완을 돕는 치료기', mobileDescription: '척추 주변 심부근육의 이완을 돕는 치료기' },
+    { image: 'ultrasound-v5', name: 'ULTRASOUND', model: 'SAMSUNG MEDISON V5', description: '초음파로 연부조직 상태를 확인하는 영상진단 장비', mobileDescription: '초음파로 연부조직 상태를 확인하는 진단 장비' },
+    { image: 'ultrasound-v4', name: 'ULTRASOUND', model: 'SAMSUNG MEDISON V4', description: '근육·힘줄 등 연부조직의 실시간 확인을 위한 초음파 진단 장비', mobileDescription: '근육·힘줄 상태를 실시간 확인하는 초음파 장비' },
+    { image: 'bone-density', name: 'OsteoSys', model: 'DEXXUM T Quantum', description: '척추·대퇴골 등의 골밀도를 측정하는 X-ray 진단 장비', mobileDescription: '척추·대퇴골 골밀도를 측정하는 X-ray 장비' },
   ];
 
   const pages = {
@@ -55,13 +55,26 @@
       content: `
         <section class="tour-page"><div class="section-inner">
           <h2 class="reveal">삼성G정형외과 방문 전<br />원내를 미리 둘러보세요.</h2>
-          <figure class="tour-stage reveal"><img id="tour-main-image" src="../assets/place-full-main.jpg" alt="삼성G정형외과 로비" /><figcaption class="tour-caption"><strong id="tour-title">로비</strong><p id="tour-description">밝고 쾌적한 공간에서 진료를 기다리는 시간까지<br />편안하게 머무를 수 있도록 세심하게 구성했습니다.</p></figcaption></figure>
+          <figure class="tour-stage reveal">
+            <button class="tour-stage-open" type="button" aria-label="선택한 병원 시설 사진 크게 보기"><img id="tour-main-image" src="../assets/place-full-main.jpg" alt="삼성G정형외과 로비" /></button>
+            <figcaption class="tour-caption"><strong id="tour-title">로비</strong><p id="tour-description">밝고 쾌적한 공간에서 편안하게 진료를 기다리실 수 있습니다.</p></figcaption>
+            <button class="tour-gallery-arrow tour-gallery-prev" type="button" data-direction="-1" aria-label="이전 로비 사진"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4-8 8 8 8" /></svg></button>
+            <button class="tour-gallery-arrow tour-gallery-next" type="button" data-direction="1" aria-label="다음 로비 사진"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8" /></svg></button>
+            <span class="tour-gallery-status" role="status" aria-atomic="true"></span>
+          </figure>
           <div class="tour-thumbnails" aria-label="원내 공간 사진 선택">
-            <button class="tour-thumb" type="button" aria-current="true" data-image="../assets/place-full-main.jpg" data-title="로비" data-description="밝고 쾌적한 공간에서 진료를 기다리는 시간까지|편안하게 머무를 수 있도록 세심하게 구성했습니다."><img src="../assets/place-full-main.jpg" alt="로비" /></button>
-            <button class="tour-thumb" type="button" aria-current="false" data-image="../assets/place-full-top.jpg" data-title="진료실" data-description="환자의 이야기를 충분히 듣고 상태를 꼼꼼하게|확인할 수 있도록 준비한 진료 공간입니다."><img src="../assets/place-full-top.jpg" alt="진료실" /></button>
-            <button class="tour-thumb" type="button" aria-current="false" data-image="../assets/place-full-left-small.jpg" data-title="치료실" data-description="치료와 회복 과정에 집중할 수 있도록|편안하고 쾌적하게 관리하는 공간입니다."><img src="../assets/place-full-left-small.jpg" alt="치료실" /></button>
-            <button class="tour-thumb" type="button" aria-current="false" data-image="../assets/place-full-bottom.jpg" data-title="수액실" data-description="안정적으로 휴식을 취하며 치료받을 수 있도록|프라이버시와 편안함을 고려했습니다."><img src="../assets/place-full-bottom.jpg" alt="수액실" /></button>
+            <button class="tour-thumb" type="button" aria-current="true" data-gallery="lobby" data-src="../assets/place-full-main.jpg" data-title="로비" data-description="밝고 쾌적한 공간에서 편안하게 진료를 기다리실 수 있습니다."><img src="../assets/place-full-main.jpg" alt="로비" /></button>
+            <button class="tour-thumb" type="button" aria-current="false" data-gallery="clinic" data-src="../assets/clinic-room.webp" data-title="진료실" data-description="정밀 진단 장비를 갖춘 쾌적한 진료실입니다."><img src="../assets/clinic-room.webp" alt="진료실" /></button>
+            <button class="tour-thumb" type="button" aria-current="false" data-gallery="inpatient" data-src="../assets/place-full-top.jpg" data-title="입원실" data-description="치료 후 편안하게 안정을 취하며 회복할 수 있는 입원 공간입니다."><img src="../assets/place-full-top.jpg" alt="입원실" /></button>
+            <button class="tour-thumb" type="button" aria-current="false" data-gallery="treatment" data-src="../assets/place-full-left-small.jpg" data-title="치료실" data-description="안정적인 치료에 집중할 수 있도록 구성했습니다."><img src="../assets/place-full-left-small.jpg" alt="치료실" /></button>
           </div>
+          <dialog class="tour-lightbox" aria-label="공간 이미지 크게 보기">
+            <button class="tour-lightbox-close" type="button" aria-label="확대 이미지 닫기">×</button>
+            <img class="tour-lightbox-image" src="" alt="" />
+            <button class="tour-gallery-arrow tour-gallery-prev" type="button" data-direction="-1" aria-label="이전 로비 사진"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4-8 8 8 8" /></svg></button>
+            <button class="tour-gallery-arrow tour-gallery-next" type="button" data-direction="1" aria-label="다음 로비 사진"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8" /></svg></button>
+            <span class="tour-gallery-status" role="status" aria-atomic="true"></span>
+          </dialog>
         </div></section>`,
     },
     directions: {
@@ -71,7 +84,7 @@
       content: `
         <section class="directions-page" id="clinic-location"><div class="section-inner">
           <div class="directions-heading reveal"><div><p class="directions-eyebrow">( Location )</p><h2>삼성G정형외과 오시는 길</h2><p class="directions-address">경기 군포시 군포로 522 4층</p><p class="directions-note">군포새마을금고 건물 옆 넓은 주차타워에 편리하게 주차하실 수 있습니다.</p></div>
-          <nav class="map-links" aria-label="지도 서비스"><a href="https://map.naver.com/p/entry/place/2044656006" target="_blank" rel="noreferrer"><strong>N</strong>네이버 지도</a><a href="https://map.kakao.com/link/map/833800931" target="_blank" rel="noreferrer">● 카카오 지도</a><a href="../tmap.html" data-tmap-link><strong>T</strong>티맵 지도</a></nav></div>
+          <nav class="map-links" aria-label="지도 서비스"><a class="naver" href="https://map.naver.com/p/entry/place/2044656006" target="_blank" rel="noreferrer"><span aria-hidden="true">N</span>네이버 지도</a><a class="kakao" href="https://map.kakao.com/link/map/833800931" target="_blank" rel="noreferrer"><svg aria-hidden="true" viewBox="0 0 24 30"><path d="M12 0C5.37 0 0 5.37 0 12c0 8.6 12 18 12 18s12-9.4 12-18C24 5.37 18.63 0 12 0Z"/><circle cx="12" cy="12" r="4"/></svg>카카오 지도</a><a class="tmap" href="../tmap.html" data-tmap-link><span aria-hidden="true">T</span>T맵 지도</a></nav></div>
           <div class="map-placeholder reveal"><iframe title="삼성G정형외과 위치 지도" src="https://www.google.com/maps?q=37.3525822,126.9456639&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
           <div class="direction-cards">
             <figure class="direction-card direction-hours reveal" id="clinic-hours"><img src="../assets/subpages/hospital/hours.png" alt="" /><figcaption><div class="hours-row"><strong>평&nbsp;&nbsp;일</strong><span>오전 08:30 - 오후 07:00</span></div><div class="hours-row"><strong>수요일</strong><span>오전 08:30 - 오후 01:00</span></div><div class="hours-row"><strong>토요일</strong><span>오전 08:30 - 오후 02:00</span></div><p>*평일 점심시간 오후 1시 - 2시</p></figcaption></figure>
@@ -90,7 +103,7 @@
             <li class="equipment-card">
               <span class="equipment-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
               <h3${item.image.startsWith('ultrasound-') ? ' class="equipment-ultrasound-title"' : ''}><span>${item.name}</span><span>${item.model}</span></h3>
-              <p class="equipment-description">${item.description}</p>
+              <p class="equipment-description"><span class="equipment-description-full">${item.description}</span><span class="equipment-description-mobile">${item.mobileDescription}</span></p>
               <figure class="equipment-card-media"><div class="equipment-cutout${['ict', 'aqua'].includes(item.image) ? ` equipment-cutout--${item.image}` : ''}"><img src="../assets/subpages/equipment/${item.image}.webp" alt="${item.name} ${item.model} 장비" loading="lazy" decoding="async" /></div></figure>
             </li>`).join('')}
           </ol>
@@ -121,19 +134,4 @@
     window.addEventListener('load', () => document.getElementById(location.hash.slice(1))?.scrollIntoView(), { once: true });
   }
 
-  if (page === 'tour') {
-    const mainImage = document.querySelector('#tour-main-image');
-    const title = document.querySelector('#tour-title');
-    const description = document.querySelector('#tour-description');
-    document.querySelectorAll('.tour-thumb').forEach((button) => {
-      button.addEventListener('click', () => {
-        document.querySelectorAll('.tour-thumb').forEach((item) => item.setAttribute('aria-current', 'false'));
-        button.setAttribute('aria-current', 'true');
-        mainImage.src = button.dataset.image;
-        mainImage.alt = button.dataset.title;
-        title.textContent = button.dataset.title;
-        description.innerHTML = button.dataset.description.split('|').join('<br />');
-      });
-    });
-  }
 })();

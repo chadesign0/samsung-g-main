@@ -1,4 +1,4 @@
-@import url("same-day-procedure.css?v=20261019-quickbar-inset");
+@import url("same-day-procedure.css?v=20261021-shared-clinic-guide");
 
 .regenerative-page .procedure-tabs { width: min(calc(100% - 80px), 1130px); grid-template-columns: repeat(3, 1fr); }
 .regenerative-page .procedure-hero-inner { width: min(calc(100% - 80px), 1120px); }
@@ -11,7 +11,6 @@
 .regenerative-page .procedure-points small { color: #00a7ee; font-size: 16px; }
 .regenerative-page .procedure-points h3 { margin: 0; font-size: 25px; }
 .regenerative-page .procedure-points p { color: #555; font-size: 18px; line-height: 1.55; }
-.regenerative-page .procedure-aftercare p { font-size: 17px; }
 
 @media (max-width: 1500px) {
   .regenerative-page .procedure-points { margin-top: 54px; }

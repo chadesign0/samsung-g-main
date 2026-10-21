@@ -68,14 +68,23 @@
   .notice-board-inner { width: min(calc(100% - 40px), 1220px); }
   .notice-intro { margin-bottom: 50px; font-size: 28px; }
   .board-search { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px; padding: 14px; }
-  .board-search select, .board-search input { width: 100%; }
+  .board-search select, .board-search input { width: 100%; min-width: 0; }
   .board-search button { width: 100%; }
   .board-meta { align-items: flex-start; padding-block: 18px; }
   .page-size-control select { width: 68px; }
   .page-size-control button { padding-inline: 12px; }
-  .board-table { min-width: 690px; }
-  .board-table-wrap { overflow-x: auto; }
-  .board-table td.empty-state { height: 430px; }
+  .board-table { width: 100%; min-width: 0; }
+  .board-table-wrap { max-width: 100%; }
+  .board-table th, .board-table td { padding: 10px 6px; overflow-wrap: anywhere; }
+  .board-table th { height: 48px; font-size: 13px; }
+  .board-table th:nth-child(1) { width: 44px; }
+  .board-table th:nth-child(2) { width: auto; }
+  .board-table th:nth-child(5) { width: 80px; }
+  .board-table th:is(:nth-child(3), :nth-child(4), :nth-child(6)),
+  .board-table td:not(.empty-state):is(:nth-child(3), :nth-child(4), :nth-child(6)) { display: none; }
+  .board-table td { font-size: 14px; }
+  .board-table td:nth-child(5) { font-size: 12px; }
+  .board-table td.empty-state { height: 200px; padding: 24px 16px; font-size: 15px; }
   .press-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: 430px; }
   .press-empty { min-height: 380px; }
 }

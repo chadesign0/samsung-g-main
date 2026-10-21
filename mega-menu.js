@@ -122,6 +122,36 @@
       </div>`;
   }
 
+  if (isSubpage && footer) {
+    const clinicGuide = document.createElement('div');
+    clinicGuide.className = 'shared-clinic-guide';
+    clinicGuide.innerHTML = `
+      <section class="care-hospital-banner" aria-labelledby="care-hospital-banner-title">
+        <div class="clinic-guide-inner">
+          <h2 id="care-hospital-banner-title"><span>연구하는 의원,</span> <span>함께 뛰는 의원,</span> <span>나누는 의원</span></h2>
+          <a class="care-hospital-link" href="${resolveHref('pages/doctors.html')}">병원소개 <span aria-hidden="true">+</span></a>
+        </div>
+      </section>
+      <section class="care-contact" aria-label="문의 및 진료 안내">
+        <div class="clinic-guide-inner care-contact-grid">
+          <div class="care-contact-tile">문의사항</div>
+          <div class="care-contact-hours">
+            <a class="care-contact-phone" href="tel:031-452-3000" aria-label="대표전화 031-452-3000">031-452-3000</a>
+            <dl class="care-contact-schedule">
+              <dt>평&nbsp;&nbsp;일</dt><dd>오전 08:30 - 오후 07:00</dd>
+              <dt>수요일</dt><dd>오전 08:30 - 오후 01:00</dd>
+              <dt>점심시간</dt><dd>오후 01:00 - 오후 02:00</dd>
+              <dt>토요일</dt><dd>오전 08:30 - 오후 02:00</dd>
+            </dl>
+          </div>
+          <div class="care-location-map" role="region" aria-label="삼성G정형외과 위치 안내">
+            <iframe title="삼성G정형외과 위치 지도" src="https://www.google.com/maps?q=37.3525822,126.9456639&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>`;
+    footer.before(clinicGuide);
+  }
+
   const categories = [
     {
       id: 'hospital',
@@ -130,15 +160,19 @@
       columns: 3,
       groups: [
         { items: [
+          ['의료진소개', 'pages/doctors.html'],
+        ] },
+        { items: [
           ['인사말 & 비전', 'pages/greeting-vision.html'],
-          ['둘러보기', 'pages/clinic-tour.html'],
         ] },
         { items: [
           ['오시는길 & 진료안내', 'pages/directions.html'],
-          ['의료장비 안내', 'pages/medical-equipment.html'],
         ] },
         { items: [
-          ['의료진소개', 'pages/doctors.html'],
+          ['둘러보기', 'pages/clinic-tour.html'],
+        ] },
+        { items: [
+          ['의료장비 안내', 'pages/medical-equipment.html'],
         ] },
       ],
     },

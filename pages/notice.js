@@ -59,6 +59,14 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('Intersec
   revealItems.forEach((item) => observer.observe(item));
 }
 
+const mobileBoard = window.matchMedia('(max-width: 800px)');
+const boardEmptyCells = document.querySelectorAll('.board-table td.empty-state');
+const updateBoardColumns = () => {
+  boardEmptyCells.forEach((cell) => { cell.colSpan = mobileBoard.matches ? 3 : 6; });
+};
+mobileBoard.addEventListener('change', updateBoardColumns);
+updateBoardColumns();
+
 const boardSearch = document.querySelector('.board-search');
 const searchType = document.querySelector('#search-type');
 const searchKeyword = document.querySelector('#search-keyword');

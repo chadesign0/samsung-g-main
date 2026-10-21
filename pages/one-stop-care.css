@@ -327,9 +327,9 @@
   .care-doctor-photo { width: 56%; }
   .care-continuity-copy { padding: 65px 24px 0; }
   .care-continuity-copy p br { display: none; }
-  .care-message { min-height: 650px; padding: 0 24px 95px; }
+  .care-message { min-height: 0; padding: 0 24px 64px; }
   .care-message { background-position: 74% -18px; background-size: 403px auto; }
-  .care-message-line { height: 110px; margin-bottom: 45px; }
+  .care-message-line { height: 56px; margin-bottom: 28px; }
 }
 
 @media (max-width: 520px) {

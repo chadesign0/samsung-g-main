@@ -1,4 +1,4 @@
-@import url("mega-menu.css?v=20261019-quickbar-inset");
+@import url("mega-menu.css?v=20261021-shared-clinic-guide");
 
 :root {
   --blue: #123a72;
@@ -597,7 +597,8 @@ body.lightbox-open { overflow: hidden; }
   .doctor-profile { margin-top: 30px; }
   .doctor-profile blockquote { margin-top: 80px; }
   .career { grid-column: 1; margin-top: 55px; }
-  .care-system-inner { width: min(calc(100% - 40px), 720px); }
+  .care-system { min-height: 0; align-items: start; }
+  .care-system-inner { width: min(calc(100% - 40px), 720px); padding: 64px 0; }
   .care-tabs { grid-template-columns: repeat(3, 1fr); gap: 16px 0; }
   .care-panel { grid-template-columns: 1fr; gap: 38px; }
   .care-panel-images { width: min(100%, 500px); }
@@ -613,7 +614,7 @@ body.lightbox-open { overflow: hidden; }
   .doctor-profile .lead { font-size: 18px; }
   .doctor-profile blockquote { margin-top: 60px; font-size: 16px; }
   .career ul { font-size: 15px; }
-  .care-system { min-height: 900px; }
+  .care-system { min-height: 0; }
   .care-system-heading h2 { font-size: 26px; }
   .care-tabs { margin-top: 50px; }
   .care-tab { font-size: 14px; }

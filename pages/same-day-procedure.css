@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261019-quickbar-inset");
+@import url("shoulder-condition.css?v=20261021-shared-clinic-guide");
 
 .procedure-hero { position: relative; min-height: 784px; display: grid; place-items: center; overflow: hidden; color: #fff; background: var(--hero-image) var(--hero-position,center)/cover no-repeat; }
 .procedure-hero::before { content: ""; position: absolute; inset: 0; background: rgba(35,29,25,.38); }
@@ -24,12 +24,13 @@
 .procedure-clinic-copy { display: grid; grid-template-columns: 520px minmax(0,1fr); align-items: start; gap: 78px; margin-top: 58px; }
 .procedure-clinic-copy p { margin-top: 0; font-size: 18px; }
 .procedure-points { display: grid; grid-template-columns: repeat(3,1fr); gap: 82px; margin: 68px 0 0; padding: 0; list-style: none; }
-.procedure-points li { position: relative; min-height: 320px; display: grid; align-content: start; justify-items: center; padding: 34px 34px 28px; background: #fafafa; border: 1px solid #ddd; border-radius: 30px; box-shadow: 5px 7px 0 rgba(0,0,0,.18); text-align: center; }
+.procedure-points li { position: relative; min-height: 0; display: grid; align-content: start; justify-items: center; padding: 28px 30px 24px; background: #fafafa; border: 1px solid #ddd; border-radius: 24px; box-shadow: 5px 7px 0 rgba(0,0,0,.18); text-align: center; }
 .procedure-points li:not(:last-child)::after { content: "→"; position: absolute; top: 50%; right: -57px; transform: translateY(-50%); color: #1762ad; font-size: 34px; font-weight: 700; }
 .procedure-points small { color: #222; font-size: 13px; font-weight: 700; }
 .procedure-points h3 { margin: 24px 0 18px; font-size: 24px; line-height: 1.3; letter-spacing: -.045em; }
 .procedure-points li > span { width: 42px; height: 3px; margin-bottom: 24px; background: #2b73c2; }
-.procedure-points p { margin: 0; color: #555; font-size: 22px; line-height: 1.55; }
+.procedure-points p { margin: 0; color: #555; font-size: 17px; line-height: 1.65; letter-spacing: -.035em; }
+.procedure-points li:first-child p { max-width: 15em; }
 
 .procedure-criteria { position: relative; min-height: 830px; display: grid; align-items: center; overflow: hidden; color: #fff; background: var(--criteria-image) center/cover no-repeat; }
 .procedure-criteria::before { content: ""; position: absolute; inset: 0; background: rgba(23,24,27,.48); }
@@ -50,10 +51,10 @@
 .procedure-step-badge { width: 82px; height: 82px; display: grid; place-items: center; margin: 0 auto 25px; color: #222; background: #e5e5e5; border-radius: 50%; font-size: 16px; font-weight: 700; line-height: 1.05; }
 .procedure-step-dot { width: 13px; height: 13px; display: block; margin: 0 auto 28px; background: #18bff2; border-radius: 50%; }
 .procedure-steps strong { font-size: 24px; line-height: 1.3; letter-spacing: -.04em; }
-.procedure-aftercare { width: 100%; min-height: 230px; margin-top: 82px; padding: 40px 70px; color: #fff; background: #082a57; border-radius: 20px; text-align: center; }
-.procedure-aftercare > span { color: #ff2d1f; font-size: 34px; font-weight: 800; line-height: 1; }
-.procedure-aftercare h3 { margin: 12px 0 22px; font-size: 27px; line-height: 1.2; }
-.procedure-aftercare p { margin: 0; color: rgba(255,255,255,.75); font-size: 17px; line-height: 1.6; }
+.procedure-aftercare { width: min(100%,1000px); min-height: 0; margin: 82px auto 0; padding: 28px 40px; color: #fff; background: #082a57; border-radius: 16px; text-align: center; }
+.procedure-aftercare > span { display: block; color: #ff2d1f; font-size: 28px; font-weight: 800; line-height: 1; }
+.procedure-aftercare h3 { margin: 10px 0 12px; font-size: 24px; line-height: 1.2; }
+.procedure-aftercare p { margin: 0; color: rgba(255,255,255,.82); font-size: 16px; line-height: 1.65; }
 
 @media (max-width:1500px) {
   .procedure-hero { min-height: 700px; }
@@ -69,11 +70,10 @@
   .procedure-clinic-copy { grid-template-columns: 450px minmax(0,1fr); gap: 62px; margin-top: 44px; }
   .procedure-clinic-copy p { margin-top: 0; }
   .procedure-points { gap: 64px; margin-top: 54px; }
-  .procedure-points li { min-height: 280px; padding: 28px 26px 24px; border-radius: 24px; }
+  .procedure-points li { padding: 26px 26px 24px; }
   .procedure-points li:not(:last-child)::after { right: -46px; font-size: 28px; }
   .procedure-points h3 { margin: 19px 0 14px; font-size: 20px; }
   .procedure-points li > span { margin-bottom: 18px; }
-  .procedure-points p { font-size: 22px; }
   .procedure-criteria { min-height: 720px; }
   .procedure-criteria-grid { grid-template-columns: minmax(0,1fr) 560px; gap: 82px; }
   .procedure-criteria-list li { min-height: 116px; grid-template-columns: 82px 1fr; }
@@ -84,7 +84,7 @@
   .procedure-step-badge { width: 68px; height: 68px; font-size: 14px; }
   .procedure-steps::before { top: 100px; }
   .procedure-steps strong { font-size: 19px; }
-  .procedure-aftercare { min-height: 190px; margin-top: 58px; }
+  .procedure-aftercare { margin-top: 58px; }
 }
 
 @media (max-width:900px) {
@@ -99,19 +99,21 @@
   .procedure-clinic { margin-top: 76px; }
   .procedure-clinic > img { height: auto; aspect-ratio: 16/7; }
   .procedure-clinic-copy { grid-template-columns: 1fr; gap: 24px; margin-top: 34px; }
-  .procedure-points { grid-template-columns: 1fr; gap: 28px; }
+  .procedure-points { grid-template-columns: 1fr; gap: 52px; }
   .procedure-points li { min-height: 0; }
-  .procedure-points li:not(:last-child)::after { content: "↓"; top: auto; right: 50%; bottom: -28px; transform: translate(50%,50%); }
+  .procedure-points li:not(:last-child)::after { content: "↓"; top: calc(100% + 12px); right: auto; bottom: auto; left: 50%; width: 28px; height: 28px; display: grid; place-items: center; transform: translateX(-50%); font-size: 26px; line-height: 1; }
   .procedure-criteria { min-height: 0; padding: 78px 0; }
   .procedure-criteria-grid { grid-template-columns: 1fr; gap: 52px; }
   .procedure-criteria-copy p { margin-top: 28px; }
-  .procedure-process { min-height: 0; padding: 78px 0; }
-  .procedure-steps { grid-template-columns: 1fr; gap: 24px; margin-top: 52px; }
-  .procedure-steps::before,.procedure-step-dot { display: none; }
-  .procedure-steps li { min-height: 68px; display: grid; grid-template-columns: 58px 1fr; align-items: center; gap: 18px; text-align: left; }
-  .procedure-step-badge { width: 58px; height: 58px; margin: 0; font-size: 12px; }
-  .procedure-steps strong { font-size: 18px; }
-  .procedure-aftercare { margin-top: 52px; padding: 34px 24px; }
+  .procedure-process { min-height: 0; padding: 64px 0; }
+  .procedure-steps { grid-template-columns: minmax(0, 1fr); gap: 26px; margin-top: 40px; }
+  .procedure-steps::before { top: 32px; right: auto; bottom: 32px; left: 84px; width: 2px; height: auto; }
+  .procedure-steps li { min-width: 0; min-height: 64px; display: grid; grid-template-columns: 64px 10px minmax(0, 1fr); align-items: center; gap: 16px; text-align: left; }
+  .procedure-step-badge { width: 64px; height: 64px; margin: 0; font-size: 13px; text-align: center; }
+  .procedure-step-dot { width: 10px; height: 10px; margin: 0; }
+  .procedure-steps strong { font-size: 18px; line-height: 1.45; overflow-wrap: anywhere; }
+  .procedure-aftercare { margin-top: 52px; padding: 24px 20px; }
+  .procedure-aftercare p { font-size: 15px; }
 }
 
 @media (max-width:800px) {
@@ -131,5 +133,5 @@
   .procedure-criteria-list li { min-height: 96px; grid-template-columns: 64px 1fr; }
   .procedure-criteria-list strong { font-size: 36px; }
   .procedure-criteria-list span { font-size: 15px; }
-  .procedure-aftercare h3 { font-size: 23px; }
+  .procedure-aftercare h3 { font-size: 22px; }
 }

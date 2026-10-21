@@ -1,4 +1,4 @@
-@import url("doctors.css?v=20261019-quickbar-inset");
+@import url("doctors.css?v=20261021-shared-clinic-guide");
 
 .hospital-page-title { width: min(calc(100% - 80px), 1240px); margin: 0 auto; }
 #clinic-location, #clinic-hours { scroll-margin-top: 80px; }
@@ -43,16 +43,38 @@
 
 .tour-page { padding: 125px 0 150px; background: #fff; }
 .tour-page h2 { margin: 0 0 105px; font-size: 38px; line-height: 1.35; letter-spacing: -.045em; }
-.tour-stage { position: relative; margin: 0; overflow: hidden; background: #eee; }
-.tour-stage img { height: 650px; object-fit: cover; transition: opacity .25s ease; }
-.tour-stage::after { content: ""; position: absolute; inset: 48% 0 0; background: linear-gradient(transparent,rgba(0,0,0,.68)); pointer-events: none; }
-.tour-caption { position: absolute; z-index: 2; right: 45px; bottom: 40px; left: 45px; color: #fff; text-align: center; }
-.tour-caption strong { display: inline-flex; min-width: 88px; min-height: 45px; align-items: center; justify-content: center; padding: 0 15px; color: #111; background: #fff; border-radius: 0; font-size: 29px; line-height: 1; }
-.tour-caption p { margin: 24px 0 0; font-size: 19px; line-height: 1.55; }
-.tour-thumbnails { display: grid; grid-template-columns: repeat(4,1fr); gap: 28px; margin-top: 42px; }
-.tour-thumb { padding: 0; overflow: hidden; background: #eee; border: 3px solid transparent; }
+.tour-stage { position: relative; height: 650px; margin: 0; overflow: hidden; background: #eee; }
+.tour-stage-open { position: relative; isolation: isolate; display: block; width: 100%; height: 100%; padding: 0; overflow: hidden; border: 0; background: transparent; cursor: zoom-in; }
+.tour-stage img { width: 100%; height: 100%; object-fit: cover; transition: opacity .2s ease; }
+.tour-stage-open:focus-visible { outline: 3px solid #fff; outline-offset: -5px; }
+.tour-caption { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-height: 170px; padding: 30px; color: #fff; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,.68)); pointer-events: none; }
+.tour-caption strong { font-size: 23px; }
+.tour-caption p { margin: 6px 0 0; font-size: 14px; }
+.tour-gallery-arrow { position: absolute; z-index: 2; top: 50%; display: grid; place-items: center; width: 48px; height: 48px; padding: 10px; border: 1px solid rgba(255,255,255,.6); border-radius: 50%; color: #fff; background: rgba(0,0,0,.35); transform: translateY(-50%); }
+.tour-gallery-arrow[hidden] { display: none; }
+.tour-gallery-prev { left: 20px; }
+.tour-gallery-next { right: 20px; }
+.tour-gallery-arrow svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tour-gallery-arrow:hover { background: rgba(0,0,0,.6); }
+.tour-gallery-arrow:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.tour-gallery-status { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.tour-thumbnails { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 28px; }
+.tour-thumb { height: 190px; padding: 0; overflow: hidden; background: #eee; border: 3px solid transparent; }
+.tour-thumb:hover,
 .tour-thumb[aria-current="true"] { border-color: #1756ae; }
-.tour-thumb img { height: 190px; object-fit: cover; }
+.tour-thumb:focus-visible { outline: 3px solid #0e2a66; outline-offset: 3px; }
+.tour-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.tour-lightbox { width: auto; max-width: calc(100vw - 40px); max-height: calc(100vh - 40px); padding: 0; overflow: visible; background: transparent; border: 0; }
+.tour-lightbox::backdrop { background: rgba(8,13,22,.84); backdrop-filter: blur(8px); }
+.tour-lightbox[open] { display: grid; place-items: center; }
+.tour-lightbox-image { width: auto; max-width: min(88vw, 1280px); max-height: 84vh; object-fit: contain; border-radius: 22px; box-shadow: 0 30px 90px rgba(0,0,0,.42); }
+.tour-image-outgoing { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; pointer-events: none; }
+.tour-lightbox-close { position: absolute; z-index: 2; top: 12px; right: 12px; width: 42px; height: 42px; display: grid; place-items: center; padding: 0 0 4px; color: #111; background: rgba(255,255,255,.94); border: 0; border-radius: 50%; font-size: 30px; line-height: 1; cursor: pointer; }
+.tour-lightbox-close:focus-visible { outline: 3px solid #8bb3ff; outline-offset: 3px; }
+.tour-lightbox .tour-gallery-arrow { position: fixed; }
+.tour-lightbox .tour-gallery-prev { left: clamp(12px, 3vw, 48px); }
+.tour-lightbox .tour-gallery-next { right: clamp(12px, 3vw, 48px); }
+body.tour-lightbox-open { overflow: hidden; }
 
 .directions-page { padding: 135px 0 160px; background: #fff; }
 .directions-heading { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; }
@@ -63,8 +85,11 @@
 .map-links { display: flex; gap: 14px; padding-bottom: 8px; }
 .map-links a { min-width: 175px; height: 48px; display: flex; align-items: center; justify-content: center; gap: 12px; border: 1px solid #ddd; font-size: 15px; }
 .map-links a:nth-child(1) { color: #fff; background: #2db43b; border-color: #2db43b; }
-.map-links a:nth-child(2) { color: #281f00; background: #ffe100; border-color: #ffe100; }
-.map-links strong { font-size: 23px; }
+.map-links a:nth-child(2) { color: #111; background: #ffdb00; border-color: #ffdb00; }
+.map-links a > span { position: relative; width: 22px; height: 22px; display: grid; place-items: center; font-size: 21px; font-weight: 900; line-height: 1; }
+.map-links .kakao svg { width: 16px; height: 20px; fill: #1677ff; }
+.map-links .kakao svg circle { fill: #ffdb00; }
+.map-links .tmap > span { background: linear-gradient(135deg, #ff2cb8 20%, #744cff 50%, #14c6da 75%); background-clip: text; color: transparent; }
 .map-placeholder { height: 560px; margin-top: 65px; background: #ddd; }
 .map-placeholder iframe { display: block; width: 100%; height: 100%; border: 0; }
 .direction-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 95px; margin-top: 130px; }
@@ -91,6 +116,7 @@
 .equipment-card h3.equipment-ultrasound-title { max-width: 100%; }
 .equipment-card .equipment-ultrasound-title span:last-child { font-size: .92em; letter-spacing: -.065em; white-space: nowrap; }
 .equipment-description { min-height: 48px; margin: 18px 0 0; color: #707070; font-size: 17px; line-height: 1.4; letter-spacing: -.035em; }
+.equipment-description-mobile { display: none; }
 .equipment-card-media { display: grid; flex: 1; place-items: center; width: 100%; min-height: 0; margin: 18px 0 0; overflow: hidden; }
 .equipment-cutout { display: grid; place-items: center; width: 100%; height: 100%; min-height: 0; }
 .equipment-card-media img { width: 100%; height: 100%; max-height: 220px; object-fit: contain; }
@@ -102,8 +128,7 @@
 @media (max-width: 1500px) {
   .greeting-message-grid { grid-template-columns: 340px 1fr; gap: 70px; }
   .vision-band figure { right: 70px; width: 370px; }
-  .tour-stage img { height: 520px; }
-  .tour-thumb img { height: 150px; }
+  .tour-stage { height: 520px; }
   .map-placeholder { height: 450px; }
 }
 @media (max-width: 1100px) {
@@ -119,24 +144,26 @@
   .greeting-message figure { width: min(100%,430px); margin-inline: auto; }
   .greeting-message h2 { font-size: 28px; }
   .greeting-message p { font-size: 16px; }
-  .vision-band,.vision-band-inner { min-height: 650px; }
-  .vision-band-inner { padding-top: 90px; }
+  .vision-band,.vision-band-inner { min-height: 0; }
+  .vision-band::after { width: min(510px, 100%); height: auto; aspect-ratio: 1; }
+  .vision-band-inner { padding: 64px 0; }
   .vision-band h2 { font-size: 29px; }
   .vision-band p { font-size: 16px; }
-  .vision-band figure { right: 20px; bottom: -150px; width: min(calc(100% - 40px),380px); }
-  .vision-points { padding: 190px 0 90px; }
+  .vision-band figure { position: relative; right: auto; bottom: auto; width: min(100%,380px); margin: 32px auto 0; }
+  .vision-points { padding: 64px 0; }
   .vision-points-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 70px; }
   .vision-point:nth-child(1),.vision-point:nth-child(2),.vision-point:nth-child(3) { grid-area: auto; }
   .vision-point h3 { font-size: 23px; }
   .vision-point p { font-size: 16px; }
   .tour-page { padding: 80px 0 90px; }
   .tour-page h2 { margin-bottom: 55px; font-size: 30px; }
-  .tour-stage img { height: 420px; }
-  .tour-caption { right: 20px; bottom: 24px; left: 20px; }
-  .tour-caption strong { font-size: 23px; }
-  .tour-caption p { font-size: 15px; }
-  .tour-thumbnails { grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
-  .tour-thumb img { height: 120px; }
+  .tour-stage { height: 420px; }
+  .tour-caption p { display: none; }
+  .tour-gallery-arrow { width: 44px; height: 44px; }
+  .tour-gallery-prev { left: 12px; }
+  .tour-gallery-next { right: 12px; }
+  .tour-thumbnails { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .tour-thumb { height: auto; aspect-ratio: 1.35; }
   .directions-page { padding: 80px 0 90px; }
   .directions-heading { grid-template-columns: 1fr; }
   .map-links { display: grid; grid-template-columns: 1fr; }
@@ -153,7 +180,19 @@
   .equipment-card h3 { font-size: 24px; }
 }
 @media (max-width: 600px) {
-  .equipment-grid { grid-template-columns: minmax(0, 1fr); max-width: 480px; margin-inline: auto; }
-  .equipment-card { height: 460px; padding: 28px 24px 24px; }
-  .equipment-card h3 { min-height: 64px; font-size: clamp(22px, 6.4vw, 28px); }
+  .equipment-inner { width: calc(100% - 32px); }
+  .equipment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; }
+  .equipment-card { display: grid; grid-template-rows: 18px 54px 54px minmax(0, 1fr); gap: 6px; height: 308px; padding: 12px; border-radius: 12px; }
+  .equipment-number { margin: 0; font-size: 12px; line-height: 18px; }
+  .equipment-card h3 { display: flex; flex-direction: column; justify-content: center; width: 100%; min-height: 0; font-size: clamp(14px, 3.7vw, 16px); line-height: 1.25; overflow-wrap: anywhere; }
+  .equipment-card .equipment-ultrasound-title span:last-child { white-space: normal; letter-spacing: -.04em; }
+  .equipment-description { min-height: 0; margin: 0; color: #555; font-size: 12px; line-height: 1.5; }
+  .equipment-description-full { display: none; }
+  .equipment-description-mobile { display: inline; }
+  .equipment-card-media { flex: none; height: 100%; margin: 0; }
+  .equipment-cutout--aqua img { transform: scale(1.265); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-stage img { transition: none; }
 }

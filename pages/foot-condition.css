@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261019-quickbar-inset");
+@import url("shoulder-condition.css?v=20261021-shared-clinic-guide");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
 .disease-hero-shade { background: rgba(30,24,20,.34); }
@@ -95,14 +95,14 @@
   .foot-cause-number { font-size: 38px; }
   .foot-cause-list h3 { font-size: 18px; }
   .foot-cause-list p { font-size: 13px; }
-  .foot-symptoms { --foot-symptom-height: 640px; background-position: 58% center; }
+  .foot-symptoms { --foot-symptom-height: 0px; background-position: 58% center; }
   .foot-symptoms-shade { background: rgba(3,18,43,.32); }
-  .foot-symptoms-inner { padding: 40px 0; }
+  .foot-symptoms-inner { min-height: 0; align-items: flex-start; padding: 48px 0; }
   .foot-symptoms-copy h2, .foot-symptoms-copy > p { width: 100%; }
   .foot-symptoms-copy h2 { font-size: 29px; }
   .foot-symptoms-copy > p { margin-top: 30px; font-size: 17px; }
   .foot-symptoms .symptom-checklist { width: 100%; gap: 10px; margin-top: 36px; }
-  .foot-symptoms .symptom-checklist li { min-height: 54px; gap: 12px; padding: 10px 16px; font-size: 15px; }
+  .foot-symptoms .symptom-checklist li { min-height: 54px; justify-content: flex-start; gap: 12px; padding: 10px 16px; text-align: left; font-size: 15px; }
   .foot-treatments { min-height: 0; padding: 82px 0; }
   .foot-treatment-flow { display: grid; grid-template-columns: 1fr; gap: 58px; margin-top: 58px; }
   .foot-treatment-step, .foot-treatment-step + .foot-treatment-step { width: 100%; margin-left: 0; }

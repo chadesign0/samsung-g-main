@@ -1,4 +1,4 @@
-@import url("neck-condition.css?v=20261019-quickbar-inset");
+@import url("neck-condition.css?v=20261021-shared-clinic-guide");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: center; }
 .disease-hero-shade { background: rgba(20, 16, 14, .4); }
@@ -79,18 +79,17 @@
   .causes { padding: 90px 0; }
   .causes .section-heading > p { margin-top: 38px; }
   .cause-grid { margin-top: 56px; transform: none; }
-  .cause-card { min-height: 230px; aspect-ratio: auto; border-radius: 18px; padding: 26px 14px; gap: 16px; }
-  .cause-card h3, .cause-card:hover h3, .cause-card:focus-visible h3 { font-size: 21px; }
-  .cause-card p { font-size: 13px; }
-  .symptoms { --symptom-height: 860px; }
+  .cause-card { width: 100%; min-width: 0; min-height: 240px; aspect-ratio: auto; grid-template-rows: 78px 3px auto; align-content: start; border-radius: 18px; padding: 24px 12px; gap: 14px; }
+  .cause-card h3, .cause-card:hover h3, .cause-card:focus-visible h3 { align-self: center; font-size: 21px; }
+  .cause-card p { font-size: 14px; line-height: 1.5; }
+  .symptoms { --symptom-height: 0px; }
   .symptoms::before { background-position: 53% center; opacity: .78; }
   .symptoms-shade { background: rgba(2, 16, 38, .32); }
-  .symptoms-inner { align-items: flex-end; padding: 60px 0; }
+  .symptoms-inner { min-height: 0; align-items: flex-start; padding: 48px 0; }
   .symptoms-copy { width: 100%; }
 }
 
 @media (max-width: 520px) {
-  .cause-card { min-height: 210px; padding-inline: 10px; }
+  .cause-card { grid-template-rows: 66px 3px auto; padding-inline: 10px; }
   .cause-card h3, .cause-card:hover h3, .cause-card:focus-visible h3 { font-size: 18px; }
-  .cause-card p { font-size: 11px; }
 }

@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261019-quickbar-inset");
+@import url("shoulder-condition.css?v=20261021-shared-clinic-guide");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
 .disease-hero-shade { background: rgba(30,24,20,.34); }
@@ -83,9 +83,9 @@
   .knee-cause-list { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 48px; }
   .knee-cause-list li { width: 100%; min-height: 100px; }
   .knee-cause-list strong { font-size: 18px; }
-  .knee-symptoms { --knee-symptom-height: 700px; background-position: 58% center; }
+  .knee-symptoms { --knee-symptom-height: 0px; background-position: 58% center; }
   .knee-symptoms-shade { background: rgba(3,18,43,.35); }
-  .knee-symptoms-inner { padding: 54px 0; }
+  .knee-symptoms-inner { min-height: 0; align-items: flex-start; padding: 48px 0; }
   .knee-symptoms-copy { width: 100%; }
   .knee-symptoms-copy h2 { font-size: 29px; }
   .knee-symptoms-copy > p { margin-top: 30px; font-size: 17px; }
@@ -103,7 +103,6 @@
   .disease-hero h2 { font-size: 19px; line-height: 1.45; }
   .knee-intro-copy h2, .knee-causes h2, .knee-symptoms-copy h2 { font-size: 26px; }
   .knee-causes h2 { overflow-wrap: anywhere; }
-  .knee-symptoms { --knee-symptom-height: 660px; }
 }
 
 @media (prefers-reduced-motion:reduce) {
