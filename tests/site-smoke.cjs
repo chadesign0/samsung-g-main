@@ -72,7 +72,10 @@ function click(w, element) {
       check(homeLink.querySelector('svg[aria-hidden="true"]') && homeLink.getAttribute('aria-label') === '메인페이지로 이동', `${file}: accessible house icon`);
       check(!homeLink.dataset.unavailableMessage && !homeLink.hasAttribute('aria-disabled'), `${file}: home link is enabled`);
       check(!/내 정보|관리자|로그아웃|로그인|회원가입/.test(accountMenu.textContent), `${file}: account and admin placeholders removed`);
-      check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-sidebar-home'), `${file}: refreshed home menu script reference`);
+      const sidebarLanguage = accountMenu.querySelector('.mobile-menu-language');
+      check(sidebarLanguage.textContent.trim() === 'KR', `${file}: sidebar shows Korean language`);
+      check(sidebarLanguage.getAttribute('aria-label') === '현재 언어: 한국어(KR)' && sidebarLanguage.dataset.unavailableMessage === '현재 한국어 안내만 제공하고 있습니다.', `${file}: sidebar language announcement matches current Korean service`);
+      check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-sidebar-kr'), `${file}: refreshed Korean sidebar script reference`);
       for (const link of d.querySelectorAll('.utility-actions > a')) {
         check(link.dataset.unavailableMessage && link.getAttribute('href') === '#', `${file}: unfinished link explicitly marked`);
       }
@@ -145,6 +148,9 @@ function click(w, element) {
     click(w, homeLink);
     check(homeWasBlocked === false, 'home anchor is not intercepted by unavailable-feature handling');
     check(!d.querySelector('.availability-notice').textContent, 'home click does not show an unavailable notice');
+    check(click(w, drawer.querySelector('.mobile-menu-language')).defaultPrevented, 'Korean language indicator does not navigate');
+    await new Promise((resolve) => w.setTimeout(resolve, 40));
+    check(d.querySelector('.availability-notice').textContent === '현재 한국어 안내만 제공하고 있습니다.', 'sidebar language notice explains Korean-only service');
     toggle.focus();
     const backwards = new w.KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true });
     d.dispatchEvent(backwards);

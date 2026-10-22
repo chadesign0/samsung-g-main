@@ -446,9 +446,9 @@
         <a class="mobile-menu-home" href="${resolveHref('index.html')}" aria-label="메인페이지로 이동" title="홈으로 이동">
           <svg width="44" height="44" viewBox="0 0 44 44" style="display: block" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 20 12-10 12 10M13 18v16h6V24h6v10h6V18"/></svg>
         </a>
-        <span class="mobile-menu-language" title="영문 페이지 준비 중" aria-label="영문 페이지 준비 중">
+        <span class="mobile-menu-language" title="현재 한국어 안내만 제공하고 있습니다." aria-label="현재 언어: 한국어(KR)">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg>
-          EN
+          KR
         </span>
       </div>
     </div>` + categories.map((category) => {
