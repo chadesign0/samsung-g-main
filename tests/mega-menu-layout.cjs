@@ -17,7 +17,7 @@ assert.ok(Number(header.getPropertyValue('z-index')) > Number(quick.getPropertyV
 const columns = ruleFor(desktop.cssRules, '.mega-menu-layout').getPropertyValue('grid-template-columns');
 assert.equal(columns, 'max(200px, calc((100% - var(--max, 1240px)) / 2)) minmax(0, 1fr) minmax(330px, 21vw)');
 // Check the intended formula for both content widths used by the page styles.
-for (const max of [1204, 1240]) {
+for (const max of [1200, 1240]) {
   for (const width of [1680, 1880, 1920, 2560]) {
     const contentEdge = (width - Math.min(width - 80, max)) / 2;
     assert.equal(Math.max(200, (width - max) / 2), contentEdge);

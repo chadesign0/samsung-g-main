@@ -6,7 +6,7 @@
 .hand-causes { min-height: 850px; padding: 110px 0 126px; background: #fff; }
 .section-heading-centered { text-align: center; }
 .section-heading-centered > p { margin-top: 54px; }
-.cause-list { width: min(100%,1204px); margin: 58px auto 0; padding: 0; border-top: 1px solid #b9b9b9; list-style: none; }
+.cause-list { width: min(100%,1200px); margin: 58px auto 0; padding: 0; border-top: 1px solid #b9b9b9; list-style: none; }
 .cause-list li { min-height: 90px; display: grid; grid-template-columns: 330px 1fr; align-items: center; gap: 38px; padding: 16px 74px 16px 86px; border-bottom: 1px solid #b9b9b9; }
 .cause-list strong { position: relative; font-size: 24px; letter-spacing: -.05em; }
 .cause-list strong span { position: absolute; left: -48px; top: 50%; transform: translateY(-50%); color: #f02319; font-family: Arial,sans-serif; font-size: 32px; font-weight: 900; }

@@ -10,7 +10,7 @@
 .customer-tabs .is-active::after { transform: scaleX(1); }
 
 .notice-board { padding: 130px 0 160px; background: #fff; }
-.notice-board-inner { width: min(calc(100% - 80px), 1220px); margin: 0 auto; }
+.notice-board-inner { width: min(calc(100% - 80px), 1200px); margin: 0 auto; }
 .notice-intro { margin: 0 0 78px; font-size: 36px; line-height: 1.35; letter-spacing: -.045em; }
 .board-search { min-height: 70px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 24px; background: #f5f7fc; }
 .board-search select, .board-search input, .page-size-control select { height: 42px; border: 1px solid #cfd4df; background: #fff; color: #303541; font: inherit; }
@@ -65,7 +65,7 @@
   .customer-tabs :is(a, button)::after { bottom: 11px; }
 
   .notice-board { padding: 74px 0 96px; }
-  .notice-board-inner { width: min(calc(100% - 40px), 1220px); }
+  .notice-board-inner { width: min(calc(100% - 40px), 1200px); }
   .notice-intro { margin-bottom: 50px; font-size: 28px; }
   .board-search { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px; padding: 14px; }
   .board-search select, .board-search input { width: 100%; min-width: 0; }

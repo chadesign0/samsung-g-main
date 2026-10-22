@@ -7,7 +7,7 @@
 .surgery-hero h1 { margin: 0 0 22px; font-family: "Noto Serif KR",Georgia,serif; font-size: clamp(48px,3.5vw,66px); font-weight: 500; line-height: 1.2; letter-spacing: -.055em; }
 .surgery-hero h2 { margin: 0 0 27px; font-size: clamp(29px,2.1vw,38px); font-weight: 500; line-height: 1.35; letter-spacing: -.05em; }
 .surgery-hero-inner > p:not(.breadcrumb) { margin: 0; font-size: 19px; line-height: 1.6; letter-spacing: -.04em; }
-.surgery-tabs { position: absolute; z-index: 2; left: 50%; bottom: 76px; width: min(calc(100% - 80px),1680px); min-height: 96px; display: grid; grid-template-columns: repeat(7,1fr); transform: translateX(-50%); overflow: hidden; color: rgba(255,255,255,.7); background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.75); border-radius: 17px; backdrop-filter: blur(6px); font-size: 16px; font-weight: 600; }
+.surgery-tabs { position: absolute; z-index: 2; left: 50%; bottom: 76px; width: min(calc(100% - 80px),1200px); min-height: 96px; display: grid; grid-template-columns: repeat(7,1fr); transform: translateX(-50%); overflow: hidden; color: rgba(255,255,255,.7); background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.75); border-radius: 17px; backdrop-filter: blur(6px); font-size: 16px; font-weight: 600; }
 .surgery-tabs a { position: relative; display: grid; place-items: center; min-height: 94px; padding: 0 12px; text-align: center; transition: .2s ease; }
 .surgery-tabs a:hover,.surgery-tabs a:focus-visible { color: #fff; background: rgba(255,255,255,.1); }
 .surgery-tabs a:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }

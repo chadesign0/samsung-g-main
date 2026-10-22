@@ -1,6 +1,6 @@
 @import url("../mega-menu.css?v=20261022-policy-text");
 
-:root { --blue: #123a72; --brand: #1756ae; --ink: #242424; --max: 1204px; }
+:root { --blue: #123a72; --brand: #1756ae; --ink: #242424; --max: 1200px; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-anchor: none; }
 body { margin: 0; overflow-x: hidden; color: var(--ink); background: #fff; font-family: Pretendard, "Noto Sans KR", "Malgun Gothic", sans-serif; line-height: 1.6; word-break: keep-all; }

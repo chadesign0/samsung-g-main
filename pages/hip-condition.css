@@ -15,7 +15,7 @@ body[data-condition="bursitis"] .disease-hero::before { content: ""; position: a
 
 .hip-causes { min-height: 730px; padding: 116px 0 128px; background: #f2f2f2; }
 .hip-causes h2 { margin: 0; text-align: center; font-size: 36px; line-height: 1.3; letter-spacing: -.055em; }
-.hip-cause-list { width: min(100%,1204px); display: flex; flex-wrap: wrap; justify-content: center; gap: 38px 86px; margin: 84px auto 0; padding: 0; list-style: none; }
+.hip-cause-list { width: min(100%,1200px); display: flex; flex-wrap: wrap; justify-content: center; gap: 38px 86px; margin: 84px auto 0; padding: 0; list-style: none; }
 .hip-cause-list li { width: 344px; min-height: 150px; display: grid; place-items: center; padding: 24px 28px; text-align: center; background: #fff; border-radius: 17px; box-shadow: 0 5px 16px rgba(16,35,63,.025); }
 .hip-cause-list strong { position: relative; padding-top: 28px; font-size: 24px; line-height: 1.3; letter-spacing: -.05em; }
 .hip-cause-list strong::before { content: "✓"; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); color: #ff3023; font-family: Arial,sans-serif; font-size: 31px; font-weight: 800; }

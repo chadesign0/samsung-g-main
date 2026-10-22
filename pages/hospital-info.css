@@ -1,6 +1,6 @@
 @import url("doctors.css?v=20261022-policy-text");
 
-.hospital-page-title { width: min(calc(100% - 80px), 1240px); margin: 0 auto; }
+.hospital-page-title { width: min(calc(100% - 80px), 1200px); margin: 0 auto; }
 #clinic-location, #clinic-hours { scroll-margin-top: 80px; }
 
 .greeting-lead { min-height: 350px; display: flex; align-items: center; padding: 90px 0; background: #fff; }
