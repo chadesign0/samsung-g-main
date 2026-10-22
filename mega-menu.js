@@ -442,9 +442,10 @@
   mobileDrawer.inert = true;
   mobileDrawer.innerHTML = `
     <div class="mobile-menu-utility">
-      <div class="mobile-menu-account" aria-label="계정 및 언어 메뉴">
-        <a href="#" title="로그인 기능은 준비 중입니다. 진료 문의는 031-452-3000으로 연락해 주세요.">로그인</a>
-        <a href="#" title="회원가입 기능은 준비 중입니다. 진료 문의는 031-452-3000으로 연락해 주세요.">회원가입</a>
+      <div class="mobile-menu-account" aria-label="홈 및 언어 메뉴">
+        <a class="mobile-menu-home" href="${resolveHref('index.html')}" aria-label="메인페이지로 이동" title="홈으로 이동">
+          <svg width="44" height="44" viewBox="0 0 44 44" style="display: block" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 20 12-10 12 10M13 18v16h6V24h6v10h6V18"/></svg>
+        </a>
         <span class="mobile-menu-language" title="영문 페이지 준비 중" aria-label="영문 페이지 준비 중">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg>
           EN
@@ -478,7 +479,8 @@
   }));
 
   const menuToggle = header.querySelector('.menu-toggle');
-  mobileDrawer.querySelectorAll('.mobile-menu-account > a, .mobile-menu-account > span').forEach((item) => {
+  // Add admin navigation only when an admin page and permission checks exist.
+  mobileDrawer.querySelectorAll('.mobile-menu-language').forEach((item) => {
     markUnavailable(item, item.title || item.getAttribute('aria-label'));
   });
   const closeMobileMenu = () => {

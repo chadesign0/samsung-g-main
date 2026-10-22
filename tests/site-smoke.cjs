@@ -65,13 +65,14 @@ function click(w, element) {
       check(d.querySelector('.mega-menu').inert, `${file}: closed desktop menu must be inert`);
       check(d.querySelector('.mobile-menu-drawer').inert, `${file}: closed mobile menu must be inert`);
       const accountMenu = d.querySelector('.mobile-menu-account');
-      const guestLinks = [...accountMenu.querySelectorAll(':scope > a')];
-      check(guestLinks.map(link => link.textContent.trim()).join('|') === '로그인|회원가입', `${file}: sidebar shows guest account labels`);
-      check(!/내 정보|관리자|로그아웃/.test(accountMenu.textContent), `${file}: sidebar does not imply an authenticated session`);
-      for (const link of guestLinks) {
-        check(link.getAttribute('href') === '#' && link.getAttribute('aria-disabled') === 'true' && link.dataset.unavailableMessage.includes(link.textContent.trim()), `${file}: guest account destination explicitly unavailable`);
-      }
-      check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-guest-account-menu'), `${file}: refreshed guest menu script reference`);
+      const homeLinks = [...accountMenu.querySelectorAll(':scope > a')];
+      check(homeLinks.length === 1 && homeLinks[0].classList.contains('mobile-menu-home'), `${file}: sidebar contains one home link`);
+      const homeLink = homeLinks[0];
+      check(homeLink.getAttribute('href') === (file === 'index.html' ? 'index.html' : '../index.html'), `${file}: home link returns to the main page`);
+      check(homeLink.querySelector('svg[aria-hidden="true"]') && homeLink.getAttribute('aria-label') === '메인페이지로 이동', `${file}: accessible house icon`);
+      check(!homeLink.dataset.unavailableMessage && !homeLink.hasAttribute('aria-disabled'), `${file}: home link is enabled`);
+      check(!/내 정보|관리자|로그아웃|로그인|회원가입/.test(accountMenu.textContent), `${file}: account and admin placeholders removed`);
+      check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-sidebar-home'), `${file}: refreshed home menu script reference`);
       for (const link of d.querySelectorAll('.utility-actions > a')) {
         check(link.dataset.unavailableMessage && link.getAttribute('href') === '#', `${file}: unfinished link explicitly marked`);
       }
@@ -136,13 +137,14 @@ function click(w, element) {
     await new Promise((resolve) => w.setTimeout(resolve, 0));
     const drawer = d.querySelector('.mobile-menu-drawer');
     check(!drawer.inert && d.activeElement === drawer, 'mobile menu opens with focus');
-    for (const link of drawer.querySelectorAll('.mobile-menu-account > a')) {
-      const hash = w.location.hash;
-      check(click(w, link).defaultPrevented, 'guest account controls do not navigate');
-      await new Promise((resolve) => w.setTimeout(resolve, 40));
-      check(d.querySelector('.availability-notice').textContent.includes(link.textContent.trim() + ' 기능은 준비 중입니다.'), 'guest account controls explain feature availability');
-      check(w.location.hash === hash && d.body.classList.contains('menu-open'), 'guest account notice leaves current page and drawer intact');
-    }
+    const homeLink = drawer.querySelector('.mobile-menu-home');
+    // Cancel navigation only in this test, after production click handlers have
+    // run; jsdom does not implement page navigation.
+    let homeWasBlocked;
+    d.addEventListener('click', (event) => { homeWasBlocked = event.defaultPrevented; event.preventDefault(); }, { once: true });
+    click(w, homeLink);
+    check(homeWasBlocked === false, 'home anchor is not intercepted by unavailable-feature handling');
+    check(!d.querySelector('.availability-notice').textContent, 'home click does not show an unavailable notice');
     toggle.focus();
     const backwards = new w.KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true });
     d.dispatchEvent(backwards);
