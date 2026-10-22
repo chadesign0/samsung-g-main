@@ -130,7 +130,7 @@ const causeMarkup = page.causes.map((title) => `<li><strong>${title}</strong></l
 const symptomMarkup = page.symptoms.map((item) => `<li><span aria-hidden="true">✓</span>${item}</li>`).join('');
 const treatmentMarkup = page.treatments.map(([title,description,image]) => `<article class="knee-treatment-step"><img src="${treatmentImages[image]}" alt="${title} 안내 이미지" /><span class="knee-step-check" aria-hidden="true">✓</span><h3>${title}</h3><p>${description}</p></article>`).join('');
 
-document.querySelector('#main').innerHTML = `
+if (!document.querySelector('#main').hasAttribute('data-prerendered')) document.querySelector('#main').innerHTML = `
   <section class="disease-hero" style="--hero-image:url('${page.hero}');--hero-position:${page.heroPosition}" aria-labelledby="disease-title"><div class="disease-hero-shade"></div><div class="disease-hero-inner reveal"><p class="breadcrumb"><span class="home-mark">⌂</span> 삼성G정형외과 <span>›</span> 관절 클리닉 <span>›</span> 무릎 <span>›</span> ${page.title}</p><h1 id="disease-title">${page.title}</h1><h2>${page.subtitle}</h2><p>${page.description}</p></div><nav class="disease-tabs" aria-label="무릎 질환 종류">${tabMarkup}</nav></section>
   <section class="knee-intro" aria-labelledby="intro-title"><div class="section-inner"><img class="knee-intro-image reveal" src="../assets/subpages/knee/intro-consultation.png" alt="의료진이 환자에게 무릎 X-ray 검사 결과를 설명하는 모습" /><div class="knee-intro-copy reveal"><h2 id="intro-title">${page.introTitle}</h2><p>${page.introText}</p></div></div></section>
   <section class="knee-causes" aria-labelledby="causes-title"><div class="section-inner"><h2 id="causes-title" class="reveal">${page.causeTitle}</h2><ul class="knee-cause-list reveal">${causeMarkup}</ul></div></section>

@@ -213,7 +213,7 @@ const renderTreatments = () => page.treatments.map(([title, description, image])
     <div class="treatment-card-copy"><span class="round-check" aria-hidden="true">✓</span><h3>${title}</h3><p>${description}</p></div>
   </article>`).join('');
 
-document.querySelector('#main').innerHTML = `
+if (!document.querySelector('#main').hasAttribute('data-prerendered')) document.querySelector('#main').innerHTML = `
   <section class="disease-hero" style="--hero-image:url('${page.hero}');--hero-position:${page.heroPosition}" aria-labelledby="disease-title">
     <div class="disease-hero-shade"></div>
     <div class="disease-hero-inner reveal">

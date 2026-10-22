@@ -131,7 +131,7 @@
     ['의료장비 안내', 'medical-equipment.html', 'equipment'],
   ];
 
-  main.innerHTML = `
+  if (!main.hasAttribute('data-prerendered')) main.innerHTML = `
     <section class="doctor-hero" aria-labelledby="hospital-hero-title"><div class="doctor-hero-shade"></div><div class="doctor-hero-inner reveal"><p class="breadcrumb"><span aria-hidden="true">⌂</span> 삼성G정형외과 <span aria-hidden="true">›</span> 병원소개 <span aria-hidden="true">›</span> ${config.title}</p><h1 id="hospital-hero-title">${config.title}</h1><h2>${config.subtitle}</h2><p class="doctor-hero-description">${config.description}</p></div><nav class="doctor-subnav" aria-label="병원소개 메뉴">${subnav.map(([label, href, id]) => `<a href="${href}"${id === page ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav></section>
     ${config.content}`;
 

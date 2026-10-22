@@ -121,7 +121,7 @@ const causeMarkup = page.causes.map(([title,description],index) => `<li><strong 
 const symptomMarkup = page.symptoms.map((item) => `<li><span aria-hidden="true">✓</span>${item}</li>`).join('');
 const treatmentMarkup = page.treatments.map(([title,description,image]) => `<article class="foot-treatment-step"><img src="${treatmentImages[image]}" alt="${title} 안내 이미지" /><h3>${title}</h3><p>${description}</p></article>`).join('');
 
-document.querySelector('#main').innerHTML = `
+if (!document.querySelector('#main').hasAttribute('data-prerendered')) document.querySelector('#main').innerHTML = `
   <section class="disease-hero" style="--hero-image:url('${page.hero}');--hero-position:${page.heroPosition}" aria-labelledby="disease-title"><div class="disease-hero-shade"></div><div class="disease-hero-inner reveal"><p class="breadcrumb"><span class="home-mark">⌂</span> 삼성G정형외과 <span>›</span> 관절 클리닉 <span>›</span> 발·발목 <span>›</span> ${page.title}</p><h1 id="disease-title">${page.title}</h1><h2>${page.subtitle}</h2><p>${page.description}</p></div><nav class="disease-tabs" aria-label="발·발목 질환 종류">${tabMarkup}</nav></section>
   <section class="foot-intro" aria-labelledby="intro-title"><div class="section-inner foot-intro-grid"><div class="foot-intro-copy reveal"><h2 id="intro-title">${page.introTitle}</h2><p>${page.introText}</p></div><img class="foot-intro-image reveal" src="../assets/subpages/foot/consultation-foot.jpg" alt="의사가 환자에게 발과 발목의 상태를 설명하는 모습" /></div></section>
   <section class="foot-causes" aria-labelledby="causes-title"><div class="section-inner foot-causes-grid"><div class="foot-causes-copy reveal"><h2 id="causes-title">${page.causeTitle}</h2><p>${page.causeIntro}</p></div><ol class="foot-cause-list reveal">${causeMarkup}</ol></div></section>

@@ -134,7 +134,7 @@ const cardMarkup = condition.causes.map(([title, description, mobileDescription]
 const tabMarkup = tabs.map(([key, label, href]) => `<a href="${href}"${key === conditionKey ? ' aria-current="page"' : ''}>${label}</a>`).join('');
 const symptomMarkup = condition.symptoms.map((symptom) => `<li><span aria-hidden="true">✓</span>${symptom}</li>`).join('');
 
-if (main) {
+if (main && !main.hasAttribute('data-prerendered')) {
   main.innerHTML = `
     <section class="disease-hero" aria-labelledby="disease-title" style="--hero-image:url('${condition.hero}');--hero-position:${condition.heroPosition}">
       <div class="disease-hero-shade"></div>

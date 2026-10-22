@@ -102,7 +102,7 @@ const tabMarkup = tabs.map(([key, label, href]) => `<a href="${href}"${key === c
 const causeMarkup = condition.causes.map(([title, description]) => `<article class="cause-card reveal"><h3>${title}</h3><span class="cause-divider" aria-hidden="true"></span><p>${description}</p></article>`).join('');
 const symptomMarkup = condition.symptoms.map((symptom) => `<li><span aria-hidden="true">✓</span>${symptom}</li>`).join('');
 
-if (main) {
+if (main && !main.hasAttribute('data-prerendered')) {
   main.innerHTML = `
     <section class="disease-hero" aria-labelledby="disease-title" style="--hero-image:url('${condition.hero}')"><div class="disease-hero-shade"></div><div class="disease-hero-inner reveal"><p class="breadcrumb"><span class="home-mark" aria-hidden="true">⌂</span> 삼성G정형외과 <span aria-hidden="true">›</span> 척추 클리닉 <span aria-hidden="true">›</span> 허리 <span aria-hidden="true">›</span> ${condition.title}</p><h1 id="disease-title">${condition.title}</h1><h2>${condition.subtitle}</h2><p>${condition.description}</p></div><nav class="disease-tabs" aria-label="허리 질환 종류">${tabMarkup}</nav></section>
     <section class="causes" aria-labelledby="causes-title"><div class="section-inner"><div class="section-heading reveal"><h2 id="causes-title">${condition.causeTitle}</h2><p>${condition.causeIntro}</p></div><div class="cause-grid" aria-label="${condition.title}의 주요 원인">${causeMarkup}</div></div></section>

@@ -1,0 +1,12 @@
+{
+  "name": "samsung-g-main",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/prerender.cjs",
+    "check:static": "node scripts/prerender.cjs --check",
+    "test": "node --test tests/*.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}
