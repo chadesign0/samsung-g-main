@@ -1,0 +1,42 @@
+Social thumbnail composition record — 2026-10-22
+Mode: built-in image_gen editing, two targeted passes.
+Original preserved: assets/social-share-20261022.png
+Final project asset: assets/social-share-centered-20261022.png
+Final dimensions: 1730 x 909, RGB, opaque.
+Source note: AI-assisted compositing/reframing; generated photograph is not a byte-identical copy. Visible foreground Korean/English wording and background hours were visually reviewed. No app-preview rendering was performed.
+
+Initial edit prompt:
+Use case: compositing / precise layout edit.
+Asset type: website Open Graph social-share thumbnail.
+Image 1 is the EDIT TARGET, the user's actual hospital photograph thumbnail. This is a conservative composition correction, NOT a redesign.
+Create one final opaque landscape raster image, target 1200 x 630 pixels (about 1.90:1). Reframe the SAME existing clinic entrance photograph, retaining its architectural identity, signage, colors and the original dark overlay. Do not invent another hospital interior, people or objects.
+The problem is that the original white overlaid copy and white clinic logo sit too low and look small in a link-preview card. Reposition the COMPLETE WHITE OVERLAY GROUP so its overall visual bounding box is centered horizontally AND vertically at the canvas center (600,315). Balance the top/bottom and left/right visual margins. Keep every foreground overlay element comfortably inside the central safe region x=170..1030, y=150..480. The large two-line headline must remain the focal point and be readable in a 240-pixel-wide preview. Use the same clean Korean serif headline style, white sans-serif tagline, and white clinic logo/wordmark style as the reference.
+Overlay text must be rendered VERBATIM, with zero spelling changes:
+small tagline: "연구하는 의원, 함께 뛰는 의원, 나누는 의원"
+large headline, exactly two lines:
+"끊임없이 연구하며"
+"회복의 길을 함께 걷습니다"
+clinic name in the white logo lockup: "삼성G정형외과"
+English logo subtitle: "SAMSUNG G ORTHOPEDIC CLINIC"
+Preserve the actual existing white geometric G symbol's design and proportions; do not redesign the logo or replace the symbol with a different mark. Preserve the subtle square-bracket motif around the headline if present, but keep it within the safe region. Place the clinic lockup immediately under the headline with a moderate gap, not against the lower edge.
+Remove the old overlaid text/logo from their original locations cleanly, so there is exactly one overlay group, no duplicated words/ghosting. The photographed physical wall sign is part of the background and must remain background, not be mistaken for the overlay.
+No new slogans, no new copy, no other brands, no additional decorations, no border, no watermark. Output the finished thumbnail image only, not a screenshot of a chat card or a mockup. Preserve the user's overall design; change only crop/aspect and the overlaid elements' centered composition.
+
+Final targeted edit prompt:
+Use case: compositing, conservative precision correction.
+Image 1 is the EDIT TARGET, the newly centered hospital social thumbnail. Image 2 is supporting reference ONLY for the real hospital photograph and its signage. Output one opaque image with exactly the same landscape aspect as image 1, about 1.90:1.
+Make only these two targeted corrections:
+1. Translate the ENTIRE white foreground overlay group (tagline, both headline lines, brackets, white G symbol, clinic name and English subtitle) upward by 3 percent of total canvas height, keeping its horizontal center unchanged, and keep its glyph shapes, sizes, line breaks, spacing and colors otherwise unchanged. This puts its group bounding box at the exact visual canvas center rather than slightly below center. Do not redraw or reword the foreground typography, do not move just one line.
+2. The small physical opening-hours lettering on the glass door was altered in image 1. Restore it to match reference image 2 rather than inventing any hospital information. The physical sign's rows in image 2 read:
+"평 일 오전 08:30 - 오후 07:00"
+"수요일 오전 08:30 - 오후 01:00"
+"토요일 오전 08:30 - 오후 02:00"
+"점심시간 오후 01:00 - 오후 02:00"
+Do not add new holiday notices or additional claims not present in the reference. Maintain the same actual physical wall signage, framing, photographic character and dark overlay from the supplied photograph.
+The required white foreground wording, unchanged and exactly once, is:
+"연구하는 의원, 함께 뛰는 의원, 나누는 의원"
+"끊임없이 연구하며"
+"회복의 길을 함께 걷습니다"
+"삼성G정형외과"
+"SAMSUNG G ORTHOPEDIC CLINIC"
+Preserve the actual white geometric G symbol, no logo redesign, no extra text, no watermark, no border. This is a small correction to image 1, not a new composition.
