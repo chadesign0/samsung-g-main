@@ -64,6 +64,14 @@ function click(w, element) {
       check(d.querySelectorAll('.main-clinic-guide').length === (file === 'index.html' ? 1 : 0), `${file}: main guide scope`);
       check(d.querySelector('.mega-menu').inert, `${file}: closed desktop menu must be inert`);
       check(d.querySelector('.mobile-menu-drawer').inert, `${file}: closed mobile menu must be inert`);
+      const accountMenu = d.querySelector('.mobile-menu-account');
+      const guestLinks = [...accountMenu.querySelectorAll(':scope > a')];
+      check(guestLinks.map(link => link.textContent.trim()).join('|') === '로그인|회원가입', `${file}: sidebar shows guest account labels`);
+      check(!/내 정보|관리자|로그아웃/.test(accountMenu.textContent), `${file}: sidebar does not imply an authenticated session`);
+      for (const link of guestLinks) {
+        check(link.getAttribute('href') === '#' && link.getAttribute('aria-disabled') === 'true' && link.dataset.unavailableMessage.includes(link.textContent.trim()), `${file}: guest account destination explicitly unavailable`);
+      }
+      check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-guest-account-menu'), `${file}: refreshed guest menu script reference`);
       for (const link of d.querySelectorAll('.utility-actions > a')) {
         check(link.dataset.unavailableMessage && link.getAttribute('href') === '#', `${file}: unfinished link explicitly marked`);
       }
@@ -128,6 +136,13 @@ function click(w, element) {
     await new Promise((resolve) => w.setTimeout(resolve, 0));
     const drawer = d.querySelector('.mobile-menu-drawer');
     check(!drawer.inert && d.activeElement === drawer, 'mobile menu opens with focus');
+    for (const link of drawer.querySelectorAll('.mobile-menu-account > a')) {
+      const hash = w.location.hash;
+      check(click(w, link).defaultPrevented, 'guest account controls do not navigate');
+      await new Promise((resolve) => w.setTimeout(resolve, 40));
+      check(d.querySelector('.availability-notice').textContent.includes(link.textContent.trim() + ' 기능은 준비 중입니다.'), 'guest account controls explain feature availability');
+      check(w.location.hash === hash && d.body.classList.contains('menu-open'), 'guest account notice leaves current page and drawer intact');
+    }
     toggle.focus();
     const backwards = new w.KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true });
     d.dispatchEvent(backwards);

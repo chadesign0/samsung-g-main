@@ -443,9 +443,8 @@
   mobileDrawer.innerHTML = `
     <div class="mobile-menu-utility">
       <div class="mobile-menu-account" aria-label="계정 및 언어 메뉴">
-        <span title="계정 기능 준비 중">내 정보</span>
-        <span title="관리자 기능 준비 중">관리자</span>
-        <span title="계정 기능 준비 중">로그아웃</span>
+        <a href="#" title="로그인 기능은 준비 중입니다. 진료 문의는 031-452-3000으로 연락해 주세요.">로그인</a>
+        <a href="#" title="회원가입 기능은 준비 중입니다. 진료 문의는 031-452-3000으로 연락해 주세요.">회원가입</a>
         <span class="mobile-menu-language" title="영문 페이지 준비 중" aria-label="영문 페이지 준비 중">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg>
           EN
@@ -479,7 +478,7 @@
   }));
 
   const menuToggle = header.querySelector('.menu-toggle');
-  mobileDrawer.querySelectorAll('.mobile-menu-account > span').forEach((item) => {
+  mobileDrawer.querySelectorAll('.mobile-menu-account > a, .mobile-menu-account > span').forEach((item) => {
     markUnavailable(item, item.title || item.getAttribute('aria-label'));
   });
   const closeMobileMenu = () => {
