@@ -298,7 +298,8 @@
 }
 
 @media (min-width: 801px) {
-  .site-header { isolation: isolate; }
+  /* Raise the header's stacking context, not just its nested dropdown. */
+  body .site-header { isolation: isolate; z-index: 100; }
 
   .site-header .utility-bar { height: 90px; }
   .site-header .brand img { width: 240px; height: 51px; }
@@ -350,7 +351,8 @@
 
   .mega-menu-layout {
     display: grid;
-    grid-template-columns: minmax(230px, 18.75vw) minmax(0, 1fr) minmax(330px, 21vw);
+    /* Match the page's centered content edge; retain room for labels on laptops. */
+    grid-template-columns: max(200px, calc((100% - var(--max, 1240px)) / 2)) minmax(0, 1fr) minmax(330px, 21vw);
     min-height: 380px;
   }
 
