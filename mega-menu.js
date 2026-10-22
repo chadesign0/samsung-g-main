@@ -574,7 +574,7 @@
   // Reuse the same destinations as the mobile/hover menus, not a second sitemap.
   const allMenuStyle = document.createElement('link');
   allMenuStyle.rel = 'stylesheet';
-  allMenuStyle.href = `${resolveHref('desktop-all-menu.css')}?v=20261022-white-all-menu`;
+  allMenuStyle.href = `${resolveHref('desktop-all-menu.css')}?v=20261022-menu-reveal-motion`;
   document.head.append(allMenuStyle);
   const allMenu = document.createElement('dialog');
   allMenu.id = 'desktop-all-menu';
@@ -610,19 +610,86 @@
   document.body.append(allMenu);
   const allMenuClose = allMenu.querySelector('.desktop-all-menu-close');
   const allMenuNotice = allMenu.querySelector('.desktop-all-menu-notice');
+  const reducedMenuMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let menuMotion = null;
+  let menuIsClosing = false;
+  const cancelMenuMotion = () => {
+    if (menuMotion) {
+      menuMotion.onfinish = null;
+      menuMotion.cancel();
+      menuMotion = null;
+    }
+    allMenu.classList.remove('is-animating');
+  };
+  const playMenuMotion = (opening, onFinish) => {
+    const currentClip = menuMotion ? window.getComputedStyle(allMenu).clipPath : 'none';
+    cancelMenuMotion();
+    if (reducedMenuMotion.matches || typeof allMenu.animate !== 'function') {
+      allMenu.style.clipPath = 'none';
+      onFinish();
+      return;
+    }
+    const rect = menuToggle.getBoundingClientRect();
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const x = Math.min(width, Math.max(0, rect.left + rect.width / 2));
+    const y = Math.min(height, Math.max(0, rect.top + rect.height / 2));
+    const radius = Math.hypot(Math.max(x, width - x), Math.max(y, height - y)) + 2;
+    const collapsed = `circle(0px at ${x}px ${y}px)`;
+    const expanded = `circle(${radius}px at ${x}px ${y}px)`;
+    const from = currentClip && currentClip !== 'none' ? currentClip : opening ? collapsed : expanded;
+    const to = opening ? expanded : collapsed;
+    allMenu.style.clipPath = to;
+    allMenu.classList.add('is-animating');
+    const motion = allMenu.animate([{ clipPath: from }, { clipPath: to }], {
+      duration: opening ? 520 : 320,
+      easing: opening ? 'cubic-bezier(.22, 1, .36, 1)' : 'cubic-bezier(.4, 0, .8, .2)',
+      fill: 'both',
+    });
+    menuMotion = motion;
+    motion.onfinish = () => {
+      if (menuMotion !== motion) return;
+      cancelMenuMotion();
+      allMenu.style.clipPath = 'none';
+      onFinish();
+    };
+  };
   const resetAllMenu = () => {
+    cancelMenuMotion();
+    menuIsClosing = false;
+    allMenu.style.clipPath = 'none';
     document.body.classList.remove('all-menu-open');
     menuToggle?.setAttribute('aria-expanded', 'false');
     menuToggle?.setAttribute('aria-label', '메뉴 열기');
     menuToggle?.focus({ preventScroll: true });
   };
-  const closeAllMenu = () => {
-    if (!allMenu.open) return;
-    allMenu.close();
+  const finishClosingAllMenu = () => {
+    cancelMenuMotion();
+    menuIsClosing = false;
+    allMenu.style.clipPath = 'none';
+    if (allMenu.open) allMenu.close();
     resetAllMenu();
   };
+  const closeAllMenu = (immediate = false) => {
+    if (!allMenu.open) return;
+    if (immediate) {
+      finishClosingAllMenu();
+      return;
+    }
+    if (menuIsClosing) return;
+    menuIsClosing = true;
+    playMenuMotion(false, finishClosingAllMenu);
+  };
   const openAllMenu = () => {
-    if (!desktop.matches || allMenu.open) return;
+    if (!desktop.matches) return;
+    if (allMenu.open) {
+      if (menuIsClosing) {
+        menuIsClosing = false;
+        playMenuMotion(true, () => {});
+        allMenuClose.focus({ preventScroll: true });
+      }
+      return;
+    }
     window.clearTimeout(closeTimer);
     closeMenu();
     document.body.classList.remove('menu-open');
@@ -634,6 +701,7 @@
     menuToggle?.setAttribute('aria-expanded', 'true');
     menuToggle?.setAttribute('aria-label', '전체 메뉴 닫기');
     allMenuClose.focus({ preventScroll: true });
+    playMenuMotion(true, () => {});
   };
   // Capture prevents the page-specific mobile toggle handlers from also firing
   // on desktop. Their existing mobile behavior remains unchanged.
@@ -641,10 +709,10 @@
     if (!desktop.matches) return;
     event.preventDefault();
     event.stopImmediatePropagation();
-    if (allMenu.open) closeAllMenu();
+    if (allMenu.open && !menuIsClosing) closeAllMenu();
     else openAllMenu();
   }, true);
-  allMenuClose.addEventListener('click', closeAllMenu);
+  allMenuClose.addEventListener('click', () => closeAllMenu());
   allMenu.addEventListener('cancel', (event) => {
     event.preventDefault();
     closeAllMenu();
@@ -661,7 +729,7 @@
       allMenuNotice.textContent = `${link.textContent.trim()}는 준비 중입니다.`;
       return;
     }
-    closeAllMenu();
+    closeAllMenu(true);
   });
   allMenu.addEventListener('keydown', (event) => {
     if (!allMenu.open) return;
@@ -683,12 +751,20 @@
     }
   });
   const syncAllMenuTarget = () => {
-    if (!desktop.matches) closeAllMenu();
+    if (!desktop.matches) closeAllMenu(true);
     menuToggle?.setAttribute('aria-controls', desktop.matches ? allMenu.id : mobileDrawer.id);
     if (desktop.matches) menuToggle?.setAttribute('aria-haspopup', 'dialog');
     else menuToggle?.removeAttribute('aria-haspopup');
   };
   desktop.addEventListener('change', syncAllMenuTarget);
+  reducedMenuMotion.addEventListener('change', () => {
+    if (!reducedMenuMotion.matches) return;
+    if (menuIsClosing) finishClosingAllMenu();
+    else {
+      cancelMenuMotion();
+      allMenu.style.clipPath = 'none';
+    }
+  });
   syncAllMenuTarget();
 
   const scheduleClose = () => {

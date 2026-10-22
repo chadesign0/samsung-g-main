@@ -18,7 +18,9 @@ body.all-menu-open { overflow: hidden; }
 }
 .desktop-all-menu:not([open]) { display: none; }
 .desktop-all-menu[open] { display: flex; flex-direction: column; }
-.desktop-all-menu::backdrop { background: #fff; }
+/* Keep the underlying page visible outside the button-origin reveal. */
+.desktop-all-menu::backdrop { background: transparent; }
+.desktop-all-menu.is-animating { will-change: clip-path; }
 .desktop-all-menu-close {
   position: absolute;
   top: 24px;

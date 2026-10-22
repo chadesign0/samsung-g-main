@@ -94,10 +94,10 @@ function click(w, element) {
       const sidebarLanguage = accountMenu.querySelector('.mobile-menu-language');
       check(sidebarLanguage.textContent.trim() === 'KR', `${file}: sidebar shows Korean language`);
       check(sidebarLanguage.getAttribute('aria-label') === '현재 언어: 한국어(KR)' && sidebarLanguage.dataset.unavailableMessage === '현재 한국어 안내만 제공하고 있습니다.', `${file}: sidebar language announcement matches current Korean service`);
-      check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-white-all-menu'), `${file}: refreshed white full-menu script reference`);
+      check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-menu-reveal-motion'), `${file}: refreshed full-menu motion script reference`);
       const allMenu = d.querySelector('dialog.desktop-all-menu');
       check(allMenu && !allMenu.open, `${file}: desktop full menu starts closed`);
-      check(d.querySelector('link[href*="desktop-all-menu.css"]').getAttribute('href').includes('v=20261022-white-all-menu'), `${file}: refreshed scoped full-menu stylesheet`);
+      check(d.querySelector('link[href*="desktop-all-menu.css"]').getAttribute('href').includes('v=20261022-menu-reveal-motion'), `${file}: refreshed motion stylesheet`);
       const destinations = selector => [...d.querySelectorAll(selector)].map(link => link.textContent.trim() + '|' + link.getAttribute('href')).sort().join('\n');
       check(destinations('.desktop-all-menu-content a') === destinations('.mobile-menu-submenu a'), `${file}: full menu includes every existing destination exactly once`);
       const toggle = d.querySelector('.menu-toggle');

@@ -8,7 +8,7 @@ const dom = new JSDOM(`<style>${css}</style>`);
 const rules = [...dom.window.document.styleSheets[0].cssRules];
 const style = selector => rules.find(rule => rule.selectorText === selector).style;
 assert.equal(style('.desktop-all-menu').background, '#fff');
-assert.equal(style('.desktop-all-menu::backdrop').background, '#fff');
+assert.equal(style('.desktop-all-menu::backdrop').background, 'transparent');
 function luminance(hex) {
   const channels = hex.slice(1).match(/../g).map(value => parseInt(value, 16) / 255);
   const linear = channels.map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4);
@@ -30,5 +30,5 @@ assert.equal(style('.desktop-all-menu-columns').getPropertyValue('grid-template-
 const narrow = rules.find(rule => rule.conditionText === '(min-width: 801px) and (max-width: 1100px)');
 assert.equal([...narrow.cssRules].find(rule => rule.selectorText === '.desktop-all-menu-columns').style.getPropertyValue('grid-template-columns'), 'repeat(2, minmax(0, 1fr))');
 assert.equal(style('.desktop-all-menu-content').getPropertyValue('overflow-y'), 'auto');
-console.log(`PASS: white dialog/backdrop; ${selectors.length} foreground colors have contrast >= ${Math.min(...ratios).toFixed(2)}:1; responsive grid and internal scrolling retained. Source-only checks.`);
+console.log(`PASS: white dialog with transparent reveal backdrop; ${selectors.length} foreground colors have contrast >= ${Math.min(...ratios).toFixed(2)}:1; responsive grid and internal scrolling retained. Source-only checks.`);
 dom.window.close();
