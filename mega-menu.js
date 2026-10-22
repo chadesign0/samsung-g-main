@@ -96,10 +96,10 @@
     footer.innerHTML = `
       <div class="footer-wide-inner">
         <div class="footer-wide-content">
-          <nav class="footer-wide-nav" aria-label="하단 정책 메뉴">
-            <a href="#footer">이용약관</a>
-            <a href="#footer">개인정보처리방침</a>
-            <a href="#footer">환자의 권리장전</a>
+          <nav class="footer-wide-nav" aria-label="하단 안내 메뉴">
+            <a href="${resolveHref('pages/terms.html')}">이용약관</a>
+            <a class="footer-privacy-link" href="${resolveHref('pages/privacy-policy.html')}">개인정보처리방침</a>
+            <a href="${resolveHref('pages/certificate-issuance.html')}">증명서발급</a>
             <a href="${resolveHref('pages/unpaid-fees.html')}">비급여진료비</a>
           </nav>
           <div class="footer-wide-details">
@@ -107,7 +107,7 @@
               <strong>주소</strong>
               <address>경기 군포시 군포로 522 4층</address>
               <span>[15855]</span>
-              <div class="footer-wide-policy"><a href="#footer">이용약관</a><a href="#footer">개인정보처리방침</a></div>
+              <div class="footer-wide-policy"><a href="${resolveHref('pages/terms.html')}">이용약관</a><a class="footer-privacy-link" href="${resolveHref('pages/privacy-policy.html')}">개인정보처리방침</a></div>
             </div>
             <div class="footer-wide-contact">
               <p>대표 : 이상현</p>
@@ -149,8 +149,46 @@
           </div>
         </div>
       </section>`;
+    // Directions already provides its own hours, telephone, and location map.
+    if (currentFile === 'directions.html') clinicGuide.querySelector('.care-contact').remove();
     footer.before(clinicGuide);
   }
+
+  // Keep unfinished destinations explicit without inventing policy or account pages.
+  const availabilityNotice = document.createElement('p');
+  availabilityNotice.className = 'availability-notice';
+  availabilityNotice.setAttribute('role', 'status');
+  availabilityNotice.setAttribute('aria-atomic', 'true');
+  document.body.append(availabilityNotice);
+  let noticeTimer = 0;
+  let noticeFrame = 0;
+  const markUnavailable = (element, message) => {
+    element.dataset.unavailableMessage = message;
+    element.setAttribute('aria-disabled', 'true');
+    element.title = message;
+    if (element.tagName === 'A') element.setAttribute('href', '#');
+  };
+  header.querySelectorAll('.utility-actions > a').forEach((link) => {
+    markUnavailable(link, `${link.textContent.trim()} 기능은 준비 중입니다. 진료 문의는 031-452-3000으로 연락해 주세요.`);
+  });
+  const language = header.querySelector('.language');
+  if (language) markUnavailable(language, '현재 한국어 안내만 제공하고 있습니다.');
+  const headerSearch = header.querySelector('button.search-pill');
+  if (headerSearch && !document.querySelector('.board-search')) {
+    markUnavailable(headerSearch, '통합 검색은 준비 중입니다. 전체 메뉴에서 진료 안내를 찾아 주세요.');
+  }
+  document.addEventListener('click', (event) => {
+    const control = event.target.closest('[data-unavailable-message], [data-placeholder="true"]');
+    if (!control) return;
+    event.preventDefault();
+    window.clearTimeout(noticeTimer);
+    window.cancelAnimationFrame(noticeFrame);
+    availabilityNotice.textContent = '';
+    noticeFrame = window.requestAnimationFrame(() => {
+      availabilityNotice.textContent = control.dataset.unavailableMessage || `${control.textContent.trim()} 안내는 준비 중입니다.`;
+      noticeTimer = window.setTimeout(() => { availabilityNotice.textContent = ''; }, 7000);
+    });
+  });
 
   const categories = [
     {
@@ -364,6 +402,7 @@
   panel.className = 'mega-menu';
   panel.id = 'mega-menu';
   panel.setAttribute('aria-hidden', 'true');
+  panel.inert = true;
   panel.innerHTML = `
     <div class="mega-menu-layout">
       <aside class="mega-menu-category"><strong></strong></aside>
@@ -440,6 +479,9 @@
   }));
 
   const menuToggle = header.querySelector('.menu-toggle');
+  mobileDrawer.querySelectorAll('.mobile-menu-account > span').forEach((item) => {
+    markUnavailable(item, item.title || item.getAttribute('aria-label'));
+  });
   const closeMobileMenu = () => {
     document.body.classList.remove('menu-open');
     nav.classList.remove('open');
@@ -465,6 +507,20 @@
   });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && document.body.classList.contains('menu-open')) closeMobileMenu();
+    if (event.key !== 'Tab' || desktop.matches || !document.body.classList.contains('menu-open')) return;
+    const controls = [menuToggle, ...mobileDrawer.querySelectorAll('button, a[href]')]
+      .filter((control) => control && control.getClientRects().length && !control.closest('[hidden]'));
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (!first) return;
+    const active = document.activeElement;
+    if (event.shiftKey && (active === first || active === mobileDrawer)) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
   });
   desktop.addEventListener('change', () => {
     if (desktop.matches) closeMobileMenu();
@@ -496,12 +552,17 @@
     renderCategory(category);
     panel.classList.add('is-open');
     panel.setAttribute('aria-hidden', 'false');
+    panel.inert = false;
     setActiveLink(id);
   };
 
   const closeMenu = () => {
+    if (panel.contains(document.activeElement)) {
+      navLinks.find((link) => link.getAttribute('aria-expanded') === 'true')?.focus();
+    }
     panel.classList.remove('is-open');
     panel.setAttribute('aria-hidden', 'true');
+    panel.inert = true;
     navLinks.forEach((link) => {
       link.classList.remove('is-mega-active');
       link.setAttribute('aria-expanded', 'false');

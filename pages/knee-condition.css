@@ -1,4 +1,4 @@
-@import url("shoulder-condition.css?v=20261021-shared-clinic-guide");
+@import url("shoulder-condition.css?v=20261022-policy-text");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
 .disease-hero-shade { background: rgba(30,24,20,.34); }
@@ -18,7 +18,9 @@
 .knee-cause-list strong { position: relative; padding-top: 28px; font-size: 24px; line-height: 1.3; letter-spacing: -.05em; }
 .knee-cause-list strong::before { content: "✓"; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); color: #ff3023; font-family: Arial,sans-serif; font-size: 31px; font-weight: 800; }
 
-.knee-symptoms { --knee-symptom-height: clamp(760px,49.3vw,947px); position: relative; min-height: var(--knee-symptom-height); overflow: hidden; color: #fff; background: #07172f url("../assets/subpages/knee/symptom-knee.png") center/cover no-repeat; }
+.knee-symptoms { --knee-symptom-height: clamp(760px,49.3vw,947px); position: relative; min-height: var(--knee-symptom-height); overflow: hidden; color: #fff; background: #07172f; }
+/* Keep the three-pixel nonopaque top edge outside the section. */
+.knee-symptoms::before { content: ""; position: absolute; inset: -1% 0 0; background: url("../assets/subpages/knee/symptom-knee.png") center/cover no-repeat; }
 .knee-symptoms-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(3,18,43,.18),rgba(3,18,43,.02)); }
 .knee-symptoms-inner { position: relative; z-index: 1; min-height: var(--knee-symptom-height); display: flex; align-items: center; padding: 70px 0; }
 .knee-symptoms-copy { width: min(100%,620px); text-shadow: 0 2px 12px rgba(0,0,0,.28); }
@@ -83,7 +85,8 @@
   .knee-cause-list { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 48px; }
   .knee-cause-list li { width: 100%; min-height: 100px; }
   .knee-cause-list strong { font-size: 18px; }
-  .knee-symptoms { --knee-symptom-height: 0px; background-position: 58% center; }
+  .knee-symptoms { --knee-symptom-height: 0px; }
+  .knee-symptoms::before { background-position: 58% center; }
   .knee-symptoms-shade { background: rgba(3,18,43,.35); }
   .knee-symptoms-inner { min-height: 0; align-items: flex-start; padding: 48px 0; }
   .knee-symptoms-copy { width: 100%; }

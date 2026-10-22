@@ -87,8 +87,17 @@
           <nav class="map-links" aria-label="지도 서비스"><a class="naver" href="https://map.naver.com/p/entry/place/2044656006" target="_blank" rel="noreferrer"><span aria-hidden="true">N</span>네이버 지도</a><a class="kakao" href="https://map.kakao.com/link/map/833800931" target="_blank" rel="noreferrer"><svg aria-hidden="true" viewBox="0 0 24 30"><path d="M12 0C5.37 0 0 5.37 0 12c0 8.6 12 18 12 18s12-9.4 12-18C24 5.37 18.63 0 12 0Z"/><circle cx="12" cy="12" r="4"/></svg>카카오 지도</a><a class="tmap" href="../tmap.html" data-tmap-link><span aria-hidden="true">T</span>T맵 지도</a></nav></div>
           <div class="map-placeholder reveal"><iframe title="삼성G정형외과 위치 지도" src="https://www.google.com/maps?q=37.3525822,126.9456639&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
           <div class="direction-cards">
-            <figure class="direction-card direction-hours reveal" id="clinic-hours"><img src="../assets/subpages/hospital/hours.png" alt="" /><figcaption><div class="hours-row"><strong>평&nbsp;&nbsp;일</strong><span>오전 08:30 - 오후 07:00</span></div><div class="hours-row"><strong>수요일</strong><span>오전 08:30 - 오후 01:00</span></div><div class="hours-row"><strong>토요일</strong><span>오전 08:30 - 오후 02:00</span></div><p>*평일 점심시간 오후 1시 - 2시</p></figcaption></figure>
-            <figure class="direction-card direction-phone reveal"><img src="../assets/subpages/hospital/phone.png" alt="" /><figcaption><strong>대표전화</strong><a href="tel:031-452-3000">031-452-3000</a><p>진료 예약 및 상담이 필요하신 경우 전화주시면<br />자세한 상담과 예약을 도와드립니다.</p></figcaption></figure>
+            <figure class="direction-card direction-hours reveal" id="clinic-hours">
+              <img src="../assets/subpages/hospital/hours.png" alt="" />
+              <figcaption>
+                <strong class="direction-hours-title">진료시간</strong>
+                <div class="hours-row"><strong class="hours-weekday"><span class="hours-weekday-measure" aria-hidden="true">수요일</span><span class="hours-weekday-letters"><span>평</span><span>일</span></span></strong><span class="hours-time-full">오전 08:30 - 오후 07:00</span><span class="hours-time-compact">08:30 – 19:00</span></div>
+                <div class="hours-row"><strong>수요일</strong><span class="hours-time-full">오전 08:30 - 오후 01:00</span><span class="hours-time-compact">08:30 – 13:00</span></div>
+                <div class="hours-row"><strong>토요일</strong><span class="hours-time-full">오전 08:30 - 오후 02:00</span><span class="hours-time-compact">08:30 – 14:00</span></div>
+                <p class="direction-lunch"><span class="hours-time-full">*평일 점심시간 오후 1시 - 2시</span><span class="hours-time-compact">평일 점심시간 13:00 – 14:00</span></p>
+              </figcaption>
+            </figure>
+            <figure class="direction-card direction-phone reveal"><img src="../assets/subpages/hospital/phone.png" alt="" /><figcaption><strong>대표전화</strong><a href="tel:031-452-3000" aria-label="대표전화 031-452-3000">031-452-3000</a><p>진료 예약 및 상담이 필요하신 경우 전화주시면 <br />자세한 상담과 예약을 도와드립니다.</p></figcaption></figure>
           </div>
         </div></section>`,
     },

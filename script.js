@@ -101,7 +101,8 @@ const careContent = {
   surgery: {
     title: '수액치료',
     description: '환자의 컨디션과 회복 단계에 맞춰 필요한 영양과 수분을 보충하고<br />진료 과정과 연계한 체계적인 관리로<br />빠른 일상 복귀를 지원합니다.',
-    href: 'pages/one-stop-care.html',
+    href: '#',
+    unavailableMessage: '수액치료 상세 안내는 준비 중입니다. 진료 문의는 031-452-3000으로 연락해 주세요.',
     images: ['assets/subpages/one-stop-care/procedure-room.png', 'assets/clinic-room.webp'],
     alts: ['수액 치료 공간', '회복 관리 진료실'],
   },
@@ -127,6 +128,15 @@ careTabs.forEach((tab) => {
     carePanelTitle.textContent = content.title;
     carePanelDescription.innerHTML = content.description;
     carePanelLink.href = content.href;
+    if (content.unavailableMessage) {
+      carePanelLink.dataset.unavailableMessage = content.unavailableMessage;
+      carePanelLink.setAttribute('aria-disabled', 'true');
+      carePanelLink.setAttribute('aria-label', '수액치료 자세히 보기 (준비 중)');
+    } else {
+      delete carePanelLink.dataset.unavailableMessage;
+      carePanelLink.removeAttribute('aria-disabled');
+      carePanelLink.removeAttribute('aria-label');
+    }
     carePanelImages.forEach((image, index) => {
       image.src = content.images[index];
       image.alt = content.alts[index];

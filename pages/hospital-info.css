@@ -1,4 +1,4 @@
-@import url("doctors.css?v=20261021-shared-clinic-guide");
+@import url("doctors.css?v=20261022-policy-text");
 
 .hospital-page-title { width: min(calc(100% - 80px), 1240px); margin: 0 auto; }
 #clinic-location, #clinic-hours { scroll-margin-top: 80px; }
@@ -100,6 +100,7 @@ body.tour-lightbox-open { overflow: hidden; }
 .hours-row { display: flex; align-items: center; justify-content: center; gap: 23px; margin: 12px 0; font-size: clamp(19px,1.35vw,26px); font-weight: 700; line-height: 1.35; }
 .hours-row strong { min-width: 74px; text-align: justify; text-align-last: justify; }
 .direction-hours figcaption p { margin: 17px 0 0; font-size: clamp(15px,1vw,19px); font-weight: 700; }
+.direction-hours-title, .hours-time-compact, .hours-weekday-measure { display: none; }
 .direction-phone figcaption { top: 72px; left: 72px; color: #111; }
 .direction-phone figcaption > strong { display: block; font-size: clamp(25px,1.65vw,32px); }
 .direction-phone figcaption > a { display: block; margin-top: 4px; color: #1756ae; font-size: clamp(34px,2.35vw,45px); font-weight: 800; letter-spacing: -.025em; line-height: 1.25; }
@@ -169,9 +170,27 @@ body.tour-lightbox-open { overflow: hidden; }
   .map-links { display: grid; grid-template-columns: 1fr; }
   .map-links a { width: 100%; }
   .map-placeholder { height: 350px; margin-top: 45px; }
-  .direction-cards { grid-template-columns: 1fr; gap: 30px; margin-top: 70px; }
-  .direction-phone figcaption { top: 12%; left: 10%; }
-  .hours-row { gap: 15px; }
+  .directions-page .direction-cards { grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 36px; }
+  .directions-page .direction-card { min-width: 0; border-radius: 16px; }
+  .directions-page .direction-card > img { display: none; }
+  .directions-page .direction-card figcaption { position: static; padding: 24px; transform: none; }
+  .directions-page .direction-hours { color: #fff; background: #123a72; }
+  .directions-page .direction-hours-title { display: block; margin-bottom: 18px; font-size: 21px; line-height: 1.4; text-align: left; }
+  .directions-page .hours-time-full { display: none; }
+  .directions-page .hours-time-compact { display: inline; }
+  .directions-page .hours-row { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; margin: 12px 0; font-size: 16px; line-height: 1.6; }
+  .directions-page .hours-row strong { width: max-content; min-width: 0; text-align: left; text-align-last: auto; }
+  .directions-page .hours-row .hours-weekday { display: inline-grid; }
+  .directions-page .hours-weekday-measure { display: block; grid-area: 1 / 1; visibility: hidden; }
+  .directions-page .hours-weekday-letters { grid-area: 1 / 1; display: flex; justify-content: space-between; }
+  .directions-page .hours-row .hours-time-compact { white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
+  .directions-page .direction-hours .direction-lunch { margin: 18px 0 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.25); font-size: 14px; font-weight: 500; line-height: 1.6; text-align: left; }
+  .directions-page .direction-phone { background: #f3f5f8; }
+  .directions-page .direction-phone figcaption > strong { font-size: 21px; line-height: 1.4; }
+  .directions-page .direction-phone figcaption > a { width: fit-content; max-width: 100%; margin-top: 10px; font-size: clamp(27px, 7.6vw, 34px); line-height: 1.3; white-space: nowrap; }
+  .directions-page .direction-phone figcaption > a:focus-visible { outline: 3px solid #1756ae; outline-offset: 4px; }
+  .directions-page .direction-phone figcaption p { margin: 18px 0 0; font-size: 16px; font-weight: 500; line-height: 1.7; }
+  .directions-page .direction-phone figcaption p br { display: none; }
   .equipment-page { padding: 80px 0; }
   .equipment-inner { width: calc(100% - 40px); }
   .equipment-page h2 { margin-bottom: 48px; font-size: 30px; }

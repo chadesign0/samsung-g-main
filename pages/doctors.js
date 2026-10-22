@@ -49,6 +49,7 @@ menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealItems = document.querySelectorAll('.reveal:not(.reveal-sequence)');
 const sequentialRevealItems = Array.from(document.querySelectorAll('.reveal-sequence'));
+const dayCandidateCards = Array.from(document.querySelectorAll('.day-candidate.reveal'));
 
 if (reduceMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => item.classList.add('visible'));
@@ -57,8 +58,15 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
   const observer = new IntersectionObserver((entries, currentObserver) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      currentObserver.unobserve(entry.target);
+      // Start a day-hospital grid row from one trigger; CSS sets its stagger.
+      // offsetTop is unaffected by the reveal transform and follows responsive rows.
+      const items = dayCandidateCards.includes(entry.target)
+        ? dayCandidateCards.filter((card) => card.offsetTop === entry.target.offsetTop)
+        : [entry.target];
+      items.forEach((item) => {
+        item.classList.add('visible');
+        currentObserver.unobserve(item);
+      });
     });
   }, { threshold: 0.15 });
 

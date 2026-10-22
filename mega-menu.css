@@ -1,4 +1,30 @@
-@import url("clinic-guide.css?v=20261021-shared-clinic-guide");
+@import url("clinic-guide.css?v=20261022-policy-text");
+
+.availability-notice {
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 24px;
+  width: max-content;
+  max-width: min(560px, calc(100vw - 32px));
+  box-sizing: border-box;
+  margin: 0;
+  padding: 14px 20px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 12px;
+  color: #fff;
+  background: #123764;
+  box-shadow: 0 6px 24px rgba(0,0,0,.18);
+  font: 500 15px/1.6 sans-serif;
+  text-align: left;
+  overflow-wrap: anywhere;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.availability-notice:empty { display: none; }
+@media (max-width: 800px) {
+  .availability-notice { bottom: calc(100px + env(safe-area-inset-bottom, 0px)); }
+}
 
 /* Shared fixed quick menu */
 .quick-menu.quick-menu-fixed {
@@ -201,6 +227,11 @@
   border-bottom: 1px solid rgba(255,255,255,.72);
   font-size: 17px;
   font-weight: 700;
+}
+
+.site-footer--wide .footer-privacy-link {
+  font-weight: 800;
+  text-decoration: none;
 }
 
 .site-footer--wide .footer-wide-details {

@@ -1,0 +1,54 @@
+@import url("doctors.css?v=20261022-policy-text");
+
+.policy-main { padding: 64px 0 88px; }
+.policy-inner { width: min(calc(100% - 80px), 1200px); margin: 0 auto; min-width: 0; }
+.policy-heading { margin-bottom: 30px; text-align: center; }
+.policy-breadcrumb { margin: 0 0 20px; color: #67758a; font-size: 14px; text-align: left; }
+.policy-heading h1 { margin: 0; font-size: 36px; line-height: 1.4; letter-spacing: -.04em; }
+.policy-date { margin: 12px 0 0; color: #687487; font-size: 14px; }
+.policy-tabs { display: flex; border-bottom: 1px solid #d9e0e9; }
+.policy-tabs a { flex: 1; padding: 16px; text-align: center; color: #526278; background: #f7f9fc; }
+.policy-tabs a[aria-current="page"] { color: #123a72; background: #fff; box-shadow: inset 0 -3px #1756ae; font-weight: 700; }
+.policy-draft-note { margin: 28px 0 18px; padding: 20px 24px; border: 1px solid #e7cd91; border-radius: 10px; background: #fff9eb; color: #614a1a; font-size: 15px; line-height: 1.8; }
+.policy-draft-note p { margin: 6px 0 0; }
+.policy-tools { display: flex; justify-content: flex-end; margin: 18px 0; }
+.policy-tools a { display: inline-flex; align-items: center; gap: 12px; padding: 10px 16px; border: 1px solid #cbd7e6; border-radius: 6px; color: #123a72; font-size: 15px; }
+.policy-contents { padding: 22px 24px; border: 1px solid #dfe6ef; background: #f8fafc; border-radius: 10px; }
+.policy-contents ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; list-style: none; margin: 0; padding: 0; }
+.policy-contents a { display: block; color: #29486c; font-size: 15px; line-height: 1.6; overflow-wrap: anywhere; }
+.policy-main a:focus-visible { outline: 3px solid #1756ae; outline-offset: 4px; }
+.policy-main a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.policy-document { color: #333e4d; font-size: 17px; line-height: 1.85; overflow-wrap: anywhere; }
+.policy-intro { margin: 32px 0; }
+.policy-document section { margin-top: 34px; padding-top: 26px; border-top: 1px solid #e5e9f0; scroll-margin-top: 180px; }
+.policy-document h2 { margin: 0 0 16px; color: #172d4b; font-size: 22px; line-height: 1.5; letter-spacing: -.025em; }
+.policy-document p { margin: 0 0 12px; }
+.policy-related { margin: 42px 0 0; padding: 20px 0 0; border-top: 1px solid #dfe6ef; font-size: 16px; }
+.policy-related a { color: #1756ae; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 800px) {
+  .policy-main { padding: 30px 0 48px; }
+  .policy-inner { width: calc(100% - 40px); }
+  .policy-heading { margin-bottom: 24px; }
+  .policy-heading h1 { font-size: 28px; }
+  .policy-breadcrumb { margin-bottom: 20px; font-size: 13px; }
+  .policy-date { font-size: 12px; }
+  .policy-tabs a { padding: 14px 4px; font-size: 15px; }
+  .policy-draft-note { padding: 16px; font-size: 14px; }
+  .policy-tools a { font-size: 14px; }
+  .policy-contents { padding: 18px; }
+  .policy-contents ol { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .policy-contents a { font-size: 14px; }
+  .policy-document { font-size: 16px; line-height: 1.85; }
+  .policy-document section { margin-top: 28px; padding-top: 22px; scroll-margin-top: 88px; }
+  .policy-document h2 { font-size: 19px; }
+  .policy-related { font-size: 15px; }
+}
+@media print {
+  .site-header, .site-footer, .shared-clinic-guide, .quick-menu, .mobile-quick-bar,
+  .mobile-menu-backdrop, .mobile-menu-drawer, .policy-tabs, .policy-tools, .availability-notice { display: none !important; }
+  .policy-main { padding: 0; }
+  .policy-inner { width: 100%; }
+  .policy-document { font-size: 11pt; }
+  .policy-document h2 { break-after: avoid; }
+  .policy-document p { orphans: 3; widows: 3; }
+}

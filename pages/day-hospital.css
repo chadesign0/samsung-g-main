@@ -279,6 +279,8 @@
 
 @media (max-width: 1000px) {
   .day-candidate-list { grid-template-columns: repeat(2, 1fr); }
+  .day-candidate:nth-child(odd) { transition-delay: .08s; }
+  .day-candidate:nth-child(even) { transition-delay: .2s; }
   .day-candidate figure { height: 270px; }
   .day-candidate > span { top: 246px; }
   .day-benefits-inner { padding-left: min(430px, 43vw); }
@@ -295,6 +297,7 @@
   .day-candidates { min-height: 0; padding: 82px 0 92px; }
   .day-candidates-heading { margin-bottom: 60px; }
   .day-candidate-list { gap: 34px 20px; }
+  .day-candidate:nth-child(n) { transition-delay: .08s; }
   .day-candidate figure { height: 210px; }
   .day-candidate > span { top: 187px; width: 44px; height: 44px; }
   .day-benefits { min-height: 0; align-items: start; padding: 48px 0; background-position: 55% center; }

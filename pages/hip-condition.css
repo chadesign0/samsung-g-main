@@ -1,6 +1,9 @@
-@import url("shoulder-condition.css?v=20261021-shared-clinic-guide");
+@import url("shoulder-condition.css?v=20261022-policy-text");
 
 .disease-hero { min-height: 784px; background-image: var(--hero-image); background-position: var(--hero-position,center); }
+/* Only this export has a transparent left column; preserve other hip hero crops. */
+body[data-condition="bursitis"] .disease-hero { background-image: none; }
+body[data-condition="bursitis"] .disease-hero::before { content: ""; position: absolute; inset: -.2%; background: var(--hero-image) var(--hero-position,center)/cover no-repeat; }
 .disease-hero-shade { background: rgba(30,24,20,.34); }
 .disease-tabs { grid-template-columns: repeat(4,1fr); }
 
