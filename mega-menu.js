@@ -436,6 +436,7 @@
 
   const mobileDrawer = document.createElement('nav');
   mobileDrawer.className = 'mobile-menu-drawer';
+  mobileDrawer.id = 'mobile-menu-drawer';
   mobileDrawer.setAttribute('aria-label', '모바일 전체 메뉴');
   mobileDrawer.setAttribute('aria-hidden', 'true');
   mobileDrawer.tabIndex = -1;
@@ -546,7 +547,7 @@
   };
 
   const openMenu = (id) => {
-    if (!desktop.matches) return;
+    if (!desktop.matches || document.body.classList.contains('all-menu-open')) return;
     const category = categories.find((item) => item.id === id);
     if (!category) return;
     window.clearTimeout(closeTimer);
@@ -569,6 +570,126 @@
       link.setAttribute('aria-expanded', 'false');
     });
   };
+
+  // Reuse the same destinations as the mobile/hover menus, not a second sitemap.
+  const allMenuStyle = document.createElement('link');
+  allMenuStyle.rel = 'stylesheet';
+  allMenuStyle.href = `${resolveHref('desktop-all-menu.css')}?v=20261022-desktop-all-menu`;
+  document.head.append(allMenuStyle);
+  const allMenu = document.createElement('dialog');
+  allMenu.id = 'desktop-all-menu';
+  allMenu.className = 'desktop-all-menu';
+  allMenu.setAttribute('aria-label', '전체 메뉴');
+  const categoryById = (id) => categories.find((category) => category.id === id);
+  const jointCategory = categoryById('joint');
+  const allMenuColumns = [
+    ['hospital', 'one-stop', 'day-hospital', 'customer'].map(categoryById),
+    [categoryById('special'), categoryById('iv')],
+    [categoryById('spine'), { ...jointCategory, groups: jointCategory.groups.slice(0, 1) }],
+    [{ ...jointCategory, groups: jointCategory.groups.slice(1) }],
+  ];
+  allMenu.innerHTML = `
+    <button class="desktop-all-menu-close" type="button" aria-label="전체 메뉴 닫기" autofocus>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="m5 5 22 22M27 5 5 27"/></svg>
+    </button>
+    <nav class="desktop-all-menu-content" aria-label="전체 진료 및 병원 안내">
+      <div class="desktop-all-menu-columns">${allMenuColumns.map((column, columnIndex) => `
+        <div class="desktop-all-menu-column">${column.map((category) => `
+          <section class="desktop-all-menu-category" aria-labelledby="all-menu-${columnIndex}-${category.id}">
+            <h2 id="all-menu-${columnIndex}-${category.id}">${category.label}</h2>
+            ${category.groups.map((group) => `
+              <div class="desktop-all-menu-group">
+                ${group.title ? `<h3>${group.title}</h3>` : ''}
+                <ul>${group.items.map(itemMarkup).join('')}</ul>
+              </div>`).join('')}
+          </section>`).join('')}
+        </div>`).join('')}
+      </div>
+    </nav>
+    <p class="desktop-all-menu-notice" role="status" aria-atomic="true"></p>`;
+  document.body.append(allMenu);
+  const allMenuClose = allMenu.querySelector('.desktop-all-menu-close');
+  const allMenuNotice = allMenu.querySelector('.desktop-all-menu-notice');
+  const resetAllMenu = () => {
+    document.body.classList.remove('all-menu-open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    menuToggle?.setAttribute('aria-label', '메뉴 열기');
+    menuToggle?.focus({ preventScroll: true });
+  };
+  const closeAllMenu = () => {
+    if (!allMenu.open) return;
+    allMenu.close();
+    resetAllMenu();
+  };
+  const openAllMenu = () => {
+    if (!desktop.matches || allMenu.open) return;
+    window.clearTimeout(closeTimer);
+    closeMenu();
+    document.body.classList.remove('menu-open');
+    nav.classList.remove('open');
+    allMenuNotice.textContent = '';
+    allMenu.showModal();
+    allMenu.querySelector('.desktop-all-menu-content').scrollTop = 0;
+    document.body.classList.add('all-menu-open');
+    menuToggle?.setAttribute('aria-expanded', 'true');
+    menuToggle?.setAttribute('aria-label', '전체 메뉴 닫기');
+    allMenuClose.focus({ preventScroll: true });
+  };
+  // Capture prevents the page-specific mobile toggle handlers from also firing
+  // on desktop. Their existing mobile behavior remains unchanged.
+  menuToggle?.addEventListener('click', (event) => {
+    if (!desktop.matches) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    if (allMenu.open) closeAllMenu();
+    else openAllMenu();
+  }, true);
+  allMenuClose.addEventListener('click', closeAllMenu);
+  allMenu.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeAllMenu();
+  });
+  allMenu.addEventListener('close', () => {
+    if (!allMenu.open && document.body.classList.contains('all-menu-open')) resetAllMenu();
+  });
+  allMenu.addEventListener('click', (event) => {
+    const link = event.target.closest('a');
+    if (!link) return;
+    if (link.dataset.placeholder === 'true') {
+      event.preventDefault();
+      event.stopPropagation();
+      allMenuNotice.textContent = `${link.textContent.trim()}는 준비 중입니다.`;
+      return;
+    }
+    closeAllMenu();
+  });
+  allMenu.addEventListener('keydown', (event) => {
+    if (!allMenu.open) return;
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeAllMenu();
+      return;
+    }
+    if (event.key !== 'Tab') return;
+    const controls = [...allMenu.querySelectorAll('button, a[href]')];
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+  const syncAllMenuTarget = () => {
+    if (!desktop.matches) closeAllMenu();
+    menuToggle?.setAttribute('aria-controls', desktop.matches ? allMenu.id : mobileDrawer.id);
+    if (desktop.matches) menuToggle?.setAttribute('aria-haspopup', 'dialog');
+    else menuToggle?.removeAttribute('aria-haspopup');
+  };
+  desktop.addEventListener('change', syncAllMenuTarget);
+  syncAllMenuTarget();
 
   const scheduleClose = () => {
     window.clearTimeout(closeTimer);

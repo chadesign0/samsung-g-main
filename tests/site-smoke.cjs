@@ -16,10 +16,29 @@ async function load(file, mobile = false) {
     url: `https://site.invalid/${file}`, runScripts: 'outside-only', pretendToBeVisual: true,
   });
   const w = dom.window;
-  w.matchMedia = (query) => ({
-    media: query, matches: query.includes('reduced-motion') || (/max-width/.test(query) ? mobile : /min-width/.test(query) ? !mobile : false),
-    addEventListener() {}, removeEventListener() {},
-  });
+  const mediaQueries = [];
+  w.matchMedia = (query) => {
+    const listeners = new Set();
+    const media = {
+      media: query,
+      get matches() { return query.includes('reduced-motion') || (/max-width/.test(query) ? mobile : /min-width/.test(query) ? !mobile : false); },
+      addEventListener(type, listener) { if (type === 'change') listeners.add(listener); },
+      removeEventListener(type, listener) { if (type === 'change') listeners.delete(listener); },
+    };
+    mediaQueries.push({ media, listeners });
+    return media;
+  };
+  w.testSetMobile = (value) => {
+    const previous = mediaQueries.map(({ media }) => media.matches);
+    mobile = value;
+    mediaQueries.forEach(({ media, listeners }, index) => {
+      if (media.matches !== previous[index]) listeners.forEach(listener => listener({ matches: media.matches, media: media.media }));
+    });
+  };
+  // Model only the native dialog method contract, not the browser top layer,
+  // inertness, layout, or automatic focus handling. Production sets focus.
+  w.HTMLDialogElement.prototype.showModal = function () { this.setAttribute('open', ''); };
+  w.HTMLDialogElement.prototype.close = function () { this.removeAttribute('open'); this.dispatchEvent(new w.Event('close')); };
   w.scrollTo = () => {};
   w.HTMLElement.prototype.scrollIntoView = () => {};
   // Visibility for keyboard tests is derived from DOM state, not pixel layout.
@@ -75,7 +94,19 @@ function click(w, element) {
       const sidebarLanguage = accountMenu.querySelector('.mobile-menu-language');
       check(sidebarLanguage.textContent.trim() === 'KR', `${file}: sidebar shows Korean language`);
       check(sidebarLanguage.getAttribute('aria-label') === '현재 언어: 한국어(KR)' && sidebarLanguage.dataset.unavailableMessage === '현재 한국어 안내만 제공하고 있습니다.', `${file}: sidebar language announcement matches current Korean service`);
-      check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-sidebar-kr'), `${file}: refreshed Korean sidebar script reference`);
+      check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-desktop-all-menu'), `${file}: refreshed full-menu script reference`);
+      const allMenu = d.querySelector('dialog.desktop-all-menu');
+      check(allMenu && !allMenu.open, `${file}: desktop full menu starts closed`);
+      check(d.querySelector('link[href*="desktop-all-menu.css"]'), `${file}: scoped full-menu stylesheet`);
+      const destinations = selector => [...d.querySelectorAll(selector)].map(link => link.textContent.trim() + '|' + link.getAttribute('href')).sort().join('\n');
+      check(destinations('.desktop-all-menu-content a') === destinations('.mobile-menu-submenu a'), `${file}: full menu includes every existing destination exactly once`);
+      const toggle = d.querySelector('.menu-toggle');
+      toggle.focus();
+      check(click(dom.window, toggle).defaultPrevented, `${file}: desktop trigger intercepts old mobile handlers`);
+      check(allMenu.open && d.body.classList.contains('all-menu-open') && !d.body.classList.contains('menu-open'), `${file}: desktop full menu opens without mobile drawer`);
+      check(toggle.getAttribute('aria-expanded') === 'true' && toggle.getAttribute('aria-controls') === allMenu.id && d.activeElement === allMenu.querySelector('button'), `${file}: full-menu trigger and initial focus`);
+      click(dom.window, allMenu.querySelector('.desktop-all-menu-close'));
+      check(!allMenu.open && !d.body.classList.contains('all-menu-open') && d.activeElement === toggle, `${file}: full menu closes and restores focus`);
       for (const link of d.querySelectorAll('.utility-actions > a')) {
         check(link.dataset.unavailableMessage && link.getAttribute('href') === '#', `${file}: unfinished link explicitly marked`);
       }
@@ -130,6 +161,41 @@ function click(w, element) {
     d.querySelector('.mega-menu-content a').focus();
     d.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
     check(d.querySelector('.mega-menu').inert && d.activeElement === nav, 'Escape closes desktop menu and returns focus');
+    const toggle = d.querySelector('.menu-toggle');
+    const allMenu = d.querySelector('.desktop-all-menu');
+    const close = allMenu.querySelector('button');
+    click(w, toggle);
+    nav.dispatchEvent(new w.MouseEvent('mouseenter'));
+    check(d.querySelector('.mega-menu').inert, 'hover menu stays closed while full menu is open');
+    const backwards = new w.KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true });
+    close.dispatchEvent(backwards);
+    const last = [...allMenu.querySelectorAll('a[href]')].at(-1);
+    check(backwards.defaultPrevented && d.activeElement === last, 'full-menu reverse Tab wraps to last link');
+    const forwards = new w.KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true });
+    last.dispatchEvent(forwards);
+    check(forwards.defaultPrevented && d.activeElement === close, 'full-menu Tab wraps to close button');
+    const pending = allMenu.querySelector('[data-placeholder="true"]');
+    check(click(w, pending).defaultPrevented && allMenu.open, 'pending full-menu destination does not navigate or close');
+    check(allMenu.querySelector('[role="status"]').textContent.includes('준비 중'), 'pending notice stays inside modal');
+    close.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }));
+    check(!allMenu.open && d.activeElement === toggle && toggle.getAttribute('aria-expanded') === 'false', 'Escape closes full menu and restores trigger');
+    click(w, toggle);
+    allMenu.dispatchEvent(new w.Event('cancel', { cancelable: true }));
+    check(!allMenu.open && !d.body.classList.contains('all-menu-open'), 'native dialog cancel resets full-menu state');
+    click(w, toggle);
+    const destination = allMenu.querySelector('a:not([data-placeholder])');
+    let blocked;
+    d.addEventListener('click', (event) => { blocked = event.defaultPrevented; event.preventDefault(); }, { once: true });
+    click(w, destination);
+    check(blocked === false && !allMenu.open, 'real full-menu links close modal without blocking navigation');
+    click(w, toggle);
+    w.testSetMobile(true);
+    check(!allMenu.open && !d.body.classList.contains('all-menu-open') && toggle.getAttribute('aria-controls') === 'mobile-menu-drawer', 'resize to mobile closes dialog and updates trigger');
+    click(w, toggle);
+    await new Promise(resolve => w.setTimeout(resolve, 0));
+    check(d.body.classList.contains('menu-open') && !d.querySelector('.mobile-menu-drawer').inert && !allMenu.open, 'mobile drawer works after desktop resize');
+    w.testSetMobile(false);
+    check(!d.body.classList.contains('menu-open') && d.querySelector('.mobile-menu-drawer').inert && toggle.getAttribute('aria-controls') === allMenu.id, 'resize back to desktop clears mobile state');
   } finally { main.window.close(); }
 
   const mobile = await load('pages/cervical-disc.html', true);
