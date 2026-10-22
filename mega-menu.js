@@ -574,7 +574,7 @@
   // Reuse the same destinations as the mobile/hover menus, not a second sitemap.
   const allMenuStyle = document.createElement('link');
   allMenuStyle.rel = 'stylesheet';
-  allMenuStyle.href = `${resolveHref('desktop-all-menu.css')}?v=20261022-desktop-all-menu`;
+  allMenuStyle.href = `${resolveHref('desktop-all-menu.css')}?v=20261022-white-all-menu`;
   document.head.append(allMenuStyle);
   const allMenu = document.createElement('dialog');
   allMenu.id = 'desktop-all-menu';

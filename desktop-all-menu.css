@@ -13,12 +13,12 @@ body.all-menu-open { overflow: hidden; }
   padding: 0;
   border: 0;
   overflow: hidden;
-  color: #fff;
-  background: #084398;
+  color: #26364a;
+  background: #fff;
 }
 .desktop-all-menu:not([open]) { display: none; }
 .desktop-all-menu[open] { display: flex; flex-direction: column; }
-.desktop-all-menu::backdrop { background: #084398; }
+.desktop-all-menu::backdrop { background: #fff; }
 .desktop-all-menu-close {
   position: absolute;
   top: 24px;
@@ -29,7 +29,7 @@ body.all-menu-open { overflow: hidden; }
   place-items: center;
   padding: 8px;
   border: 0;
-  color: #bfd3ef;
+  color: #52647c;
   background: transparent;
   cursor: pointer;
 }
@@ -43,22 +43,22 @@ body.all-menu-open { overflow: hidden; }
   padding: 0 44px 12px 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-color: #cde2ff #05316f;
+  scrollbar-color: #71839b #edf1f6;
   scrollbar-width: thin;
 }
 .desktop-all-menu-columns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(28px, 4vw, 80px); }
 .desktop-all-menu-column { min-width: 0; }
 .desktop-all-menu-category + .desktop-all-menu-category { margin-top: 36px; }
-.desktop-all-menu-category h2 { margin: 0 0 26px; color: #43edf7; font-size: clamp(21px, 1.3vw, 25px); font-weight: 700; line-height: 1.4; letter-spacing: -.04em; }
+.desktop-all-menu-category h2 { margin: 0 0 26px; color: #1756ae; font-size: clamp(21px, 1.3vw, 25px); font-weight: 700; line-height: 1.4; letter-spacing: -.04em; }
 .desktop-all-menu-group + .desktop-all-menu-group { margin-top: 24px; }
-.desktop-all-menu-group h3 { margin: 0 0 12px; color: #fff; font-size: 19px; font-weight: 600; line-height: 1.5; letter-spacing: -.03em; }
+.desktop-all-menu-group h3 { margin: 0 0 12px; color: #123764; font-size: 19px; font-weight: 600; line-height: 1.5; letter-spacing: -.03em; }
 .desktop-all-menu-group ul { display: grid; gap: 15px; margin: 0; padding: 0; list-style: none; }
-.desktop-all-menu-group a { display: inline-block; max-width: 100%; color: #d7e7ff; font-size: 17px; line-height: 1.6; letter-spacing: -.03em; overflow-wrap: anywhere; word-break: keep-all; text-decoration: none; }
-.desktop-all-menu-group a:hover { color: #43edf7; text-decoration: underline; text-underline-offset: 5px; }
+.desktop-all-menu-group a { display: inline-block; max-width: 100%; color: #3f4b5b; font-size: 17px; line-height: 1.6; letter-spacing: -.03em; overflow-wrap: anywhere; word-break: keep-all; text-decoration: none; }
+.desktop-all-menu-group a:hover { color: #1756ae; text-decoration: underline; text-underline-offset: 5px; }
 .desktop-all-menu a:focus-visible,
-.desktop-all-menu button:focus-visible { outline: 2px solid #43edf7; outline-offset: 5px; }
-.desktop-all-menu a[aria-disabled="true"] { color: #b9cce7; cursor: default; }
-.desktop-all-menu-notice { position: absolute; right: 70px; bottom: 16px; left: 70px; margin: 0; color: #fff; font-size: 16px; line-height: 1.5; text-align: center; }
+.desktop-all-menu button:focus-visible { outline: 2px solid #1756ae; outline-offset: 5px; }
+.desktop-all-menu a[aria-disabled="true"] { color: #64748b; cursor: default; }
+.desktop-all-menu-notice { position: absolute; right: 70px; bottom: 16px; left: 70px; margin: 0; color: #123764; font-size: 16px; line-height: 1.5; text-align: center; }
 .desktop-all-menu-notice:empty { display: none; }
 @media (min-width: 801px) and (max-width: 1100px) {
   .desktop-all-menu-content { width: calc(100% - 80px); padding-right: 24px; }
