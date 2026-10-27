@@ -1,0 +1,26 @@
+// Source CSSOM checks only; blur and actual pixels require browser visual QA.
+const fs = require('node:fs');
+const path = require('node:path');
+const assert = require('node:assert/strict');
+const { JSDOM } = require('jsdom');
+const css = fs.readFileSync(path.resolve(__dirname, '../styles.css'), 'utf8');
+const dom = new JSDOM('<style>' + css + '</style>', { url: 'https://site.invalid/' });
+const rules = [...dom.window.document.styleSheets[0].cssRules];
+const style = (list, selector) => [...list].find(rule => rule.selectorText === selector).style;
+const tabs = style(rules, '.care-tabs');
+assert.equal(tabs.background, 'rgba(255,255,255,.25)');
+assert.equal(tabs.getPropertyValue('backdrop-filter'), 'blur(6px)');
+assert.equal(tabs.getPropertyValue('-webkit-backdrop-filter'), 'blur(6px)');
+assert.equal(tabs.getPropertyValue('border-radius'), '17px');
+assert.equal(tabs.border, '1px solid rgba(255,255,255,.75)');
+assert.equal(tabs.getPropertyValue('grid-template-columns'), 'repeat(6, minmax(0, 1fr))');
+assert.equal(style(rules, '.care-tab::after').background, '#fff');
+assert.equal(style(rules, '.care-tab::after').bottom, '16px');
+assert.equal(style(rules, '.care-tab.active::after').opacity, '1');
+assert.equal(style(rules, '.care-tab:focus-visible').getPropertyValue('outline-offset'), '-4px');
+const tablet = rules.findLast(rule => rule.conditionText === '(max-width: 900px)');
+assert.equal(style(tablet.cssRules, '.care-tabs').getPropertyValue('grid-template-columns'), 'repeat(3, minmax(0, 1fr))');
+const reduced = rules.findLast(rule => rule.conditionText === '(prefers-reduced-motion: reduce)');
+assert.ok([...reduced.cssRules].some(rule => rule.selectorText.includes('.care-tab::after') && rule.style.transition === 'none'));
+console.log('PASS: care tabs have a shared translucent blur panel, white inset selection indicator, keyboard focus and existing responsive/reduced-motion behavior. Source-only checks.');
+dom.window.close();

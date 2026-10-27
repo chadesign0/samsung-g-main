@@ -1,0 +1,28 @@
+// Source CSSOM and DOM checks, not browser visual or image-crop QA.
+const fs = require('node:fs');
+const path = require('node:path');
+const assert = require('node:assert/strict');
+const { JSDOM } = require('jsdom');
+const root = path.resolve(__dirname, '..');
+const css = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
+const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const dom = new JSDOM('<style>' + css + '</style>' + html, { url: 'https://site.invalid/' });
+const rules = [...dom.window.document.styleSheets[0].cssRules];
+const style = selector => rules.find(rule => rule.selectorText === selector).style;
+const hero = style('.hero');
+assert.match(hero.background, /assets\/main-hero-20261027\.jpg/);
+assert.match(hero.background, /center \/ cover no-repeat/);
+assert.ok(fs.existsSync(path.join(root, 'assets/main-hero-20261027.jpg')));
+const shade = style('.hero-shade');
+const stops = [...shade.background.matchAll(/rgba\(0,0,0,([\d.]+)\)/g)].map(match => Number(match[1]));
+assert.equal(stops.length, 3);
+assert.ok(stops.every(alpha => alpha >= .55 && alpha < 1), 'dark transparent overlay covers even the lightest areas');
+assert.equal(shade.getPropertyValue('inset'), '0');
+assert.equal(shade.getPropertyValue('pointer-events'), 'none');
+assert.ok(Number(shade.getPropertyValue('z-index')) < Number(style('.hero-copy').getPropertyValue('z-index')));
+assert.ok(dom.window.document.querySelector('.hero .hero-shade'));
+assert.ok(dom.window.document.querySelector('.hero .hero-message-reveal'));
+const narrow = rules.find(rule => rule.conditionText === '(max-width: 900px)');
+assert.equal([...narrow.cssRules].find(rule => rule.selectorText === '.hero').style.getPropertyValue('background-position'), 'center');
+console.log('PASS: supplied main hero image, centered cover crop, full dark overlay below existing animated copy. Source-only checks.');
+dom.window.close();

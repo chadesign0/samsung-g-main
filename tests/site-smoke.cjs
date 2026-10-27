@@ -73,6 +73,15 @@ function click(w, element) {
     const dom = await load(file);
     try {
       const d = dom.window.document;
+      if (file === 'index.html') {
+        const profile = d.querySelector('.doctor-profile.reveal');
+        const motto = profile.querySelector('img.doctor-motto-hanja');
+        check(motto?.getAttribute('src') === 'assets/main-doctor-motto.png' && motto.alt === '奉仕(봉사)', 'main profile uses the supplied Hanja image with accessible text');
+        check(motto.getAttribute('width') === '158' && motto.getAttribute('height') === '80', 'Hanja image intrinsic aspect ratio is retained');
+        check(profile.querySelector('.doctor-motto-title').textContent === '받들고 섬기는 병원', 'main profile displays the supplied hospital motto');
+        check(profile.querySelector('#doctor-title').textContent === '정형외과 전문의' && profile.querySelector('.lead').textContent === '끊임없이 연구하고,환자와 함께 뛰며,따뜻한 마음을 나눕니다.', 'existing specialist introduction and reveal wrapper retained');
+        check(profile.querySelector('.doctor-message blockquote').textContent === '의학박사, 대학교수 출신, 해외 수술 시연의 실력과스포츠 현장에서 선수들을 치료한 경험과국내외 20년 이상 의료봉사를 다닌 정성과 마음으로환자분들을 받들고 섬기는 병원으로 만들겠습니다', 'main profile quote content retained');
+      }
       if (file === 'pages/acute-low-back-pain.html') {
         const title = d.querySelector('#symptoms-title');
         check(title.innerHTML === '움직일 때 찌르는 통증,<br>뻣뻣해지는 허리', 'acute back pain symptom title is shortened to two lines');
@@ -91,9 +100,8 @@ function click(w, element) {
       check(homeLink.querySelector('svg[aria-hidden="true"]') && homeLink.getAttribute('aria-label') === '메인페이지로 이동', `${file}: accessible house icon`);
       check(!homeLink.dataset.unavailableMessage && !homeLink.hasAttribute('aria-disabled'), `${file}: home link is enabled`);
       check(!/내 정보|관리자|로그아웃|로그인|회원가입/.test(accountMenu.textContent), `${file}: account and admin placeholders removed`);
-      const sidebarLanguage = accountMenu.querySelector('.mobile-menu-language');
-      check(sidebarLanguage.textContent.trim() === 'KR', `${file}: sidebar shows Korean language`);
-      check(sidebarLanguage.getAttribute('aria-label') === '현재 언어: 한국어(KR)' && sidebarLanguage.dataset.unavailableMessage === '현재 한국어 안내만 제공하고 있습니다.', `${file}: sidebar language announcement matches current Korean service`);
+      check(!d.querySelector('.mobile-menu-language'), `${file}: mobile language selector removed`);
+      check(accountMenu.getAttribute('aria-label') === '홈 메뉴' && accountMenu.children.length === 1, `${file}: only home remains in the mobile utility row`);
       check(d.querySelector('script[src*="mega-menu.js"]').getAttribute('src').includes('v=20261022-menu-reveal-motion'), `${file}: refreshed full-menu motion script reference`);
       const allMenu = d.querySelector('dialog.desktop-all-menu');
       check(allMenu && !allMenu.open, `${file}: desktop full menu starts closed`);
@@ -148,6 +156,11 @@ function click(w, element) {
       check(click(w, control).defaultPrevented, 'unfinished controls must not navigate');
       await new Promise((resolve) => w.setTimeout(resolve, 40));
       check(d.querySelector('[role="status"].availability-notice').textContent.length > 0, 'visible status feedback');
+    }
+    for (const tab of d.querySelectorAll('.care-tab')) {
+      click(w, tab);
+      check(d.querySelectorAll('.care-tab.active').length === 1 && tab.getAttribute('aria-selected') === 'true', 'care tab selection remains exclusive');
+      check(d.querySelector('.care-panel-copy h3').textContent === tab.textContent, 'care tab still switches its content panel');
     }
     click(w, d.querySelector('[data-care="surgery"]'));
     const detail = d.querySelector('.care-panel-copy a');
@@ -214,9 +227,7 @@ function click(w, element) {
     click(w, homeLink);
     check(homeWasBlocked === false, 'home anchor is not intercepted by unavailable-feature handling');
     check(!d.querySelector('.availability-notice').textContent, 'home click does not show an unavailable notice');
-    check(click(w, drawer.querySelector('.mobile-menu-language')).defaultPrevented, 'Korean language indicator does not navigate');
-    await new Promise((resolve) => w.setTimeout(resolve, 40));
-    check(d.querySelector('.availability-notice').textContent === '현재 한국어 안내만 제공하고 있습니다.', 'sidebar language notice explains Korean-only service');
+    check(!drawer.querySelector('.mobile-menu-language'), 'opened mobile drawer has no language selector');
     toggle.focus();
     const backwards = new w.KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true });
     d.dispatchEvent(backwards);
