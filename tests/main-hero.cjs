@@ -10,7 +10,7 @@ const dom = new JSDOM('<style>' + css + '</style>' + html, { url: 'https://site.
 const rules = [...dom.window.document.styleSheets[0].cssRules];
 const style = selector => rules.find(rule => rule.selectorText === selector).style;
 const hero = style('.hero');
-assert.match(hero.background, /assets\/main-hero-20261027\.jpg/);
+assert.match(hero.background, /assets\/main-hero-20261027\.jpg\?v=3/);
 assert.match(hero.background, /center \/ cover no-repeat/);
 assert.ok(fs.existsSync(path.join(root, 'assets/main-hero-20261027.jpg')));
 const shade = style('.hero-shade');

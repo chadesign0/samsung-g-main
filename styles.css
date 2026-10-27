@@ -48,7 +48,7 @@ button { cursor: pointer; }
   .site-header.is-nav-collapsed:not(:hover):not(:focus-within) .main-nav { height: 0; opacity: 0; pointer-events: none; }
 }
 
-.hero { position: relative; min-height: 860px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("assets/main-hero-20261027.jpg") center / cover no-repeat; }
+.hero { position: relative; min-height: 860px; display: grid; place-items: center; overflow: hidden; color: #fff; background: url("assets/main-hero-20261027.jpg?v=3") center / cover no-repeat; }
 .hero-shade { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.55) 55%, rgba(0,0,0,.58)); pointer-events: none; }
 .hero-copy { position: relative; z-index: 2; margin-top: -30px; text-align: center; text-shadow: 0 2px 18px rgba(0,0,0,.28); }
 .hero-copy p { margin: 0 0 18px; font-size: 20px; font-weight: 300; }
